@@ -265,6 +265,8 @@ setup(
             include_dirs=[model_dir]),
         Extension('gensim._matutils',
             sources=['./gensim/_matutils.c']),
+        Extension('gensim.corpora.cython_binary',
+                  sources=['./gensim/corpora/cython_binary.c']),
     ],
     cmdclass=cmdclass,
     packages=find_packages(),
