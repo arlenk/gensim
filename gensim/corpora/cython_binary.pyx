@@ -57,27 +57,9 @@ cdef class MmReader(object):
 
         """
         logger.info("initializing cython corpus reader from %s", input)
+        input = input.encode('utf-8')
         self.input, self.transposed = input, transposed
-        return
-        with utils.open_file(self.input) as lines:
-            try:
-                header = utils.to_unicode(next(lines)).strip()
-                if not header.lower().startswith('%%matrixmarket matrix coordinate real general'):
-                    raise ValueError(
-                        "File %s not in Matrix Market format with coordinate real general; instead found: \n%s" %
-                        (self.input, header)
-                    )
-            except StopIteration:
-                pass
-
-            self.num_docs = self.num_terms = self.num_nnz = 0
-            for lineno, line in enumerate(lines):
-                line = utils.to_unicode(line)
-                if not line.startswith('%'):
-                    self.num_docs, self.num_terms, self.num_nnz = (int(x) for x in line.split())
-                    if not self.transposed:
-                        self.num_docs, self.num_terms = self.num_terms, self.num_docs
-                    break
+        self.num_docs, self.num_terms, self.num_nnz = self.read_headers()
 
         logger.info(
             "accepted corpus with %i documents, %i features, %i non-zero entries",
@@ -98,7 +80,7 @@ cdef class MmReader(object):
         cdef int num_docs, num_terms, num_nnz
         cdef float value
 
-        file = fopen(self.input.encode('utf-8'), "wb")
+        file = fopen(self.input, "wb")
 
         # write out header info
         num_docs, num_terms, num_nnz = corpus.num_docs, corpus.num_terms, corpus.num_nnz
@@ -117,7 +99,6 @@ cdef class MmReader(object):
 
         fclose(file)
 
-
     cdef skip_headers(self, FILE *file):
         """Skip file headers that appear before the first document.
 
@@ -130,6 +111,27 @@ cdef class MmReader(object):
         cdef int header_value;
 
         fseek(file, sizeof(header_value) * 3, SEEK_SET)
+
+    def read_headers(self):
+        """Reader header row for file metadata
+
+        Returns
+        ----------
+        num_docs : int
+        num_terms : int
+        num_nnz : int
+
+        """
+        cdef FILE *file
+        cdef int num_docs, num_terms, num_nnz
+
+        file = fopen(self.input, "rb")
+        fread( & num_docs, sizeof(num_docs), 1, file)
+        fread( & num_terms, sizeof(num_terms), 1, file)
+        fread( & num_nnz, sizeof(num_nnz), 1, file)
+        fclose(file)
+
+        return num_docs, num_terms, num_nnz
 
     def __iter__(self):
         """Iterate through corpus.
@@ -148,16 +150,14 @@ cdef class MmReader(object):
         """
         cdef FILE *file
         cdef int docid, termid, doc_length
-        cdef int num_docs, num_terms, num_nnz
         cdef float value
 
-        file = fopen(self.input.encode('utf-8'), "rb")
-
+        file = fopen(self.input, "rb")
         self.skip_headers(file)
 
         while (fread(&docid, sizeof(docid), 1, file) == 1):
             document = []
-            fread(&doc_length, sizeof(doc_length), 1, file)
+            fread( & doc_length, sizeof(doc_length), 1, file)
 
             for i in range(doc_length):
                 fread( & termid, sizeof(termid), 1, file)
