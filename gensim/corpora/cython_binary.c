@@ -730,19 +730,34 @@ static const char *__pyx_f[] = {
 };
 
 /*--- Type declarations ---*/
-struct __pyx_obj_6gensim_7corpora_13cython_binary_MmReader;
+struct __pyx_obj_6gensim_7corpora_13cython_binary_MmReaderStructAtATime;
+struct __pyx_obj_6gensim_7corpora_13cython_binary_MmReaderStructArray;
 struct __pyx_obj_6gensim_7corpora_13cython_binary___pyx_scope_struct____iter__;
+struct __pyx_obj_6gensim_7corpora_13cython_binary___pyx_scope_struct_1___iter__;
+struct __pyx_t_6gensim_7corpora_13cython_binary_TermCount;
 
 /* "gensim/corpora/cython_binary.pyx":20
  * 
  * 
- * cdef class MmReader(object):             # <<<<<<<<<<<<<<
+ * cdef struct TermCount:             # <<<<<<<<<<<<<<
+ *     int termid
+ *     float value
+ */
+struct __pyx_t_6gensim_7corpora_13cython_binary_TermCount {
+  int termid;
+  float value;
+};
+
+/* "gensim/corpora/cython_binary.pyx":25
+ * 
+ * 
+ * cdef class MmReaderStructAtATime(object):             # <<<<<<<<<<<<<<
  *     """Matrix market file reader (fast Cython version), used for :class:`~gensim.corpora.mmcorpus.MmCorpus`.
  * 
  */
-struct __pyx_obj_6gensim_7corpora_13cython_binary_MmReader {
+struct __pyx_obj_6gensim_7corpora_13cython_binary_MmReaderStructAtATime {
   PyObject_HEAD
-  struct __pyx_vtabstruct_6gensim_7corpora_13cython_binary_MmReader *__pyx_vtab;
+  struct __pyx_vtabstruct_6gensim_7corpora_13cython_binary_MmReaderStructAtATime *__pyx_vtab;
   PyObject *input;
   int transposed;
   int num_docs;
@@ -751,7 +766,25 @@ struct __pyx_obj_6gensim_7corpora_13cython_binary_MmReader {
 };
 
 
-/* "gensim/corpora/cython_binary.pyx":136
+/* "gensim/corpora/cython_binary.pyx":155
+ * 
+ * 
+ * cdef class MmReaderStructArray(object):             # <<<<<<<<<<<<<<
+ *     """Matrix market file reader (fast Cython version), used for :class:`~gensim.corpora.mmcorpus.MmCorpus`.
+ * 
+ */
+struct __pyx_obj_6gensim_7corpora_13cython_binary_MmReaderStructArray {
+  PyObject_HEAD
+  struct __pyx_vtabstruct_6gensim_7corpora_13cython_binary_MmReaderStructArray *__pyx_vtab;
+  PyObject *input;
+  int transposed;
+  int num_docs;
+  int num_terms;
+  int num_nnz;
+};
+
+
+/* "gensim/corpora/cython_binary.pyx":116
  *         return num_docs, num_terms, num_nnz
  * 
  *     def __iter__(self):             # <<<<<<<<<<<<<<
@@ -765,25 +798,62 @@ struct __pyx_obj_6gensim_7corpora_13cython_binary___pyx_scope_struct____iter__ {
   PyObject *__pyx_v_document;
   FILE *__pyx_v_file;
   int __pyx_v_i;
-  struct __pyx_obj_6gensim_7corpora_13cython_binary_MmReader *__pyx_v_self;
+  struct __pyx_obj_6gensim_7corpora_13cython_binary_MmReaderStructAtATime *__pyx_v_self;
+  struct __pyx_t_6gensim_7corpora_13cython_binary_TermCount __pyx_v_tc;
+  int __pyx_v_termid;
+  float __pyx_v_value;
+};
+
+
+/* "gensim/corpora/cython_binary.pyx":276
+ *         return num_docs, num_terms, num_nnz
+ * 
+ *     def __iter__(self):             # <<<<<<<<<<<<<<
+ *         """Iterate through corpus.
+ * 
+ */
+struct __pyx_obj_6gensim_7corpora_13cython_binary___pyx_scope_struct_1___iter__ {
+  PyObject_HEAD
+  int __pyx_v_doc_length;
+  int __pyx_v_docid;
+  PyObject *__pyx_v_document;
+  FILE *__pyx_v_file;
+  int __pyx_v_i;
+  struct __pyx_obj_6gensim_7corpora_13cython_binary_MmReaderStructArray *__pyx_v_self;
+  struct __pyx_t_6gensim_7corpora_13cython_binary_TermCount *__pyx_v_tc_array;
+  int __pyx_v_temp;
   int __pyx_v_termid;
   float __pyx_v_value;
 };
 
 
 
-/* "gensim/corpora/cython_binary.pyx":20
+/* "gensim/corpora/cython_binary.pyx":25
  * 
  * 
- * cdef class MmReader(object):             # <<<<<<<<<<<<<<
+ * cdef class MmReaderStructAtATime(object):             # <<<<<<<<<<<<<<
  *     """Matrix market file reader (fast Cython version), used for :class:`~gensim.corpora.mmcorpus.MmCorpus`.
  * 
  */
 
-struct __pyx_vtabstruct_6gensim_7corpora_13cython_binary_MmReader {
-  PyObject *(*skip_headers)(struct __pyx_obj_6gensim_7corpora_13cython_binary_MmReader *, FILE *);
+struct __pyx_vtabstruct_6gensim_7corpora_13cython_binary_MmReaderStructAtATime {
+  PyObject *(*skip_headers)(struct __pyx_obj_6gensim_7corpora_13cython_binary_MmReaderStructAtATime *, FILE *);
 };
-static struct __pyx_vtabstruct_6gensim_7corpora_13cython_binary_MmReader *__pyx_vtabptr_6gensim_7corpora_13cython_binary_MmReader;
+static struct __pyx_vtabstruct_6gensim_7corpora_13cython_binary_MmReaderStructAtATime *__pyx_vtabptr_6gensim_7corpora_13cython_binary_MmReaderStructAtATime;
+
+
+/* "gensim/corpora/cython_binary.pyx":155
+ * 
+ * 
+ * cdef class MmReaderStructArray(object):             # <<<<<<<<<<<<<<
+ *     """Matrix market file reader (fast Cython version), used for :class:`~gensim.corpora.mmcorpus.MmCorpus`.
+ * 
+ */
+
+struct __pyx_vtabstruct_6gensim_7corpora_13cython_binary_MmReaderStructArray {
+  PyObject *(*skip_headers)(struct __pyx_obj_6gensim_7corpora_13cython_binary_MmReaderStructArray *, FILE *);
+};
+static struct __pyx_vtabstruct_6gensim_7corpora_13cython_binary_MmReaderStructArray *__pyx_vtabptr_6gensim_7corpora_13cython_binary_MmReaderStructArray;
 
 /* --- Runtime support code (head) --- */
 /* Refnanny.proto */
@@ -1045,6 +1115,9 @@ static int __Pyx_SetVtable(PyObject *dict, void *vtable);
 /* SetupReduce.proto */
 static int __Pyx_setup_reduce(PyObject* type_obj);
 
+/* GetNameInClass.proto */
+static PyObject *__Pyx_GetNameInClass(PyObject *nmspace, PyObject *name);
+
 /* CLineInTraceback.proto */
 #ifdef CYTHON_CLINE_IN_TRACEBACK
 #define __Pyx_CLineForTraceback(tstate, c_line)  (((CYTHON_CLINE_IN_TRACEBACK)) ? c_line : 0)
@@ -1188,7 +1261,8 @@ static int __Pyx_check_binary_version(void);
 /* InitStrings.proto */
 static int __Pyx_InitStrings(__Pyx_StringTabEntry *t);
 
-static PyObject *__pyx_f_6gensim_7corpora_13cython_binary_8MmReader_skip_headers(CYTHON_UNUSED struct __pyx_obj_6gensim_7corpora_13cython_binary_MmReader *__pyx_v_self, FILE *__pyx_v_file); /* proto*/
+static PyObject *__pyx_f_6gensim_7corpora_13cython_binary_21MmReaderStructAtATime_skip_headers(CYTHON_UNUSED struct __pyx_obj_6gensim_7corpora_13cython_binary_MmReaderStructAtATime *__pyx_v_self, FILE *__pyx_v_file); /* proto*/
+static PyObject *__pyx_f_6gensim_7corpora_13cython_binary_19MmReaderStructArray_skip_headers(CYTHON_UNUSED struct __pyx_obj_6gensim_7corpora_13cython_binary_MmReaderStructArray *__pyx_v_self, FILE *__pyx_v_file); /* proto*/
 
 /* Module declarations from 'cython' */
 
@@ -1196,21 +1270,30 @@ static PyObject *__pyx_f_6gensim_7corpora_13cython_binary_8MmReader_skip_headers
 
 /* Module declarations from 'libc.stdio' */
 
+/* Module declarations from 'cpython.mem' */
+
 /* Module declarations from 'gensim.corpora.cython_binary' */
-static PyTypeObject *__pyx_ptype_6gensim_7corpora_13cython_binary_MmReader = 0;
+static PyTypeObject *__pyx_ptype_6gensim_7corpora_13cython_binary_MmReaderStructAtATime = 0;
+static PyTypeObject *__pyx_ptype_6gensim_7corpora_13cython_binary_MmReaderStructArray = 0;
 static PyTypeObject *__pyx_ptype_6gensim_7corpora_13cython_binary___pyx_scope_struct____iter__ = 0;
-static PyObject *__pyx_f_6gensim_7corpora_13cython_binary___pyx_unpickle_MmReader__set_state(struct __pyx_obj_6gensim_7corpora_13cython_binary_MmReader *, PyObject *); /*proto*/
+static PyTypeObject *__pyx_ptype_6gensim_7corpora_13cython_binary___pyx_scope_struct_1___iter__ = 0;
+static PyObject *__pyx_f_6gensim_7corpora_13cython_binary___pyx_unpickle_MmReaderStructAtATime__set_state(struct __pyx_obj_6gensim_7corpora_13cython_binary_MmReaderStructAtATime *, PyObject *); /*proto*/
+static PyObject *__pyx_f_6gensim_7corpora_13cython_binary___pyx_unpickle_MmReaderStructArray__set_state(struct __pyx_obj_6gensim_7corpora_13cython_binary_MmReaderStructArray *, PyObject *); /*proto*/
 #define __Pyx_MODULE_NAME "gensim.corpora.cython_binary"
 extern int __pyx_module_is_main_gensim__corpora__cython_binary;
 int __pyx_module_is_main_gensim__corpora__cython_binary = 0;
 
 /* Implementation of 'gensim.corpora.cython_binary' */
-static PyObject *__pyx_builtin_enumerate;
+static PyObject *__pyx_builtin_staticmethod;
 static PyObject *__pyx_builtin_range;
+static PyObject *__pyx_builtin_enumerate;
+static const char __pyx_k_tc[] = "tc";
+static const char __pyx_k_doc[] = "doc";
 static const char __pyx_k_new[] = "__new__";
 static const char __pyx_k_six[] = "six";
 static const char __pyx_k_args[] = "args";
 static const char __pyx_k_dict[] = "__dict__";
+static const char __pyx_k_file[] = "file";
 static const char __pyx_k_info[] = "info";
 static const char __pyx_k_iter[] = "__iter__";
 static const char __pyx_k_main[] = "__main__";
@@ -1218,17 +1301,22 @@ static const char __pyx_k_name[] = "__name__";
 static const char __pyx_k_send[] = "send";
 static const char __pyx_k_test[] = "__test__";
 static const char __pyx_k_close[] = "close";
+static const char __pyx_k_docid[] = "docid";
+static const char __pyx_k_fname[] = "fname";
 static const char __pyx_k_input[] = "input";
 static const char __pyx_k_range[] = "range";
 static const char __pyx_k_throw[] = "throw";
 static const char __pyx_k_utf_8[] = "utf-8";
 static const char __pyx_k_utils[] = "utils";
+static const char __pyx_k_value[] = "value";
+static const char __pyx_k_corpus[] = "corpus";
 static const char __pyx_k_encode[] = "encode";
 static const char __pyx_k_gensim[] = "gensim";
 static const char __pyx_k_import[] = "__import__";
 static const char __pyx_k_logger[] = "logger";
 static const char __pyx_k_pickle[] = "pickle";
 static const char __pyx_k_reduce[] = "__reduce__";
+static const char __pyx_k_termid[] = "termid";
 static const char __pyx_k_update[] = "update";
 static const char __pyx_k_xrange[] = "xrange";
 static const char __pyx_k_logging[] = "logging";
@@ -1243,37 +1331,52 @@ static const char __pyx_k_num_terms[] = "num_terms";
 static const char __pyx_k_pyx_state[] = "__pyx_state";
 static const char __pyx_k_reduce_ex[] = "__reduce_ex__";
 static const char __pyx_k_six_moves[] = "six.moves";
+static const char __pyx_k_doc_length[] = "doc_length";
 static const char __pyx_k_pyx_result[] = "__pyx_result";
 static const char __pyx_k_pyx_vtable[] = "__pyx_vtable__";
 static const char __pyx_k_transposed[] = "transposed";
 static const char __pyx_k_PickleError[] = "PickleError";
+static const char __pyx_k_save_corpus[] = "save_corpus";
 static const char __pyx_k_pyx_checksum[] = "__pyx_checksum";
 static const char __pyx_k_read_headers[] = "read_headers";
+static const char __pyx_k_staticmethod[] = "staticmethod";
 static const char __pyx_k_string_types[] = "string_types";
 static const char __pyx_k_stringsource[] = "stringsource";
 static const char __pyx_k_reduce_cython[] = "__reduce_cython__";
-static const char __pyx_k_MmReader___iter[] = "MmReader.__iter__";
 static const char __pyx_k_pyx_PickleError[] = "__pyx_PickleError";
 static const char __pyx_k_setstate_cython[] = "__setstate_cython__";
+static const char __pyx_k_cython_binary_pyx[] = "cython_binary.pyx";
 static const char __pyx_k_cline_in_traceback[] = "cline_in_traceback";
-static const char __pyx_k_pyx_unpickle_MmReader[] = "__pyx_unpickle_MmReader";
+static const char __pyx_k_MmReaderStructArray___iter[] = "MmReaderStructArray.__iter__";
+static const char __pyx_k_MmReaderStructAtATime___iter[] = "MmReaderStructAtATime.__iter__";
 static const char __pyx_k_gensim_corpora_cython_binary[] = "gensim.corpora.cython_binary";
+static const char __pyx_k_pyx_unpickle_MmReaderStructArr[] = "__pyx_unpickle_MmReaderStructArray";
+static const char __pyx_k_pyx_unpickle_MmReaderStructAtA[] = "__pyx_unpickle_MmReaderStructAtATime";
 static const char __pyx_k_MmCorpus_i_documents_i_features[] = "MmCorpus(%i documents, %i features, %i non-zero entries)";
 static const char __pyx_k_Reader_for_corpus_in_the_Matrix[] = "Reader for corpus in the Matrix Market format.";
+static const char __pyx_k_storing_corpus_in_Matrix_Market[] = "storing corpus in Matrix Market format to %s";
 static const char __pyx_k_Incompatible_checksums_s_vs_0xea[] = "Incompatible checksums (%s vs 0xea5fe92 = (input, num_docs, num_nnz, num_terms, transposed))";
 static const char __pyx_k_accepted_corpus_with_i_documents[] = "accepted corpus with %i documents, %i features, %i non-zero entries";
 static const char __pyx_k_initializing_cython_corpus_reade[] = "initializing cython corpus reader from %s";
 static PyObject *__pyx_kp_s_Incompatible_checksums_s_vs_0xea;
 static PyObject *__pyx_kp_s_MmCorpus_i_documents_i_features;
-static PyObject *__pyx_n_s_MmReader___iter;
+static PyObject *__pyx_n_s_MmReaderStructArray___iter;
+static PyObject *__pyx_n_s_MmReaderStructAtATime___iter;
 static PyObject *__pyx_n_s_PickleError;
 static PyObject *__pyx_kp_s_accepted_corpus_with_i_documents;
 static PyObject *__pyx_n_s_args;
 static PyObject *__pyx_n_s_cline_in_traceback;
 static PyObject *__pyx_n_s_close;
+static PyObject *__pyx_n_s_corpus;
+static PyObject *__pyx_kp_s_cython_binary_pyx;
 static PyObject *__pyx_n_s_dict;
+static PyObject *__pyx_n_s_doc;
+static PyObject *__pyx_n_s_doc_length;
+static PyObject *__pyx_n_s_docid;
 static PyObject *__pyx_n_s_encode;
 static PyObject *__pyx_n_s_enumerate;
+static PyObject *__pyx_n_s_file;
+static PyObject *__pyx_n_s_fname;
 static PyObject *__pyx_n_s_gensim;
 static PyObject *__pyx_n_s_gensim_corpora_cython_binary;
 static PyObject *__pyx_n_s_getLogger;
@@ -1297,55 +1400,89 @@ static PyObject *__pyx_n_s_pyx_checksum;
 static PyObject *__pyx_n_s_pyx_result;
 static PyObject *__pyx_n_s_pyx_state;
 static PyObject *__pyx_n_s_pyx_type;
-static PyObject *__pyx_n_s_pyx_unpickle_MmReader;
+static PyObject *__pyx_n_s_pyx_unpickle_MmReaderStructArr;
+static PyObject *__pyx_n_s_pyx_unpickle_MmReaderStructAtA;
 static PyObject *__pyx_n_s_pyx_vtable;
 static PyObject *__pyx_n_s_range;
 static PyObject *__pyx_n_s_read_headers;
 static PyObject *__pyx_n_s_reduce;
 static PyObject *__pyx_n_s_reduce_cython;
 static PyObject *__pyx_n_s_reduce_ex;
+static PyObject *__pyx_n_s_save_corpus;
 static PyObject *__pyx_n_s_send;
 static PyObject *__pyx_n_s_setstate;
 static PyObject *__pyx_n_s_setstate_cython;
 static PyObject *__pyx_n_s_six;
 static PyObject *__pyx_n_s_six_moves;
+static PyObject *__pyx_n_s_staticmethod;
+static PyObject *__pyx_kp_s_storing_corpus_in_Matrix_Market;
 static PyObject *__pyx_n_s_string_types;
 static PyObject *__pyx_kp_s_stringsource;
+static PyObject *__pyx_n_s_tc;
+static PyObject *__pyx_n_s_termid;
 static PyObject *__pyx_n_s_test;
 static PyObject *__pyx_n_s_throw;
 static PyObject *__pyx_n_s_transposed;
 static PyObject *__pyx_n_s_update;
 static PyObject *__pyx_kp_s_utf_8;
 static PyObject *__pyx_n_s_utils;
+static PyObject *__pyx_n_s_value;
 static PyObject *__pyx_n_s_xrange;
-static int __pyx_pf_6gensim_7corpora_13cython_binary_8MmReader___init__(struct __pyx_obj_6gensim_7corpora_13cython_binary_MmReader *__pyx_v_self, PyObject *__pyx_v_input, PyObject *__pyx_v_transposed); /* proto */
-static Py_ssize_t __pyx_pf_6gensim_7corpora_13cython_binary_8MmReader_2__len__(struct __pyx_obj_6gensim_7corpora_13cython_binary_MmReader *__pyx_v_self); /* proto */
-static PyObject *__pyx_pf_6gensim_7corpora_13cython_binary_8MmReader_4__str__(struct __pyx_obj_6gensim_7corpora_13cython_binary_MmReader *__pyx_v_self); /* proto */
-static PyObject *__pyx_pf_6gensim_7corpora_13cython_binary_8MmReader_6write_corpus(struct __pyx_obj_6gensim_7corpora_13cython_binary_MmReader *__pyx_v_self, PyObject *__pyx_v_corpus); /* proto */
-static PyObject *__pyx_pf_6gensim_7corpora_13cython_binary_8MmReader_8read_headers(struct __pyx_obj_6gensim_7corpora_13cython_binary_MmReader *__pyx_v_self); /* proto */
-static PyObject *__pyx_pf_6gensim_7corpora_13cython_binary_8MmReader_10__iter__(struct __pyx_obj_6gensim_7corpora_13cython_binary_MmReader *__pyx_v_self); /* proto */
-static PyObject *__pyx_pf_6gensim_7corpora_13cython_binary_8MmReader_5input___get__(struct __pyx_obj_6gensim_7corpora_13cython_binary_MmReader *__pyx_v_self); /* proto */
-static int __pyx_pf_6gensim_7corpora_13cython_binary_8MmReader_5input_2__set__(struct __pyx_obj_6gensim_7corpora_13cython_binary_MmReader *__pyx_v_self, PyObject *__pyx_v_value); /* proto */
-static int __pyx_pf_6gensim_7corpora_13cython_binary_8MmReader_5input_4__del__(struct __pyx_obj_6gensim_7corpora_13cython_binary_MmReader *__pyx_v_self); /* proto */
-static PyObject *__pyx_pf_6gensim_7corpora_13cython_binary_8MmReader_10transposed___get__(struct __pyx_obj_6gensim_7corpora_13cython_binary_MmReader *__pyx_v_self); /* proto */
-static int __pyx_pf_6gensim_7corpora_13cython_binary_8MmReader_10transposed_2__set__(struct __pyx_obj_6gensim_7corpora_13cython_binary_MmReader *__pyx_v_self, PyObject *__pyx_v_value); /* proto */
-static PyObject *__pyx_pf_6gensim_7corpora_13cython_binary_8MmReader_8num_docs___get__(struct __pyx_obj_6gensim_7corpora_13cython_binary_MmReader *__pyx_v_self); /* proto */
-static int __pyx_pf_6gensim_7corpora_13cython_binary_8MmReader_8num_docs_2__set__(struct __pyx_obj_6gensim_7corpora_13cython_binary_MmReader *__pyx_v_self, PyObject *__pyx_v_value); /* proto */
-static PyObject *__pyx_pf_6gensim_7corpora_13cython_binary_8MmReader_9num_terms___get__(struct __pyx_obj_6gensim_7corpora_13cython_binary_MmReader *__pyx_v_self); /* proto */
-static int __pyx_pf_6gensim_7corpora_13cython_binary_8MmReader_9num_terms_2__set__(struct __pyx_obj_6gensim_7corpora_13cython_binary_MmReader *__pyx_v_self, PyObject *__pyx_v_value); /* proto */
-static PyObject *__pyx_pf_6gensim_7corpora_13cython_binary_8MmReader_7num_nnz___get__(struct __pyx_obj_6gensim_7corpora_13cython_binary_MmReader *__pyx_v_self); /* proto */
-static int __pyx_pf_6gensim_7corpora_13cython_binary_8MmReader_7num_nnz_2__set__(struct __pyx_obj_6gensim_7corpora_13cython_binary_MmReader *__pyx_v_self, PyObject *__pyx_v_value); /* proto */
-static PyObject *__pyx_pf_6gensim_7corpora_13cython_binary_8MmReader_13__reduce_cython__(struct __pyx_obj_6gensim_7corpora_13cython_binary_MmReader *__pyx_v_self); /* proto */
-static PyObject *__pyx_pf_6gensim_7corpora_13cython_binary_8MmReader_15__setstate_cython__(struct __pyx_obj_6gensim_7corpora_13cython_binary_MmReader *__pyx_v_self, PyObject *__pyx_v___pyx_state); /* proto */
-static PyObject *__pyx_pf_6gensim_7corpora_13cython_binary___pyx_unpickle_MmReader(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v___pyx_type, long __pyx_v___pyx_checksum, PyObject *__pyx_v___pyx_state); /* proto */
-static PyObject *__pyx_tp_new_6gensim_7corpora_13cython_binary_MmReader(PyTypeObject *t, PyObject *a, PyObject *k); /*proto*/
+static int __pyx_pf_6gensim_7corpora_13cython_binary_21MmReaderStructAtATime___init__(struct __pyx_obj_6gensim_7corpora_13cython_binary_MmReaderStructAtATime *__pyx_v_self, PyObject *__pyx_v_input, PyObject *__pyx_v_transposed); /* proto */
+static Py_ssize_t __pyx_pf_6gensim_7corpora_13cython_binary_21MmReaderStructAtATime_2__len__(struct __pyx_obj_6gensim_7corpora_13cython_binary_MmReaderStructAtATime *__pyx_v_self); /* proto */
+static PyObject *__pyx_pf_6gensim_7corpora_13cython_binary_21MmReaderStructAtATime_4__str__(struct __pyx_obj_6gensim_7corpora_13cython_binary_MmReaderStructAtATime *__pyx_v_self); /* proto */
+static PyObject *__pyx_pf_6gensim_7corpora_13cython_binary_21MmReaderStructAtATime_6read_headers(struct __pyx_obj_6gensim_7corpora_13cython_binary_MmReaderStructAtATime *__pyx_v_self); /* proto */
+static PyObject *__pyx_pf_6gensim_7corpora_13cython_binary_21MmReaderStructAtATime_8__iter__(struct __pyx_obj_6gensim_7corpora_13cython_binary_MmReaderStructAtATime *__pyx_v_self); /* proto */
+static PyObject *__pyx_pf_6gensim_7corpora_13cython_binary_21MmReaderStructAtATime_5input___get__(struct __pyx_obj_6gensim_7corpora_13cython_binary_MmReaderStructAtATime *__pyx_v_self); /* proto */
+static int __pyx_pf_6gensim_7corpora_13cython_binary_21MmReaderStructAtATime_5input_2__set__(struct __pyx_obj_6gensim_7corpora_13cython_binary_MmReaderStructAtATime *__pyx_v_self, PyObject *__pyx_v_value); /* proto */
+static int __pyx_pf_6gensim_7corpora_13cython_binary_21MmReaderStructAtATime_5input_4__del__(struct __pyx_obj_6gensim_7corpora_13cython_binary_MmReaderStructAtATime *__pyx_v_self); /* proto */
+static PyObject *__pyx_pf_6gensim_7corpora_13cython_binary_21MmReaderStructAtATime_10transposed___get__(struct __pyx_obj_6gensim_7corpora_13cython_binary_MmReaderStructAtATime *__pyx_v_self); /* proto */
+static int __pyx_pf_6gensim_7corpora_13cython_binary_21MmReaderStructAtATime_10transposed_2__set__(struct __pyx_obj_6gensim_7corpora_13cython_binary_MmReaderStructAtATime *__pyx_v_self, PyObject *__pyx_v_value); /* proto */
+static PyObject *__pyx_pf_6gensim_7corpora_13cython_binary_21MmReaderStructAtATime_8num_docs___get__(struct __pyx_obj_6gensim_7corpora_13cython_binary_MmReaderStructAtATime *__pyx_v_self); /* proto */
+static int __pyx_pf_6gensim_7corpora_13cython_binary_21MmReaderStructAtATime_8num_docs_2__set__(struct __pyx_obj_6gensim_7corpora_13cython_binary_MmReaderStructAtATime *__pyx_v_self, PyObject *__pyx_v_value); /* proto */
+static PyObject *__pyx_pf_6gensim_7corpora_13cython_binary_21MmReaderStructAtATime_9num_terms___get__(struct __pyx_obj_6gensim_7corpora_13cython_binary_MmReaderStructAtATime *__pyx_v_self); /* proto */
+static int __pyx_pf_6gensim_7corpora_13cython_binary_21MmReaderStructAtATime_9num_terms_2__set__(struct __pyx_obj_6gensim_7corpora_13cython_binary_MmReaderStructAtATime *__pyx_v_self, PyObject *__pyx_v_value); /* proto */
+static PyObject *__pyx_pf_6gensim_7corpora_13cython_binary_21MmReaderStructAtATime_7num_nnz___get__(struct __pyx_obj_6gensim_7corpora_13cython_binary_MmReaderStructAtATime *__pyx_v_self); /* proto */
+static int __pyx_pf_6gensim_7corpora_13cython_binary_21MmReaderStructAtATime_7num_nnz_2__set__(struct __pyx_obj_6gensim_7corpora_13cython_binary_MmReaderStructAtATime *__pyx_v_self, PyObject *__pyx_v_value); /* proto */
+static PyObject *__pyx_pf_6gensim_7corpora_13cython_binary_21MmReaderStructAtATime_11__reduce_cython__(struct __pyx_obj_6gensim_7corpora_13cython_binary_MmReaderStructAtATime *__pyx_v_self); /* proto */
+static PyObject *__pyx_pf_6gensim_7corpora_13cython_binary_21MmReaderStructAtATime_13__setstate_cython__(struct __pyx_obj_6gensim_7corpora_13cython_binary_MmReaderStructAtATime *__pyx_v_self, PyObject *__pyx_v___pyx_state); /* proto */
+static int __pyx_pf_6gensim_7corpora_13cython_binary_19MmReaderStructArray___init__(struct __pyx_obj_6gensim_7corpora_13cython_binary_MmReaderStructArray *__pyx_v_self, PyObject *__pyx_v_input, PyObject *__pyx_v_transposed); /* proto */
+static Py_ssize_t __pyx_pf_6gensim_7corpora_13cython_binary_19MmReaderStructArray_2__len__(struct __pyx_obj_6gensim_7corpora_13cython_binary_MmReaderStructArray *__pyx_v_self); /* proto */
+static PyObject *__pyx_pf_6gensim_7corpora_13cython_binary_19MmReaderStructArray_4__str__(struct __pyx_obj_6gensim_7corpora_13cython_binary_MmReaderStructArray *__pyx_v_self); /* proto */
+static PyObject *__pyx_pf_6gensim_7corpora_13cython_binary_19MmReaderStructArray_6save_corpus(PyObject *__pyx_v_fname, PyObject *__pyx_v_corpus); /* proto */
+static PyObject *__pyx_pf_6gensim_7corpora_13cython_binary_19MmReaderStructArray_8read_headers(struct __pyx_obj_6gensim_7corpora_13cython_binary_MmReaderStructArray *__pyx_v_self); /* proto */
+static PyObject *__pyx_pf_6gensim_7corpora_13cython_binary_19MmReaderStructArray_10__iter__(struct __pyx_obj_6gensim_7corpora_13cython_binary_MmReaderStructArray *__pyx_v_self); /* proto */
+static PyObject *__pyx_pf_6gensim_7corpora_13cython_binary_19MmReaderStructArray_5input___get__(struct __pyx_obj_6gensim_7corpora_13cython_binary_MmReaderStructArray *__pyx_v_self); /* proto */
+static int __pyx_pf_6gensim_7corpora_13cython_binary_19MmReaderStructArray_5input_2__set__(struct __pyx_obj_6gensim_7corpora_13cython_binary_MmReaderStructArray *__pyx_v_self, PyObject *__pyx_v_value); /* proto */
+static int __pyx_pf_6gensim_7corpora_13cython_binary_19MmReaderStructArray_5input_4__del__(struct __pyx_obj_6gensim_7corpora_13cython_binary_MmReaderStructArray *__pyx_v_self); /* proto */
+static PyObject *__pyx_pf_6gensim_7corpora_13cython_binary_19MmReaderStructArray_10transposed___get__(struct __pyx_obj_6gensim_7corpora_13cython_binary_MmReaderStructArray *__pyx_v_self); /* proto */
+static int __pyx_pf_6gensim_7corpora_13cython_binary_19MmReaderStructArray_10transposed_2__set__(struct __pyx_obj_6gensim_7corpora_13cython_binary_MmReaderStructArray *__pyx_v_self, PyObject *__pyx_v_value); /* proto */
+static PyObject *__pyx_pf_6gensim_7corpora_13cython_binary_19MmReaderStructArray_8num_docs___get__(struct __pyx_obj_6gensim_7corpora_13cython_binary_MmReaderStructArray *__pyx_v_self); /* proto */
+static int __pyx_pf_6gensim_7corpora_13cython_binary_19MmReaderStructArray_8num_docs_2__set__(struct __pyx_obj_6gensim_7corpora_13cython_binary_MmReaderStructArray *__pyx_v_self, PyObject *__pyx_v_value); /* proto */
+static PyObject *__pyx_pf_6gensim_7corpora_13cython_binary_19MmReaderStructArray_9num_terms___get__(struct __pyx_obj_6gensim_7corpora_13cython_binary_MmReaderStructArray *__pyx_v_self); /* proto */
+static int __pyx_pf_6gensim_7corpora_13cython_binary_19MmReaderStructArray_9num_terms_2__set__(struct __pyx_obj_6gensim_7corpora_13cython_binary_MmReaderStructArray *__pyx_v_self, PyObject *__pyx_v_value); /* proto */
+static PyObject *__pyx_pf_6gensim_7corpora_13cython_binary_19MmReaderStructArray_7num_nnz___get__(struct __pyx_obj_6gensim_7corpora_13cython_binary_MmReaderStructArray *__pyx_v_self); /* proto */
+static int __pyx_pf_6gensim_7corpora_13cython_binary_19MmReaderStructArray_7num_nnz_2__set__(struct __pyx_obj_6gensim_7corpora_13cython_binary_MmReaderStructArray *__pyx_v_self, PyObject *__pyx_v_value); /* proto */
+static PyObject *__pyx_pf_6gensim_7corpora_13cython_binary_19MmReaderStructArray_13__reduce_cython__(struct __pyx_obj_6gensim_7corpora_13cython_binary_MmReaderStructArray *__pyx_v_self); /* proto */
+static PyObject *__pyx_pf_6gensim_7corpora_13cython_binary_19MmReaderStructArray_15__setstate_cython__(struct __pyx_obj_6gensim_7corpora_13cython_binary_MmReaderStructArray *__pyx_v_self, PyObject *__pyx_v___pyx_state); /* proto */
+static PyObject *__pyx_pf_6gensim_7corpora_13cython_binary___pyx_unpickle_MmReaderStructAtATime(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v___pyx_type, long __pyx_v___pyx_checksum, PyObject *__pyx_v___pyx_state); /* proto */
+static PyObject *__pyx_pf_6gensim_7corpora_13cython_binary_2__pyx_unpickle_MmReaderStructArray(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v___pyx_type, long __pyx_v___pyx_checksum, PyObject *__pyx_v___pyx_state); /* proto */
+static PyObject *__pyx_tp_new_6gensim_7corpora_13cython_binary_MmReaderStructAtATime(PyTypeObject *t, PyObject *a, PyObject *k); /*proto*/
+static PyObject *__pyx_tp_new_6gensim_7corpora_13cython_binary_MmReaderStructArray(PyTypeObject *t, PyObject *a, PyObject *k); /*proto*/
 static PyObject *__pyx_tp_new_6gensim_7corpora_13cython_binary___pyx_scope_struct____iter__(PyTypeObject *t, PyObject *a, PyObject *k); /*proto*/
+static PyObject *__pyx_tp_new_6gensim_7corpora_13cython_binary___pyx_scope_struct_1___iter__(PyTypeObject *t, PyObject *a, PyObject *k); /*proto*/
 static PyObject *__pyx_int_245759634;
 static PyObject *__pyx_tuple_;
 static PyObject *__pyx_tuple__2;
-static PyObject *__pyx_codeobj__3;
+static PyObject *__pyx_tuple__3;
+static PyObject *__pyx_tuple__4;
+static PyObject *__pyx_tuple__6;
+static PyObject *__pyx_tuple__8;
+static PyObject *__pyx_codeobj__5;
+static PyObject *__pyx_codeobj__7;
+static PyObject *__pyx_codeobj__9;
 
-/* "gensim/corpora/cython_binary.pyx":46
+/* "gensim/corpora/cython_binary.pyx":51
  *     cdef public int num_docs, num_terms, num_nnz
  * 
  *     def __init__(self, input, transposed=True):             # <<<<<<<<<<<<<<
@@ -1354,12 +1491,12 @@ static PyObject *__pyx_codeobj__3;
  */
 
 /* Python wrapper */
-static int __pyx_pw_6gensim_7corpora_13cython_binary_8MmReader_1__init__(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
-static char __pyx_doc_6gensim_7corpora_13cython_binary_8MmReader___init__[] = "\n\n        Parameters\n        ----------\n        input : {str, file-like object}\n            Path to input file in MM format or a file-like object that supports `seek()`\n            (e.g. :class:`~gzip.GzipFile`, :class:`~bz2.BZ2File`).\n\n        transposed : bool, optional\n            if True, expects lines to represent doc_id, term_id, value. Else, expects term_id, doc_id, value.\n\n        ";
+static int __pyx_pw_6gensim_7corpora_13cython_binary_21MmReaderStructAtATime_1__init__(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
+static char __pyx_doc_6gensim_7corpora_13cython_binary_21MmReaderStructAtATime___init__[] = "\n\n        Parameters\n        ----------\n        input : {str, file-like object}\n            Path to input file in MM format or a file-like object that supports `seek()`\n            (e.g. :class:`~gzip.GzipFile`, :class:`~bz2.BZ2File`).\n\n        transposed : bool, optional\n            if True, expects lines to represent doc_id, term_id, value. Else, expects term_id, doc_id, value.\n\n        ";
 #if CYTHON_COMPILING_IN_CPYTHON
-struct wrapperbase __pyx_wrapperbase_6gensim_7corpora_13cython_binary_8MmReader___init__;
+struct wrapperbase __pyx_wrapperbase_6gensim_7corpora_13cython_binary_21MmReaderStructAtATime___init__;
 #endif
-static int __pyx_pw_6gensim_7corpora_13cython_binary_8MmReader_1__init__(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
+static int __pyx_pw_6gensim_7corpora_13cython_binary_21MmReaderStructAtATime_1__init__(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
   PyObject *__pyx_v_input = 0;
   PyObject *__pyx_v_transposed = 0;
   int __pyx_r;
@@ -1393,7 +1530,7 @@ static int __pyx_pw_6gensim_7corpora_13cython_binary_8MmReader_1__init__(PyObjec
         }
       }
       if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "__init__") < 0)) __PYX_ERR(0, 46, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "__init__") < 0)) __PYX_ERR(0, 51, __pyx_L3_error)
       }
     } else {
       switch (PyTuple_GET_SIZE(__pyx_args)) {
@@ -1409,20 +1546,20 @@ static int __pyx_pw_6gensim_7corpora_13cython_binary_8MmReader_1__init__(PyObjec
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("__init__", 0, 1, 2, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 46, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("__init__", 0, 1, 2, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 51, __pyx_L3_error)
   __pyx_L3_error:;
-  __Pyx_AddTraceback("gensim.corpora.cython_binary.MmReader.__init__", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("gensim.corpora.cython_binary.MmReaderStructAtATime.__init__", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return -1;
   __pyx_L4_argument_unpacking_done:;
-  __pyx_r = __pyx_pf_6gensim_7corpora_13cython_binary_8MmReader___init__(((struct __pyx_obj_6gensim_7corpora_13cython_binary_MmReader *)__pyx_v_self), __pyx_v_input, __pyx_v_transposed);
+  __pyx_r = __pyx_pf_6gensim_7corpora_13cython_binary_21MmReaderStructAtATime___init__(((struct __pyx_obj_6gensim_7corpora_13cython_binary_MmReaderStructAtATime *)__pyx_v_self), __pyx_v_input, __pyx_v_transposed);
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static int __pyx_pf_6gensim_7corpora_13cython_binary_8MmReader___init__(struct __pyx_obj_6gensim_7corpora_13cython_binary_MmReader *__pyx_v_self, PyObject *__pyx_v_input, PyObject *__pyx_v_transposed) {
+static int __pyx_pf_6gensim_7corpora_13cython_binary_21MmReaderStructAtATime___init__(struct __pyx_obj_6gensim_7corpora_13cython_binary_MmReaderStructAtATime *__pyx_v_self, PyObject *__pyx_v_input, PyObject *__pyx_v_transposed) {
   int __pyx_r;
   __Pyx_RefNannyDeclarations
   PyObject *__pyx_t_1 = NULL;
@@ -1440,16 +1577,16 @@ static int __pyx_pf_6gensim_7corpora_13cython_binary_8MmReader___init__(struct _
   __Pyx_RefNannySetupContext("__init__", 0);
   __Pyx_INCREF(__pyx_v_input);
 
-  /* "gensim/corpora/cython_binary.pyx":59
+  /* "gensim/corpora/cython_binary.pyx":64
  * 
  *         """
  *         logger.info("initializing cython corpus reader from %s", input)             # <<<<<<<<<<<<<<
  *         input = input.encode('utf-8')
  *         self.input, self.transposed = input, transposed
  */
-  __pyx_t_2 = __Pyx_GetModuleGlobalName(__pyx_n_s_logger); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 59, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_GetModuleGlobalName(__pyx_n_s_logger); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 64, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_info); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 59, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_info); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 64, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __pyx_t_2 = NULL;
@@ -1467,7 +1604,7 @@ static int __pyx_pf_6gensim_7corpora_13cython_binary_8MmReader___init__(struct _
   #if CYTHON_FAST_PYCALL
   if (PyFunction_Check(__pyx_t_3)) {
     PyObject *__pyx_temp[3] = {__pyx_t_2, __pyx_kp_s_initializing_cython_corpus_reade, __pyx_v_input};
-    __pyx_t_1 = __Pyx_PyFunction_FastCall(__pyx_t_3, __pyx_temp+1-__pyx_t_4, 2+__pyx_t_4); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 59, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyFunction_FastCall(__pyx_t_3, __pyx_temp+1-__pyx_t_4, 2+__pyx_t_4); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 64, __pyx_L1_error)
     __Pyx_XDECREF(__pyx_t_2); __pyx_t_2 = 0;
     __Pyx_GOTREF(__pyx_t_1);
   } else
@@ -1475,13 +1612,13 @@ static int __pyx_pf_6gensim_7corpora_13cython_binary_8MmReader___init__(struct _
   #if CYTHON_FAST_PYCCALL
   if (__Pyx_PyFastCFunction_Check(__pyx_t_3)) {
     PyObject *__pyx_temp[3] = {__pyx_t_2, __pyx_kp_s_initializing_cython_corpus_reade, __pyx_v_input};
-    __pyx_t_1 = __Pyx_PyCFunction_FastCall(__pyx_t_3, __pyx_temp+1-__pyx_t_4, 2+__pyx_t_4); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 59, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyCFunction_FastCall(__pyx_t_3, __pyx_temp+1-__pyx_t_4, 2+__pyx_t_4); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 64, __pyx_L1_error)
     __Pyx_XDECREF(__pyx_t_2); __pyx_t_2 = 0;
     __Pyx_GOTREF(__pyx_t_1);
   } else
   #endif
   {
-    __pyx_t_5 = PyTuple_New(2+__pyx_t_4); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 59, __pyx_L1_error)
+    __pyx_t_5 = PyTuple_New(2+__pyx_t_4); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 64, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_5);
     if (__pyx_t_2) {
       __Pyx_GIVEREF(__pyx_t_2); PyTuple_SET_ITEM(__pyx_t_5, 0, __pyx_t_2); __pyx_t_2 = NULL;
@@ -1492,29 +1629,29 @@ static int __pyx_pf_6gensim_7corpora_13cython_binary_8MmReader___init__(struct _
     __Pyx_INCREF(__pyx_v_input);
     __Pyx_GIVEREF(__pyx_v_input);
     PyTuple_SET_ITEM(__pyx_t_5, 1+__pyx_t_4, __pyx_v_input);
-    __pyx_t_1 = __Pyx_PyObject_Call(__pyx_t_3, __pyx_t_5, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 59, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyObject_Call(__pyx_t_3, __pyx_t_5, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 64, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
   }
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "gensim/corpora/cython_binary.pyx":60
+  /* "gensim/corpora/cython_binary.pyx":65
  *         """
  *         logger.info("initializing cython corpus reader from %s", input)
  *         input = input.encode('utf-8')             # <<<<<<<<<<<<<<
  *         self.input, self.transposed = input, transposed
  *         self.num_docs, self.num_terms, self.num_nnz = self.read_headers()
  */
-  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_input, __pyx_n_s_encode); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 60, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_input, __pyx_n_s_encode); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 65, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_3 = __Pyx_PyObject_Call(__pyx_t_1, __pyx_tuple_, NULL); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 60, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyObject_Call(__pyx_t_1, __pyx_tuple_, NULL); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 65, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __Pyx_DECREF_SET(__pyx_v_input, __pyx_t_3);
   __pyx_t_3 = 0;
 
-  /* "gensim/corpora/cython_binary.pyx":61
+  /* "gensim/corpora/cython_binary.pyx":66
  *         logger.info("initializing cython corpus reader from %s", input)
  *         input = input.encode('utf-8')
  *         self.input, self.transposed = input, transposed             # <<<<<<<<<<<<<<
@@ -1523,7 +1660,7 @@ static int __pyx_pf_6gensim_7corpora_13cython_binary_8MmReader___init__(struct _
  */
   __pyx_t_3 = __pyx_v_input;
   __Pyx_INCREF(__pyx_t_3);
-  __pyx_t_6 = __Pyx_PyObject_IsTrue(__pyx_v_transposed); if (unlikely((__pyx_t_6 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 61, __pyx_L1_error)
+  __pyx_t_6 = __Pyx_PyObject_IsTrue(__pyx_v_transposed); if (unlikely((__pyx_t_6 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 66, __pyx_L1_error)
   __Pyx_GIVEREF(__pyx_t_3);
   __Pyx_GOTREF(__pyx_v_self->input);
   __Pyx_DECREF(__pyx_v_self->input);
@@ -1531,14 +1668,14 @@ static int __pyx_pf_6gensim_7corpora_13cython_binary_8MmReader___init__(struct _
   __pyx_t_3 = 0;
   __pyx_v_self->transposed = __pyx_t_6;
 
-  /* "gensim/corpora/cython_binary.pyx":62
+  /* "gensim/corpora/cython_binary.pyx":67
  *         input = input.encode('utf-8')
  *         self.input, self.transposed = input, transposed
  *         self.num_docs, self.num_terms, self.num_nnz = self.read_headers()             # <<<<<<<<<<<<<<
  * 
  *         logger.info(
  */
-  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_read_headers); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 62, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_read_headers); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 67, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_t_5 = NULL;
   if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_1))) {
@@ -1551,10 +1688,10 @@ static int __pyx_pf_6gensim_7corpora_13cython_binary_8MmReader___init__(struct _
     }
   }
   if (__pyx_t_5) {
-    __pyx_t_3 = __Pyx_PyObject_CallOneArg(__pyx_t_1, __pyx_t_5); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 62, __pyx_L1_error)
+    __pyx_t_3 = __Pyx_PyObject_CallOneArg(__pyx_t_1, __pyx_t_5); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 67, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
   } else {
-    __pyx_t_3 = __Pyx_PyObject_CallNoArg(__pyx_t_1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 62, __pyx_L1_error)
+    __pyx_t_3 = __Pyx_PyObject_CallNoArg(__pyx_t_1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 67, __pyx_L1_error)
   }
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
@@ -1568,7 +1705,7 @@ static int __pyx_pf_6gensim_7corpora_13cython_binary_8MmReader___init__(struct _
     if (unlikely(size != 3)) {
       if (size > 3) __Pyx_RaiseTooManyValuesError(3);
       else if (size >= 0) __Pyx_RaiseNeedMoreValuesError(size);
-      __PYX_ERR(0, 62, __pyx_L1_error)
+      __PYX_ERR(0, 67, __pyx_L1_error)
     }
     #if CYTHON_ASSUME_SAFE_MACROS && !CYTHON_AVOID_BORROWED_REFS
     if (likely(PyTuple_CheckExact(sequence))) {
@@ -1584,17 +1721,17 @@ static int __pyx_pf_6gensim_7corpora_13cython_binary_8MmReader___init__(struct _
     __Pyx_INCREF(__pyx_t_5);
     __Pyx_INCREF(__pyx_t_2);
     #else
-    __pyx_t_1 = PySequence_ITEM(sequence, 0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 62, __pyx_L1_error)
+    __pyx_t_1 = PySequence_ITEM(sequence, 0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 67, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
-    __pyx_t_5 = PySequence_ITEM(sequence, 1); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 62, __pyx_L1_error)
+    __pyx_t_5 = PySequence_ITEM(sequence, 1); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 67, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_5);
-    __pyx_t_2 = PySequence_ITEM(sequence, 2); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 62, __pyx_L1_error)
+    __pyx_t_2 = PySequence_ITEM(sequence, 2); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 67, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
     #endif
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   } else {
     Py_ssize_t index = -1;
-    __pyx_t_7 = PyObject_GetIter(__pyx_t_3); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 62, __pyx_L1_error)
+    __pyx_t_7 = PyObject_GetIter(__pyx_t_3); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 67, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_7);
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
     __pyx_t_8 = Py_TYPE(__pyx_t_7)->tp_iternext;
@@ -1604,7 +1741,7 @@ static int __pyx_pf_6gensim_7corpora_13cython_binary_8MmReader___init__(struct _
     __Pyx_GOTREF(__pyx_t_5);
     index = 2; __pyx_t_2 = __pyx_t_8(__pyx_t_7); if (unlikely(!__pyx_t_2)) goto __pyx_L3_unpacking_failed;
     __Pyx_GOTREF(__pyx_t_2);
-    if (__Pyx_IternextUnpackEndCheck(__pyx_t_8(__pyx_t_7), 3) < 0) __PYX_ERR(0, 62, __pyx_L1_error)
+    if (__Pyx_IternextUnpackEndCheck(__pyx_t_8(__pyx_t_7), 3) < 0) __PYX_ERR(0, 67, __pyx_L1_error)
     __pyx_t_8 = NULL;
     __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
     goto __pyx_L4_unpacking_done;
@@ -1612,44 +1749,44 @@ static int __pyx_pf_6gensim_7corpora_13cython_binary_8MmReader___init__(struct _
     __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
     __pyx_t_8 = NULL;
     if (__Pyx_IterFinish() == 0) __Pyx_RaiseNeedMoreValuesError(index);
-    __PYX_ERR(0, 62, __pyx_L1_error)
+    __PYX_ERR(0, 67, __pyx_L1_error)
     __pyx_L4_unpacking_done:;
   }
-  __pyx_t_4 = __Pyx_PyInt_As_int(__pyx_t_1); if (unlikely((__pyx_t_4 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 62, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyInt_As_int(__pyx_t_1); if (unlikely((__pyx_t_4 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 67, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  __pyx_t_9 = __Pyx_PyInt_As_int(__pyx_t_5); if (unlikely((__pyx_t_9 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 62, __pyx_L1_error)
+  __pyx_t_9 = __Pyx_PyInt_As_int(__pyx_t_5); if (unlikely((__pyx_t_9 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 67, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-  __pyx_t_10 = __Pyx_PyInt_As_int(__pyx_t_2); if (unlikely((__pyx_t_10 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 62, __pyx_L1_error)
+  __pyx_t_10 = __Pyx_PyInt_As_int(__pyx_t_2); if (unlikely((__pyx_t_10 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 67, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __pyx_v_self->num_docs = __pyx_t_4;
   __pyx_v_self->num_terms = __pyx_t_9;
   __pyx_v_self->num_nnz = __pyx_t_10;
 
-  /* "gensim/corpora/cython_binary.pyx":64
+  /* "gensim/corpora/cython_binary.pyx":69
  *         self.num_docs, self.num_terms, self.num_nnz = self.read_headers()
  * 
  *         logger.info(             # <<<<<<<<<<<<<<
  *             "accepted corpus with %i documents, %i features, %i non-zero entries",
  *             self.num_docs, self.num_terms, self.num_nnz
  */
-  __pyx_t_2 = __Pyx_GetModuleGlobalName(__pyx_n_s_logger); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 64, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_GetModuleGlobalName(__pyx_n_s_logger); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 69, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_info); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 64, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_info); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 69, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "gensim/corpora/cython_binary.pyx":66
+  /* "gensim/corpora/cython_binary.pyx":71
  *         logger.info(
  *             "accepted corpus with %i documents, %i features, %i non-zero entries",
  *             self.num_docs, self.num_terms, self.num_nnz             # <<<<<<<<<<<<<<
  *         )
  * 
  */
-  __pyx_t_2 = __Pyx_PyInt_From_int(__pyx_v_self->num_docs); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 66, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyInt_From_int(__pyx_v_self->num_docs); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 71, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_1 = __Pyx_PyInt_From_int(__pyx_v_self->num_terms); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 66, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyInt_From_int(__pyx_v_self->num_terms); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 71, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_7 = __Pyx_PyInt_From_int(__pyx_v_self->num_nnz); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 66, __pyx_L1_error)
+  __pyx_t_7 = __Pyx_PyInt_From_int(__pyx_v_self->num_nnz); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 71, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_7);
   __pyx_t_11 = NULL;
   __pyx_t_10 = 0;
@@ -1666,7 +1803,7 @@ static int __pyx_pf_6gensim_7corpora_13cython_binary_8MmReader___init__(struct _
   #if CYTHON_FAST_PYCALL
   if (PyFunction_Check(__pyx_t_5)) {
     PyObject *__pyx_temp[5] = {__pyx_t_11, __pyx_kp_s_accepted_corpus_with_i_documents, __pyx_t_2, __pyx_t_1, __pyx_t_7};
-    __pyx_t_3 = __Pyx_PyFunction_FastCall(__pyx_t_5, __pyx_temp+1-__pyx_t_10, 4+__pyx_t_10); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 64, __pyx_L1_error)
+    __pyx_t_3 = __Pyx_PyFunction_FastCall(__pyx_t_5, __pyx_temp+1-__pyx_t_10, 4+__pyx_t_10); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 69, __pyx_L1_error)
     __Pyx_XDECREF(__pyx_t_11); __pyx_t_11 = 0;
     __Pyx_GOTREF(__pyx_t_3);
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
@@ -1677,7 +1814,7 @@ static int __pyx_pf_6gensim_7corpora_13cython_binary_8MmReader___init__(struct _
   #if CYTHON_FAST_PYCCALL
   if (__Pyx_PyFastCFunction_Check(__pyx_t_5)) {
     PyObject *__pyx_temp[5] = {__pyx_t_11, __pyx_kp_s_accepted_corpus_with_i_documents, __pyx_t_2, __pyx_t_1, __pyx_t_7};
-    __pyx_t_3 = __Pyx_PyCFunction_FastCall(__pyx_t_5, __pyx_temp+1-__pyx_t_10, 4+__pyx_t_10); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 64, __pyx_L1_error)
+    __pyx_t_3 = __Pyx_PyCFunction_FastCall(__pyx_t_5, __pyx_temp+1-__pyx_t_10, 4+__pyx_t_10); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 69, __pyx_L1_error)
     __Pyx_XDECREF(__pyx_t_11); __pyx_t_11 = 0;
     __Pyx_GOTREF(__pyx_t_3);
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
@@ -1686,7 +1823,7 @@ static int __pyx_pf_6gensim_7corpora_13cython_binary_8MmReader___init__(struct _
   } else
   #endif
   {
-    __pyx_t_12 = PyTuple_New(4+__pyx_t_10); if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 64, __pyx_L1_error)
+    __pyx_t_12 = PyTuple_New(4+__pyx_t_10); if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 69, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_12);
     if (__pyx_t_11) {
       __Pyx_GIVEREF(__pyx_t_11); PyTuple_SET_ITEM(__pyx_t_12, 0, __pyx_t_11); __pyx_t_11 = NULL;
@@ -1703,14 +1840,14 @@ static int __pyx_pf_6gensim_7corpora_13cython_binary_8MmReader___init__(struct _
     __pyx_t_2 = 0;
     __pyx_t_1 = 0;
     __pyx_t_7 = 0;
-    __pyx_t_3 = __Pyx_PyObject_Call(__pyx_t_5, __pyx_t_12, NULL); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 64, __pyx_L1_error)
+    __pyx_t_3 = __Pyx_PyObject_Call(__pyx_t_5, __pyx_t_12, NULL); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 69, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
     __Pyx_DECREF(__pyx_t_12); __pyx_t_12 = 0;
   }
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
-  /* "gensim/corpora/cython_binary.pyx":46
+  /* "gensim/corpora/cython_binary.pyx":51
  *     cdef public int num_docs, num_terms, num_nnz
  * 
  *     def __init__(self, input, transposed=True):             # <<<<<<<<<<<<<<
@@ -1729,7 +1866,7 @@ static int __pyx_pf_6gensim_7corpora_13cython_binary_8MmReader___init__(struct _
   __Pyx_XDECREF(__pyx_t_7);
   __Pyx_XDECREF(__pyx_t_11);
   __Pyx_XDECREF(__pyx_t_12);
-  __Pyx_AddTraceback("gensim.corpora.cython_binary.MmReader.__init__", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("gensim.corpora.cython_binary.MmReaderStructAtATime.__init__", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = -1;
   __pyx_L0:;
   __Pyx_XDECREF(__pyx_v_input);
@@ -1737,7 +1874,7 @@ static int __pyx_pf_6gensim_7corpora_13cython_binary_8MmReader___init__(struct _
   return __pyx_r;
 }
 
-/* "gensim/corpora/cython_binary.pyx":69
+/* "gensim/corpora/cython_binary.pyx":74
  *         )
  * 
  *     def __len__(self):             # <<<<<<<<<<<<<<
@@ -1746,28 +1883,28 @@ static int __pyx_pf_6gensim_7corpora_13cython_binary_8MmReader___init__(struct _
  */
 
 /* Python wrapper */
-static Py_ssize_t __pyx_pw_6gensim_7corpora_13cython_binary_8MmReader_3__len__(PyObject *__pyx_v_self); /*proto*/
-static char __pyx_doc_6gensim_7corpora_13cython_binary_8MmReader_2__len__[] = "Get size of corpus (number of documents).";
+static Py_ssize_t __pyx_pw_6gensim_7corpora_13cython_binary_21MmReaderStructAtATime_3__len__(PyObject *__pyx_v_self); /*proto*/
+static char __pyx_doc_6gensim_7corpora_13cython_binary_21MmReaderStructAtATime_2__len__[] = "Get size of corpus (number of documents).";
 #if CYTHON_COMPILING_IN_CPYTHON
-struct wrapperbase __pyx_wrapperbase_6gensim_7corpora_13cython_binary_8MmReader_2__len__;
+struct wrapperbase __pyx_wrapperbase_6gensim_7corpora_13cython_binary_21MmReaderStructAtATime_2__len__;
 #endif
-static Py_ssize_t __pyx_pw_6gensim_7corpora_13cython_binary_8MmReader_3__len__(PyObject *__pyx_v_self) {
+static Py_ssize_t __pyx_pw_6gensim_7corpora_13cython_binary_21MmReaderStructAtATime_3__len__(PyObject *__pyx_v_self) {
   Py_ssize_t __pyx_r;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__len__ (wrapper)", 0);
-  __pyx_r = __pyx_pf_6gensim_7corpora_13cython_binary_8MmReader_2__len__(((struct __pyx_obj_6gensim_7corpora_13cython_binary_MmReader *)__pyx_v_self));
+  __pyx_r = __pyx_pf_6gensim_7corpora_13cython_binary_21MmReaderStructAtATime_2__len__(((struct __pyx_obj_6gensim_7corpora_13cython_binary_MmReaderStructAtATime *)__pyx_v_self));
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static Py_ssize_t __pyx_pf_6gensim_7corpora_13cython_binary_8MmReader_2__len__(struct __pyx_obj_6gensim_7corpora_13cython_binary_MmReader *__pyx_v_self) {
+static Py_ssize_t __pyx_pf_6gensim_7corpora_13cython_binary_21MmReaderStructAtATime_2__len__(struct __pyx_obj_6gensim_7corpora_13cython_binary_MmReaderStructAtATime *__pyx_v_self) {
   Py_ssize_t __pyx_r;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__len__", 0);
 
-  /* "gensim/corpora/cython_binary.pyx":71
+  /* "gensim/corpora/cython_binary.pyx":76
  *     def __len__(self):
  *         """Get size of corpus (number of documents)."""
  *         return self.num_docs             # <<<<<<<<<<<<<<
@@ -1777,7 +1914,7 @@ static Py_ssize_t __pyx_pf_6gensim_7corpora_13cython_binary_8MmReader_2__len__(s
   __pyx_r = __pyx_v_self->num_docs;
   goto __pyx_L0;
 
-  /* "gensim/corpora/cython_binary.pyx":69
+  /* "gensim/corpora/cython_binary.pyx":74
  *         )
  * 
  *     def __len__(self):             # <<<<<<<<<<<<<<
@@ -1791,7 +1928,7 @@ static Py_ssize_t __pyx_pf_6gensim_7corpora_13cython_binary_8MmReader_2__len__(s
   return __pyx_r;
 }
 
-/* "gensim/corpora/cython_binary.pyx":73
+/* "gensim/corpora/cython_binary.pyx":78
  *         return self.num_docs
  * 
  *     def __str__(self):             # <<<<<<<<<<<<<<
@@ -1800,19 +1937,19 @@ static Py_ssize_t __pyx_pf_6gensim_7corpora_13cython_binary_8MmReader_2__len__(s
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_6gensim_7corpora_13cython_binary_8MmReader_5__str__(PyObject *__pyx_v_self); /*proto*/
-static PyObject *__pyx_pw_6gensim_7corpora_13cython_binary_8MmReader_5__str__(PyObject *__pyx_v_self) {
+static PyObject *__pyx_pw_6gensim_7corpora_13cython_binary_21MmReaderStructAtATime_5__str__(PyObject *__pyx_v_self); /*proto*/
+static PyObject *__pyx_pw_6gensim_7corpora_13cython_binary_21MmReaderStructAtATime_5__str__(PyObject *__pyx_v_self) {
   PyObject *__pyx_r = 0;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__str__ (wrapper)", 0);
-  __pyx_r = __pyx_pf_6gensim_7corpora_13cython_binary_8MmReader_4__str__(((struct __pyx_obj_6gensim_7corpora_13cython_binary_MmReader *)__pyx_v_self));
+  __pyx_r = __pyx_pf_6gensim_7corpora_13cython_binary_21MmReaderStructAtATime_4__str__(((struct __pyx_obj_6gensim_7corpora_13cython_binary_MmReaderStructAtATime *)__pyx_v_self));
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_6gensim_7corpora_13cython_binary_8MmReader_4__str__(struct __pyx_obj_6gensim_7corpora_13cython_binary_MmReader *__pyx_v_self) {
+static PyObject *__pyx_pf_6gensim_7corpora_13cython_binary_21MmReaderStructAtATime_4__str__(struct __pyx_obj_6gensim_7corpora_13cython_binary_MmReaderStructAtATime *__pyx_v_self) {
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   PyObject *__pyx_t_1 = NULL;
@@ -1821,7 +1958,7 @@ static PyObject *__pyx_pf_6gensim_7corpora_13cython_binary_8MmReader_4__str__(st
   PyObject *__pyx_t_4 = NULL;
   __Pyx_RefNannySetupContext("__str__", 0);
 
-  /* "gensim/corpora/cython_binary.pyx":74
+  /* "gensim/corpora/cython_binary.pyx":79
  * 
  *     def __str__(self):
  *         return ("MmCorpus(%i documents, %i features, %i non-zero entries)" %             # <<<<<<<<<<<<<<
@@ -1830,20 +1967,20 @@ static PyObject *__pyx_pf_6gensim_7corpora_13cython_binary_8MmReader_4__str__(st
  */
   __Pyx_XDECREF(__pyx_r);
 
-  /* "gensim/corpora/cython_binary.pyx":75
+  /* "gensim/corpora/cython_binary.pyx":80
  *     def __str__(self):
  *         return ("MmCorpus(%i documents, %i features, %i non-zero entries)" %
  *                 (self.num_docs, self.num_terms, self.num_nnz))             # <<<<<<<<<<<<<<
  * 
- *     def write_corpus(self, corpus):
+ *     cdef skip_headers(self, FILE *file):
  */
-  __pyx_t_1 = __Pyx_PyInt_From_int(__pyx_v_self->num_docs); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 75, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyInt_From_int(__pyx_v_self->num_docs); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 80, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_2 = __Pyx_PyInt_From_int(__pyx_v_self->num_terms); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 75, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyInt_From_int(__pyx_v_self->num_terms); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 80, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_3 = __Pyx_PyInt_From_int(__pyx_v_self->num_nnz); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 75, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyInt_From_int(__pyx_v_self->num_nnz); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 80, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  __pyx_t_4 = PyTuple_New(3); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 75, __pyx_L1_error)
+  __pyx_t_4 = PyTuple_New(3); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 80, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __Pyx_GIVEREF(__pyx_t_1);
   PyTuple_SET_ITEM(__pyx_t_4, 0, __pyx_t_1);
@@ -1855,21 +1992,21 @@ static PyObject *__pyx_pf_6gensim_7corpora_13cython_binary_8MmReader_4__str__(st
   __pyx_t_2 = 0;
   __pyx_t_3 = 0;
 
-  /* "gensim/corpora/cython_binary.pyx":74
+  /* "gensim/corpora/cython_binary.pyx":79
  * 
  *     def __str__(self):
  *         return ("MmCorpus(%i documents, %i features, %i non-zero entries)" %             # <<<<<<<<<<<<<<
  *                 (self.num_docs, self.num_terms, self.num_nnz))
  * 
  */
-  __pyx_t_3 = __Pyx_PyString_Format(__pyx_kp_s_MmCorpus_i_documents_i_features, __pyx_t_4); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 74, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyString_Format(__pyx_kp_s_MmCorpus_i_documents_i_features, __pyx_t_4); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 79, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
   __pyx_r = __pyx_t_3;
   __pyx_t_3 = 0;
   goto __pyx_L0;
 
-  /* "gensim/corpora/cython_binary.pyx":73
+  /* "gensim/corpora/cython_binary.pyx":78
  *         return self.num_docs
  * 
  *     def __str__(self):             # <<<<<<<<<<<<<<
@@ -1883,7 +2020,7 @@ static PyObject *__pyx_pf_6gensim_7corpora_13cython_binary_8MmReader_4__str__(st
   __Pyx_XDECREF(__pyx_t_2);
   __Pyx_XDECREF(__pyx_t_3);
   __Pyx_XDECREF(__pyx_t_4);
-  __Pyx_AddTraceback("gensim.corpora.cython_binary.MmReader.__str__", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("gensim.corpora.cython_binary.MmReaderStructAtATime.__str__", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __Pyx_XGIVEREF(__pyx_r);
@@ -1891,390 +2028,21 @@ static PyObject *__pyx_pf_6gensim_7corpora_13cython_binary_8MmReader_4__str__(st
   return __pyx_r;
 }
 
-/* "gensim/corpora/cython_binary.pyx":77
+/* "gensim/corpora/cython_binary.pyx":82
  *                 (self.num_docs, self.num_terms, self.num_nnz))
- * 
- *     def write_corpus(self, corpus):             # <<<<<<<<<<<<<<
- *         cdef FILE *file
- *         cdef int termid, docid, doc_length
- */
-
-/* Python wrapper */
-static PyObject *__pyx_pw_6gensim_7corpora_13cython_binary_8MmReader_7write_corpus(PyObject *__pyx_v_self, PyObject *__pyx_v_corpus); /*proto*/
-static char __pyx_doc_6gensim_7corpora_13cython_binary_8MmReader_6write_corpus[] = "MmReader.write_corpus(self, corpus)";
-static PyObject *__pyx_pw_6gensim_7corpora_13cython_binary_8MmReader_7write_corpus(PyObject *__pyx_v_self, PyObject *__pyx_v_corpus) {
-  PyObject *__pyx_r = 0;
-  __Pyx_RefNannyDeclarations
-  __Pyx_RefNannySetupContext("write_corpus (wrapper)", 0);
-  __pyx_r = __pyx_pf_6gensim_7corpora_13cython_binary_8MmReader_6write_corpus(((struct __pyx_obj_6gensim_7corpora_13cython_binary_MmReader *)__pyx_v_self), ((PyObject *)__pyx_v_corpus));
-
-  /* function exit code */
-  __Pyx_RefNannyFinishContext();
-  return __pyx_r;
-}
-
-static PyObject *__pyx_pf_6gensim_7corpora_13cython_binary_8MmReader_6write_corpus(struct __pyx_obj_6gensim_7corpora_13cython_binary_MmReader *__pyx_v_self, PyObject *__pyx_v_corpus) {
-  FILE *__pyx_v_file;
-  int __pyx_v_termid;
-  int __pyx_v_docid;
-  int __pyx_v_doc_length;
-  int __pyx_v_num_docs;
-  int __pyx_v_num_terms;
-  int __pyx_v_num_nnz;
-  float __pyx_v_value;
-  PyObject *__pyx_v_doc = NULL;
-  PyObject *__pyx_r = NULL;
-  __Pyx_RefNannyDeclarations
-  char const *__pyx_t_1;
-  PyObject *__pyx_t_2 = NULL;
-  int __pyx_t_3;
-  int __pyx_t_4;
-  int __pyx_t_5;
-  Py_ssize_t __pyx_t_6;
-  PyObject *(*__pyx_t_7)(PyObject *);
-  PyObject *__pyx_t_8 = NULL;
-  Py_ssize_t __pyx_t_9;
-  PyObject *(*__pyx_t_10)(PyObject *);
-  PyObject *__pyx_t_11 = NULL;
-  PyObject *__pyx_t_12 = NULL;
-  PyObject *__pyx_t_13 = NULL;
-  PyObject *__pyx_t_14 = NULL;
-  PyObject *(*__pyx_t_15)(PyObject *);
-  float __pyx_t_16;
-  __Pyx_RefNannySetupContext("write_corpus", 0);
-
-  /* "gensim/corpora/cython_binary.pyx":83
- *         cdef float value
- * 
- *         file = fopen(self.input, "wb")             # <<<<<<<<<<<<<<
- * 
- *         # write out header info
- */
-  __pyx_t_1 = __Pyx_PyObject_AsString(__pyx_v_self->input); if (unlikely((!__pyx_t_1) && PyErr_Occurred())) __PYX_ERR(0, 83, __pyx_L1_error)
-  __pyx_v_file = fopen(__pyx_t_1, ((char const *)"wb"));
-
-  /* "gensim/corpora/cython_binary.pyx":86
- * 
- *         # write out header info
- *         num_docs, num_terms, num_nnz = corpus.num_docs, corpus.num_terms, corpus.num_nnz             # <<<<<<<<<<<<<<
- *         fwrite( & num_docs, sizeof(num_docs), 1, file)
- *         fwrite( & num_terms, sizeof(num_terms), 1, file)
- */
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_corpus, __pyx_n_s_num_docs); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 86, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_3 = __Pyx_PyInt_As_int(__pyx_t_2); if (unlikely((__pyx_t_3 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 86, __pyx_L1_error)
-  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_corpus, __pyx_n_s_num_terms); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 86, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_4 = __Pyx_PyInt_As_int(__pyx_t_2); if (unlikely((__pyx_t_4 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 86, __pyx_L1_error)
-  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_corpus, __pyx_n_s_num_nnz); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 86, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_5 = __Pyx_PyInt_As_int(__pyx_t_2); if (unlikely((__pyx_t_5 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 86, __pyx_L1_error)
-  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __pyx_v_num_docs = __pyx_t_3;
-  __pyx_v_num_terms = __pyx_t_4;
-  __pyx_v_num_nnz = __pyx_t_5;
-
-  /* "gensim/corpora/cython_binary.pyx":87
- *         # write out header info
- *         num_docs, num_terms, num_nnz = corpus.num_docs, corpus.num_terms, corpus.num_nnz
- *         fwrite( & num_docs, sizeof(num_docs), 1, file)             # <<<<<<<<<<<<<<
- *         fwrite( & num_terms, sizeof(num_terms), 1, file)
- *         fwrite( & num_nnz, sizeof(num_nnz), 1, file)
- */
-  fwrite((&__pyx_v_num_docs), (sizeof(__pyx_v_num_docs)), 1, __pyx_v_file);
-
-  /* "gensim/corpora/cython_binary.pyx":88
- *         num_docs, num_terms, num_nnz = corpus.num_docs, corpus.num_terms, corpus.num_nnz
- *         fwrite( & num_docs, sizeof(num_docs), 1, file)
- *         fwrite( & num_terms, sizeof(num_terms), 1, file)             # <<<<<<<<<<<<<<
- *         fwrite( & num_nnz, sizeof(num_nnz), 1, file)
- * 
- */
-  fwrite((&__pyx_v_num_terms), (sizeof(__pyx_v_num_terms)), 1, __pyx_v_file);
-
-  /* "gensim/corpora/cython_binary.pyx":89
- *         fwrite( & num_docs, sizeof(num_docs), 1, file)
- *         fwrite( & num_terms, sizeof(num_terms), 1, file)
- *         fwrite( & num_nnz, sizeof(num_nnz), 1, file)             # <<<<<<<<<<<<<<
- * 
- *         for (docid, doc) in enumerate(corpus):
- */
-  fwrite((&__pyx_v_num_nnz), (sizeof(__pyx_v_num_nnz)), 1, __pyx_v_file);
-
-  /* "gensim/corpora/cython_binary.pyx":91
- *         fwrite( & num_nnz, sizeof(num_nnz), 1, file)
- * 
- *         for (docid, doc) in enumerate(corpus):             # <<<<<<<<<<<<<<
- *             doc_length = len(doc)
- *             fwrite( & docid, sizeof(docid), 1, file)
- */
-  __pyx_t_5 = 0;
-  if (likely(PyList_CheckExact(__pyx_v_corpus)) || PyTuple_CheckExact(__pyx_v_corpus)) {
-    __pyx_t_2 = __pyx_v_corpus; __Pyx_INCREF(__pyx_t_2); __pyx_t_6 = 0;
-    __pyx_t_7 = NULL;
-  } else {
-    __pyx_t_6 = -1; __pyx_t_2 = PyObject_GetIter(__pyx_v_corpus); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 91, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_2);
-    __pyx_t_7 = Py_TYPE(__pyx_t_2)->tp_iternext; if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 91, __pyx_L1_error)
-  }
-  for (;;) {
-    if (likely(!__pyx_t_7)) {
-      if (likely(PyList_CheckExact(__pyx_t_2))) {
-        if (__pyx_t_6 >= PyList_GET_SIZE(__pyx_t_2)) break;
-        #if CYTHON_ASSUME_SAFE_MACROS && !CYTHON_AVOID_BORROWED_REFS
-        __pyx_t_8 = PyList_GET_ITEM(__pyx_t_2, __pyx_t_6); __Pyx_INCREF(__pyx_t_8); __pyx_t_6++; if (unlikely(0 < 0)) __PYX_ERR(0, 91, __pyx_L1_error)
-        #else
-        __pyx_t_8 = PySequence_ITEM(__pyx_t_2, __pyx_t_6); __pyx_t_6++; if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 91, __pyx_L1_error)
-        __Pyx_GOTREF(__pyx_t_8);
-        #endif
-      } else {
-        if (__pyx_t_6 >= PyTuple_GET_SIZE(__pyx_t_2)) break;
-        #if CYTHON_ASSUME_SAFE_MACROS && !CYTHON_AVOID_BORROWED_REFS
-        __pyx_t_8 = PyTuple_GET_ITEM(__pyx_t_2, __pyx_t_6); __Pyx_INCREF(__pyx_t_8); __pyx_t_6++; if (unlikely(0 < 0)) __PYX_ERR(0, 91, __pyx_L1_error)
-        #else
-        __pyx_t_8 = PySequence_ITEM(__pyx_t_2, __pyx_t_6); __pyx_t_6++; if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 91, __pyx_L1_error)
-        __Pyx_GOTREF(__pyx_t_8);
-        #endif
-      }
-    } else {
-      __pyx_t_8 = __pyx_t_7(__pyx_t_2);
-      if (unlikely(!__pyx_t_8)) {
-        PyObject* exc_type = PyErr_Occurred();
-        if (exc_type) {
-          if (likely(__Pyx_PyErr_GivenExceptionMatches(exc_type, PyExc_StopIteration))) PyErr_Clear();
-          else __PYX_ERR(0, 91, __pyx_L1_error)
-        }
-        break;
-      }
-      __Pyx_GOTREF(__pyx_t_8);
-    }
-    __Pyx_XDECREF_SET(__pyx_v_doc, __pyx_t_8);
-    __pyx_t_8 = 0;
-    __pyx_v_docid = __pyx_t_5;
-    __pyx_t_5 = (__pyx_t_5 + 1);
-
-    /* "gensim/corpora/cython_binary.pyx":92
- * 
- *         for (docid, doc) in enumerate(corpus):
- *             doc_length = len(doc)             # <<<<<<<<<<<<<<
- *             fwrite( & docid, sizeof(docid), 1, file)
- *             fwrite( & doc_length, sizeof(doc_length), 1, file)
- */
-    __pyx_t_9 = PyObject_Length(__pyx_v_doc); if (unlikely(__pyx_t_9 == ((Py_ssize_t)-1))) __PYX_ERR(0, 92, __pyx_L1_error)
-    __pyx_v_doc_length = __pyx_t_9;
-
-    /* "gensim/corpora/cython_binary.pyx":93
- *         for (docid, doc) in enumerate(corpus):
- *             doc_length = len(doc)
- *             fwrite( & docid, sizeof(docid), 1, file)             # <<<<<<<<<<<<<<
- *             fwrite( & doc_length, sizeof(doc_length), 1, file)
- * 
- */
-    fwrite((&__pyx_v_docid), (sizeof(__pyx_v_docid)), 1, __pyx_v_file);
-
-    /* "gensim/corpora/cython_binary.pyx":94
- *             doc_length = len(doc)
- *             fwrite( & docid, sizeof(docid), 1, file)
- *             fwrite( & doc_length, sizeof(doc_length), 1, file)             # <<<<<<<<<<<<<<
- * 
- *             for (termid, value) in doc:
- */
-    fwrite((&__pyx_v_doc_length), (sizeof(__pyx_v_doc_length)), 1, __pyx_v_file);
-
-    /* "gensim/corpora/cython_binary.pyx":96
- *             fwrite( & doc_length, sizeof(doc_length), 1, file)
- * 
- *             for (termid, value) in doc:             # <<<<<<<<<<<<<<
- *                 fwrite( & termid, sizeof(termid), 1, file)
- *                 fwrite( & value, sizeof(value), 1, file)
- */
-    if (likely(PyList_CheckExact(__pyx_v_doc)) || PyTuple_CheckExact(__pyx_v_doc)) {
-      __pyx_t_8 = __pyx_v_doc; __Pyx_INCREF(__pyx_t_8); __pyx_t_9 = 0;
-      __pyx_t_10 = NULL;
-    } else {
-      __pyx_t_9 = -1; __pyx_t_8 = PyObject_GetIter(__pyx_v_doc); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 96, __pyx_L1_error)
-      __Pyx_GOTREF(__pyx_t_8);
-      __pyx_t_10 = Py_TYPE(__pyx_t_8)->tp_iternext; if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 96, __pyx_L1_error)
-    }
-    for (;;) {
-      if (likely(!__pyx_t_10)) {
-        if (likely(PyList_CheckExact(__pyx_t_8))) {
-          if (__pyx_t_9 >= PyList_GET_SIZE(__pyx_t_8)) break;
-          #if CYTHON_ASSUME_SAFE_MACROS && !CYTHON_AVOID_BORROWED_REFS
-          __pyx_t_11 = PyList_GET_ITEM(__pyx_t_8, __pyx_t_9); __Pyx_INCREF(__pyx_t_11); __pyx_t_9++; if (unlikely(0 < 0)) __PYX_ERR(0, 96, __pyx_L1_error)
-          #else
-          __pyx_t_11 = PySequence_ITEM(__pyx_t_8, __pyx_t_9); __pyx_t_9++; if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 96, __pyx_L1_error)
-          __Pyx_GOTREF(__pyx_t_11);
-          #endif
-        } else {
-          if (__pyx_t_9 >= PyTuple_GET_SIZE(__pyx_t_8)) break;
-          #if CYTHON_ASSUME_SAFE_MACROS && !CYTHON_AVOID_BORROWED_REFS
-          __pyx_t_11 = PyTuple_GET_ITEM(__pyx_t_8, __pyx_t_9); __Pyx_INCREF(__pyx_t_11); __pyx_t_9++; if (unlikely(0 < 0)) __PYX_ERR(0, 96, __pyx_L1_error)
-          #else
-          __pyx_t_11 = PySequence_ITEM(__pyx_t_8, __pyx_t_9); __pyx_t_9++; if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 96, __pyx_L1_error)
-          __Pyx_GOTREF(__pyx_t_11);
-          #endif
-        }
-      } else {
-        __pyx_t_11 = __pyx_t_10(__pyx_t_8);
-        if (unlikely(!__pyx_t_11)) {
-          PyObject* exc_type = PyErr_Occurred();
-          if (exc_type) {
-            if (likely(__Pyx_PyErr_GivenExceptionMatches(exc_type, PyExc_StopIteration))) PyErr_Clear();
-            else __PYX_ERR(0, 96, __pyx_L1_error)
-          }
-          break;
-        }
-        __Pyx_GOTREF(__pyx_t_11);
-      }
-      if ((likely(PyTuple_CheckExact(__pyx_t_11))) || (PyList_CheckExact(__pyx_t_11))) {
-        PyObject* sequence = __pyx_t_11;
-        #if !CYTHON_COMPILING_IN_PYPY
-        Py_ssize_t size = Py_SIZE(sequence);
-        #else
-        Py_ssize_t size = PySequence_Size(sequence);
-        #endif
-        if (unlikely(size != 2)) {
-          if (size > 2) __Pyx_RaiseTooManyValuesError(2);
-          else if (size >= 0) __Pyx_RaiseNeedMoreValuesError(size);
-          __PYX_ERR(0, 96, __pyx_L1_error)
-        }
-        #if CYTHON_ASSUME_SAFE_MACROS && !CYTHON_AVOID_BORROWED_REFS
-        if (likely(PyTuple_CheckExact(sequence))) {
-          __pyx_t_12 = PyTuple_GET_ITEM(sequence, 0); 
-          __pyx_t_13 = PyTuple_GET_ITEM(sequence, 1); 
-        } else {
-          __pyx_t_12 = PyList_GET_ITEM(sequence, 0); 
-          __pyx_t_13 = PyList_GET_ITEM(sequence, 1); 
-        }
-        __Pyx_INCREF(__pyx_t_12);
-        __Pyx_INCREF(__pyx_t_13);
-        #else
-        __pyx_t_12 = PySequence_ITEM(sequence, 0); if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 96, __pyx_L1_error)
-        __Pyx_GOTREF(__pyx_t_12);
-        __pyx_t_13 = PySequence_ITEM(sequence, 1); if (unlikely(!__pyx_t_13)) __PYX_ERR(0, 96, __pyx_L1_error)
-        __Pyx_GOTREF(__pyx_t_13);
-        #endif
-        __Pyx_DECREF(__pyx_t_11); __pyx_t_11 = 0;
-      } else {
-        Py_ssize_t index = -1;
-        __pyx_t_14 = PyObject_GetIter(__pyx_t_11); if (unlikely(!__pyx_t_14)) __PYX_ERR(0, 96, __pyx_L1_error)
-        __Pyx_GOTREF(__pyx_t_14);
-        __Pyx_DECREF(__pyx_t_11); __pyx_t_11 = 0;
-        __pyx_t_15 = Py_TYPE(__pyx_t_14)->tp_iternext;
-        index = 0; __pyx_t_12 = __pyx_t_15(__pyx_t_14); if (unlikely(!__pyx_t_12)) goto __pyx_L7_unpacking_failed;
-        __Pyx_GOTREF(__pyx_t_12);
-        index = 1; __pyx_t_13 = __pyx_t_15(__pyx_t_14); if (unlikely(!__pyx_t_13)) goto __pyx_L7_unpacking_failed;
-        __Pyx_GOTREF(__pyx_t_13);
-        if (__Pyx_IternextUnpackEndCheck(__pyx_t_15(__pyx_t_14), 2) < 0) __PYX_ERR(0, 96, __pyx_L1_error)
-        __pyx_t_15 = NULL;
-        __Pyx_DECREF(__pyx_t_14); __pyx_t_14 = 0;
-        goto __pyx_L8_unpacking_done;
-        __pyx_L7_unpacking_failed:;
-        __Pyx_DECREF(__pyx_t_14); __pyx_t_14 = 0;
-        __pyx_t_15 = NULL;
-        if (__Pyx_IterFinish() == 0) __Pyx_RaiseNeedMoreValuesError(index);
-        __PYX_ERR(0, 96, __pyx_L1_error)
-        __pyx_L8_unpacking_done:;
-      }
-      __pyx_t_4 = __Pyx_PyInt_As_int(__pyx_t_12); if (unlikely((__pyx_t_4 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 96, __pyx_L1_error)
-      __Pyx_DECREF(__pyx_t_12); __pyx_t_12 = 0;
-      __pyx_t_16 = __pyx_PyFloat_AsFloat(__pyx_t_13); if (unlikely((__pyx_t_16 == (float)-1) && PyErr_Occurred())) __PYX_ERR(0, 96, __pyx_L1_error)
-      __Pyx_DECREF(__pyx_t_13); __pyx_t_13 = 0;
-      __pyx_v_termid = __pyx_t_4;
-      __pyx_v_value = __pyx_t_16;
-
-      /* "gensim/corpora/cython_binary.pyx":97
- * 
- *             for (termid, value) in doc:
- *                 fwrite( & termid, sizeof(termid), 1, file)             # <<<<<<<<<<<<<<
- *                 fwrite( & value, sizeof(value), 1, file)
- * 
- */
-      fwrite((&__pyx_v_termid), (sizeof(__pyx_v_termid)), 1, __pyx_v_file);
-
-      /* "gensim/corpora/cython_binary.pyx":98
- *             for (termid, value) in doc:
- *                 fwrite( & termid, sizeof(termid), 1, file)
- *                 fwrite( & value, sizeof(value), 1, file)             # <<<<<<<<<<<<<<
- * 
- *         fclose(file)
- */
-      fwrite((&__pyx_v_value), (sizeof(__pyx_v_value)), 1, __pyx_v_file);
-
-      /* "gensim/corpora/cython_binary.pyx":96
- *             fwrite( & doc_length, sizeof(doc_length), 1, file)
- * 
- *             for (termid, value) in doc:             # <<<<<<<<<<<<<<
- *                 fwrite( & termid, sizeof(termid), 1, file)
- *                 fwrite( & value, sizeof(value), 1, file)
- */
-    }
-    __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
-
-    /* "gensim/corpora/cython_binary.pyx":91
- *         fwrite( & num_nnz, sizeof(num_nnz), 1, file)
- * 
- *         for (docid, doc) in enumerate(corpus):             # <<<<<<<<<<<<<<
- *             doc_length = len(doc)
- *             fwrite( & docid, sizeof(docid), 1, file)
- */
-  }
-  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-
-  /* "gensim/corpora/cython_binary.pyx":100
- *                 fwrite( & value, sizeof(value), 1, file)
- * 
- *         fclose(file)             # <<<<<<<<<<<<<<
- * 
- *     cdef skip_headers(self, FILE *file):
- */
-  fclose(__pyx_v_file);
-
-  /* "gensim/corpora/cython_binary.pyx":77
- *                 (self.num_docs, self.num_terms, self.num_nnz))
- * 
- *     def write_corpus(self, corpus):             # <<<<<<<<<<<<<<
- *         cdef FILE *file
- *         cdef int termid, docid, doc_length
- */
-
-  /* function exit code */
-  __pyx_r = Py_None; __Pyx_INCREF(Py_None);
-  goto __pyx_L0;
-  __pyx_L1_error:;
-  __Pyx_XDECREF(__pyx_t_2);
-  __Pyx_XDECREF(__pyx_t_8);
-  __Pyx_XDECREF(__pyx_t_11);
-  __Pyx_XDECREF(__pyx_t_12);
-  __Pyx_XDECREF(__pyx_t_13);
-  __Pyx_XDECREF(__pyx_t_14);
-  __Pyx_AddTraceback("gensim.corpora.cython_binary.MmReader.write_corpus", __pyx_clineno, __pyx_lineno, __pyx_filename);
-  __pyx_r = NULL;
-  __pyx_L0:;
-  __Pyx_XDECREF(__pyx_v_doc);
-  __Pyx_XGIVEREF(__pyx_r);
-  __Pyx_RefNannyFinishContext();
-  return __pyx_r;
-}
-
-/* "gensim/corpora/cython_binary.pyx":102
- *         fclose(file)
  * 
  *     cdef skip_headers(self, FILE *file):             # <<<<<<<<<<<<<<
  *         """Skip file headers that appear before the first document.
  * 
  */
 
-static PyObject *__pyx_f_6gensim_7corpora_13cython_binary_8MmReader_skip_headers(CYTHON_UNUSED struct __pyx_obj_6gensim_7corpora_13cython_binary_MmReader *__pyx_v_self, FILE *__pyx_v_file) {
+static PyObject *__pyx_f_6gensim_7corpora_13cython_binary_21MmReaderStructAtATime_skip_headers(CYTHON_UNUSED struct __pyx_obj_6gensim_7corpora_13cython_binary_MmReaderStructAtATime *__pyx_v_self, FILE *__pyx_v_file) {
   int __pyx_v_header_value;
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("skip_headers", 0);
 
-  /* "gensim/corpora/cython_binary.pyx":113
+  /* "gensim/corpora/cython_binary.pyx":93
  *         cdef int header_value;
  * 
  *         fseek(file, sizeof(header_value) * 3, SEEK_SET)             # <<<<<<<<<<<<<<
@@ -2283,8 +2051,8 @@ static PyObject *__pyx_f_6gensim_7corpora_13cython_binary_8MmReader_skip_headers
  */
   fseek(__pyx_v_file, ((sizeof(__pyx_v_header_value)) * 3), SEEK_SET);
 
-  /* "gensim/corpora/cython_binary.pyx":102
- *         fclose(file)
+  /* "gensim/corpora/cython_binary.pyx":82
+ *                 (self.num_docs, self.num_terms, self.num_nnz))
  * 
  *     cdef skip_headers(self, FILE *file):             # <<<<<<<<<<<<<<
  *         """Skip file headers that appear before the first document.
@@ -2298,7 +2066,7 @@ static PyObject *__pyx_f_6gensim_7corpora_13cython_binary_8MmReader_skip_headers
   return __pyx_r;
 }
 
-/* "gensim/corpora/cython_binary.pyx":115
+/* "gensim/corpora/cython_binary.pyx":95
  *         fseek(file, sizeof(header_value) * 3, SEEK_SET)
  * 
  *     def read_headers(self):             # <<<<<<<<<<<<<<
@@ -2307,20 +2075,20 @@ static PyObject *__pyx_f_6gensim_7corpora_13cython_binary_8MmReader_skip_headers
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_6gensim_7corpora_13cython_binary_8MmReader_9read_headers(PyObject *__pyx_v_self, CYTHON_UNUSED PyObject *unused); /*proto*/
-static char __pyx_doc_6gensim_7corpora_13cython_binary_8MmReader_8read_headers[] = "MmReader.read_headers(self)\nReader header row for file metadata\n\n        Returns\n        ----------\n        num_docs : int\n        num_terms : int\n        num_nnz : int\n\n        ";
-static PyObject *__pyx_pw_6gensim_7corpora_13cython_binary_8MmReader_9read_headers(PyObject *__pyx_v_self, CYTHON_UNUSED PyObject *unused) {
+static PyObject *__pyx_pw_6gensim_7corpora_13cython_binary_21MmReaderStructAtATime_7read_headers(PyObject *__pyx_v_self, CYTHON_UNUSED PyObject *unused); /*proto*/
+static char __pyx_doc_6gensim_7corpora_13cython_binary_21MmReaderStructAtATime_6read_headers[] = "MmReaderStructAtATime.read_headers(self)\nReader header row for file metadata\n\n        Returns\n        ----------\n        num_docs : int\n        num_terms : int\n        num_nnz : int\n\n        ";
+static PyObject *__pyx_pw_6gensim_7corpora_13cython_binary_21MmReaderStructAtATime_7read_headers(PyObject *__pyx_v_self, CYTHON_UNUSED PyObject *unused) {
   PyObject *__pyx_r = 0;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("read_headers (wrapper)", 0);
-  __pyx_r = __pyx_pf_6gensim_7corpora_13cython_binary_8MmReader_8read_headers(((struct __pyx_obj_6gensim_7corpora_13cython_binary_MmReader *)__pyx_v_self));
+  __pyx_r = __pyx_pf_6gensim_7corpora_13cython_binary_21MmReaderStructAtATime_6read_headers(((struct __pyx_obj_6gensim_7corpora_13cython_binary_MmReaderStructAtATime *)__pyx_v_self));
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_6gensim_7corpora_13cython_binary_8MmReader_8read_headers(struct __pyx_obj_6gensim_7corpora_13cython_binary_MmReader *__pyx_v_self) {
+static PyObject *__pyx_pf_6gensim_7corpora_13cython_binary_21MmReaderStructAtATime_6read_headers(struct __pyx_obj_6gensim_7corpora_13cython_binary_MmReaderStructAtATime *__pyx_v_self) {
   FILE *__pyx_v_file;
   int __pyx_v_num_docs;
   int __pyx_v_num_terms;
@@ -2334,17 +2102,17 @@ static PyObject *__pyx_pf_6gensim_7corpora_13cython_binary_8MmReader_8read_heade
   PyObject *__pyx_t_5 = NULL;
   __Pyx_RefNannySetupContext("read_headers", 0);
 
-  /* "gensim/corpora/cython_binary.pyx":128
+  /* "gensim/corpora/cython_binary.pyx":108
  *         cdef int num_docs, num_terms, num_nnz
  * 
  *         file = fopen(self.input, "rb")             # <<<<<<<<<<<<<<
  *         fread( & num_docs, sizeof(num_docs), 1, file)
  *         fread( & num_terms, sizeof(num_terms), 1, file)
  */
-  __pyx_t_1 = __Pyx_PyObject_AsString(__pyx_v_self->input); if (unlikely((!__pyx_t_1) && PyErr_Occurred())) __PYX_ERR(0, 128, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyObject_AsString(__pyx_v_self->input); if (unlikely((!__pyx_t_1) && PyErr_Occurred())) __PYX_ERR(0, 108, __pyx_L1_error)
   __pyx_v_file = fopen(__pyx_t_1, ((char const *)"rb"));
 
-  /* "gensim/corpora/cython_binary.pyx":129
+  /* "gensim/corpora/cython_binary.pyx":109
  * 
  *         file = fopen(self.input, "rb")
  *         fread( & num_docs, sizeof(num_docs), 1, file)             # <<<<<<<<<<<<<<
@@ -2353,7 +2121,7 @@ static PyObject *__pyx_pf_6gensim_7corpora_13cython_binary_8MmReader_8read_heade
  */
   fread((&__pyx_v_num_docs), (sizeof(__pyx_v_num_docs)), 1, __pyx_v_file);
 
-  /* "gensim/corpora/cython_binary.pyx":130
+  /* "gensim/corpora/cython_binary.pyx":110
  *         file = fopen(self.input, "rb")
  *         fread( & num_docs, sizeof(num_docs), 1, file)
  *         fread( & num_terms, sizeof(num_terms), 1, file)             # <<<<<<<<<<<<<<
@@ -2362,7 +2130,7 @@ static PyObject *__pyx_pf_6gensim_7corpora_13cython_binary_8MmReader_8read_heade
  */
   fread((&__pyx_v_num_terms), (sizeof(__pyx_v_num_terms)), 1, __pyx_v_file);
 
-  /* "gensim/corpora/cython_binary.pyx":131
+  /* "gensim/corpora/cython_binary.pyx":111
  *         fread( & num_docs, sizeof(num_docs), 1, file)
  *         fread( & num_terms, sizeof(num_terms), 1, file)
  *         fread( & num_nnz, sizeof(num_nnz), 1, file)             # <<<<<<<<<<<<<<
@@ -2371,7 +2139,7 @@ static PyObject *__pyx_pf_6gensim_7corpora_13cython_binary_8MmReader_8read_heade
  */
   fread((&__pyx_v_num_nnz), (sizeof(__pyx_v_num_nnz)), 1, __pyx_v_file);
 
-  /* "gensim/corpora/cython_binary.pyx":132
+  /* "gensim/corpora/cython_binary.pyx":112
  *         fread( & num_terms, sizeof(num_terms), 1, file)
  *         fread( & num_nnz, sizeof(num_nnz), 1, file)
  *         fclose(file)             # <<<<<<<<<<<<<<
@@ -2380,7 +2148,7 @@ static PyObject *__pyx_pf_6gensim_7corpora_13cython_binary_8MmReader_8read_heade
  */
   fclose(__pyx_v_file);
 
-  /* "gensim/corpora/cython_binary.pyx":134
+  /* "gensim/corpora/cython_binary.pyx":114
  *         fclose(file)
  * 
  *         return num_docs, num_terms, num_nnz             # <<<<<<<<<<<<<<
@@ -2388,13 +2156,13 @@ static PyObject *__pyx_pf_6gensim_7corpora_13cython_binary_8MmReader_8read_heade
  *     def __iter__(self):
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_2 = __Pyx_PyInt_From_int(__pyx_v_num_docs); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 134, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyInt_From_int(__pyx_v_num_docs); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 114, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_3 = __Pyx_PyInt_From_int(__pyx_v_num_terms); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 134, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyInt_From_int(__pyx_v_num_terms); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 114, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  __pyx_t_4 = __Pyx_PyInt_From_int(__pyx_v_num_nnz); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 134, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyInt_From_int(__pyx_v_num_nnz); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 114, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  __pyx_t_5 = PyTuple_New(3); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 134, __pyx_L1_error)
+  __pyx_t_5 = PyTuple_New(3); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 114, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
   __Pyx_GIVEREF(__pyx_t_2);
   PyTuple_SET_ITEM(__pyx_t_5, 0, __pyx_t_2);
@@ -2409,7 +2177,7 @@ static PyObject *__pyx_pf_6gensim_7corpora_13cython_binary_8MmReader_8read_heade
   __pyx_t_5 = 0;
   goto __pyx_L0;
 
-  /* "gensim/corpora/cython_binary.pyx":115
+  /* "gensim/corpora/cython_binary.pyx":95
  *         fseek(file, sizeof(header_value) * 3, SEEK_SET)
  * 
  *     def read_headers(self):             # <<<<<<<<<<<<<<
@@ -2423,16 +2191,16 @@ static PyObject *__pyx_pf_6gensim_7corpora_13cython_binary_8MmReader_8read_heade
   __Pyx_XDECREF(__pyx_t_3);
   __Pyx_XDECREF(__pyx_t_4);
   __Pyx_XDECREF(__pyx_t_5);
-  __Pyx_AddTraceback("gensim.corpora.cython_binary.MmReader.read_headers", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("gensim.corpora.cython_binary.MmReaderStructAtATime.read_headers", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __Pyx_XGIVEREF(__pyx_r);
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
-static PyObject *__pyx_gb_6gensim_7corpora_13cython_binary_8MmReader_12generator(__pyx_CoroutineObject *__pyx_generator, CYTHON_UNUSED PyThreadState *__pyx_tstate, PyObject *__pyx_sent_value); /* proto */
+static PyObject *__pyx_gb_6gensim_7corpora_13cython_binary_21MmReaderStructAtATime_10generator(__pyx_CoroutineObject *__pyx_generator, CYTHON_UNUSED PyThreadState *__pyx_tstate, PyObject *__pyx_sent_value); /* proto */
 
-/* "gensim/corpora/cython_binary.pyx":136
+/* "gensim/corpora/cython_binary.pyx":116
  *         return num_docs, num_terms, num_nnz
  * 
  *     def __iter__(self):             # <<<<<<<<<<<<<<
@@ -2441,23 +2209,23 @@ static PyObject *__pyx_gb_6gensim_7corpora_13cython_binary_8MmReader_12generator
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_6gensim_7corpora_13cython_binary_8MmReader_11__iter__(PyObject *__pyx_v_self); /*proto*/
-static char __pyx_doc_6gensim_7corpora_13cython_binary_8MmReader_10__iter__[] = "Iterate through corpus.\n\n        Notes\n        ------\n        Note that the total number of vectors returned is always equal to the number of rows specified\n        in the header, empty documents are inserted and yielded where appropriate, even if they are not explicitly\n        stored in the Matrix Market file.\n\n        Yields\n        ------\n        (int, list of (int, number))\n            Document id and Document in BoW format\n\n        ";
+static PyObject *__pyx_pw_6gensim_7corpora_13cython_binary_21MmReaderStructAtATime_9__iter__(PyObject *__pyx_v_self); /*proto*/
+static char __pyx_doc_6gensim_7corpora_13cython_binary_21MmReaderStructAtATime_8__iter__[] = "Iterate through corpus.\n\n        Notes\n        ------\n        Note that the total number of vectors returned is always equal to the number of rows specified\n        in the header, empty documents are inserted and yielded where appropriate, even if they are not explicitly\n        stored in the Matrix Market file.\n\n        Yields\n        ------\n        (int, list of (int, number))\n            Document id and Document in BoW format\n\n        ";
 #if CYTHON_COMPILING_IN_CPYTHON
-struct wrapperbase __pyx_wrapperbase_6gensim_7corpora_13cython_binary_8MmReader_10__iter__;
+struct wrapperbase __pyx_wrapperbase_6gensim_7corpora_13cython_binary_21MmReaderStructAtATime_8__iter__;
 #endif
-static PyObject *__pyx_pw_6gensim_7corpora_13cython_binary_8MmReader_11__iter__(PyObject *__pyx_v_self) {
+static PyObject *__pyx_pw_6gensim_7corpora_13cython_binary_21MmReaderStructAtATime_9__iter__(PyObject *__pyx_v_self) {
   PyObject *__pyx_r = 0;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__iter__ (wrapper)", 0);
-  __pyx_r = __pyx_pf_6gensim_7corpora_13cython_binary_8MmReader_10__iter__(((struct __pyx_obj_6gensim_7corpora_13cython_binary_MmReader *)__pyx_v_self));
+  __pyx_r = __pyx_pf_6gensim_7corpora_13cython_binary_21MmReaderStructAtATime_8__iter__(((struct __pyx_obj_6gensim_7corpora_13cython_binary_MmReaderStructAtATime *)__pyx_v_self));
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_6gensim_7corpora_13cython_binary_8MmReader_10__iter__(struct __pyx_obj_6gensim_7corpora_13cython_binary_MmReader *__pyx_v_self) {
+static PyObject *__pyx_pf_6gensim_7corpora_13cython_binary_21MmReaderStructAtATime_8__iter__(struct __pyx_obj_6gensim_7corpora_13cython_binary_MmReaderStructAtATime *__pyx_v_self) {
   struct __pyx_obj_6gensim_7corpora_13cython_binary___pyx_scope_struct____iter__ *__pyx_cur_scope;
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
@@ -2466,7 +2234,7 @@ static PyObject *__pyx_pf_6gensim_7corpora_13cython_binary_8MmReader_10__iter__(
   if (unlikely(!__pyx_cur_scope)) {
     __pyx_cur_scope = ((struct __pyx_obj_6gensim_7corpora_13cython_binary___pyx_scope_struct____iter__ *)Py_None);
     __Pyx_INCREF(Py_None);
-    __PYX_ERR(0, 136, __pyx_L1_error)
+    __PYX_ERR(0, 116, __pyx_L1_error)
   } else {
     __Pyx_GOTREF(__pyx_cur_scope);
   }
@@ -2474,7 +2242,7 @@ static PyObject *__pyx_pf_6gensim_7corpora_13cython_binary_8MmReader_10__iter__(
   __Pyx_INCREF((PyObject *)__pyx_cur_scope->__pyx_v_self);
   __Pyx_GIVEREF((PyObject *)__pyx_cur_scope->__pyx_v_self);
   {
-    __pyx_CoroutineObject *gen = __Pyx_Generator_New((__pyx_coroutine_body_t) __pyx_gb_6gensim_7corpora_13cython_binary_8MmReader_12generator, (PyObject *) __pyx_cur_scope, __pyx_n_s_iter, __pyx_n_s_MmReader___iter, __pyx_n_s_gensim_corpora_cython_binary); if (unlikely(!gen)) __PYX_ERR(0, 136, __pyx_L1_error)
+    __pyx_CoroutineObject *gen = __Pyx_Generator_New((__pyx_coroutine_body_t) __pyx_gb_6gensim_7corpora_13cython_binary_21MmReaderStructAtATime_10generator, (PyObject *) __pyx_cur_scope, __pyx_n_s_iter, __pyx_n_s_MmReaderStructAtATime___iter, __pyx_n_s_gensim_corpora_cython_binary); if (unlikely(!gen)) __PYX_ERR(0, 116, __pyx_L1_error)
     __Pyx_DECREF(__pyx_cur_scope);
     __Pyx_RefNannyFinishContext();
     return (PyObject *) gen;
@@ -2482,7 +2250,7 @@ static PyObject *__pyx_pf_6gensim_7corpora_13cython_binary_8MmReader_10__iter__(
 
   /* function exit code */
   __pyx_L1_error:;
-  __Pyx_AddTraceback("gensim.corpora.cython_binary.MmReader.__iter__", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("gensim.corpora.cython_binary.MmReaderStructAtATime.__iter__", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __Pyx_DECREF(((PyObject *)__pyx_cur_scope));
   __Pyx_XGIVEREF(__pyx_r);
@@ -2490,7 +2258,7 @@ static PyObject *__pyx_pf_6gensim_7corpora_13cython_binary_8MmReader_10__iter__(
   return __pyx_r;
 }
 
-static PyObject *__pyx_gb_6gensim_7corpora_13cython_binary_8MmReader_12generator(__pyx_CoroutineObject *__pyx_generator, CYTHON_UNUSED PyThreadState *__pyx_tstate, PyObject *__pyx_sent_value) /* generator body */
+static PyObject *__pyx_gb_6gensim_7corpora_13cython_binary_21MmReaderStructAtATime_10generator(__pyx_CoroutineObject *__pyx_generator, CYTHON_UNUSED PyThreadState *__pyx_tstate, PyObject *__pyx_sent_value) /* generator body */
 {
   struct __pyx_obj_6gensim_7corpora_13cython_binary___pyx_scope_struct____iter__ *__pyx_cur_scope = ((struct __pyx_obj_6gensim_7corpora_13cython_binary___pyx_scope_struct____iter__ *)__pyx_generator->closure);
   PyObject *__pyx_r = NULL;
@@ -2514,30 +2282,30 @@ static PyObject *__pyx_gb_6gensim_7corpora_13cython_binary_8MmReader_12generator
     return NULL;
   }
   __pyx_L3_first_run:;
-  if (unlikely(!__pyx_sent_value)) __PYX_ERR(0, 136, __pyx_L1_error)
+  if (unlikely(!__pyx_sent_value)) __PYX_ERR(0, 116, __pyx_L1_error)
 
-  /* "gensim/corpora/cython_binary.pyx":155
- *         cdef float value
+  /* "gensim/corpora/cython_binary.pyx":136
+ *         cdef TermCount tc
  * 
  *         file = fopen(self.input, "rb")             # <<<<<<<<<<<<<<
  *         self.skip_headers(file)
  * 
  */
-  __pyx_t_1 = __Pyx_PyObject_AsString(__pyx_cur_scope->__pyx_v_self->input); if (unlikely((!__pyx_t_1) && PyErr_Occurred())) __PYX_ERR(0, 155, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyObject_AsString(__pyx_cur_scope->__pyx_v_self->input); if (unlikely((!__pyx_t_1) && PyErr_Occurred())) __PYX_ERR(0, 136, __pyx_L1_error)
   __pyx_cur_scope->__pyx_v_file = fopen(__pyx_t_1, ((char const *)"rb"));
 
-  /* "gensim/corpora/cython_binary.pyx":156
+  /* "gensim/corpora/cython_binary.pyx":137
  * 
  *         file = fopen(self.input, "rb")
  *         self.skip_headers(file)             # <<<<<<<<<<<<<<
  * 
  *         while (fread(&docid, sizeof(docid), 1, file) == 1):
  */
-  __pyx_t_2 = ((struct __pyx_vtabstruct_6gensim_7corpora_13cython_binary_MmReader *)__pyx_cur_scope->__pyx_v_self->__pyx_vtab)->skip_headers(__pyx_cur_scope->__pyx_v_self, __pyx_cur_scope->__pyx_v_file); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 156, __pyx_L1_error)
+  __pyx_t_2 = ((struct __pyx_vtabstruct_6gensim_7corpora_13cython_binary_MmReaderStructAtATime *)__pyx_cur_scope->__pyx_v_self->__pyx_vtab)->skip_headers(__pyx_cur_scope->__pyx_v_self, __pyx_cur_scope->__pyx_v_file); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 137, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "gensim/corpora/cython_binary.pyx":158
+  /* "gensim/corpora/cython_binary.pyx":139
  *         self.skip_headers(file)
  * 
  *         while (fread(&docid, sizeof(docid), 1, file) == 1):             # <<<<<<<<<<<<<<
@@ -2548,21 +2316,21 @@ static PyObject *__pyx_gb_6gensim_7corpora_13cython_binary_8MmReader_12generator
     __pyx_t_3 = ((fread((&__pyx_cur_scope->__pyx_v_docid), (sizeof(__pyx_cur_scope->__pyx_v_docid)), 1, __pyx_cur_scope->__pyx_v_file) == 1) != 0);
     if (!__pyx_t_3) break;
 
-    /* "gensim/corpora/cython_binary.pyx":159
+    /* "gensim/corpora/cython_binary.pyx":140
  * 
  *         while (fread(&docid, sizeof(docid), 1, file) == 1):
  *             document = []             # <<<<<<<<<<<<<<
  *             fread( & doc_length, sizeof(doc_length), 1, file)
  * 
  */
-    __pyx_t_2 = PyList_New(0); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 159, __pyx_L1_error)
+    __pyx_t_2 = PyList_New(0); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 140, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
     __Pyx_XGOTREF(__pyx_cur_scope->__pyx_v_document);
     __Pyx_XDECREF_SET(__pyx_cur_scope->__pyx_v_document, ((PyObject*)__pyx_t_2));
     __Pyx_GIVEREF(__pyx_t_2);
     __pyx_t_2 = 0;
 
-    /* "gensim/corpora/cython_binary.pyx":160
+    /* "gensim/corpora/cython_binary.pyx":141
  *         while (fread(&docid, sizeof(docid), 1, file) == 1):
  *             document = []
  *             fread( & doc_length, sizeof(doc_length), 1, file)             # <<<<<<<<<<<<<<
@@ -2571,78 +2339,69 @@ static PyObject *__pyx_gb_6gensim_7corpora_13cython_binary_8MmReader_12generator
  */
     fread((&__pyx_cur_scope->__pyx_v_doc_length), (sizeof(__pyx_cur_scope->__pyx_v_doc_length)), 1, __pyx_cur_scope->__pyx_v_file);
 
-    /* "gensim/corpora/cython_binary.pyx":162
+    /* "gensim/corpora/cython_binary.pyx":143
  *             fread( & doc_length, sizeof(doc_length), 1, file)
  * 
  *             for i in range(doc_length):             # <<<<<<<<<<<<<<
- *                 fread( & termid, sizeof(termid), 1, file)
- *                 fread( & value, sizeof(value), 1, file)
+ *                 fread( &tc, sizeof(tc), 1, file)
+ * 
  */
     __pyx_t_4 = __pyx_cur_scope->__pyx_v_doc_length;
     for (__pyx_t_5 = 0; __pyx_t_5 < __pyx_t_4; __pyx_t_5+=1) {
       __pyx_cur_scope->__pyx_v_i = __pyx_t_5;
 
-      /* "gensim/corpora/cython_binary.pyx":163
+      /* "gensim/corpora/cython_binary.pyx":144
  * 
  *             for i in range(doc_length):
- *                 fread( & termid, sizeof(termid), 1, file)             # <<<<<<<<<<<<<<
- *                 fread( & value, sizeof(value), 1, file)
- * 
- */
-      fread((&__pyx_cur_scope->__pyx_v_termid), (sizeof(__pyx_cur_scope->__pyx_v_termid)), 1, __pyx_cur_scope->__pyx_v_file);
-
-      /* "gensim/corpora/cython_binary.pyx":164
- *             for i in range(doc_length):
- *                 fread( & termid, sizeof(termid), 1, file)
- *                 fread( & value, sizeof(value), 1, file)             # <<<<<<<<<<<<<<
+ *                 fread( &tc, sizeof(tc), 1, file)             # <<<<<<<<<<<<<<
  * 
  *                 if not self.transposed:
  */
-      fread((&__pyx_cur_scope->__pyx_v_value), (sizeof(__pyx_cur_scope->__pyx_v_value)), 1, __pyx_cur_scope->__pyx_v_file);
+      fread((&__pyx_cur_scope->__pyx_v_tc), (sizeof(__pyx_cur_scope->__pyx_v_tc)), 1, __pyx_cur_scope->__pyx_v_file);
 
-      /* "gensim/corpora/cython_binary.pyx":166
- *                 fread( & value, sizeof(value), 1, file)
+      /* "gensim/corpora/cython_binary.pyx":146
+ *                 fread( &tc, sizeof(tc), 1, file)
  * 
  *                 if not self.transposed:             # <<<<<<<<<<<<<<
- *                     termid, docid = docid, termid
+ *                     tc.termid, docid = docid, tc.termid
  * 
  */
       __pyx_t_3 = ((!(__pyx_cur_scope->__pyx_v_self->transposed != 0)) != 0);
       if (__pyx_t_3) {
 
-        /* "gensim/corpora/cython_binary.pyx":167
+        /* "gensim/corpora/cython_binary.pyx":147
  * 
  *                 if not self.transposed:
- *                     termid, docid = docid, termid             # <<<<<<<<<<<<<<
+ *                     tc.termid, docid = docid, tc.termid             # <<<<<<<<<<<<<<
  * 
- *                 document.append((termid, value,))  # add another field to the current document
+ *                 document.append((tc.termid, tc.value,))  # add another field to the current document
  */
         __pyx_t_6 = __pyx_cur_scope->__pyx_v_docid;
-        __pyx_t_7 = __pyx_cur_scope->__pyx_v_termid;
-        __pyx_cur_scope->__pyx_v_termid = __pyx_t_6;
+        __pyx_t_7 = __pyx_cur_scope->__pyx_v_tc.termid;
+        __pyx_cur_scope->__pyx_v_tc.termid = __pyx_t_6;
         __pyx_cur_scope->__pyx_v_docid = __pyx_t_7;
 
-        /* "gensim/corpora/cython_binary.pyx":166
- *                 fread( & value, sizeof(value), 1, file)
+        /* "gensim/corpora/cython_binary.pyx":146
+ *                 fread( &tc, sizeof(tc), 1, file)
  * 
  *                 if not self.transposed:             # <<<<<<<<<<<<<<
- *                     termid, docid = docid, termid
+ *                     tc.termid, docid = docid, tc.termid
  * 
  */
       }
 
-      /* "gensim/corpora/cython_binary.pyx":169
- *                     termid, docid = docid, termid
+      /* "gensim/corpora/cython_binary.pyx":149
+ *                     tc.termid, docid = docid, tc.termid
  * 
- *                 document.append((termid, value,))  # add another field to the current document             # <<<<<<<<<<<<<<
+ *                 document.append((tc.termid, tc.value,))  # add another field to the current document             # <<<<<<<<<<<<<<
  *             yield document
  * 
  */
-      __pyx_t_2 = __Pyx_PyInt_From_int(__pyx_cur_scope->__pyx_v_termid); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 169, __pyx_L1_error)
+      __pyx_t_2 = __Pyx_PyInt_From_int(__pyx_cur_scope->__pyx_v_tc.termid); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 149, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_2);
-      __pyx_t_8 = PyFloat_FromDouble(__pyx_cur_scope->__pyx_v_value); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 169, __pyx_L1_error)
+      __pyx_t_8 = PyFloat_FromDouble(__pyx_cur_scope->__pyx_v_tc.value); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 149, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_8);
-      __pyx_t_9 = PyTuple_New(2); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 169, __pyx_L1_error)
+      __pyx_t_9 = PyTuple_New(2); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 149, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_9);
       __Pyx_GIVEREF(__pyx_t_2);
       PyTuple_SET_ITEM(__pyx_t_9, 0, __pyx_t_2);
@@ -2650,13 +2409,13 @@ static PyObject *__pyx_gb_6gensim_7corpora_13cython_binary_8MmReader_12generator
       PyTuple_SET_ITEM(__pyx_t_9, 1, __pyx_t_8);
       __pyx_t_2 = 0;
       __pyx_t_8 = 0;
-      __pyx_t_10 = __Pyx_PyList_Append(__pyx_cur_scope->__pyx_v_document, __pyx_t_9); if (unlikely(__pyx_t_10 == ((int)-1))) __PYX_ERR(0, 169, __pyx_L1_error)
+      __pyx_t_10 = __Pyx_PyList_Append(__pyx_cur_scope->__pyx_v_document, __pyx_t_9); if (unlikely(__pyx_t_10 == ((int)-1))) __PYX_ERR(0, 149, __pyx_L1_error)
       __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
     }
 
-    /* "gensim/corpora/cython_binary.pyx":170
+    /* "gensim/corpora/cython_binary.pyx":150
  * 
- *                 document.append((termid, value,))  # add another field to the current document
+ *                 document.append((tc.termid, tc.value,))  # add another field to the current document
  *             yield document             # <<<<<<<<<<<<<<
  * 
  *         fclose(file)
@@ -2670,18 +2429,20 @@ static PyObject *__pyx_gb_6gensim_7corpora_13cython_binary_8MmReader_12generator
     __pyx_generator->resume_label = 1;
     return __pyx_r;
     __pyx_L9_resume_from_yield:;
-    if (unlikely(!__pyx_sent_value)) __PYX_ERR(0, 170, __pyx_L1_error)
+    if (unlikely(!__pyx_sent_value)) __PYX_ERR(0, 150, __pyx_L1_error)
   }
 
-  /* "gensim/corpora/cython_binary.pyx":172
+  /* "gensim/corpora/cython_binary.pyx":152
  *             yield document
  * 
  *         fclose(file)             # <<<<<<<<<<<<<<
+ * 
+ * 
  */
   fclose(__pyx_cur_scope->__pyx_v_file);
   CYTHON_MAYBE_UNUSED_VAR(__pyx_cur_scope);
 
-  /* "gensim/corpora/cython_binary.pyx":136
+  /* "gensim/corpora/cython_binary.pyx":116
  *         return num_docs, num_terms, num_nnz
  * 
  *     def __iter__(self):             # <<<<<<<<<<<<<<
@@ -2706,7 +2467,7 @@ static PyObject *__pyx_gb_6gensim_7corpora_13cython_binary_8MmReader_12generator
   return __pyx_r;
 }
 
-/* "gensim/corpora/cython_binary.pyx":42
+/* "gensim/corpora/cython_binary.pyx":47
  * 
  *     """
  *     cdef public input             # <<<<<<<<<<<<<<
@@ -2715,19 +2476,19 @@ static PyObject *__pyx_gb_6gensim_7corpora_13cython_binary_8MmReader_12generator
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_6gensim_7corpora_13cython_binary_8MmReader_5input_1__get__(PyObject *__pyx_v_self); /*proto*/
-static PyObject *__pyx_pw_6gensim_7corpora_13cython_binary_8MmReader_5input_1__get__(PyObject *__pyx_v_self) {
+static PyObject *__pyx_pw_6gensim_7corpora_13cython_binary_21MmReaderStructAtATime_5input_1__get__(PyObject *__pyx_v_self); /*proto*/
+static PyObject *__pyx_pw_6gensim_7corpora_13cython_binary_21MmReaderStructAtATime_5input_1__get__(PyObject *__pyx_v_self) {
   PyObject *__pyx_r = 0;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__get__ (wrapper)", 0);
-  __pyx_r = __pyx_pf_6gensim_7corpora_13cython_binary_8MmReader_5input___get__(((struct __pyx_obj_6gensim_7corpora_13cython_binary_MmReader *)__pyx_v_self));
+  __pyx_r = __pyx_pf_6gensim_7corpora_13cython_binary_21MmReaderStructAtATime_5input___get__(((struct __pyx_obj_6gensim_7corpora_13cython_binary_MmReaderStructAtATime *)__pyx_v_self));
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_6gensim_7corpora_13cython_binary_8MmReader_5input___get__(struct __pyx_obj_6gensim_7corpora_13cython_binary_MmReader *__pyx_v_self) {
+static PyObject *__pyx_pf_6gensim_7corpora_13cython_binary_21MmReaderStructAtATime_5input___get__(struct __pyx_obj_6gensim_7corpora_13cython_binary_MmReaderStructAtATime *__pyx_v_self) {
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__get__", 0);
@@ -2744,19 +2505,19 @@ static PyObject *__pyx_pf_6gensim_7corpora_13cython_binary_8MmReader_5input___ge
 }
 
 /* Python wrapper */
-static int __pyx_pw_6gensim_7corpora_13cython_binary_8MmReader_5input_3__set__(PyObject *__pyx_v_self, PyObject *__pyx_v_value); /*proto*/
-static int __pyx_pw_6gensim_7corpora_13cython_binary_8MmReader_5input_3__set__(PyObject *__pyx_v_self, PyObject *__pyx_v_value) {
+static int __pyx_pw_6gensim_7corpora_13cython_binary_21MmReaderStructAtATime_5input_3__set__(PyObject *__pyx_v_self, PyObject *__pyx_v_value); /*proto*/
+static int __pyx_pw_6gensim_7corpora_13cython_binary_21MmReaderStructAtATime_5input_3__set__(PyObject *__pyx_v_self, PyObject *__pyx_v_value) {
   int __pyx_r;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__set__ (wrapper)", 0);
-  __pyx_r = __pyx_pf_6gensim_7corpora_13cython_binary_8MmReader_5input_2__set__(((struct __pyx_obj_6gensim_7corpora_13cython_binary_MmReader *)__pyx_v_self), ((PyObject *)__pyx_v_value));
+  __pyx_r = __pyx_pf_6gensim_7corpora_13cython_binary_21MmReaderStructAtATime_5input_2__set__(((struct __pyx_obj_6gensim_7corpora_13cython_binary_MmReaderStructAtATime *)__pyx_v_self), ((PyObject *)__pyx_v_value));
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static int __pyx_pf_6gensim_7corpora_13cython_binary_8MmReader_5input_2__set__(struct __pyx_obj_6gensim_7corpora_13cython_binary_MmReader *__pyx_v_self, PyObject *__pyx_v_value) {
+static int __pyx_pf_6gensim_7corpora_13cython_binary_21MmReaderStructAtATime_5input_2__set__(struct __pyx_obj_6gensim_7corpora_13cython_binary_MmReaderStructAtATime *__pyx_v_self, PyObject *__pyx_v_value) {
   int __pyx_r;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__set__", 0);
@@ -2773,19 +2534,19 @@ static int __pyx_pf_6gensim_7corpora_13cython_binary_8MmReader_5input_2__set__(s
 }
 
 /* Python wrapper */
-static int __pyx_pw_6gensim_7corpora_13cython_binary_8MmReader_5input_5__del__(PyObject *__pyx_v_self); /*proto*/
-static int __pyx_pw_6gensim_7corpora_13cython_binary_8MmReader_5input_5__del__(PyObject *__pyx_v_self) {
+static int __pyx_pw_6gensim_7corpora_13cython_binary_21MmReaderStructAtATime_5input_5__del__(PyObject *__pyx_v_self); /*proto*/
+static int __pyx_pw_6gensim_7corpora_13cython_binary_21MmReaderStructAtATime_5input_5__del__(PyObject *__pyx_v_self) {
   int __pyx_r;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__del__ (wrapper)", 0);
-  __pyx_r = __pyx_pf_6gensim_7corpora_13cython_binary_8MmReader_5input_4__del__(((struct __pyx_obj_6gensim_7corpora_13cython_binary_MmReader *)__pyx_v_self));
+  __pyx_r = __pyx_pf_6gensim_7corpora_13cython_binary_21MmReaderStructAtATime_5input_4__del__(((struct __pyx_obj_6gensim_7corpora_13cython_binary_MmReaderStructAtATime *)__pyx_v_self));
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static int __pyx_pf_6gensim_7corpora_13cython_binary_8MmReader_5input_4__del__(struct __pyx_obj_6gensim_7corpora_13cython_binary_MmReader *__pyx_v_self) {
+static int __pyx_pf_6gensim_7corpora_13cython_binary_21MmReaderStructAtATime_5input_4__del__(struct __pyx_obj_6gensim_7corpora_13cython_binary_MmReaderStructAtATime *__pyx_v_self) {
   int __pyx_r;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__del__", 0);
@@ -2801,7 +2562,7 @@ static int __pyx_pf_6gensim_7corpora_13cython_binary_8MmReader_5input_4__del__(s
   return __pyx_r;
 }
 
-/* "gensim/corpora/cython_binary.pyx":43
+/* "gensim/corpora/cython_binary.pyx":48
  *     """
  *     cdef public input
  *     cdef public bint transposed             # <<<<<<<<<<<<<<
@@ -2810,25 +2571,25 @@ static int __pyx_pf_6gensim_7corpora_13cython_binary_8MmReader_5input_4__del__(s
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_6gensim_7corpora_13cython_binary_8MmReader_10transposed_1__get__(PyObject *__pyx_v_self); /*proto*/
-static PyObject *__pyx_pw_6gensim_7corpora_13cython_binary_8MmReader_10transposed_1__get__(PyObject *__pyx_v_self) {
+static PyObject *__pyx_pw_6gensim_7corpora_13cython_binary_21MmReaderStructAtATime_10transposed_1__get__(PyObject *__pyx_v_self); /*proto*/
+static PyObject *__pyx_pw_6gensim_7corpora_13cython_binary_21MmReaderStructAtATime_10transposed_1__get__(PyObject *__pyx_v_self) {
   PyObject *__pyx_r = 0;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__get__ (wrapper)", 0);
-  __pyx_r = __pyx_pf_6gensim_7corpora_13cython_binary_8MmReader_10transposed___get__(((struct __pyx_obj_6gensim_7corpora_13cython_binary_MmReader *)__pyx_v_self));
+  __pyx_r = __pyx_pf_6gensim_7corpora_13cython_binary_21MmReaderStructAtATime_10transposed___get__(((struct __pyx_obj_6gensim_7corpora_13cython_binary_MmReaderStructAtATime *)__pyx_v_self));
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_6gensim_7corpora_13cython_binary_8MmReader_10transposed___get__(struct __pyx_obj_6gensim_7corpora_13cython_binary_MmReader *__pyx_v_self) {
+static PyObject *__pyx_pf_6gensim_7corpora_13cython_binary_21MmReaderStructAtATime_10transposed___get__(struct __pyx_obj_6gensim_7corpora_13cython_binary_MmReaderStructAtATime *__pyx_v_self) {
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   PyObject *__pyx_t_1 = NULL;
   __Pyx_RefNannySetupContext("__get__", 0);
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = __Pyx_PyBool_FromLong(__pyx_v_self->transposed); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 43, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyBool_FromLong(__pyx_v_self->transposed); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 48, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
@@ -2837,7 +2598,7 @@ static PyObject *__pyx_pf_6gensim_7corpora_13cython_binary_8MmReader_10transpose
   /* function exit code */
   __pyx_L1_error:;
   __Pyx_XDECREF(__pyx_t_1);
-  __Pyx_AddTraceback("gensim.corpora.cython_binary.MmReader.transposed.__get__", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("gensim.corpora.cython_binary.MmReaderStructAtATime.transposed.__get__", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __Pyx_XGIVEREF(__pyx_r);
@@ -2846,38 +2607,38 @@ static PyObject *__pyx_pf_6gensim_7corpora_13cython_binary_8MmReader_10transpose
 }
 
 /* Python wrapper */
-static int __pyx_pw_6gensim_7corpora_13cython_binary_8MmReader_10transposed_3__set__(PyObject *__pyx_v_self, PyObject *__pyx_v_value); /*proto*/
-static int __pyx_pw_6gensim_7corpora_13cython_binary_8MmReader_10transposed_3__set__(PyObject *__pyx_v_self, PyObject *__pyx_v_value) {
+static int __pyx_pw_6gensim_7corpora_13cython_binary_21MmReaderStructAtATime_10transposed_3__set__(PyObject *__pyx_v_self, PyObject *__pyx_v_value); /*proto*/
+static int __pyx_pw_6gensim_7corpora_13cython_binary_21MmReaderStructAtATime_10transposed_3__set__(PyObject *__pyx_v_self, PyObject *__pyx_v_value) {
   int __pyx_r;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__set__ (wrapper)", 0);
-  __pyx_r = __pyx_pf_6gensim_7corpora_13cython_binary_8MmReader_10transposed_2__set__(((struct __pyx_obj_6gensim_7corpora_13cython_binary_MmReader *)__pyx_v_self), ((PyObject *)__pyx_v_value));
+  __pyx_r = __pyx_pf_6gensim_7corpora_13cython_binary_21MmReaderStructAtATime_10transposed_2__set__(((struct __pyx_obj_6gensim_7corpora_13cython_binary_MmReaderStructAtATime *)__pyx_v_self), ((PyObject *)__pyx_v_value));
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static int __pyx_pf_6gensim_7corpora_13cython_binary_8MmReader_10transposed_2__set__(struct __pyx_obj_6gensim_7corpora_13cython_binary_MmReader *__pyx_v_self, PyObject *__pyx_v_value) {
+static int __pyx_pf_6gensim_7corpora_13cython_binary_21MmReaderStructAtATime_10transposed_2__set__(struct __pyx_obj_6gensim_7corpora_13cython_binary_MmReaderStructAtATime *__pyx_v_self, PyObject *__pyx_v_value) {
   int __pyx_r;
   __Pyx_RefNannyDeclarations
   int __pyx_t_1;
   __Pyx_RefNannySetupContext("__set__", 0);
-  __pyx_t_1 = __Pyx_PyObject_IsTrue(__pyx_v_value); if (unlikely((__pyx_t_1 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 43, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyObject_IsTrue(__pyx_v_value); if (unlikely((__pyx_t_1 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 48, __pyx_L1_error)
   __pyx_v_self->transposed = __pyx_t_1;
 
   /* function exit code */
   __pyx_r = 0;
   goto __pyx_L0;
   __pyx_L1_error:;
-  __Pyx_AddTraceback("gensim.corpora.cython_binary.MmReader.transposed.__set__", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("gensim.corpora.cython_binary.MmReaderStructAtATime.transposed.__set__", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = -1;
   __pyx_L0:;
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-/* "gensim/corpora/cython_binary.pyx":44
+/* "gensim/corpora/cython_binary.pyx":49
  *     cdef public input
  *     cdef public bint transposed
  *     cdef public int num_docs, num_terms, num_nnz             # <<<<<<<<<<<<<<
@@ -2886,25 +2647,25 @@ static int __pyx_pf_6gensim_7corpora_13cython_binary_8MmReader_10transposed_2__s
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_6gensim_7corpora_13cython_binary_8MmReader_8num_docs_1__get__(PyObject *__pyx_v_self); /*proto*/
-static PyObject *__pyx_pw_6gensim_7corpora_13cython_binary_8MmReader_8num_docs_1__get__(PyObject *__pyx_v_self) {
+static PyObject *__pyx_pw_6gensim_7corpora_13cython_binary_21MmReaderStructAtATime_8num_docs_1__get__(PyObject *__pyx_v_self); /*proto*/
+static PyObject *__pyx_pw_6gensim_7corpora_13cython_binary_21MmReaderStructAtATime_8num_docs_1__get__(PyObject *__pyx_v_self) {
   PyObject *__pyx_r = 0;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__get__ (wrapper)", 0);
-  __pyx_r = __pyx_pf_6gensim_7corpora_13cython_binary_8MmReader_8num_docs___get__(((struct __pyx_obj_6gensim_7corpora_13cython_binary_MmReader *)__pyx_v_self));
+  __pyx_r = __pyx_pf_6gensim_7corpora_13cython_binary_21MmReaderStructAtATime_8num_docs___get__(((struct __pyx_obj_6gensim_7corpora_13cython_binary_MmReaderStructAtATime *)__pyx_v_self));
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_6gensim_7corpora_13cython_binary_8MmReader_8num_docs___get__(struct __pyx_obj_6gensim_7corpora_13cython_binary_MmReader *__pyx_v_self) {
+static PyObject *__pyx_pf_6gensim_7corpora_13cython_binary_21MmReaderStructAtATime_8num_docs___get__(struct __pyx_obj_6gensim_7corpora_13cython_binary_MmReaderStructAtATime *__pyx_v_self) {
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   PyObject *__pyx_t_1 = NULL;
   __Pyx_RefNannySetupContext("__get__", 0);
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = __Pyx_PyInt_From_int(__pyx_v_self->num_docs); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 44, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyInt_From_int(__pyx_v_self->num_docs); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 49, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
@@ -2913,7 +2674,7 @@ static PyObject *__pyx_pf_6gensim_7corpora_13cython_binary_8MmReader_8num_docs__
   /* function exit code */
   __pyx_L1_error:;
   __Pyx_XDECREF(__pyx_t_1);
-  __Pyx_AddTraceback("gensim.corpora.cython_binary.MmReader.num_docs.__get__", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("gensim.corpora.cython_binary.MmReaderStructAtATime.num_docs.__get__", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __Pyx_XGIVEREF(__pyx_r);
@@ -2922,31 +2683,31 @@ static PyObject *__pyx_pf_6gensim_7corpora_13cython_binary_8MmReader_8num_docs__
 }
 
 /* Python wrapper */
-static int __pyx_pw_6gensim_7corpora_13cython_binary_8MmReader_8num_docs_3__set__(PyObject *__pyx_v_self, PyObject *__pyx_v_value); /*proto*/
-static int __pyx_pw_6gensim_7corpora_13cython_binary_8MmReader_8num_docs_3__set__(PyObject *__pyx_v_self, PyObject *__pyx_v_value) {
+static int __pyx_pw_6gensim_7corpora_13cython_binary_21MmReaderStructAtATime_8num_docs_3__set__(PyObject *__pyx_v_self, PyObject *__pyx_v_value); /*proto*/
+static int __pyx_pw_6gensim_7corpora_13cython_binary_21MmReaderStructAtATime_8num_docs_3__set__(PyObject *__pyx_v_self, PyObject *__pyx_v_value) {
   int __pyx_r;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__set__ (wrapper)", 0);
-  __pyx_r = __pyx_pf_6gensim_7corpora_13cython_binary_8MmReader_8num_docs_2__set__(((struct __pyx_obj_6gensim_7corpora_13cython_binary_MmReader *)__pyx_v_self), ((PyObject *)__pyx_v_value));
+  __pyx_r = __pyx_pf_6gensim_7corpora_13cython_binary_21MmReaderStructAtATime_8num_docs_2__set__(((struct __pyx_obj_6gensim_7corpora_13cython_binary_MmReaderStructAtATime *)__pyx_v_self), ((PyObject *)__pyx_v_value));
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static int __pyx_pf_6gensim_7corpora_13cython_binary_8MmReader_8num_docs_2__set__(struct __pyx_obj_6gensim_7corpora_13cython_binary_MmReader *__pyx_v_self, PyObject *__pyx_v_value) {
+static int __pyx_pf_6gensim_7corpora_13cython_binary_21MmReaderStructAtATime_8num_docs_2__set__(struct __pyx_obj_6gensim_7corpora_13cython_binary_MmReaderStructAtATime *__pyx_v_self, PyObject *__pyx_v_value) {
   int __pyx_r;
   __Pyx_RefNannyDeclarations
   int __pyx_t_1;
   __Pyx_RefNannySetupContext("__set__", 0);
-  __pyx_t_1 = __Pyx_PyInt_As_int(__pyx_v_value); if (unlikely((__pyx_t_1 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 44, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyInt_As_int(__pyx_v_value); if (unlikely((__pyx_t_1 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 49, __pyx_L1_error)
   __pyx_v_self->num_docs = __pyx_t_1;
 
   /* function exit code */
   __pyx_r = 0;
   goto __pyx_L0;
   __pyx_L1_error:;
-  __Pyx_AddTraceback("gensim.corpora.cython_binary.MmReader.num_docs.__set__", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("gensim.corpora.cython_binary.MmReaderStructAtATime.num_docs.__set__", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = -1;
   __pyx_L0:;
   __Pyx_RefNannyFinishContext();
@@ -2954,25 +2715,25 @@ static int __pyx_pf_6gensim_7corpora_13cython_binary_8MmReader_8num_docs_2__set_
 }
 
 /* Python wrapper */
-static PyObject *__pyx_pw_6gensim_7corpora_13cython_binary_8MmReader_9num_terms_1__get__(PyObject *__pyx_v_self); /*proto*/
-static PyObject *__pyx_pw_6gensim_7corpora_13cython_binary_8MmReader_9num_terms_1__get__(PyObject *__pyx_v_self) {
+static PyObject *__pyx_pw_6gensim_7corpora_13cython_binary_21MmReaderStructAtATime_9num_terms_1__get__(PyObject *__pyx_v_self); /*proto*/
+static PyObject *__pyx_pw_6gensim_7corpora_13cython_binary_21MmReaderStructAtATime_9num_terms_1__get__(PyObject *__pyx_v_self) {
   PyObject *__pyx_r = 0;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__get__ (wrapper)", 0);
-  __pyx_r = __pyx_pf_6gensim_7corpora_13cython_binary_8MmReader_9num_terms___get__(((struct __pyx_obj_6gensim_7corpora_13cython_binary_MmReader *)__pyx_v_self));
+  __pyx_r = __pyx_pf_6gensim_7corpora_13cython_binary_21MmReaderStructAtATime_9num_terms___get__(((struct __pyx_obj_6gensim_7corpora_13cython_binary_MmReaderStructAtATime *)__pyx_v_self));
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_6gensim_7corpora_13cython_binary_8MmReader_9num_terms___get__(struct __pyx_obj_6gensim_7corpora_13cython_binary_MmReader *__pyx_v_self) {
+static PyObject *__pyx_pf_6gensim_7corpora_13cython_binary_21MmReaderStructAtATime_9num_terms___get__(struct __pyx_obj_6gensim_7corpora_13cython_binary_MmReaderStructAtATime *__pyx_v_self) {
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   PyObject *__pyx_t_1 = NULL;
   __Pyx_RefNannySetupContext("__get__", 0);
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = __Pyx_PyInt_From_int(__pyx_v_self->num_terms); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 44, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyInt_From_int(__pyx_v_self->num_terms); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 49, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
@@ -2981,7 +2742,7 @@ static PyObject *__pyx_pf_6gensim_7corpora_13cython_binary_8MmReader_9num_terms_
   /* function exit code */
   __pyx_L1_error:;
   __Pyx_XDECREF(__pyx_t_1);
-  __Pyx_AddTraceback("gensim.corpora.cython_binary.MmReader.num_terms.__get__", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("gensim.corpora.cython_binary.MmReaderStructAtATime.num_terms.__get__", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __Pyx_XGIVEREF(__pyx_r);
@@ -2990,31 +2751,31 @@ static PyObject *__pyx_pf_6gensim_7corpora_13cython_binary_8MmReader_9num_terms_
 }
 
 /* Python wrapper */
-static int __pyx_pw_6gensim_7corpora_13cython_binary_8MmReader_9num_terms_3__set__(PyObject *__pyx_v_self, PyObject *__pyx_v_value); /*proto*/
-static int __pyx_pw_6gensim_7corpora_13cython_binary_8MmReader_9num_terms_3__set__(PyObject *__pyx_v_self, PyObject *__pyx_v_value) {
+static int __pyx_pw_6gensim_7corpora_13cython_binary_21MmReaderStructAtATime_9num_terms_3__set__(PyObject *__pyx_v_self, PyObject *__pyx_v_value); /*proto*/
+static int __pyx_pw_6gensim_7corpora_13cython_binary_21MmReaderStructAtATime_9num_terms_3__set__(PyObject *__pyx_v_self, PyObject *__pyx_v_value) {
   int __pyx_r;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__set__ (wrapper)", 0);
-  __pyx_r = __pyx_pf_6gensim_7corpora_13cython_binary_8MmReader_9num_terms_2__set__(((struct __pyx_obj_6gensim_7corpora_13cython_binary_MmReader *)__pyx_v_self), ((PyObject *)__pyx_v_value));
+  __pyx_r = __pyx_pf_6gensim_7corpora_13cython_binary_21MmReaderStructAtATime_9num_terms_2__set__(((struct __pyx_obj_6gensim_7corpora_13cython_binary_MmReaderStructAtATime *)__pyx_v_self), ((PyObject *)__pyx_v_value));
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static int __pyx_pf_6gensim_7corpora_13cython_binary_8MmReader_9num_terms_2__set__(struct __pyx_obj_6gensim_7corpora_13cython_binary_MmReader *__pyx_v_self, PyObject *__pyx_v_value) {
+static int __pyx_pf_6gensim_7corpora_13cython_binary_21MmReaderStructAtATime_9num_terms_2__set__(struct __pyx_obj_6gensim_7corpora_13cython_binary_MmReaderStructAtATime *__pyx_v_self, PyObject *__pyx_v_value) {
   int __pyx_r;
   __Pyx_RefNannyDeclarations
   int __pyx_t_1;
   __Pyx_RefNannySetupContext("__set__", 0);
-  __pyx_t_1 = __Pyx_PyInt_As_int(__pyx_v_value); if (unlikely((__pyx_t_1 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 44, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyInt_As_int(__pyx_v_value); if (unlikely((__pyx_t_1 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 49, __pyx_L1_error)
   __pyx_v_self->num_terms = __pyx_t_1;
 
   /* function exit code */
   __pyx_r = 0;
   goto __pyx_L0;
   __pyx_L1_error:;
-  __Pyx_AddTraceback("gensim.corpora.cython_binary.MmReader.num_terms.__set__", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("gensim.corpora.cython_binary.MmReaderStructAtATime.num_terms.__set__", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = -1;
   __pyx_L0:;
   __Pyx_RefNannyFinishContext();
@@ -3022,25 +2783,25 @@ static int __pyx_pf_6gensim_7corpora_13cython_binary_8MmReader_9num_terms_2__set
 }
 
 /* Python wrapper */
-static PyObject *__pyx_pw_6gensim_7corpora_13cython_binary_8MmReader_7num_nnz_1__get__(PyObject *__pyx_v_self); /*proto*/
-static PyObject *__pyx_pw_6gensim_7corpora_13cython_binary_8MmReader_7num_nnz_1__get__(PyObject *__pyx_v_self) {
+static PyObject *__pyx_pw_6gensim_7corpora_13cython_binary_21MmReaderStructAtATime_7num_nnz_1__get__(PyObject *__pyx_v_self); /*proto*/
+static PyObject *__pyx_pw_6gensim_7corpora_13cython_binary_21MmReaderStructAtATime_7num_nnz_1__get__(PyObject *__pyx_v_self) {
   PyObject *__pyx_r = 0;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__get__ (wrapper)", 0);
-  __pyx_r = __pyx_pf_6gensim_7corpora_13cython_binary_8MmReader_7num_nnz___get__(((struct __pyx_obj_6gensim_7corpora_13cython_binary_MmReader *)__pyx_v_self));
+  __pyx_r = __pyx_pf_6gensim_7corpora_13cython_binary_21MmReaderStructAtATime_7num_nnz___get__(((struct __pyx_obj_6gensim_7corpora_13cython_binary_MmReaderStructAtATime *)__pyx_v_self));
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_6gensim_7corpora_13cython_binary_8MmReader_7num_nnz___get__(struct __pyx_obj_6gensim_7corpora_13cython_binary_MmReader *__pyx_v_self) {
+static PyObject *__pyx_pf_6gensim_7corpora_13cython_binary_21MmReaderStructAtATime_7num_nnz___get__(struct __pyx_obj_6gensim_7corpora_13cython_binary_MmReaderStructAtATime *__pyx_v_self) {
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   PyObject *__pyx_t_1 = NULL;
   __Pyx_RefNannySetupContext("__get__", 0);
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = __Pyx_PyInt_From_int(__pyx_v_self->num_nnz); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 44, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyInt_From_int(__pyx_v_self->num_nnz); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 49, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
@@ -3049,7 +2810,7 @@ static PyObject *__pyx_pf_6gensim_7corpora_13cython_binary_8MmReader_7num_nnz___
   /* function exit code */
   __pyx_L1_error:;
   __Pyx_XDECREF(__pyx_t_1);
-  __Pyx_AddTraceback("gensim.corpora.cython_binary.MmReader.num_nnz.__get__", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("gensim.corpora.cython_binary.MmReaderStructAtATime.num_nnz.__get__", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __Pyx_XGIVEREF(__pyx_r);
@@ -3058,31 +2819,31 @@ static PyObject *__pyx_pf_6gensim_7corpora_13cython_binary_8MmReader_7num_nnz___
 }
 
 /* Python wrapper */
-static int __pyx_pw_6gensim_7corpora_13cython_binary_8MmReader_7num_nnz_3__set__(PyObject *__pyx_v_self, PyObject *__pyx_v_value); /*proto*/
-static int __pyx_pw_6gensim_7corpora_13cython_binary_8MmReader_7num_nnz_3__set__(PyObject *__pyx_v_self, PyObject *__pyx_v_value) {
+static int __pyx_pw_6gensim_7corpora_13cython_binary_21MmReaderStructAtATime_7num_nnz_3__set__(PyObject *__pyx_v_self, PyObject *__pyx_v_value); /*proto*/
+static int __pyx_pw_6gensim_7corpora_13cython_binary_21MmReaderStructAtATime_7num_nnz_3__set__(PyObject *__pyx_v_self, PyObject *__pyx_v_value) {
   int __pyx_r;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__set__ (wrapper)", 0);
-  __pyx_r = __pyx_pf_6gensim_7corpora_13cython_binary_8MmReader_7num_nnz_2__set__(((struct __pyx_obj_6gensim_7corpora_13cython_binary_MmReader *)__pyx_v_self), ((PyObject *)__pyx_v_value));
+  __pyx_r = __pyx_pf_6gensim_7corpora_13cython_binary_21MmReaderStructAtATime_7num_nnz_2__set__(((struct __pyx_obj_6gensim_7corpora_13cython_binary_MmReaderStructAtATime *)__pyx_v_self), ((PyObject *)__pyx_v_value));
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static int __pyx_pf_6gensim_7corpora_13cython_binary_8MmReader_7num_nnz_2__set__(struct __pyx_obj_6gensim_7corpora_13cython_binary_MmReader *__pyx_v_self, PyObject *__pyx_v_value) {
+static int __pyx_pf_6gensim_7corpora_13cython_binary_21MmReaderStructAtATime_7num_nnz_2__set__(struct __pyx_obj_6gensim_7corpora_13cython_binary_MmReaderStructAtATime *__pyx_v_self, PyObject *__pyx_v_value) {
   int __pyx_r;
   __Pyx_RefNannyDeclarations
   int __pyx_t_1;
   __Pyx_RefNannySetupContext("__set__", 0);
-  __pyx_t_1 = __Pyx_PyInt_As_int(__pyx_v_value); if (unlikely((__pyx_t_1 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 44, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyInt_As_int(__pyx_v_value); if (unlikely((__pyx_t_1 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 49, __pyx_L1_error)
   __pyx_v_self->num_nnz = __pyx_t_1;
 
   /* function exit code */
   __pyx_r = 0;
   goto __pyx_L0;
   __pyx_L1_error:;
-  __Pyx_AddTraceback("gensim.corpora.cython_binary.MmReader.num_nnz.__set__", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("gensim.corpora.cython_binary.MmReaderStructAtATime.num_nnz.__set__", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = -1;
   __pyx_L0:;
   __Pyx_RefNannyFinishContext();
@@ -3096,20 +2857,20 @@ static int __pyx_pf_6gensim_7corpora_13cython_binary_8MmReader_7num_nnz_2__set__
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_6gensim_7corpora_13cython_binary_8MmReader_14__reduce_cython__(PyObject *__pyx_v_self, CYTHON_UNUSED PyObject *unused); /*proto*/
-static char __pyx_doc_6gensim_7corpora_13cython_binary_8MmReader_13__reduce_cython__[] = "MmReader.__reduce_cython__(self)";
-static PyObject *__pyx_pw_6gensim_7corpora_13cython_binary_8MmReader_14__reduce_cython__(PyObject *__pyx_v_self, CYTHON_UNUSED PyObject *unused) {
+static PyObject *__pyx_pw_6gensim_7corpora_13cython_binary_21MmReaderStructAtATime_12__reduce_cython__(PyObject *__pyx_v_self, CYTHON_UNUSED PyObject *unused); /*proto*/
+static char __pyx_doc_6gensim_7corpora_13cython_binary_21MmReaderStructAtATime_11__reduce_cython__[] = "MmReaderStructAtATime.__reduce_cython__(self)";
+static PyObject *__pyx_pw_6gensim_7corpora_13cython_binary_21MmReaderStructAtATime_12__reduce_cython__(PyObject *__pyx_v_self, CYTHON_UNUSED PyObject *unused) {
   PyObject *__pyx_r = 0;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__reduce_cython__ (wrapper)", 0);
-  __pyx_r = __pyx_pf_6gensim_7corpora_13cython_binary_8MmReader_13__reduce_cython__(((struct __pyx_obj_6gensim_7corpora_13cython_binary_MmReader *)__pyx_v_self));
+  __pyx_r = __pyx_pf_6gensim_7corpora_13cython_binary_21MmReaderStructAtATime_11__reduce_cython__(((struct __pyx_obj_6gensim_7corpora_13cython_binary_MmReaderStructAtATime *)__pyx_v_self));
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_6gensim_7corpora_13cython_binary_8MmReader_13__reduce_cython__(struct __pyx_obj_6gensim_7corpora_13cython_binary_MmReader *__pyx_v_self) {
+static PyObject *__pyx_pf_6gensim_7corpora_13cython_binary_21MmReaderStructAtATime_11__reduce_cython__(struct __pyx_obj_6gensim_7corpora_13cython_binary_MmReaderStructAtATime *__pyx_v_self) {
   int __pyx_v_use_setstate;
   PyObject *__pyx_v_state = NULL;
   PyObject *__pyx_v__dict = NULL;
@@ -3224,7 +2985,7 @@ static PyObject *__pyx_pf_6gensim_7corpora_13cython_binary_8MmReader_13__reduce_
  *     else:
  *         use_setstate = self.input is not None             # <<<<<<<<<<<<<<
  *     if use_setstate:
- *         return __pyx_unpickle_MmReader, (type(self), 0xea5fe92, None), state
+ *         return __pyx_unpickle_MmReaderStructAtATime, (type(self), 0xea5fe92, None), state
  */
   /*else*/ {
     __pyx_t_7 = (__pyx_v_self->input != Py_None);
@@ -3236,7 +2997,7 @@ static PyObject *__pyx_pf_6gensim_7corpora_13cython_binary_8MmReader_13__reduce_
  *     else:
  *         use_setstate = self.input is not None
  *     if use_setstate:             # <<<<<<<<<<<<<<
- *         return __pyx_unpickle_MmReader, (type(self), 0xea5fe92, None), state
+ *         return __pyx_unpickle_MmReaderStructAtATime, (type(self), 0xea5fe92, None), state
  *     else:
  */
   __pyx_t_7 = (__pyx_v_use_setstate != 0);
@@ -3245,12 +3006,12 @@ static PyObject *__pyx_pf_6gensim_7corpora_13cython_binary_8MmReader_13__reduce_
     /* "(tree fragment)":11
  *         use_setstate = self.input is not None
  *     if use_setstate:
- *         return __pyx_unpickle_MmReader, (type(self), 0xea5fe92, None), state             # <<<<<<<<<<<<<<
+ *         return __pyx_unpickle_MmReaderStructAtATime, (type(self), 0xea5fe92, None), state             # <<<<<<<<<<<<<<
  *     else:
- *         return __pyx_unpickle_MmReader, (type(self), 0xea5fe92, state)
+ *         return __pyx_unpickle_MmReaderStructAtATime, (type(self), 0xea5fe92, state)
  */
     __Pyx_XDECREF(__pyx_r);
-    __pyx_t_4 = __Pyx_GetModuleGlobalName(__pyx_n_s_pyx_unpickle_MmReader); if (unlikely(!__pyx_t_4)) __PYX_ERR(1, 11, __pyx_L1_error)
+    __pyx_t_4 = __Pyx_GetModuleGlobalName(__pyx_n_s_pyx_unpickle_MmReaderStructAtA); if (unlikely(!__pyx_t_4)) __PYX_ERR(1, 11, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_4);
     __pyx_t_5 = PyTuple_New(3); if (unlikely(!__pyx_t_5)) __PYX_ERR(1, 11, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_5);
@@ -3282,21 +3043,21 @@ static PyObject *__pyx_pf_6gensim_7corpora_13cython_binary_8MmReader_13__reduce_
  *     else:
  *         use_setstate = self.input is not None
  *     if use_setstate:             # <<<<<<<<<<<<<<
- *         return __pyx_unpickle_MmReader, (type(self), 0xea5fe92, None), state
+ *         return __pyx_unpickle_MmReaderStructAtATime, (type(self), 0xea5fe92, None), state
  *     else:
  */
   }
 
   /* "(tree fragment)":13
- *         return __pyx_unpickle_MmReader, (type(self), 0xea5fe92, None), state
+ *         return __pyx_unpickle_MmReaderStructAtATime, (type(self), 0xea5fe92, None), state
  *     else:
- *         return __pyx_unpickle_MmReader, (type(self), 0xea5fe92, state)             # <<<<<<<<<<<<<<
+ *         return __pyx_unpickle_MmReaderStructAtATime, (type(self), 0xea5fe92, state)             # <<<<<<<<<<<<<<
  * def __setstate_cython__(self, __pyx_state):
- *     __pyx_unpickle_MmReader__set_state(self, __pyx_state)
+ *     __pyx_unpickle_MmReaderStructAtATime__set_state(self, __pyx_state)
  */
   /*else*/ {
     __Pyx_XDECREF(__pyx_r);
-    __pyx_t_3 = __Pyx_GetModuleGlobalName(__pyx_n_s_pyx_unpickle_MmReader); if (unlikely(!__pyx_t_3)) __PYX_ERR(1, 13, __pyx_L1_error)
+    __pyx_t_3 = __Pyx_GetModuleGlobalName(__pyx_n_s_pyx_unpickle_MmReaderStructAtA); if (unlikely(!__pyx_t_3)) __PYX_ERR(1, 13, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
     __pyx_t_5 = PyTuple_New(3); if (unlikely(!__pyx_t_5)) __PYX_ERR(1, 13, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_5);
@@ -3335,7 +3096,7 @@ static PyObject *__pyx_pf_6gensim_7corpora_13cython_binary_8MmReader_13__reduce_
   __Pyx_XDECREF(__pyx_t_3);
   __Pyx_XDECREF(__pyx_t_4);
   __Pyx_XDECREF(__pyx_t_5);
-  __Pyx_AddTraceback("gensim.corpora.cython_binary.MmReader.__reduce_cython__", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("gensim.corpora.cython_binary.MmReaderStructAtATime.__reduce_cython__", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __Pyx_XDECREF(__pyx_v_state);
@@ -3347,46 +3108,46 @@ static PyObject *__pyx_pf_6gensim_7corpora_13cython_binary_8MmReader_13__reduce_
 
 /* "(tree fragment)":14
  *     else:
- *         return __pyx_unpickle_MmReader, (type(self), 0xea5fe92, state)
+ *         return __pyx_unpickle_MmReaderStructAtATime, (type(self), 0xea5fe92, state)
  * def __setstate_cython__(self, __pyx_state):             # <<<<<<<<<<<<<<
- *     __pyx_unpickle_MmReader__set_state(self, __pyx_state)
+ *     __pyx_unpickle_MmReaderStructAtATime__set_state(self, __pyx_state)
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_6gensim_7corpora_13cython_binary_8MmReader_16__setstate_cython__(PyObject *__pyx_v_self, PyObject *__pyx_v___pyx_state); /*proto*/
-static char __pyx_doc_6gensim_7corpora_13cython_binary_8MmReader_15__setstate_cython__[] = "MmReader.__setstate_cython__(self, __pyx_state)";
-static PyObject *__pyx_pw_6gensim_7corpora_13cython_binary_8MmReader_16__setstate_cython__(PyObject *__pyx_v_self, PyObject *__pyx_v___pyx_state) {
+static PyObject *__pyx_pw_6gensim_7corpora_13cython_binary_21MmReaderStructAtATime_14__setstate_cython__(PyObject *__pyx_v_self, PyObject *__pyx_v___pyx_state); /*proto*/
+static char __pyx_doc_6gensim_7corpora_13cython_binary_21MmReaderStructAtATime_13__setstate_cython__[] = "MmReaderStructAtATime.__setstate_cython__(self, __pyx_state)";
+static PyObject *__pyx_pw_6gensim_7corpora_13cython_binary_21MmReaderStructAtATime_14__setstate_cython__(PyObject *__pyx_v_self, PyObject *__pyx_v___pyx_state) {
   PyObject *__pyx_r = 0;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__setstate_cython__ (wrapper)", 0);
-  __pyx_r = __pyx_pf_6gensim_7corpora_13cython_binary_8MmReader_15__setstate_cython__(((struct __pyx_obj_6gensim_7corpora_13cython_binary_MmReader *)__pyx_v_self), ((PyObject *)__pyx_v___pyx_state));
+  __pyx_r = __pyx_pf_6gensim_7corpora_13cython_binary_21MmReaderStructAtATime_13__setstate_cython__(((struct __pyx_obj_6gensim_7corpora_13cython_binary_MmReaderStructAtATime *)__pyx_v_self), ((PyObject *)__pyx_v___pyx_state));
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_6gensim_7corpora_13cython_binary_8MmReader_15__setstate_cython__(struct __pyx_obj_6gensim_7corpora_13cython_binary_MmReader *__pyx_v_self, PyObject *__pyx_v___pyx_state) {
+static PyObject *__pyx_pf_6gensim_7corpora_13cython_binary_21MmReaderStructAtATime_13__setstate_cython__(struct __pyx_obj_6gensim_7corpora_13cython_binary_MmReaderStructAtATime *__pyx_v_self, PyObject *__pyx_v___pyx_state) {
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   PyObject *__pyx_t_1 = NULL;
   __Pyx_RefNannySetupContext("__setstate_cython__", 0);
 
   /* "(tree fragment)":15
- *         return __pyx_unpickle_MmReader, (type(self), 0xea5fe92, state)
+ *         return __pyx_unpickle_MmReaderStructAtATime, (type(self), 0xea5fe92, state)
  * def __setstate_cython__(self, __pyx_state):
- *     __pyx_unpickle_MmReader__set_state(self, __pyx_state)             # <<<<<<<<<<<<<<
+ *     __pyx_unpickle_MmReaderStructAtATime__set_state(self, __pyx_state)             # <<<<<<<<<<<<<<
  */
   if (!(likely(PyTuple_CheckExact(__pyx_v___pyx_state))||((__pyx_v___pyx_state) == Py_None)||(PyErr_Format(PyExc_TypeError, "Expected %.16s, got %.200s", "tuple", Py_TYPE(__pyx_v___pyx_state)->tp_name), 0))) __PYX_ERR(1, 15, __pyx_L1_error)
-  __pyx_t_1 = __pyx_f_6gensim_7corpora_13cython_binary___pyx_unpickle_MmReader__set_state(__pyx_v_self, ((PyObject*)__pyx_v___pyx_state)); if (unlikely(!__pyx_t_1)) __PYX_ERR(1, 15, __pyx_L1_error)
+  __pyx_t_1 = __pyx_f_6gensim_7corpora_13cython_binary___pyx_unpickle_MmReaderStructAtATime__set_state(__pyx_v_self, ((PyObject*)__pyx_v___pyx_state)); if (unlikely(!__pyx_t_1)) __PYX_ERR(1, 15, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
   /* "(tree fragment)":14
  *     else:
- *         return __pyx_unpickle_MmReader, (type(self), 0xea5fe92, state)
+ *         return __pyx_unpickle_MmReaderStructAtATime, (type(self), 0xea5fe92, state)
  * def __setstate_cython__(self, __pyx_state):             # <<<<<<<<<<<<<<
- *     __pyx_unpickle_MmReader__set_state(self, __pyx_state)
+ *     __pyx_unpickle_MmReaderStructAtATime__set_state(self, __pyx_state)
  */
 
   /* function exit code */
@@ -3394,7 +3155,2226 @@ static PyObject *__pyx_pf_6gensim_7corpora_13cython_binary_8MmReader_15__setstat
   goto __pyx_L0;
   __pyx_L1_error:;
   __Pyx_XDECREF(__pyx_t_1);
-  __Pyx_AddTraceback("gensim.corpora.cython_binary.MmReader.__setstate_cython__", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("gensim.corpora.cython_binary.MmReaderStructAtATime.__setstate_cython__", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __pyx_r = NULL;
+  __pyx_L0:;
+  __Pyx_XGIVEREF(__pyx_r);
+  __Pyx_RefNannyFinishContext();
+  return __pyx_r;
+}
+
+/* "gensim/corpora/cython_binary.pyx":183
+ *     cdef public int num_docs, num_terms, num_nnz
+ * 
+ *     def __init__(self, input, transposed=True):             # <<<<<<<<<<<<<<
+ *         """
+ * 
+ */
+
+/* Python wrapper */
+static int __pyx_pw_6gensim_7corpora_13cython_binary_19MmReaderStructArray_1__init__(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
+static char __pyx_doc_6gensim_7corpora_13cython_binary_19MmReaderStructArray___init__[] = "\n\n        Parameters\n        ----------\n        input : {str, file-like object}\n            Path to input file in MM format or a file-like object that supports `seek()`\n            (e.g. :class:`~gzip.GzipFile`, :class:`~bz2.BZ2File`).\n\n        transposed : bool, optional\n            if True, expects lines to represent doc_id, term_id, value. Else, expects term_id, doc_id, value.\n\n        ";
+#if CYTHON_COMPILING_IN_CPYTHON
+struct wrapperbase __pyx_wrapperbase_6gensim_7corpora_13cython_binary_19MmReaderStructArray___init__;
+#endif
+static int __pyx_pw_6gensim_7corpora_13cython_binary_19MmReaderStructArray_1__init__(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
+  PyObject *__pyx_v_input = 0;
+  PyObject *__pyx_v_transposed = 0;
+  int __pyx_r;
+  __Pyx_RefNannyDeclarations
+  __Pyx_RefNannySetupContext("__init__ (wrapper)", 0);
+  {
+    static PyObject **__pyx_pyargnames[] = {&__pyx_n_s_input,&__pyx_n_s_transposed,0};
+    PyObject* values[2] = {0,0};
+    values[1] = ((PyObject *)Py_True);
+    if (unlikely(__pyx_kwds)) {
+      Py_ssize_t kw_args;
+      const Py_ssize_t pos_args = PyTuple_GET_SIZE(__pyx_args);
+      switch (pos_args) {
+        case  2: values[1] = PyTuple_GET_ITEM(__pyx_args, 1);
+        CYTHON_FALLTHROUGH;
+        case  1: values[0] = PyTuple_GET_ITEM(__pyx_args, 0);
+        CYTHON_FALLTHROUGH;
+        case  0: break;
+        default: goto __pyx_L5_argtuple_error;
+      }
+      kw_args = PyDict_Size(__pyx_kwds);
+      switch (pos_args) {
+        case  0:
+        if (likely((values[0] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_input)) != 0)) kw_args--;
+        else goto __pyx_L5_argtuple_error;
+        CYTHON_FALLTHROUGH;
+        case  1:
+        if (kw_args > 0) {
+          PyObject* value = PyDict_GetItem(__pyx_kwds, __pyx_n_s_transposed);
+          if (value) { values[1] = value; kw_args--; }
+        }
+      }
+      if (unlikely(kw_args > 0)) {
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "__init__") < 0)) __PYX_ERR(0, 183, __pyx_L3_error)
+      }
+    } else {
+      switch (PyTuple_GET_SIZE(__pyx_args)) {
+        case  2: values[1] = PyTuple_GET_ITEM(__pyx_args, 1);
+        CYTHON_FALLTHROUGH;
+        case  1: values[0] = PyTuple_GET_ITEM(__pyx_args, 0);
+        break;
+        default: goto __pyx_L5_argtuple_error;
+      }
+    }
+    __pyx_v_input = values[0];
+    __pyx_v_transposed = values[1];
+  }
+  goto __pyx_L4_argument_unpacking_done;
+  __pyx_L5_argtuple_error:;
+  __Pyx_RaiseArgtupleInvalid("__init__", 0, 1, 2, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 183, __pyx_L3_error)
+  __pyx_L3_error:;
+  __Pyx_AddTraceback("gensim.corpora.cython_binary.MmReaderStructArray.__init__", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_RefNannyFinishContext();
+  return -1;
+  __pyx_L4_argument_unpacking_done:;
+  __pyx_r = __pyx_pf_6gensim_7corpora_13cython_binary_19MmReaderStructArray___init__(((struct __pyx_obj_6gensim_7corpora_13cython_binary_MmReaderStructArray *)__pyx_v_self), __pyx_v_input, __pyx_v_transposed);
+
+  /* function exit code */
+  __Pyx_RefNannyFinishContext();
+  return __pyx_r;
+}
+
+static int __pyx_pf_6gensim_7corpora_13cython_binary_19MmReaderStructArray___init__(struct __pyx_obj_6gensim_7corpora_13cython_binary_MmReaderStructArray *__pyx_v_self, PyObject *__pyx_v_input, PyObject *__pyx_v_transposed) {
+  int __pyx_r;
+  __Pyx_RefNannyDeclarations
+  PyObject *__pyx_t_1 = NULL;
+  PyObject *__pyx_t_2 = NULL;
+  PyObject *__pyx_t_3 = NULL;
+  int __pyx_t_4;
+  PyObject *__pyx_t_5 = NULL;
+  int __pyx_t_6;
+  PyObject *__pyx_t_7 = NULL;
+  PyObject *(*__pyx_t_8)(PyObject *);
+  int __pyx_t_9;
+  int __pyx_t_10;
+  PyObject *__pyx_t_11 = NULL;
+  PyObject *__pyx_t_12 = NULL;
+  __Pyx_RefNannySetupContext("__init__", 0);
+  __Pyx_INCREF(__pyx_v_input);
+
+  /* "gensim/corpora/cython_binary.pyx":196
+ * 
+ *         """
+ *         logger.info("initializing cython corpus reader from %s", input)             # <<<<<<<<<<<<<<
+ *         input = input.encode('utf-8')
+ *         self.input, self.transposed = input, transposed
+ */
+  __pyx_t_2 = __Pyx_GetModuleGlobalName(__pyx_n_s_logger); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 196, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_2);
+  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_info); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 196, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_3);
+  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+  __pyx_t_2 = NULL;
+  __pyx_t_4 = 0;
+  if (CYTHON_UNPACK_METHODS && unlikely(PyMethod_Check(__pyx_t_3))) {
+    __pyx_t_2 = PyMethod_GET_SELF(__pyx_t_3);
+    if (likely(__pyx_t_2)) {
+      PyObject* function = PyMethod_GET_FUNCTION(__pyx_t_3);
+      __Pyx_INCREF(__pyx_t_2);
+      __Pyx_INCREF(function);
+      __Pyx_DECREF_SET(__pyx_t_3, function);
+      __pyx_t_4 = 1;
+    }
+  }
+  #if CYTHON_FAST_PYCALL
+  if (PyFunction_Check(__pyx_t_3)) {
+    PyObject *__pyx_temp[3] = {__pyx_t_2, __pyx_kp_s_initializing_cython_corpus_reade, __pyx_v_input};
+    __pyx_t_1 = __Pyx_PyFunction_FastCall(__pyx_t_3, __pyx_temp+1-__pyx_t_4, 2+__pyx_t_4); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 196, __pyx_L1_error)
+    __Pyx_XDECREF(__pyx_t_2); __pyx_t_2 = 0;
+    __Pyx_GOTREF(__pyx_t_1);
+  } else
+  #endif
+  #if CYTHON_FAST_PYCCALL
+  if (__Pyx_PyFastCFunction_Check(__pyx_t_3)) {
+    PyObject *__pyx_temp[3] = {__pyx_t_2, __pyx_kp_s_initializing_cython_corpus_reade, __pyx_v_input};
+    __pyx_t_1 = __Pyx_PyCFunction_FastCall(__pyx_t_3, __pyx_temp+1-__pyx_t_4, 2+__pyx_t_4); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 196, __pyx_L1_error)
+    __Pyx_XDECREF(__pyx_t_2); __pyx_t_2 = 0;
+    __Pyx_GOTREF(__pyx_t_1);
+  } else
+  #endif
+  {
+    __pyx_t_5 = PyTuple_New(2+__pyx_t_4); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 196, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_5);
+    if (__pyx_t_2) {
+      __Pyx_GIVEREF(__pyx_t_2); PyTuple_SET_ITEM(__pyx_t_5, 0, __pyx_t_2); __pyx_t_2 = NULL;
+    }
+    __Pyx_INCREF(__pyx_kp_s_initializing_cython_corpus_reade);
+    __Pyx_GIVEREF(__pyx_kp_s_initializing_cython_corpus_reade);
+    PyTuple_SET_ITEM(__pyx_t_5, 0+__pyx_t_4, __pyx_kp_s_initializing_cython_corpus_reade);
+    __Pyx_INCREF(__pyx_v_input);
+    __Pyx_GIVEREF(__pyx_v_input);
+    PyTuple_SET_ITEM(__pyx_t_5, 1+__pyx_t_4, __pyx_v_input);
+    __pyx_t_1 = __Pyx_PyObject_Call(__pyx_t_3, __pyx_t_5, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 196, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_1);
+    __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
+  }
+  __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
+  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+
+  /* "gensim/corpora/cython_binary.pyx":197
+ *         """
+ *         logger.info("initializing cython corpus reader from %s", input)
+ *         input = input.encode('utf-8')             # <<<<<<<<<<<<<<
+ *         self.input, self.transposed = input, transposed
+ *         self.num_docs, self.num_terms, self.num_nnz = self.read_headers()
+ */
+  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_input, __pyx_n_s_encode); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 197, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_1);
+  __pyx_t_3 = __Pyx_PyObject_Call(__pyx_t_1, __pyx_tuple__2, NULL); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 197, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_3);
+  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+  __Pyx_DECREF_SET(__pyx_v_input, __pyx_t_3);
+  __pyx_t_3 = 0;
+
+  /* "gensim/corpora/cython_binary.pyx":198
+ *         logger.info("initializing cython corpus reader from %s", input)
+ *         input = input.encode('utf-8')
+ *         self.input, self.transposed = input, transposed             # <<<<<<<<<<<<<<
+ *         self.num_docs, self.num_terms, self.num_nnz = self.read_headers()
+ * 
+ */
+  __pyx_t_3 = __pyx_v_input;
+  __Pyx_INCREF(__pyx_t_3);
+  __pyx_t_6 = __Pyx_PyObject_IsTrue(__pyx_v_transposed); if (unlikely((__pyx_t_6 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 198, __pyx_L1_error)
+  __Pyx_GIVEREF(__pyx_t_3);
+  __Pyx_GOTREF(__pyx_v_self->input);
+  __Pyx_DECREF(__pyx_v_self->input);
+  __pyx_v_self->input = __pyx_t_3;
+  __pyx_t_3 = 0;
+  __pyx_v_self->transposed = __pyx_t_6;
+
+  /* "gensim/corpora/cython_binary.pyx":199
+ *         input = input.encode('utf-8')
+ *         self.input, self.transposed = input, transposed
+ *         self.num_docs, self.num_terms, self.num_nnz = self.read_headers()             # <<<<<<<<<<<<<<
+ * 
+ *         logger.info(
+ */
+  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_read_headers); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 199, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_1);
+  __pyx_t_5 = NULL;
+  if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_1))) {
+    __pyx_t_5 = PyMethod_GET_SELF(__pyx_t_1);
+    if (likely(__pyx_t_5)) {
+      PyObject* function = PyMethod_GET_FUNCTION(__pyx_t_1);
+      __Pyx_INCREF(__pyx_t_5);
+      __Pyx_INCREF(function);
+      __Pyx_DECREF_SET(__pyx_t_1, function);
+    }
+  }
+  if (__pyx_t_5) {
+    __pyx_t_3 = __Pyx_PyObject_CallOneArg(__pyx_t_1, __pyx_t_5); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 199, __pyx_L1_error)
+    __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
+  } else {
+    __pyx_t_3 = __Pyx_PyObject_CallNoArg(__pyx_t_1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 199, __pyx_L1_error)
+  }
+  __Pyx_GOTREF(__pyx_t_3);
+  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+  if ((likely(PyTuple_CheckExact(__pyx_t_3))) || (PyList_CheckExact(__pyx_t_3))) {
+    PyObject* sequence = __pyx_t_3;
+    #if !CYTHON_COMPILING_IN_PYPY
+    Py_ssize_t size = Py_SIZE(sequence);
+    #else
+    Py_ssize_t size = PySequence_Size(sequence);
+    #endif
+    if (unlikely(size != 3)) {
+      if (size > 3) __Pyx_RaiseTooManyValuesError(3);
+      else if (size >= 0) __Pyx_RaiseNeedMoreValuesError(size);
+      __PYX_ERR(0, 199, __pyx_L1_error)
+    }
+    #if CYTHON_ASSUME_SAFE_MACROS && !CYTHON_AVOID_BORROWED_REFS
+    if (likely(PyTuple_CheckExact(sequence))) {
+      __pyx_t_1 = PyTuple_GET_ITEM(sequence, 0); 
+      __pyx_t_5 = PyTuple_GET_ITEM(sequence, 1); 
+      __pyx_t_2 = PyTuple_GET_ITEM(sequence, 2); 
+    } else {
+      __pyx_t_1 = PyList_GET_ITEM(sequence, 0); 
+      __pyx_t_5 = PyList_GET_ITEM(sequence, 1); 
+      __pyx_t_2 = PyList_GET_ITEM(sequence, 2); 
+    }
+    __Pyx_INCREF(__pyx_t_1);
+    __Pyx_INCREF(__pyx_t_5);
+    __Pyx_INCREF(__pyx_t_2);
+    #else
+    __pyx_t_1 = PySequence_ITEM(sequence, 0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 199, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_1);
+    __pyx_t_5 = PySequence_ITEM(sequence, 1); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 199, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_5);
+    __pyx_t_2 = PySequence_ITEM(sequence, 2); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 199, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_2);
+    #endif
+    __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
+  } else {
+    Py_ssize_t index = -1;
+    __pyx_t_7 = PyObject_GetIter(__pyx_t_3); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 199, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_7);
+    __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
+    __pyx_t_8 = Py_TYPE(__pyx_t_7)->tp_iternext;
+    index = 0; __pyx_t_1 = __pyx_t_8(__pyx_t_7); if (unlikely(!__pyx_t_1)) goto __pyx_L3_unpacking_failed;
+    __Pyx_GOTREF(__pyx_t_1);
+    index = 1; __pyx_t_5 = __pyx_t_8(__pyx_t_7); if (unlikely(!__pyx_t_5)) goto __pyx_L3_unpacking_failed;
+    __Pyx_GOTREF(__pyx_t_5);
+    index = 2; __pyx_t_2 = __pyx_t_8(__pyx_t_7); if (unlikely(!__pyx_t_2)) goto __pyx_L3_unpacking_failed;
+    __Pyx_GOTREF(__pyx_t_2);
+    if (__Pyx_IternextUnpackEndCheck(__pyx_t_8(__pyx_t_7), 3) < 0) __PYX_ERR(0, 199, __pyx_L1_error)
+    __pyx_t_8 = NULL;
+    __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
+    goto __pyx_L4_unpacking_done;
+    __pyx_L3_unpacking_failed:;
+    __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
+    __pyx_t_8 = NULL;
+    if (__Pyx_IterFinish() == 0) __Pyx_RaiseNeedMoreValuesError(index);
+    __PYX_ERR(0, 199, __pyx_L1_error)
+    __pyx_L4_unpacking_done:;
+  }
+  __pyx_t_4 = __Pyx_PyInt_As_int(__pyx_t_1); if (unlikely((__pyx_t_4 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 199, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+  __pyx_t_9 = __Pyx_PyInt_As_int(__pyx_t_5); if (unlikely((__pyx_t_9 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 199, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
+  __pyx_t_10 = __Pyx_PyInt_As_int(__pyx_t_2); if (unlikely((__pyx_t_10 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 199, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+  __pyx_v_self->num_docs = __pyx_t_4;
+  __pyx_v_self->num_terms = __pyx_t_9;
+  __pyx_v_self->num_nnz = __pyx_t_10;
+
+  /* "gensim/corpora/cython_binary.pyx":201
+ *         self.num_docs, self.num_terms, self.num_nnz = self.read_headers()
+ * 
+ *         logger.info(             # <<<<<<<<<<<<<<
+ *             "accepted corpus with %i documents, %i features, %i non-zero entries",
+ *             self.num_docs, self.num_terms, self.num_nnz
+ */
+  __pyx_t_2 = __Pyx_GetModuleGlobalName(__pyx_n_s_logger); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 201, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_2);
+  __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_info); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 201, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_5);
+  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+
+  /* "gensim/corpora/cython_binary.pyx":203
+ *         logger.info(
+ *             "accepted corpus with %i documents, %i features, %i non-zero entries",
+ *             self.num_docs, self.num_terms, self.num_nnz             # <<<<<<<<<<<<<<
+ *         )
+ * 
+ */
+  __pyx_t_2 = __Pyx_PyInt_From_int(__pyx_v_self->num_docs); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 203, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_2);
+  __pyx_t_1 = __Pyx_PyInt_From_int(__pyx_v_self->num_terms); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 203, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_1);
+  __pyx_t_7 = __Pyx_PyInt_From_int(__pyx_v_self->num_nnz); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 203, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_7);
+  __pyx_t_11 = NULL;
+  __pyx_t_10 = 0;
+  if (CYTHON_UNPACK_METHODS && unlikely(PyMethod_Check(__pyx_t_5))) {
+    __pyx_t_11 = PyMethod_GET_SELF(__pyx_t_5);
+    if (likely(__pyx_t_11)) {
+      PyObject* function = PyMethod_GET_FUNCTION(__pyx_t_5);
+      __Pyx_INCREF(__pyx_t_11);
+      __Pyx_INCREF(function);
+      __Pyx_DECREF_SET(__pyx_t_5, function);
+      __pyx_t_10 = 1;
+    }
+  }
+  #if CYTHON_FAST_PYCALL
+  if (PyFunction_Check(__pyx_t_5)) {
+    PyObject *__pyx_temp[5] = {__pyx_t_11, __pyx_kp_s_accepted_corpus_with_i_documents, __pyx_t_2, __pyx_t_1, __pyx_t_7};
+    __pyx_t_3 = __Pyx_PyFunction_FastCall(__pyx_t_5, __pyx_temp+1-__pyx_t_10, 4+__pyx_t_10); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 201, __pyx_L1_error)
+    __Pyx_XDECREF(__pyx_t_11); __pyx_t_11 = 0;
+    __Pyx_GOTREF(__pyx_t_3);
+    __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+    __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+    __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
+  } else
+  #endif
+  #if CYTHON_FAST_PYCCALL
+  if (__Pyx_PyFastCFunction_Check(__pyx_t_5)) {
+    PyObject *__pyx_temp[5] = {__pyx_t_11, __pyx_kp_s_accepted_corpus_with_i_documents, __pyx_t_2, __pyx_t_1, __pyx_t_7};
+    __pyx_t_3 = __Pyx_PyCFunction_FastCall(__pyx_t_5, __pyx_temp+1-__pyx_t_10, 4+__pyx_t_10); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 201, __pyx_L1_error)
+    __Pyx_XDECREF(__pyx_t_11); __pyx_t_11 = 0;
+    __Pyx_GOTREF(__pyx_t_3);
+    __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+    __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+    __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
+  } else
+  #endif
+  {
+    __pyx_t_12 = PyTuple_New(4+__pyx_t_10); if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 201, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_12);
+    if (__pyx_t_11) {
+      __Pyx_GIVEREF(__pyx_t_11); PyTuple_SET_ITEM(__pyx_t_12, 0, __pyx_t_11); __pyx_t_11 = NULL;
+    }
+    __Pyx_INCREF(__pyx_kp_s_accepted_corpus_with_i_documents);
+    __Pyx_GIVEREF(__pyx_kp_s_accepted_corpus_with_i_documents);
+    PyTuple_SET_ITEM(__pyx_t_12, 0+__pyx_t_10, __pyx_kp_s_accepted_corpus_with_i_documents);
+    __Pyx_GIVEREF(__pyx_t_2);
+    PyTuple_SET_ITEM(__pyx_t_12, 1+__pyx_t_10, __pyx_t_2);
+    __Pyx_GIVEREF(__pyx_t_1);
+    PyTuple_SET_ITEM(__pyx_t_12, 2+__pyx_t_10, __pyx_t_1);
+    __Pyx_GIVEREF(__pyx_t_7);
+    PyTuple_SET_ITEM(__pyx_t_12, 3+__pyx_t_10, __pyx_t_7);
+    __pyx_t_2 = 0;
+    __pyx_t_1 = 0;
+    __pyx_t_7 = 0;
+    __pyx_t_3 = __Pyx_PyObject_Call(__pyx_t_5, __pyx_t_12, NULL); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 201, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_3);
+    __Pyx_DECREF(__pyx_t_12); __pyx_t_12 = 0;
+  }
+  __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
+  __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
+
+  /* "gensim/corpora/cython_binary.pyx":183
+ *     cdef public int num_docs, num_terms, num_nnz
+ * 
+ *     def __init__(self, input, transposed=True):             # <<<<<<<<<<<<<<
+ *         """
+ * 
+ */
+
+  /* function exit code */
+  __pyx_r = 0;
+  goto __pyx_L0;
+  __pyx_L1_error:;
+  __Pyx_XDECREF(__pyx_t_1);
+  __Pyx_XDECREF(__pyx_t_2);
+  __Pyx_XDECREF(__pyx_t_3);
+  __Pyx_XDECREF(__pyx_t_5);
+  __Pyx_XDECREF(__pyx_t_7);
+  __Pyx_XDECREF(__pyx_t_11);
+  __Pyx_XDECREF(__pyx_t_12);
+  __Pyx_AddTraceback("gensim.corpora.cython_binary.MmReaderStructArray.__init__", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __pyx_r = -1;
+  __pyx_L0:;
+  __Pyx_XDECREF(__pyx_v_input);
+  __Pyx_RefNannyFinishContext();
+  return __pyx_r;
+}
+
+/* "gensim/corpora/cython_binary.pyx":206
+ *         )
+ * 
+ *     def __len__(self):             # <<<<<<<<<<<<<<
+ *         """Get size of corpus (number of documents)."""
+ *         return self.num_docs
+ */
+
+/* Python wrapper */
+static Py_ssize_t __pyx_pw_6gensim_7corpora_13cython_binary_19MmReaderStructArray_3__len__(PyObject *__pyx_v_self); /*proto*/
+static char __pyx_doc_6gensim_7corpora_13cython_binary_19MmReaderStructArray_2__len__[] = "Get size of corpus (number of documents).";
+#if CYTHON_COMPILING_IN_CPYTHON
+struct wrapperbase __pyx_wrapperbase_6gensim_7corpora_13cython_binary_19MmReaderStructArray_2__len__;
+#endif
+static Py_ssize_t __pyx_pw_6gensim_7corpora_13cython_binary_19MmReaderStructArray_3__len__(PyObject *__pyx_v_self) {
+  Py_ssize_t __pyx_r;
+  __Pyx_RefNannyDeclarations
+  __Pyx_RefNannySetupContext("__len__ (wrapper)", 0);
+  __pyx_r = __pyx_pf_6gensim_7corpora_13cython_binary_19MmReaderStructArray_2__len__(((struct __pyx_obj_6gensim_7corpora_13cython_binary_MmReaderStructArray *)__pyx_v_self));
+
+  /* function exit code */
+  __Pyx_RefNannyFinishContext();
+  return __pyx_r;
+}
+
+static Py_ssize_t __pyx_pf_6gensim_7corpora_13cython_binary_19MmReaderStructArray_2__len__(struct __pyx_obj_6gensim_7corpora_13cython_binary_MmReaderStructArray *__pyx_v_self) {
+  Py_ssize_t __pyx_r;
+  __Pyx_RefNannyDeclarations
+  __Pyx_RefNannySetupContext("__len__", 0);
+
+  /* "gensim/corpora/cython_binary.pyx":208
+ *     def __len__(self):
+ *         """Get size of corpus (number of documents)."""
+ *         return self.num_docs             # <<<<<<<<<<<<<<
+ * 
+ *     def __str__(self):
+ */
+  __pyx_r = __pyx_v_self->num_docs;
+  goto __pyx_L0;
+
+  /* "gensim/corpora/cython_binary.pyx":206
+ *         )
+ * 
+ *     def __len__(self):             # <<<<<<<<<<<<<<
+ *         """Get size of corpus (number of documents)."""
+ *         return self.num_docs
+ */
+
+  /* function exit code */
+  __pyx_L0:;
+  __Pyx_RefNannyFinishContext();
+  return __pyx_r;
+}
+
+/* "gensim/corpora/cython_binary.pyx":210
+ *         return self.num_docs
+ * 
+ *     def __str__(self):             # <<<<<<<<<<<<<<
+ *         return ("MmCorpus(%i documents, %i features, %i non-zero entries)" %
+ *                 (self.num_docs, self.num_terms, self.num_nnz))
+ */
+
+/* Python wrapper */
+static PyObject *__pyx_pw_6gensim_7corpora_13cython_binary_19MmReaderStructArray_5__str__(PyObject *__pyx_v_self); /*proto*/
+static PyObject *__pyx_pw_6gensim_7corpora_13cython_binary_19MmReaderStructArray_5__str__(PyObject *__pyx_v_self) {
+  PyObject *__pyx_r = 0;
+  __Pyx_RefNannyDeclarations
+  __Pyx_RefNannySetupContext("__str__ (wrapper)", 0);
+  __pyx_r = __pyx_pf_6gensim_7corpora_13cython_binary_19MmReaderStructArray_4__str__(((struct __pyx_obj_6gensim_7corpora_13cython_binary_MmReaderStructArray *)__pyx_v_self));
+
+  /* function exit code */
+  __Pyx_RefNannyFinishContext();
+  return __pyx_r;
+}
+
+static PyObject *__pyx_pf_6gensim_7corpora_13cython_binary_19MmReaderStructArray_4__str__(struct __pyx_obj_6gensim_7corpora_13cython_binary_MmReaderStructArray *__pyx_v_self) {
+  PyObject *__pyx_r = NULL;
+  __Pyx_RefNannyDeclarations
+  PyObject *__pyx_t_1 = NULL;
+  PyObject *__pyx_t_2 = NULL;
+  PyObject *__pyx_t_3 = NULL;
+  PyObject *__pyx_t_4 = NULL;
+  __Pyx_RefNannySetupContext("__str__", 0);
+
+  /* "gensim/corpora/cython_binary.pyx":211
+ * 
+ *     def __str__(self):
+ *         return ("MmCorpus(%i documents, %i features, %i non-zero entries)" %             # <<<<<<<<<<<<<<
+ *                 (self.num_docs, self.num_terms, self.num_nnz))
+ * 
+ */
+  __Pyx_XDECREF(__pyx_r);
+
+  /* "gensim/corpora/cython_binary.pyx":212
+ *     def __str__(self):
+ *         return ("MmCorpus(%i documents, %i features, %i non-zero entries)" %
+ *                 (self.num_docs, self.num_terms, self.num_nnz))             # <<<<<<<<<<<<<<
+ * 
+ *     @staticmethod
+ */
+  __pyx_t_1 = __Pyx_PyInt_From_int(__pyx_v_self->num_docs); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 212, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_1);
+  __pyx_t_2 = __Pyx_PyInt_From_int(__pyx_v_self->num_terms); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 212, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_2);
+  __pyx_t_3 = __Pyx_PyInt_From_int(__pyx_v_self->num_nnz); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 212, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_3);
+  __pyx_t_4 = PyTuple_New(3); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 212, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_4);
+  __Pyx_GIVEREF(__pyx_t_1);
+  PyTuple_SET_ITEM(__pyx_t_4, 0, __pyx_t_1);
+  __Pyx_GIVEREF(__pyx_t_2);
+  PyTuple_SET_ITEM(__pyx_t_4, 1, __pyx_t_2);
+  __Pyx_GIVEREF(__pyx_t_3);
+  PyTuple_SET_ITEM(__pyx_t_4, 2, __pyx_t_3);
+  __pyx_t_1 = 0;
+  __pyx_t_2 = 0;
+  __pyx_t_3 = 0;
+
+  /* "gensim/corpora/cython_binary.pyx":211
+ * 
+ *     def __str__(self):
+ *         return ("MmCorpus(%i documents, %i features, %i non-zero entries)" %             # <<<<<<<<<<<<<<
+ *                 (self.num_docs, self.num_terms, self.num_nnz))
+ * 
+ */
+  __pyx_t_3 = __Pyx_PyString_Format(__pyx_kp_s_MmCorpus_i_documents_i_features, __pyx_t_4); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 211, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_3);
+  __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
+  __pyx_r = __pyx_t_3;
+  __pyx_t_3 = 0;
+  goto __pyx_L0;
+
+  /* "gensim/corpora/cython_binary.pyx":210
+ *         return self.num_docs
+ * 
+ *     def __str__(self):             # <<<<<<<<<<<<<<
+ *         return ("MmCorpus(%i documents, %i features, %i non-zero entries)" %
+ *                 (self.num_docs, self.num_terms, self.num_nnz))
+ */
+
+  /* function exit code */
+  __pyx_L1_error:;
+  __Pyx_XDECREF(__pyx_t_1);
+  __Pyx_XDECREF(__pyx_t_2);
+  __Pyx_XDECREF(__pyx_t_3);
+  __Pyx_XDECREF(__pyx_t_4);
+  __Pyx_AddTraceback("gensim.corpora.cython_binary.MmReaderStructArray.__str__", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __pyx_r = NULL;
+  __pyx_L0:;
+  __Pyx_XGIVEREF(__pyx_r);
+  __Pyx_RefNannyFinishContext();
+  return __pyx_r;
+}
+
+/* "gensim/corpora/cython_binary.pyx":215
+ * 
+ *     @staticmethod
+ *     def save_corpus(fname, corpus):             # <<<<<<<<<<<<<<
+ *         cdef FILE *file
+ *         cdef int termid, docid, doc_length
+ */
+
+/* Python wrapper */
+static PyObject *__pyx_pw_6gensim_7corpora_13cython_binary_19MmReaderStructArray_7save_corpus(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
+static char __pyx_doc_6gensim_7corpora_13cython_binary_19MmReaderStructArray_6save_corpus[] = "MmReaderStructArray.save_corpus(fname, corpus)";
+static PyMethodDef __pyx_mdef_6gensim_7corpora_13cython_binary_19MmReaderStructArray_7save_corpus = {"save_corpus", (PyCFunction)__pyx_pw_6gensim_7corpora_13cython_binary_19MmReaderStructArray_7save_corpus, METH_VARARGS|METH_KEYWORDS, __pyx_doc_6gensim_7corpora_13cython_binary_19MmReaderStructArray_6save_corpus};
+static PyObject *__pyx_pw_6gensim_7corpora_13cython_binary_19MmReaderStructArray_7save_corpus(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
+  PyObject *__pyx_v_fname = 0;
+  PyObject *__pyx_v_corpus = 0;
+  PyObject *__pyx_r = 0;
+  __Pyx_RefNannyDeclarations
+  __Pyx_RefNannySetupContext("save_corpus (wrapper)", 0);
+  {
+    static PyObject **__pyx_pyargnames[] = {&__pyx_n_s_fname,&__pyx_n_s_corpus,0};
+    PyObject* values[2] = {0,0};
+    if (unlikely(__pyx_kwds)) {
+      Py_ssize_t kw_args;
+      const Py_ssize_t pos_args = PyTuple_GET_SIZE(__pyx_args);
+      switch (pos_args) {
+        case  2: values[1] = PyTuple_GET_ITEM(__pyx_args, 1);
+        CYTHON_FALLTHROUGH;
+        case  1: values[0] = PyTuple_GET_ITEM(__pyx_args, 0);
+        CYTHON_FALLTHROUGH;
+        case  0: break;
+        default: goto __pyx_L5_argtuple_error;
+      }
+      kw_args = PyDict_Size(__pyx_kwds);
+      switch (pos_args) {
+        case  0:
+        if (likely((values[0] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_fname)) != 0)) kw_args--;
+        else goto __pyx_L5_argtuple_error;
+        CYTHON_FALLTHROUGH;
+        case  1:
+        if (likely((values[1] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_corpus)) != 0)) kw_args--;
+        else {
+          __Pyx_RaiseArgtupleInvalid("save_corpus", 1, 2, 2, 1); __PYX_ERR(0, 215, __pyx_L3_error)
+        }
+      }
+      if (unlikely(kw_args > 0)) {
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "save_corpus") < 0)) __PYX_ERR(0, 215, __pyx_L3_error)
+      }
+    } else if (PyTuple_GET_SIZE(__pyx_args) != 2) {
+      goto __pyx_L5_argtuple_error;
+    } else {
+      values[0] = PyTuple_GET_ITEM(__pyx_args, 0);
+      values[1] = PyTuple_GET_ITEM(__pyx_args, 1);
+    }
+    __pyx_v_fname = values[0];
+    __pyx_v_corpus = values[1];
+  }
+  goto __pyx_L4_argument_unpacking_done;
+  __pyx_L5_argtuple_error:;
+  __Pyx_RaiseArgtupleInvalid("save_corpus", 1, 2, 2, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 215, __pyx_L3_error)
+  __pyx_L3_error:;
+  __Pyx_AddTraceback("gensim.corpora.cython_binary.MmReaderStructArray.save_corpus", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_RefNannyFinishContext();
+  return NULL;
+  __pyx_L4_argument_unpacking_done:;
+  __pyx_r = __pyx_pf_6gensim_7corpora_13cython_binary_19MmReaderStructArray_6save_corpus(__pyx_v_fname, __pyx_v_corpus);
+
+  /* function exit code */
+  __Pyx_RefNannyFinishContext();
+  return __pyx_r;
+}
+
+static PyObject *__pyx_pf_6gensim_7corpora_13cython_binary_19MmReaderStructArray_6save_corpus(PyObject *__pyx_v_fname, PyObject *__pyx_v_corpus) {
+  FILE *__pyx_v_file;
+  int __pyx_v_termid;
+  int __pyx_v_docid;
+  int __pyx_v_doc_length;
+  int __pyx_v_num_docs;
+  int __pyx_v_num_terms;
+  int __pyx_v_num_nnz;
+  float __pyx_v_value;
+  struct __pyx_t_6gensim_7corpora_13cython_binary_TermCount __pyx_v_tc;
+  PyObject *__pyx_v_doc = NULL;
+  PyObject *__pyx_r = NULL;
+  __Pyx_RefNannyDeclarations
+  PyObject *__pyx_t_1 = NULL;
+  PyObject *__pyx_t_2 = NULL;
+  PyObject *__pyx_t_3 = NULL;
+  int __pyx_t_4;
+  PyObject *__pyx_t_5 = NULL;
+  char const *__pyx_t_6;
+  int __pyx_t_7;
+  int __pyx_t_8;
+  Py_ssize_t __pyx_t_9;
+  PyObject *(*__pyx_t_10)(PyObject *);
+  Py_ssize_t __pyx_t_11;
+  PyObject *(*__pyx_t_12)(PyObject *);
+  PyObject *__pyx_t_13 = NULL;
+  PyObject *__pyx_t_14 = NULL;
+  PyObject *(*__pyx_t_15)(PyObject *);
+  float __pyx_t_16;
+  __Pyx_RefNannySetupContext("save_corpus", 0);
+
+  /* "gensim/corpora/cython_binary.pyx":221
+ *         cdef float value
+ *         cdef TermCount tc
+ *         logger.info("storing corpus in Matrix Market format to %s", fname)             # <<<<<<<<<<<<<<
+ * 
+ *         file = fopen(fname.encode('utf-8'), "wb")
+ */
+  __pyx_t_2 = __Pyx_GetModuleGlobalName(__pyx_n_s_logger); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 221, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_2);
+  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_info); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 221, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_3);
+  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+  __pyx_t_2 = NULL;
+  __pyx_t_4 = 0;
+  if (CYTHON_UNPACK_METHODS && unlikely(PyMethod_Check(__pyx_t_3))) {
+    __pyx_t_2 = PyMethod_GET_SELF(__pyx_t_3);
+    if (likely(__pyx_t_2)) {
+      PyObject* function = PyMethod_GET_FUNCTION(__pyx_t_3);
+      __Pyx_INCREF(__pyx_t_2);
+      __Pyx_INCREF(function);
+      __Pyx_DECREF_SET(__pyx_t_3, function);
+      __pyx_t_4 = 1;
+    }
+  }
+  #if CYTHON_FAST_PYCALL
+  if (PyFunction_Check(__pyx_t_3)) {
+    PyObject *__pyx_temp[3] = {__pyx_t_2, __pyx_kp_s_storing_corpus_in_Matrix_Market, __pyx_v_fname};
+    __pyx_t_1 = __Pyx_PyFunction_FastCall(__pyx_t_3, __pyx_temp+1-__pyx_t_4, 2+__pyx_t_4); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 221, __pyx_L1_error)
+    __Pyx_XDECREF(__pyx_t_2); __pyx_t_2 = 0;
+    __Pyx_GOTREF(__pyx_t_1);
+  } else
+  #endif
+  #if CYTHON_FAST_PYCCALL
+  if (__Pyx_PyFastCFunction_Check(__pyx_t_3)) {
+    PyObject *__pyx_temp[3] = {__pyx_t_2, __pyx_kp_s_storing_corpus_in_Matrix_Market, __pyx_v_fname};
+    __pyx_t_1 = __Pyx_PyCFunction_FastCall(__pyx_t_3, __pyx_temp+1-__pyx_t_4, 2+__pyx_t_4); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 221, __pyx_L1_error)
+    __Pyx_XDECREF(__pyx_t_2); __pyx_t_2 = 0;
+    __Pyx_GOTREF(__pyx_t_1);
+  } else
+  #endif
+  {
+    __pyx_t_5 = PyTuple_New(2+__pyx_t_4); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 221, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_5);
+    if (__pyx_t_2) {
+      __Pyx_GIVEREF(__pyx_t_2); PyTuple_SET_ITEM(__pyx_t_5, 0, __pyx_t_2); __pyx_t_2 = NULL;
+    }
+    __Pyx_INCREF(__pyx_kp_s_storing_corpus_in_Matrix_Market);
+    __Pyx_GIVEREF(__pyx_kp_s_storing_corpus_in_Matrix_Market);
+    PyTuple_SET_ITEM(__pyx_t_5, 0+__pyx_t_4, __pyx_kp_s_storing_corpus_in_Matrix_Market);
+    __Pyx_INCREF(__pyx_v_fname);
+    __Pyx_GIVEREF(__pyx_v_fname);
+    PyTuple_SET_ITEM(__pyx_t_5, 1+__pyx_t_4, __pyx_v_fname);
+    __pyx_t_1 = __Pyx_PyObject_Call(__pyx_t_3, __pyx_t_5, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 221, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_1);
+    __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
+  }
+  __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
+  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+
+  /* "gensim/corpora/cython_binary.pyx":223
+ *         logger.info("storing corpus in Matrix Market format to %s", fname)
+ * 
+ *         file = fopen(fname.encode('utf-8'), "wb")             # <<<<<<<<<<<<<<
+ * 
+ *         # write out header info
+ */
+  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_fname, __pyx_n_s_encode); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 223, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_1);
+  __pyx_t_3 = __Pyx_PyObject_Call(__pyx_t_1, __pyx_tuple__3, NULL); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 223, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_3);
+  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+  __pyx_t_6 = __Pyx_PyObject_AsString(__pyx_t_3); if (unlikely((!__pyx_t_6) && PyErr_Occurred())) __PYX_ERR(0, 223, __pyx_L1_error)
+  __pyx_v_file = fopen(__pyx_t_6, ((char const *)"wb"));
+  __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
+
+  /* "gensim/corpora/cython_binary.pyx":226
+ * 
+ *         # write out header info
+ *         num_docs, num_terms, num_nnz = corpus.num_docs, corpus.num_terms, corpus.num_nnz             # <<<<<<<<<<<<<<
+ *         fwrite( & num_docs, sizeof(num_docs), 1, file)
+ *         fwrite( & num_terms, sizeof(num_terms), 1, file)
+ */
+  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_v_corpus, __pyx_n_s_num_docs); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 226, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_3);
+  __pyx_t_4 = __Pyx_PyInt_As_int(__pyx_t_3); if (unlikely((__pyx_t_4 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 226, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
+  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_v_corpus, __pyx_n_s_num_terms); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 226, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_3);
+  __pyx_t_7 = __Pyx_PyInt_As_int(__pyx_t_3); if (unlikely((__pyx_t_7 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 226, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
+  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_v_corpus, __pyx_n_s_num_nnz); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 226, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_3);
+  __pyx_t_8 = __Pyx_PyInt_As_int(__pyx_t_3); if (unlikely((__pyx_t_8 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 226, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
+  __pyx_v_num_docs = __pyx_t_4;
+  __pyx_v_num_terms = __pyx_t_7;
+  __pyx_v_num_nnz = __pyx_t_8;
+
+  /* "gensim/corpora/cython_binary.pyx":227
+ *         # write out header info
+ *         num_docs, num_terms, num_nnz = corpus.num_docs, corpus.num_terms, corpus.num_nnz
+ *         fwrite( & num_docs, sizeof(num_docs), 1, file)             # <<<<<<<<<<<<<<
+ *         fwrite( & num_terms, sizeof(num_terms), 1, file)
+ *         fwrite( & num_nnz, sizeof(num_nnz), 1, file)
+ */
+  fwrite((&__pyx_v_num_docs), (sizeof(__pyx_v_num_docs)), 1, __pyx_v_file);
+
+  /* "gensim/corpora/cython_binary.pyx":228
+ *         num_docs, num_terms, num_nnz = corpus.num_docs, corpus.num_terms, corpus.num_nnz
+ *         fwrite( & num_docs, sizeof(num_docs), 1, file)
+ *         fwrite( & num_terms, sizeof(num_terms), 1, file)             # <<<<<<<<<<<<<<
+ *         fwrite( & num_nnz, sizeof(num_nnz), 1, file)
+ * 
+ */
+  fwrite((&__pyx_v_num_terms), (sizeof(__pyx_v_num_terms)), 1, __pyx_v_file);
+
+  /* "gensim/corpora/cython_binary.pyx":229
+ *         fwrite( & num_docs, sizeof(num_docs), 1, file)
+ *         fwrite( & num_terms, sizeof(num_terms), 1, file)
+ *         fwrite( & num_nnz, sizeof(num_nnz), 1, file)             # <<<<<<<<<<<<<<
+ * 
+ *         for (docid, doc) in enumerate(corpus):
+ */
+  fwrite((&__pyx_v_num_nnz), (sizeof(__pyx_v_num_nnz)), 1, __pyx_v_file);
+
+  /* "gensim/corpora/cython_binary.pyx":231
+ *         fwrite( & num_nnz, sizeof(num_nnz), 1, file)
+ * 
+ *         for (docid, doc) in enumerate(corpus):             # <<<<<<<<<<<<<<
+ *             doc_length = len(doc)
+ *             fwrite( & docid, sizeof(docid), 1, file)
+ */
+  __pyx_t_8 = 0;
+  if (likely(PyList_CheckExact(__pyx_v_corpus)) || PyTuple_CheckExact(__pyx_v_corpus)) {
+    __pyx_t_3 = __pyx_v_corpus; __Pyx_INCREF(__pyx_t_3); __pyx_t_9 = 0;
+    __pyx_t_10 = NULL;
+  } else {
+    __pyx_t_9 = -1; __pyx_t_3 = PyObject_GetIter(__pyx_v_corpus); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 231, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_3);
+    __pyx_t_10 = Py_TYPE(__pyx_t_3)->tp_iternext; if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 231, __pyx_L1_error)
+  }
+  for (;;) {
+    if (likely(!__pyx_t_10)) {
+      if (likely(PyList_CheckExact(__pyx_t_3))) {
+        if (__pyx_t_9 >= PyList_GET_SIZE(__pyx_t_3)) break;
+        #if CYTHON_ASSUME_SAFE_MACROS && !CYTHON_AVOID_BORROWED_REFS
+        __pyx_t_1 = PyList_GET_ITEM(__pyx_t_3, __pyx_t_9); __Pyx_INCREF(__pyx_t_1); __pyx_t_9++; if (unlikely(0 < 0)) __PYX_ERR(0, 231, __pyx_L1_error)
+        #else
+        __pyx_t_1 = PySequence_ITEM(__pyx_t_3, __pyx_t_9); __pyx_t_9++; if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 231, __pyx_L1_error)
+        __Pyx_GOTREF(__pyx_t_1);
+        #endif
+      } else {
+        if (__pyx_t_9 >= PyTuple_GET_SIZE(__pyx_t_3)) break;
+        #if CYTHON_ASSUME_SAFE_MACROS && !CYTHON_AVOID_BORROWED_REFS
+        __pyx_t_1 = PyTuple_GET_ITEM(__pyx_t_3, __pyx_t_9); __Pyx_INCREF(__pyx_t_1); __pyx_t_9++; if (unlikely(0 < 0)) __PYX_ERR(0, 231, __pyx_L1_error)
+        #else
+        __pyx_t_1 = PySequence_ITEM(__pyx_t_3, __pyx_t_9); __pyx_t_9++; if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 231, __pyx_L1_error)
+        __Pyx_GOTREF(__pyx_t_1);
+        #endif
+      }
+    } else {
+      __pyx_t_1 = __pyx_t_10(__pyx_t_3);
+      if (unlikely(!__pyx_t_1)) {
+        PyObject* exc_type = PyErr_Occurred();
+        if (exc_type) {
+          if (likely(__Pyx_PyErr_GivenExceptionMatches(exc_type, PyExc_StopIteration))) PyErr_Clear();
+          else __PYX_ERR(0, 231, __pyx_L1_error)
+        }
+        break;
+      }
+      __Pyx_GOTREF(__pyx_t_1);
+    }
+    __Pyx_XDECREF_SET(__pyx_v_doc, __pyx_t_1);
+    __pyx_t_1 = 0;
+    __pyx_v_docid = __pyx_t_8;
+    __pyx_t_8 = (__pyx_t_8 + 1);
+
+    /* "gensim/corpora/cython_binary.pyx":232
+ * 
+ *         for (docid, doc) in enumerate(corpus):
+ *             doc_length = len(doc)             # <<<<<<<<<<<<<<
+ *             fwrite( & docid, sizeof(docid), 1, file)
+ *             fwrite( & doc_length, sizeof(doc_length), 1, file)
+ */
+    __pyx_t_11 = PyObject_Length(__pyx_v_doc); if (unlikely(__pyx_t_11 == ((Py_ssize_t)-1))) __PYX_ERR(0, 232, __pyx_L1_error)
+    __pyx_v_doc_length = __pyx_t_11;
+
+    /* "gensim/corpora/cython_binary.pyx":233
+ *         for (docid, doc) in enumerate(corpus):
+ *             doc_length = len(doc)
+ *             fwrite( & docid, sizeof(docid), 1, file)             # <<<<<<<<<<<<<<
+ *             fwrite( & doc_length, sizeof(doc_length), 1, file)
+ * 
+ */
+    fwrite((&__pyx_v_docid), (sizeof(__pyx_v_docid)), 1, __pyx_v_file);
+
+    /* "gensim/corpora/cython_binary.pyx":234
+ *             doc_length = len(doc)
+ *             fwrite( & docid, sizeof(docid), 1, file)
+ *             fwrite( & doc_length, sizeof(doc_length), 1, file)             # <<<<<<<<<<<<<<
+ * 
+ *             for (termid, value) in doc:
+ */
+    fwrite((&__pyx_v_doc_length), (sizeof(__pyx_v_doc_length)), 1, __pyx_v_file);
+
+    /* "gensim/corpora/cython_binary.pyx":236
+ *             fwrite( & doc_length, sizeof(doc_length), 1, file)
+ * 
+ *             for (termid, value) in doc:             # <<<<<<<<<<<<<<
+ *                 tc.termid, tc.value = termid, value
+ *                 fwrite( &tc, sizeof(tc), 1, file)
+ */
+    if (likely(PyList_CheckExact(__pyx_v_doc)) || PyTuple_CheckExact(__pyx_v_doc)) {
+      __pyx_t_1 = __pyx_v_doc; __Pyx_INCREF(__pyx_t_1); __pyx_t_11 = 0;
+      __pyx_t_12 = NULL;
+    } else {
+      __pyx_t_11 = -1; __pyx_t_1 = PyObject_GetIter(__pyx_v_doc); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 236, __pyx_L1_error)
+      __Pyx_GOTREF(__pyx_t_1);
+      __pyx_t_12 = Py_TYPE(__pyx_t_1)->tp_iternext; if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 236, __pyx_L1_error)
+    }
+    for (;;) {
+      if (likely(!__pyx_t_12)) {
+        if (likely(PyList_CheckExact(__pyx_t_1))) {
+          if (__pyx_t_11 >= PyList_GET_SIZE(__pyx_t_1)) break;
+          #if CYTHON_ASSUME_SAFE_MACROS && !CYTHON_AVOID_BORROWED_REFS
+          __pyx_t_5 = PyList_GET_ITEM(__pyx_t_1, __pyx_t_11); __Pyx_INCREF(__pyx_t_5); __pyx_t_11++; if (unlikely(0 < 0)) __PYX_ERR(0, 236, __pyx_L1_error)
+          #else
+          __pyx_t_5 = PySequence_ITEM(__pyx_t_1, __pyx_t_11); __pyx_t_11++; if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 236, __pyx_L1_error)
+          __Pyx_GOTREF(__pyx_t_5);
+          #endif
+        } else {
+          if (__pyx_t_11 >= PyTuple_GET_SIZE(__pyx_t_1)) break;
+          #if CYTHON_ASSUME_SAFE_MACROS && !CYTHON_AVOID_BORROWED_REFS
+          __pyx_t_5 = PyTuple_GET_ITEM(__pyx_t_1, __pyx_t_11); __Pyx_INCREF(__pyx_t_5); __pyx_t_11++; if (unlikely(0 < 0)) __PYX_ERR(0, 236, __pyx_L1_error)
+          #else
+          __pyx_t_5 = PySequence_ITEM(__pyx_t_1, __pyx_t_11); __pyx_t_11++; if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 236, __pyx_L1_error)
+          __Pyx_GOTREF(__pyx_t_5);
+          #endif
+        }
+      } else {
+        __pyx_t_5 = __pyx_t_12(__pyx_t_1);
+        if (unlikely(!__pyx_t_5)) {
+          PyObject* exc_type = PyErr_Occurred();
+          if (exc_type) {
+            if (likely(__Pyx_PyErr_GivenExceptionMatches(exc_type, PyExc_StopIteration))) PyErr_Clear();
+            else __PYX_ERR(0, 236, __pyx_L1_error)
+          }
+          break;
+        }
+        __Pyx_GOTREF(__pyx_t_5);
+      }
+      if ((likely(PyTuple_CheckExact(__pyx_t_5))) || (PyList_CheckExact(__pyx_t_5))) {
+        PyObject* sequence = __pyx_t_5;
+        #if !CYTHON_COMPILING_IN_PYPY
+        Py_ssize_t size = Py_SIZE(sequence);
+        #else
+        Py_ssize_t size = PySequence_Size(sequence);
+        #endif
+        if (unlikely(size != 2)) {
+          if (size > 2) __Pyx_RaiseTooManyValuesError(2);
+          else if (size >= 0) __Pyx_RaiseNeedMoreValuesError(size);
+          __PYX_ERR(0, 236, __pyx_L1_error)
+        }
+        #if CYTHON_ASSUME_SAFE_MACROS && !CYTHON_AVOID_BORROWED_REFS
+        if (likely(PyTuple_CheckExact(sequence))) {
+          __pyx_t_2 = PyTuple_GET_ITEM(sequence, 0); 
+          __pyx_t_13 = PyTuple_GET_ITEM(sequence, 1); 
+        } else {
+          __pyx_t_2 = PyList_GET_ITEM(sequence, 0); 
+          __pyx_t_13 = PyList_GET_ITEM(sequence, 1); 
+        }
+        __Pyx_INCREF(__pyx_t_2);
+        __Pyx_INCREF(__pyx_t_13);
+        #else
+        __pyx_t_2 = PySequence_ITEM(sequence, 0); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 236, __pyx_L1_error)
+        __Pyx_GOTREF(__pyx_t_2);
+        __pyx_t_13 = PySequence_ITEM(sequence, 1); if (unlikely(!__pyx_t_13)) __PYX_ERR(0, 236, __pyx_L1_error)
+        __Pyx_GOTREF(__pyx_t_13);
+        #endif
+        __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
+      } else {
+        Py_ssize_t index = -1;
+        __pyx_t_14 = PyObject_GetIter(__pyx_t_5); if (unlikely(!__pyx_t_14)) __PYX_ERR(0, 236, __pyx_L1_error)
+        __Pyx_GOTREF(__pyx_t_14);
+        __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
+        __pyx_t_15 = Py_TYPE(__pyx_t_14)->tp_iternext;
+        index = 0; __pyx_t_2 = __pyx_t_15(__pyx_t_14); if (unlikely(!__pyx_t_2)) goto __pyx_L7_unpacking_failed;
+        __Pyx_GOTREF(__pyx_t_2);
+        index = 1; __pyx_t_13 = __pyx_t_15(__pyx_t_14); if (unlikely(!__pyx_t_13)) goto __pyx_L7_unpacking_failed;
+        __Pyx_GOTREF(__pyx_t_13);
+        if (__Pyx_IternextUnpackEndCheck(__pyx_t_15(__pyx_t_14), 2) < 0) __PYX_ERR(0, 236, __pyx_L1_error)
+        __pyx_t_15 = NULL;
+        __Pyx_DECREF(__pyx_t_14); __pyx_t_14 = 0;
+        goto __pyx_L8_unpacking_done;
+        __pyx_L7_unpacking_failed:;
+        __Pyx_DECREF(__pyx_t_14); __pyx_t_14 = 0;
+        __pyx_t_15 = NULL;
+        if (__Pyx_IterFinish() == 0) __Pyx_RaiseNeedMoreValuesError(index);
+        __PYX_ERR(0, 236, __pyx_L1_error)
+        __pyx_L8_unpacking_done:;
+      }
+      __pyx_t_7 = __Pyx_PyInt_As_int(__pyx_t_2); if (unlikely((__pyx_t_7 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 236, __pyx_L1_error)
+      __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+      __pyx_t_16 = __pyx_PyFloat_AsFloat(__pyx_t_13); if (unlikely((__pyx_t_16 == (float)-1) && PyErr_Occurred())) __PYX_ERR(0, 236, __pyx_L1_error)
+      __Pyx_DECREF(__pyx_t_13); __pyx_t_13 = 0;
+      __pyx_v_termid = __pyx_t_7;
+      __pyx_v_value = __pyx_t_16;
+
+      /* "gensim/corpora/cython_binary.pyx":237
+ * 
+ *             for (termid, value) in doc:
+ *                 tc.termid, tc.value = termid, value             # <<<<<<<<<<<<<<
+ *                 fwrite( &tc, sizeof(tc), 1, file)
+ * 
+ */
+      __pyx_t_7 = __pyx_v_termid;
+      __pyx_t_16 = __pyx_v_value;
+      __pyx_v_tc.termid = __pyx_t_7;
+      __pyx_v_tc.value = __pyx_t_16;
+
+      /* "gensim/corpora/cython_binary.pyx":238
+ *             for (termid, value) in doc:
+ *                 tc.termid, tc.value = termid, value
+ *                 fwrite( &tc, sizeof(tc), 1, file)             # <<<<<<<<<<<<<<
+ * 
+ *         fclose(file)
+ */
+      fwrite((&__pyx_v_tc), (sizeof(__pyx_v_tc)), 1, __pyx_v_file);
+
+      /* "gensim/corpora/cython_binary.pyx":236
+ *             fwrite( & doc_length, sizeof(doc_length), 1, file)
+ * 
+ *             for (termid, value) in doc:             # <<<<<<<<<<<<<<
+ *                 tc.termid, tc.value = termid, value
+ *                 fwrite( &tc, sizeof(tc), 1, file)
+ */
+    }
+    __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+
+    /* "gensim/corpora/cython_binary.pyx":231
+ *         fwrite( & num_nnz, sizeof(num_nnz), 1, file)
+ * 
+ *         for (docid, doc) in enumerate(corpus):             # <<<<<<<<<<<<<<
+ *             doc_length = len(doc)
+ *             fwrite( & docid, sizeof(docid), 1, file)
+ */
+  }
+  __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
+
+  /* "gensim/corpora/cython_binary.pyx":240
+ *                 fwrite( &tc, sizeof(tc), 1, file)
+ * 
+ *         fclose(file)             # <<<<<<<<<<<<<<
+ * 
+ *     cdef skip_headers(self, FILE *file):
+ */
+  fclose(__pyx_v_file);
+
+  /* "gensim/corpora/cython_binary.pyx":215
+ * 
+ *     @staticmethod
+ *     def save_corpus(fname, corpus):             # <<<<<<<<<<<<<<
+ *         cdef FILE *file
+ *         cdef int termid, docid, doc_length
+ */
+
+  /* function exit code */
+  __pyx_r = Py_None; __Pyx_INCREF(Py_None);
+  goto __pyx_L0;
+  __pyx_L1_error:;
+  __Pyx_XDECREF(__pyx_t_1);
+  __Pyx_XDECREF(__pyx_t_2);
+  __Pyx_XDECREF(__pyx_t_3);
+  __Pyx_XDECREF(__pyx_t_5);
+  __Pyx_XDECREF(__pyx_t_13);
+  __Pyx_XDECREF(__pyx_t_14);
+  __Pyx_AddTraceback("gensim.corpora.cython_binary.MmReaderStructArray.save_corpus", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __pyx_r = NULL;
+  __pyx_L0:;
+  __Pyx_XDECREF(__pyx_v_doc);
+  __Pyx_XGIVEREF(__pyx_r);
+  __Pyx_RefNannyFinishContext();
+  return __pyx_r;
+}
+
+/* "gensim/corpora/cython_binary.pyx":242
+ *         fclose(file)
+ * 
+ *     cdef skip_headers(self, FILE *file):             # <<<<<<<<<<<<<<
+ *         """Skip file headers that appear before the first document.
+ * 
+ */
+
+static PyObject *__pyx_f_6gensim_7corpora_13cython_binary_19MmReaderStructArray_skip_headers(CYTHON_UNUSED struct __pyx_obj_6gensim_7corpora_13cython_binary_MmReaderStructArray *__pyx_v_self, FILE *__pyx_v_file) {
+  int __pyx_v_header_value;
+  PyObject *__pyx_r = NULL;
+  __Pyx_RefNannyDeclarations
+  __Pyx_RefNannySetupContext("skip_headers", 0);
+
+  /* "gensim/corpora/cython_binary.pyx":253
+ *         cdef int header_value;
+ * 
+ *         fseek(file, sizeof(header_value) * 3, SEEK_SET)             # <<<<<<<<<<<<<<
+ * 
+ *     def read_headers(self):
+ */
+  fseek(__pyx_v_file, ((sizeof(__pyx_v_header_value)) * 3), SEEK_SET);
+
+  /* "gensim/corpora/cython_binary.pyx":242
+ *         fclose(file)
+ * 
+ *     cdef skip_headers(self, FILE *file):             # <<<<<<<<<<<<<<
+ *         """Skip file headers that appear before the first document.
+ * 
+ */
+
+  /* function exit code */
+  __pyx_r = Py_None; __Pyx_INCREF(Py_None);
+  __Pyx_XGIVEREF(__pyx_r);
+  __Pyx_RefNannyFinishContext();
+  return __pyx_r;
+}
+
+/* "gensim/corpora/cython_binary.pyx":255
+ *         fseek(file, sizeof(header_value) * 3, SEEK_SET)
+ * 
+ *     def read_headers(self):             # <<<<<<<<<<<<<<
+ *         """Reader header row for file metadata
+ * 
+ */
+
+/* Python wrapper */
+static PyObject *__pyx_pw_6gensim_7corpora_13cython_binary_19MmReaderStructArray_9read_headers(PyObject *__pyx_v_self, CYTHON_UNUSED PyObject *unused); /*proto*/
+static char __pyx_doc_6gensim_7corpora_13cython_binary_19MmReaderStructArray_8read_headers[] = "MmReaderStructArray.read_headers(self)\nReader header row for file metadata\n\n        Returns\n        ----------\n        num_docs : int\n        num_terms : int\n        num_nnz : int\n\n        ";
+static PyObject *__pyx_pw_6gensim_7corpora_13cython_binary_19MmReaderStructArray_9read_headers(PyObject *__pyx_v_self, CYTHON_UNUSED PyObject *unused) {
+  PyObject *__pyx_r = 0;
+  __Pyx_RefNannyDeclarations
+  __Pyx_RefNannySetupContext("read_headers (wrapper)", 0);
+  __pyx_r = __pyx_pf_6gensim_7corpora_13cython_binary_19MmReaderStructArray_8read_headers(((struct __pyx_obj_6gensim_7corpora_13cython_binary_MmReaderStructArray *)__pyx_v_self));
+
+  /* function exit code */
+  __Pyx_RefNannyFinishContext();
+  return __pyx_r;
+}
+
+static PyObject *__pyx_pf_6gensim_7corpora_13cython_binary_19MmReaderStructArray_8read_headers(struct __pyx_obj_6gensim_7corpora_13cython_binary_MmReaderStructArray *__pyx_v_self) {
+  FILE *__pyx_v_file;
+  int __pyx_v_num_docs;
+  int __pyx_v_num_terms;
+  int __pyx_v_num_nnz;
+  PyObject *__pyx_r = NULL;
+  __Pyx_RefNannyDeclarations
+  char const *__pyx_t_1;
+  PyObject *__pyx_t_2 = NULL;
+  PyObject *__pyx_t_3 = NULL;
+  PyObject *__pyx_t_4 = NULL;
+  PyObject *__pyx_t_5 = NULL;
+  __Pyx_RefNannySetupContext("read_headers", 0);
+
+  /* "gensim/corpora/cython_binary.pyx":268
+ *         cdef int num_docs, num_terms, num_nnz
+ * 
+ *         file = fopen(self.input, "rb")             # <<<<<<<<<<<<<<
+ *         fread( & num_docs, sizeof(num_docs), 1, file)
+ *         fread( & num_terms, sizeof(num_terms), 1, file)
+ */
+  __pyx_t_1 = __Pyx_PyObject_AsString(__pyx_v_self->input); if (unlikely((!__pyx_t_1) && PyErr_Occurred())) __PYX_ERR(0, 268, __pyx_L1_error)
+  __pyx_v_file = fopen(__pyx_t_1, ((char const *)"rb"));
+
+  /* "gensim/corpora/cython_binary.pyx":269
+ * 
+ *         file = fopen(self.input, "rb")
+ *         fread( & num_docs, sizeof(num_docs), 1, file)             # <<<<<<<<<<<<<<
+ *         fread( & num_terms, sizeof(num_terms), 1, file)
+ *         fread( & num_nnz, sizeof(num_nnz), 1, file)
+ */
+  fread((&__pyx_v_num_docs), (sizeof(__pyx_v_num_docs)), 1, __pyx_v_file);
+
+  /* "gensim/corpora/cython_binary.pyx":270
+ *         file = fopen(self.input, "rb")
+ *         fread( & num_docs, sizeof(num_docs), 1, file)
+ *         fread( & num_terms, sizeof(num_terms), 1, file)             # <<<<<<<<<<<<<<
+ *         fread( & num_nnz, sizeof(num_nnz), 1, file)
+ *         fclose(file)
+ */
+  fread((&__pyx_v_num_terms), (sizeof(__pyx_v_num_terms)), 1, __pyx_v_file);
+
+  /* "gensim/corpora/cython_binary.pyx":271
+ *         fread( & num_docs, sizeof(num_docs), 1, file)
+ *         fread( & num_terms, sizeof(num_terms), 1, file)
+ *         fread( & num_nnz, sizeof(num_nnz), 1, file)             # <<<<<<<<<<<<<<
+ *         fclose(file)
+ * 
+ */
+  fread((&__pyx_v_num_nnz), (sizeof(__pyx_v_num_nnz)), 1, __pyx_v_file);
+
+  /* "gensim/corpora/cython_binary.pyx":272
+ *         fread( & num_terms, sizeof(num_terms), 1, file)
+ *         fread( & num_nnz, sizeof(num_nnz), 1, file)
+ *         fclose(file)             # <<<<<<<<<<<<<<
+ * 
+ *         return num_docs, num_terms, num_nnz
+ */
+  fclose(__pyx_v_file);
+
+  /* "gensim/corpora/cython_binary.pyx":274
+ *         fclose(file)
+ * 
+ *         return num_docs, num_terms, num_nnz             # <<<<<<<<<<<<<<
+ * 
+ *     def __iter__(self):
+ */
+  __Pyx_XDECREF(__pyx_r);
+  __pyx_t_2 = __Pyx_PyInt_From_int(__pyx_v_num_docs); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 274, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_2);
+  __pyx_t_3 = __Pyx_PyInt_From_int(__pyx_v_num_terms); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 274, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_3);
+  __pyx_t_4 = __Pyx_PyInt_From_int(__pyx_v_num_nnz); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 274, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_4);
+  __pyx_t_5 = PyTuple_New(3); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 274, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_5);
+  __Pyx_GIVEREF(__pyx_t_2);
+  PyTuple_SET_ITEM(__pyx_t_5, 0, __pyx_t_2);
+  __Pyx_GIVEREF(__pyx_t_3);
+  PyTuple_SET_ITEM(__pyx_t_5, 1, __pyx_t_3);
+  __Pyx_GIVEREF(__pyx_t_4);
+  PyTuple_SET_ITEM(__pyx_t_5, 2, __pyx_t_4);
+  __pyx_t_2 = 0;
+  __pyx_t_3 = 0;
+  __pyx_t_4 = 0;
+  __pyx_r = __pyx_t_5;
+  __pyx_t_5 = 0;
+  goto __pyx_L0;
+
+  /* "gensim/corpora/cython_binary.pyx":255
+ *         fseek(file, sizeof(header_value) * 3, SEEK_SET)
+ * 
+ *     def read_headers(self):             # <<<<<<<<<<<<<<
+ *         """Reader header row for file metadata
+ * 
+ */
+
+  /* function exit code */
+  __pyx_L1_error:;
+  __Pyx_XDECREF(__pyx_t_2);
+  __Pyx_XDECREF(__pyx_t_3);
+  __Pyx_XDECREF(__pyx_t_4);
+  __Pyx_XDECREF(__pyx_t_5);
+  __Pyx_AddTraceback("gensim.corpora.cython_binary.MmReaderStructArray.read_headers", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __pyx_r = NULL;
+  __pyx_L0:;
+  __Pyx_XGIVEREF(__pyx_r);
+  __Pyx_RefNannyFinishContext();
+  return __pyx_r;
+}
+static PyObject *__pyx_gb_6gensim_7corpora_13cython_binary_19MmReaderStructArray_12generator1(__pyx_CoroutineObject *__pyx_generator, CYTHON_UNUSED PyThreadState *__pyx_tstate, PyObject *__pyx_sent_value); /* proto */
+
+/* "gensim/corpora/cython_binary.pyx":276
+ *         return num_docs, num_terms, num_nnz
+ * 
+ *     def __iter__(self):             # <<<<<<<<<<<<<<
+ *         """Iterate through corpus.
+ * 
+ */
+
+/* Python wrapper */
+static PyObject *__pyx_pw_6gensim_7corpora_13cython_binary_19MmReaderStructArray_11__iter__(PyObject *__pyx_v_self); /*proto*/
+static char __pyx_doc_6gensim_7corpora_13cython_binary_19MmReaderStructArray_10__iter__[] = "Iterate through corpus.\n\n        Notes\n        ------\n        Note that the total number of vectors returned is always equal to the number of rows specified\n        in the header, empty documents are inserted and yielded where appropriate, even if they are not explicitly\n        stored in the Matrix Market file.\n\n        Yields\n        ------\n        (int, list of (int, number))\n            Document id and Document in BoW format\n\n        ";
+#if CYTHON_COMPILING_IN_CPYTHON
+struct wrapperbase __pyx_wrapperbase_6gensim_7corpora_13cython_binary_19MmReaderStructArray_10__iter__;
+#endif
+static PyObject *__pyx_pw_6gensim_7corpora_13cython_binary_19MmReaderStructArray_11__iter__(PyObject *__pyx_v_self) {
+  PyObject *__pyx_r = 0;
+  __Pyx_RefNannyDeclarations
+  __Pyx_RefNannySetupContext("__iter__ (wrapper)", 0);
+  __pyx_r = __pyx_pf_6gensim_7corpora_13cython_binary_19MmReaderStructArray_10__iter__(((struct __pyx_obj_6gensim_7corpora_13cython_binary_MmReaderStructArray *)__pyx_v_self));
+
+  /* function exit code */
+  __Pyx_RefNannyFinishContext();
+  return __pyx_r;
+}
+
+static PyObject *__pyx_pf_6gensim_7corpora_13cython_binary_19MmReaderStructArray_10__iter__(struct __pyx_obj_6gensim_7corpora_13cython_binary_MmReaderStructArray *__pyx_v_self) {
+  struct __pyx_obj_6gensim_7corpora_13cython_binary___pyx_scope_struct_1___iter__ *__pyx_cur_scope;
+  PyObject *__pyx_r = NULL;
+  __Pyx_RefNannyDeclarations
+  __Pyx_RefNannySetupContext("__iter__", 0);
+  __pyx_cur_scope = (struct __pyx_obj_6gensim_7corpora_13cython_binary___pyx_scope_struct_1___iter__ *)__pyx_tp_new_6gensim_7corpora_13cython_binary___pyx_scope_struct_1___iter__(__pyx_ptype_6gensim_7corpora_13cython_binary___pyx_scope_struct_1___iter__, __pyx_empty_tuple, NULL);
+  if (unlikely(!__pyx_cur_scope)) {
+    __pyx_cur_scope = ((struct __pyx_obj_6gensim_7corpora_13cython_binary___pyx_scope_struct_1___iter__ *)Py_None);
+    __Pyx_INCREF(Py_None);
+    __PYX_ERR(0, 276, __pyx_L1_error)
+  } else {
+    __Pyx_GOTREF(__pyx_cur_scope);
+  }
+  __pyx_cur_scope->__pyx_v_self = __pyx_v_self;
+  __Pyx_INCREF((PyObject *)__pyx_cur_scope->__pyx_v_self);
+  __Pyx_GIVEREF((PyObject *)__pyx_cur_scope->__pyx_v_self);
+  {
+    __pyx_CoroutineObject *gen = __Pyx_Generator_New((__pyx_coroutine_body_t) __pyx_gb_6gensim_7corpora_13cython_binary_19MmReaderStructArray_12generator1, (PyObject *) __pyx_cur_scope, __pyx_n_s_iter, __pyx_n_s_MmReaderStructArray___iter, __pyx_n_s_gensim_corpora_cython_binary); if (unlikely(!gen)) __PYX_ERR(0, 276, __pyx_L1_error)
+    __Pyx_DECREF(__pyx_cur_scope);
+    __Pyx_RefNannyFinishContext();
+    return (PyObject *) gen;
+  }
+
+  /* function exit code */
+  __pyx_L1_error:;
+  __Pyx_AddTraceback("gensim.corpora.cython_binary.MmReaderStructArray.__iter__", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __pyx_r = NULL;
+  __Pyx_DECREF(((PyObject *)__pyx_cur_scope));
+  __Pyx_XGIVEREF(__pyx_r);
+  __Pyx_RefNannyFinishContext();
+  return __pyx_r;
+}
+
+static PyObject *__pyx_gb_6gensim_7corpora_13cython_binary_19MmReaderStructArray_12generator1(__pyx_CoroutineObject *__pyx_generator, CYTHON_UNUSED PyThreadState *__pyx_tstate, PyObject *__pyx_sent_value) /* generator body */
+{
+  struct __pyx_obj_6gensim_7corpora_13cython_binary___pyx_scope_struct_1___iter__ *__pyx_cur_scope = ((struct __pyx_obj_6gensim_7corpora_13cython_binary___pyx_scope_struct_1___iter__ *)__pyx_generator->closure);
+  PyObject *__pyx_r = NULL;
+  char const *__pyx_t_1;
+  PyObject *__pyx_t_2 = NULL;
+  int __pyx_t_3;
+  int __pyx_t_4;
+  int __pyx_t_5;
+  int __pyx_t_6;
+  float __pyx_t_7;
+  PyObject *__pyx_t_8 = NULL;
+  PyObject *__pyx_t_9 = NULL;
+  int __pyx_t_10;
+  __Pyx_RefNannyDeclarations
+  __Pyx_RefNannySetupContext("__iter__", 0);
+  switch (__pyx_generator->resume_label) {
+    case 0: goto __pyx_L3_first_run;
+    case 1: goto __pyx_L9_resume_from_yield;
+    default: /* CPython raises the right error here */
+    __Pyx_RefNannyFinishContext();
+    return NULL;
+  }
+  __pyx_L3_first_run:;
+  if (unlikely(!__pyx_sent_value)) __PYX_ERR(0, 276, __pyx_L1_error)
+
+  /* "gensim/corpora/cython_binary.pyx":297
+ *         cdef int temp
+ * 
+ *         file = fopen(self.input, "rb")             # <<<<<<<<<<<<<<
+ *         self.skip_headers(file)
+ * 
+ */
+  __pyx_t_1 = __Pyx_PyObject_AsString(__pyx_cur_scope->__pyx_v_self->input); if (unlikely((!__pyx_t_1) && PyErr_Occurred())) __PYX_ERR(0, 297, __pyx_L1_error)
+  __pyx_cur_scope->__pyx_v_file = fopen(__pyx_t_1, ((char const *)"rb"));
+
+  /* "gensim/corpora/cython_binary.pyx":298
+ * 
+ *         file = fopen(self.input, "rb")
+ *         self.skip_headers(file)             # <<<<<<<<<<<<<<
+ * 
+ *         while (fread(&docid, sizeof(docid), 1, file) == 1):
+ */
+  __pyx_t_2 = ((struct __pyx_vtabstruct_6gensim_7corpora_13cython_binary_MmReaderStructArray *)__pyx_cur_scope->__pyx_v_self->__pyx_vtab)->skip_headers(__pyx_cur_scope->__pyx_v_self, __pyx_cur_scope->__pyx_v_file); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 298, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_2);
+  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+
+  /* "gensim/corpora/cython_binary.pyx":300
+ *         self.skip_headers(file)
+ * 
+ *         while (fread(&docid, sizeof(docid), 1, file) == 1):             # <<<<<<<<<<<<<<
+ *             document = []
+ *             fread( & doc_length, sizeof(doc_length), 1, file)
+ */
+  while (1) {
+    __pyx_t_3 = ((fread((&__pyx_cur_scope->__pyx_v_docid), (sizeof(__pyx_cur_scope->__pyx_v_docid)), 1, __pyx_cur_scope->__pyx_v_file) == 1) != 0);
+    if (!__pyx_t_3) break;
+
+    /* "gensim/corpora/cython_binary.pyx":301
+ * 
+ *         while (fread(&docid, sizeof(docid), 1, file) == 1):
+ *             document = []             # <<<<<<<<<<<<<<
+ *             fread( & doc_length, sizeof(doc_length), 1, file)
+ *             tc_array = <TermCount *> PyMem_Malloc(doc_length * sizeof(TermCount))
+ */
+    __pyx_t_2 = PyList_New(0); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 301, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_2);
+    __Pyx_XGOTREF(__pyx_cur_scope->__pyx_v_document);
+    __Pyx_XDECREF_SET(__pyx_cur_scope->__pyx_v_document, ((PyObject*)__pyx_t_2));
+    __Pyx_GIVEREF(__pyx_t_2);
+    __pyx_t_2 = 0;
+
+    /* "gensim/corpora/cython_binary.pyx":302
+ *         while (fread(&docid, sizeof(docid), 1, file) == 1):
+ *             document = []
+ *             fread( & doc_length, sizeof(doc_length), 1, file)             # <<<<<<<<<<<<<<
+ *             tc_array = <TermCount *> PyMem_Malloc(doc_length * sizeof(TermCount))
+ * 
+ */
+    fread((&__pyx_cur_scope->__pyx_v_doc_length), (sizeof(__pyx_cur_scope->__pyx_v_doc_length)), 1, __pyx_cur_scope->__pyx_v_file);
+
+    /* "gensim/corpora/cython_binary.pyx":303
+ *             document = []
+ *             fread( & doc_length, sizeof(doc_length), 1, file)
+ *             tc_array = <TermCount *> PyMem_Malloc(doc_length * sizeof(TermCount))             # <<<<<<<<<<<<<<
+ * 
+ *             fread( tc_array, sizeof(TermCount), doc_length, file)
+ */
+    __pyx_cur_scope->__pyx_v_tc_array = ((struct __pyx_t_6gensim_7corpora_13cython_binary_TermCount *)PyMem_Malloc((__pyx_cur_scope->__pyx_v_doc_length * (sizeof(struct __pyx_t_6gensim_7corpora_13cython_binary_TermCount)))));
+
+    /* "gensim/corpora/cython_binary.pyx":305
+ *             tc_array = <TermCount *> PyMem_Malloc(doc_length * sizeof(TermCount))
+ * 
+ *             fread( tc_array, sizeof(TermCount), doc_length, file)             # <<<<<<<<<<<<<<
+ * 
+ *             for i in range(doc_length):
+ */
+    fread(__pyx_cur_scope->__pyx_v_tc_array, (sizeof(struct __pyx_t_6gensim_7corpora_13cython_binary_TermCount)), __pyx_cur_scope->__pyx_v_doc_length, __pyx_cur_scope->__pyx_v_file);
+
+    /* "gensim/corpora/cython_binary.pyx":307
+ *             fread( tc_array, sizeof(TermCount), doc_length, file)
+ * 
+ *             for i in range(doc_length):             # <<<<<<<<<<<<<<
+ *                 termid = tc_array[i].termid
+ *                 value = tc_array[i].value
+ */
+    __pyx_t_4 = __pyx_cur_scope->__pyx_v_doc_length;
+    for (__pyx_t_5 = 0; __pyx_t_5 < __pyx_t_4; __pyx_t_5+=1) {
+      __pyx_cur_scope->__pyx_v_i = __pyx_t_5;
+
+      /* "gensim/corpora/cython_binary.pyx":308
+ * 
+ *             for i in range(doc_length):
+ *                 termid = tc_array[i].termid             # <<<<<<<<<<<<<<
+ *                 value = tc_array[i].value
+ * 
+ */
+      __pyx_t_6 = (__pyx_cur_scope->__pyx_v_tc_array[__pyx_cur_scope->__pyx_v_i]).termid;
+      __pyx_cur_scope->__pyx_v_termid = __pyx_t_6;
+
+      /* "gensim/corpora/cython_binary.pyx":309
+ *             for i in range(doc_length):
+ *                 termid = tc_array[i].termid
+ *                 value = tc_array[i].value             # <<<<<<<<<<<<<<
+ * 
+ *                 if not self.transposed:
+ */
+      __pyx_t_7 = (__pyx_cur_scope->__pyx_v_tc_array[__pyx_cur_scope->__pyx_v_i]).value;
+      __pyx_cur_scope->__pyx_v_value = __pyx_t_7;
+
+      /* "gensim/corpora/cython_binary.pyx":311
+ *                 value = tc_array[i].value
+ * 
+ *                 if not self.transposed:             # <<<<<<<<<<<<<<
+ *                     temp = docid
+ *                     docid = termid
+ */
+      __pyx_t_3 = ((!(__pyx_cur_scope->__pyx_v_self->transposed != 0)) != 0);
+      if (__pyx_t_3) {
+
+        /* "gensim/corpora/cython_binary.pyx":312
+ * 
+ *                 if not self.transposed:
+ *                     temp = docid             # <<<<<<<<<<<<<<
+ *                     docid = termid
+ *                     termid = temp
+ */
+        __pyx_cur_scope->__pyx_v_temp = __pyx_cur_scope->__pyx_v_docid;
+
+        /* "gensim/corpora/cython_binary.pyx":313
+ *                 if not self.transposed:
+ *                     temp = docid
+ *                     docid = termid             # <<<<<<<<<<<<<<
+ *                     termid = temp
+ * 
+ */
+        __pyx_cur_scope->__pyx_v_docid = __pyx_cur_scope->__pyx_v_termid;
+
+        /* "gensim/corpora/cython_binary.pyx":314
+ *                     temp = docid
+ *                     docid = termid
+ *                     termid = temp             # <<<<<<<<<<<<<<
+ * 
+ *                 document.append((termid, value,))  # add another field to the current document
+ */
+        __pyx_cur_scope->__pyx_v_termid = __pyx_cur_scope->__pyx_v_temp;
+
+        /* "gensim/corpora/cython_binary.pyx":311
+ *                 value = tc_array[i].value
+ * 
+ *                 if not self.transposed:             # <<<<<<<<<<<<<<
+ *                     temp = docid
+ *                     docid = termid
+ */
+      }
+
+      /* "gensim/corpora/cython_binary.pyx":316
+ *                     termid = temp
+ * 
+ *                 document.append((termid, value,))  # add another field to the current document             # <<<<<<<<<<<<<<
+ * 
+ *             PyMem_Free(tc_array)
+ */
+      __pyx_t_2 = __Pyx_PyInt_From_int(__pyx_cur_scope->__pyx_v_termid); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 316, __pyx_L1_error)
+      __Pyx_GOTREF(__pyx_t_2);
+      __pyx_t_8 = PyFloat_FromDouble(__pyx_cur_scope->__pyx_v_value); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 316, __pyx_L1_error)
+      __Pyx_GOTREF(__pyx_t_8);
+      __pyx_t_9 = PyTuple_New(2); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 316, __pyx_L1_error)
+      __Pyx_GOTREF(__pyx_t_9);
+      __Pyx_GIVEREF(__pyx_t_2);
+      PyTuple_SET_ITEM(__pyx_t_9, 0, __pyx_t_2);
+      __Pyx_GIVEREF(__pyx_t_8);
+      PyTuple_SET_ITEM(__pyx_t_9, 1, __pyx_t_8);
+      __pyx_t_2 = 0;
+      __pyx_t_8 = 0;
+      __pyx_t_10 = __Pyx_PyList_Append(__pyx_cur_scope->__pyx_v_document, __pyx_t_9); if (unlikely(__pyx_t_10 == ((int)-1))) __PYX_ERR(0, 316, __pyx_L1_error)
+      __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
+    }
+
+    /* "gensim/corpora/cython_binary.pyx":318
+ *                 document.append((termid, value,))  # add another field to the current document
+ * 
+ *             PyMem_Free(tc_array)             # <<<<<<<<<<<<<<
+ *             yield document
+ * 
+ */
+    PyMem_Free(__pyx_cur_scope->__pyx_v_tc_array);
+
+    /* "gensim/corpora/cython_binary.pyx":319
+ * 
+ *             PyMem_Free(tc_array)
+ *             yield document             # <<<<<<<<<<<<<<
+ * 
+ *         fclose(file)
+ */
+    __Pyx_INCREF(__pyx_cur_scope->__pyx_v_document);
+    __pyx_r = __pyx_cur_scope->__pyx_v_document;
+    __Pyx_XGIVEREF(__pyx_r);
+    __Pyx_RefNannyFinishContext();
+    __Pyx_Coroutine_ResetAndClearException(__pyx_generator);
+    /* return from generator, yielding value */
+    __pyx_generator->resume_label = 1;
+    return __pyx_r;
+    __pyx_L9_resume_from_yield:;
+    if (unlikely(!__pyx_sent_value)) __PYX_ERR(0, 319, __pyx_L1_error)
+  }
+
+  /* "gensim/corpora/cython_binary.pyx":321
+ *             yield document
+ * 
+ *         fclose(file)             # <<<<<<<<<<<<<<
+ */
+  fclose(__pyx_cur_scope->__pyx_v_file);
+  CYTHON_MAYBE_UNUSED_VAR(__pyx_cur_scope);
+
+  /* "gensim/corpora/cython_binary.pyx":276
+ *         return num_docs, num_terms, num_nnz
+ * 
+ *     def __iter__(self):             # <<<<<<<<<<<<<<
+ *         """Iterate through corpus.
+ * 
+ */
+
+  /* function exit code */
+  PyErr_SetNone(PyExc_StopIteration);
+  goto __pyx_L0;
+  __pyx_L1_error:;
+  __Pyx_XDECREF(__pyx_t_2);
+  __Pyx_XDECREF(__pyx_t_8);
+  __Pyx_XDECREF(__pyx_t_9);
+  __Pyx_AddTraceback("__iter__", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __pyx_L0:;
+  __Pyx_XDECREF(__pyx_r); __pyx_r = 0;
+  __Pyx_Coroutine_ResetAndClearException(__pyx_generator);
+  __pyx_generator->resume_label = -1;
+  __Pyx_Coroutine_clear((PyObject*)__pyx_generator);
+  __Pyx_RefNannyFinishContext();
+  return __pyx_r;
+}
+
+/* "gensim/corpora/cython_binary.pyx":179
+ * 
+ *     """
+ *     cdef public input             # <<<<<<<<<<<<<<
+ *     cdef public bint transposed
+ *     cdef public int num_docs, num_terms, num_nnz
+ */
+
+/* Python wrapper */
+static PyObject *__pyx_pw_6gensim_7corpora_13cython_binary_19MmReaderStructArray_5input_1__get__(PyObject *__pyx_v_self); /*proto*/
+static PyObject *__pyx_pw_6gensim_7corpora_13cython_binary_19MmReaderStructArray_5input_1__get__(PyObject *__pyx_v_self) {
+  PyObject *__pyx_r = 0;
+  __Pyx_RefNannyDeclarations
+  __Pyx_RefNannySetupContext("__get__ (wrapper)", 0);
+  __pyx_r = __pyx_pf_6gensim_7corpora_13cython_binary_19MmReaderStructArray_5input___get__(((struct __pyx_obj_6gensim_7corpora_13cython_binary_MmReaderStructArray *)__pyx_v_self));
+
+  /* function exit code */
+  __Pyx_RefNannyFinishContext();
+  return __pyx_r;
+}
+
+static PyObject *__pyx_pf_6gensim_7corpora_13cython_binary_19MmReaderStructArray_5input___get__(struct __pyx_obj_6gensim_7corpora_13cython_binary_MmReaderStructArray *__pyx_v_self) {
+  PyObject *__pyx_r = NULL;
+  __Pyx_RefNannyDeclarations
+  __Pyx_RefNannySetupContext("__get__", 0);
+  __Pyx_XDECREF(__pyx_r);
+  __Pyx_INCREF(__pyx_v_self->input);
+  __pyx_r = __pyx_v_self->input;
+  goto __pyx_L0;
+
+  /* function exit code */
+  __pyx_L0:;
+  __Pyx_XGIVEREF(__pyx_r);
+  __Pyx_RefNannyFinishContext();
+  return __pyx_r;
+}
+
+/* Python wrapper */
+static int __pyx_pw_6gensim_7corpora_13cython_binary_19MmReaderStructArray_5input_3__set__(PyObject *__pyx_v_self, PyObject *__pyx_v_value); /*proto*/
+static int __pyx_pw_6gensim_7corpora_13cython_binary_19MmReaderStructArray_5input_3__set__(PyObject *__pyx_v_self, PyObject *__pyx_v_value) {
+  int __pyx_r;
+  __Pyx_RefNannyDeclarations
+  __Pyx_RefNannySetupContext("__set__ (wrapper)", 0);
+  __pyx_r = __pyx_pf_6gensim_7corpora_13cython_binary_19MmReaderStructArray_5input_2__set__(((struct __pyx_obj_6gensim_7corpora_13cython_binary_MmReaderStructArray *)__pyx_v_self), ((PyObject *)__pyx_v_value));
+
+  /* function exit code */
+  __Pyx_RefNannyFinishContext();
+  return __pyx_r;
+}
+
+static int __pyx_pf_6gensim_7corpora_13cython_binary_19MmReaderStructArray_5input_2__set__(struct __pyx_obj_6gensim_7corpora_13cython_binary_MmReaderStructArray *__pyx_v_self, PyObject *__pyx_v_value) {
+  int __pyx_r;
+  __Pyx_RefNannyDeclarations
+  __Pyx_RefNannySetupContext("__set__", 0);
+  __Pyx_INCREF(__pyx_v_value);
+  __Pyx_GIVEREF(__pyx_v_value);
+  __Pyx_GOTREF(__pyx_v_self->input);
+  __Pyx_DECREF(__pyx_v_self->input);
+  __pyx_v_self->input = __pyx_v_value;
+
+  /* function exit code */
+  __pyx_r = 0;
+  __Pyx_RefNannyFinishContext();
+  return __pyx_r;
+}
+
+/* Python wrapper */
+static int __pyx_pw_6gensim_7corpora_13cython_binary_19MmReaderStructArray_5input_5__del__(PyObject *__pyx_v_self); /*proto*/
+static int __pyx_pw_6gensim_7corpora_13cython_binary_19MmReaderStructArray_5input_5__del__(PyObject *__pyx_v_self) {
+  int __pyx_r;
+  __Pyx_RefNannyDeclarations
+  __Pyx_RefNannySetupContext("__del__ (wrapper)", 0);
+  __pyx_r = __pyx_pf_6gensim_7corpora_13cython_binary_19MmReaderStructArray_5input_4__del__(((struct __pyx_obj_6gensim_7corpora_13cython_binary_MmReaderStructArray *)__pyx_v_self));
+
+  /* function exit code */
+  __Pyx_RefNannyFinishContext();
+  return __pyx_r;
+}
+
+static int __pyx_pf_6gensim_7corpora_13cython_binary_19MmReaderStructArray_5input_4__del__(struct __pyx_obj_6gensim_7corpora_13cython_binary_MmReaderStructArray *__pyx_v_self) {
+  int __pyx_r;
+  __Pyx_RefNannyDeclarations
+  __Pyx_RefNannySetupContext("__del__", 0);
+  __Pyx_INCREF(Py_None);
+  __Pyx_GIVEREF(Py_None);
+  __Pyx_GOTREF(__pyx_v_self->input);
+  __Pyx_DECREF(__pyx_v_self->input);
+  __pyx_v_self->input = Py_None;
+
+  /* function exit code */
+  __pyx_r = 0;
+  __Pyx_RefNannyFinishContext();
+  return __pyx_r;
+}
+
+/* "gensim/corpora/cython_binary.pyx":180
+ *     """
+ *     cdef public input
+ *     cdef public bint transposed             # <<<<<<<<<<<<<<
+ *     cdef public int num_docs, num_terms, num_nnz
+ * 
+ */
+
+/* Python wrapper */
+static PyObject *__pyx_pw_6gensim_7corpora_13cython_binary_19MmReaderStructArray_10transposed_1__get__(PyObject *__pyx_v_self); /*proto*/
+static PyObject *__pyx_pw_6gensim_7corpora_13cython_binary_19MmReaderStructArray_10transposed_1__get__(PyObject *__pyx_v_self) {
+  PyObject *__pyx_r = 0;
+  __Pyx_RefNannyDeclarations
+  __Pyx_RefNannySetupContext("__get__ (wrapper)", 0);
+  __pyx_r = __pyx_pf_6gensim_7corpora_13cython_binary_19MmReaderStructArray_10transposed___get__(((struct __pyx_obj_6gensim_7corpora_13cython_binary_MmReaderStructArray *)__pyx_v_self));
+
+  /* function exit code */
+  __Pyx_RefNannyFinishContext();
+  return __pyx_r;
+}
+
+static PyObject *__pyx_pf_6gensim_7corpora_13cython_binary_19MmReaderStructArray_10transposed___get__(struct __pyx_obj_6gensim_7corpora_13cython_binary_MmReaderStructArray *__pyx_v_self) {
+  PyObject *__pyx_r = NULL;
+  __Pyx_RefNannyDeclarations
+  PyObject *__pyx_t_1 = NULL;
+  __Pyx_RefNannySetupContext("__get__", 0);
+  __Pyx_XDECREF(__pyx_r);
+  __pyx_t_1 = __Pyx_PyBool_FromLong(__pyx_v_self->transposed); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 180, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_1);
+  __pyx_r = __pyx_t_1;
+  __pyx_t_1 = 0;
+  goto __pyx_L0;
+
+  /* function exit code */
+  __pyx_L1_error:;
+  __Pyx_XDECREF(__pyx_t_1);
+  __Pyx_AddTraceback("gensim.corpora.cython_binary.MmReaderStructArray.transposed.__get__", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __pyx_r = NULL;
+  __pyx_L0:;
+  __Pyx_XGIVEREF(__pyx_r);
+  __Pyx_RefNannyFinishContext();
+  return __pyx_r;
+}
+
+/* Python wrapper */
+static int __pyx_pw_6gensim_7corpora_13cython_binary_19MmReaderStructArray_10transposed_3__set__(PyObject *__pyx_v_self, PyObject *__pyx_v_value); /*proto*/
+static int __pyx_pw_6gensim_7corpora_13cython_binary_19MmReaderStructArray_10transposed_3__set__(PyObject *__pyx_v_self, PyObject *__pyx_v_value) {
+  int __pyx_r;
+  __Pyx_RefNannyDeclarations
+  __Pyx_RefNannySetupContext("__set__ (wrapper)", 0);
+  __pyx_r = __pyx_pf_6gensim_7corpora_13cython_binary_19MmReaderStructArray_10transposed_2__set__(((struct __pyx_obj_6gensim_7corpora_13cython_binary_MmReaderStructArray *)__pyx_v_self), ((PyObject *)__pyx_v_value));
+
+  /* function exit code */
+  __Pyx_RefNannyFinishContext();
+  return __pyx_r;
+}
+
+static int __pyx_pf_6gensim_7corpora_13cython_binary_19MmReaderStructArray_10transposed_2__set__(struct __pyx_obj_6gensim_7corpora_13cython_binary_MmReaderStructArray *__pyx_v_self, PyObject *__pyx_v_value) {
+  int __pyx_r;
+  __Pyx_RefNannyDeclarations
+  int __pyx_t_1;
+  __Pyx_RefNannySetupContext("__set__", 0);
+  __pyx_t_1 = __Pyx_PyObject_IsTrue(__pyx_v_value); if (unlikely((__pyx_t_1 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 180, __pyx_L1_error)
+  __pyx_v_self->transposed = __pyx_t_1;
+
+  /* function exit code */
+  __pyx_r = 0;
+  goto __pyx_L0;
+  __pyx_L1_error:;
+  __Pyx_AddTraceback("gensim.corpora.cython_binary.MmReaderStructArray.transposed.__set__", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __pyx_r = -1;
+  __pyx_L0:;
+  __Pyx_RefNannyFinishContext();
+  return __pyx_r;
+}
+
+/* "gensim/corpora/cython_binary.pyx":181
+ *     cdef public input
+ *     cdef public bint transposed
+ *     cdef public int num_docs, num_terms, num_nnz             # <<<<<<<<<<<<<<
+ * 
+ *     def __init__(self, input, transposed=True):
+ */
+
+/* Python wrapper */
+static PyObject *__pyx_pw_6gensim_7corpora_13cython_binary_19MmReaderStructArray_8num_docs_1__get__(PyObject *__pyx_v_self); /*proto*/
+static PyObject *__pyx_pw_6gensim_7corpora_13cython_binary_19MmReaderStructArray_8num_docs_1__get__(PyObject *__pyx_v_self) {
+  PyObject *__pyx_r = 0;
+  __Pyx_RefNannyDeclarations
+  __Pyx_RefNannySetupContext("__get__ (wrapper)", 0);
+  __pyx_r = __pyx_pf_6gensim_7corpora_13cython_binary_19MmReaderStructArray_8num_docs___get__(((struct __pyx_obj_6gensim_7corpora_13cython_binary_MmReaderStructArray *)__pyx_v_self));
+
+  /* function exit code */
+  __Pyx_RefNannyFinishContext();
+  return __pyx_r;
+}
+
+static PyObject *__pyx_pf_6gensim_7corpora_13cython_binary_19MmReaderStructArray_8num_docs___get__(struct __pyx_obj_6gensim_7corpora_13cython_binary_MmReaderStructArray *__pyx_v_self) {
+  PyObject *__pyx_r = NULL;
+  __Pyx_RefNannyDeclarations
+  PyObject *__pyx_t_1 = NULL;
+  __Pyx_RefNannySetupContext("__get__", 0);
+  __Pyx_XDECREF(__pyx_r);
+  __pyx_t_1 = __Pyx_PyInt_From_int(__pyx_v_self->num_docs); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 181, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_1);
+  __pyx_r = __pyx_t_1;
+  __pyx_t_1 = 0;
+  goto __pyx_L0;
+
+  /* function exit code */
+  __pyx_L1_error:;
+  __Pyx_XDECREF(__pyx_t_1);
+  __Pyx_AddTraceback("gensim.corpora.cython_binary.MmReaderStructArray.num_docs.__get__", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __pyx_r = NULL;
+  __pyx_L0:;
+  __Pyx_XGIVEREF(__pyx_r);
+  __Pyx_RefNannyFinishContext();
+  return __pyx_r;
+}
+
+/* Python wrapper */
+static int __pyx_pw_6gensim_7corpora_13cython_binary_19MmReaderStructArray_8num_docs_3__set__(PyObject *__pyx_v_self, PyObject *__pyx_v_value); /*proto*/
+static int __pyx_pw_6gensim_7corpora_13cython_binary_19MmReaderStructArray_8num_docs_3__set__(PyObject *__pyx_v_self, PyObject *__pyx_v_value) {
+  int __pyx_r;
+  __Pyx_RefNannyDeclarations
+  __Pyx_RefNannySetupContext("__set__ (wrapper)", 0);
+  __pyx_r = __pyx_pf_6gensim_7corpora_13cython_binary_19MmReaderStructArray_8num_docs_2__set__(((struct __pyx_obj_6gensim_7corpora_13cython_binary_MmReaderStructArray *)__pyx_v_self), ((PyObject *)__pyx_v_value));
+
+  /* function exit code */
+  __Pyx_RefNannyFinishContext();
+  return __pyx_r;
+}
+
+static int __pyx_pf_6gensim_7corpora_13cython_binary_19MmReaderStructArray_8num_docs_2__set__(struct __pyx_obj_6gensim_7corpora_13cython_binary_MmReaderStructArray *__pyx_v_self, PyObject *__pyx_v_value) {
+  int __pyx_r;
+  __Pyx_RefNannyDeclarations
+  int __pyx_t_1;
+  __Pyx_RefNannySetupContext("__set__", 0);
+  __pyx_t_1 = __Pyx_PyInt_As_int(__pyx_v_value); if (unlikely((__pyx_t_1 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 181, __pyx_L1_error)
+  __pyx_v_self->num_docs = __pyx_t_1;
+
+  /* function exit code */
+  __pyx_r = 0;
+  goto __pyx_L0;
+  __pyx_L1_error:;
+  __Pyx_AddTraceback("gensim.corpora.cython_binary.MmReaderStructArray.num_docs.__set__", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __pyx_r = -1;
+  __pyx_L0:;
+  __Pyx_RefNannyFinishContext();
+  return __pyx_r;
+}
+
+/* Python wrapper */
+static PyObject *__pyx_pw_6gensim_7corpora_13cython_binary_19MmReaderStructArray_9num_terms_1__get__(PyObject *__pyx_v_self); /*proto*/
+static PyObject *__pyx_pw_6gensim_7corpora_13cython_binary_19MmReaderStructArray_9num_terms_1__get__(PyObject *__pyx_v_self) {
+  PyObject *__pyx_r = 0;
+  __Pyx_RefNannyDeclarations
+  __Pyx_RefNannySetupContext("__get__ (wrapper)", 0);
+  __pyx_r = __pyx_pf_6gensim_7corpora_13cython_binary_19MmReaderStructArray_9num_terms___get__(((struct __pyx_obj_6gensim_7corpora_13cython_binary_MmReaderStructArray *)__pyx_v_self));
+
+  /* function exit code */
+  __Pyx_RefNannyFinishContext();
+  return __pyx_r;
+}
+
+static PyObject *__pyx_pf_6gensim_7corpora_13cython_binary_19MmReaderStructArray_9num_terms___get__(struct __pyx_obj_6gensim_7corpora_13cython_binary_MmReaderStructArray *__pyx_v_self) {
+  PyObject *__pyx_r = NULL;
+  __Pyx_RefNannyDeclarations
+  PyObject *__pyx_t_1 = NULL;
+  __Pyx_RefNannySetupContext("__get__", 0);
+  __Pyx_XDECREF(__pyx_r);
+  __pyx_t_1 = __Pyx_PyInt_From_int(__pyx_v_self->num_terms); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 181, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_1);
+  __pyx_r = __pyx_t_1;
+  __pyx_t_1 = 0;
+  goto __pyx_L0;
+
+  /* function exit code */
+  __pyx_L1_error:;
+  __Pyx_XDECREF(__pyx_t_1);
+  __Pyx_AddTraceback("gensim.corpora.cython_binary.MmReaderStructArray.num_terms.__get__", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __pyx_r = NULL;
+  __pyx_L0:;
+  __Pyx_XGIVEREF(__pyx_r);
+  __Pyx_RefNannyFinishContext();
+  return __pyx_r;
+}
+
+/* Python wrapper */
+static int __pyx_pw_6gensim_7corpora_13cython_binary_19MmReaderStructArray_9num_terms_3__set__(PyObject *__pyx_v_self, PyObject *__pyx_v_value); /*proto*/
+static int __pyx_pw_6gensim_7corpora_13cython_binary_19MmReaderStructArray_9num_terms_3__set__(PyObject *__pyx_v_self, PyObject *__pyx_v_value) {
+  int __pyx_r;
+  __Pyx_RefNannyDeclarations
+  __Pyx_RefNannySetupContext("__set__ (wrapper)", 0);
+  __pyx_r = __pyx_pf_6gensim_7corpora_13cython_binary_19MmReaderStructArray_9num_terms_2__set__(((struct __pyx_obj_6gensim_7corpora_13cython_binary_MmReaderStructArray *)__pyx_v_self), ((PyObject *)__pyx_v_value));
+
+  /* function exit code */
+  __Pyx_RefNannyFinishContext();
+  return __pyx_r;
+}
+
+static int __pyx_pf_6gensim_7corpora_13cython_binary_19MmReaderStructArray_9num_terms_2__set__(struct __pyx_obj_6gensim_7corpora_13cython_binary_MmReaderStructArray *__pyx_v_self, PyObject *__pyx_v_value) {
+  int __pyx_r;
+  __Pyx_RefNannyDeclarations
+  int __pyx_t_1;
+  __Pyx_RefNannySetupContext("__set__", 0);
+  __pyx_t_1 = __Pyx_PyInt_As_int(__pyx_v_value); if (unlikely((__pyx_t_1 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 181, __pyx_L1_error)
+  __pyx_v_self->num_terms = __pyx_t_1;
+
+  /* function exit code */
+  __pyx_r = 0;
+  goto __pyx_L0;
+  __pyx_L1_error:;
+  __Pyx_AddTraceback("gensim.corpora.cython_binary.MmReaderStructArray.num_terms.__set__", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __pyx_r = -1;
+  __pyx_L0:;
+  __Pyx_RefNannyFinishContext();
+  return __pyx_r;
+}
+
+/* Python wrapper */
+static PyObject *__pyx_pw_6gensim_7corpora_13cython_binary_19MmReaderStructArray_7num_nnz_1__get__(PyObject *__pyx_v_self); /*proto*/
+static PyObject *__pyx_pw_6gensim_7corpora_13cython_binary_19MmReaderStructArray_7num_nnz_1__get__(PyObject *__pyx_v_self) {
+  PyObject *__pyx_r = 0;
+  __Pyx_RefNannyDeclarations
+  __Pyx_RefNannySetupContext("__get__ (wrapper)", 0);
+  __pyx_r = __pyx_pf_6gensim_7corpora_13cython_binary_19MmReaderStructArray_7num_nnz___get__(((struct __pyx_obj_6gensim_7corpora_13cython_binary_MmReaderStructArray *)__pyx_v_self));
+
+  /* function exit code */
+  __Pyx_RefNannyFinishContext();
+  return __pyx_r;
+}
+
+static PyObject *__pyx_pf_6gensim_7corpora_13cython_binary_19MmReaderStructArray_7num_nnz___get__(struct __pyx_obj_6gensim_7corpora_13cython_binary_MmReaderStructArray *__pyx_v_self) {
+  PyObject *__pyx_r = NULL;
+  __Pyx_RefNannyDeclarations
+  PyObject *__pyx_t_1 = NULL;
+  __Pyx_RefNannySetupContext("__get__", 0);
+  __Pyx_XDECREF(__pyx_r);
+  __pyx_t_1 = __Pyx_PyInt_From_int(__pyx_v_self->num_nnz); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 181, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_1);
+  __pyx_r = __pyx_t_1;
+  __pyx_t_1 = 0;
+  goto __pyx_L0;
+
+  /* function exit code */
+  __pyx_L1_error:;
+  __Pyx_XDECREF(__pyx_t_1);
+  __Pyx_AddTraceback("gensim.corpora.cython_binary.MmReaderStructArray.num_nnz.__get__", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __pyx_r = NULL;
+  __pyx_L0:;
+  __Pyx_XGIVEREF(__pyx_r);
+  __Pyx_RefNannyFinishContext();
+  return __pyx_r;
+}
+
+/* Python wrapper */
+static int __pyx_pw_6gensim_7corpora_13cython_binary_19MmReaderStructArray_7num_nnz_3__set__(PyObject *__pyx_v_self, PyObject *__pyx_v_value); /*proto*/
+static int __pyx_pw_6gensim_7corpora_13cython_binary_19MmReaderStructArray_7num_nnz_3__set__(PyObject *__pyx_v_self, PyObject *__pyx_v_value) {
+  int __pyx_r;
+  __Pyx_RefNannyDeclarations
+  __Pyx_RefNannySetupContext("__set__ (wrapper)", 0);
+  __pyx_r = __pyx_pf_6gensim_7corpora_13cython_binary_19MmReaderStructArray_7num_nnz_2__set__(((struct __pyx_obj_6gensim_7corpora_13cython_binary_MmReaderStructArray *)__pyx_v_self), ((PyObject *)__pyx_v_value));
+
+  /* function exit code */
+  __Pyx_RefNannyFinishContext();
+  return __pyx_r;
+}
+
+static int __pyx_pf_6gensim_7corpora_13cython_binary_19MmReaderStructArray_7num_nnz_2__set__(struct __pyx_obj_6gensim_7corpora_13cython_binary_MmReaderStructArray *__pyx_v_self, PyObject *__pyx_v_value) {
+  int __pyx_r;
+  __Pyx_RefNannyDeclarations
+  int __pyx_t_1;
+  __Pyx_RefNannySetupContext("__set__", 0);
+  __pyx_t_1 = __Pyx_PyInt_As_int(__pyx_v_value); if (unlikely((__pyx_t_1 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 181, __pyx_L1_error)
+  __pyx_v_self->num_nnz = __pyx_t_1;
+
+  /* function exit code */
+  __pyx_r = 0;
+  goto __pyx_L0;
+  __pyx_L1_error:;
+  __Pyx_AddTraceback("gensim.corpora.cython_binary.MmReaderStructArray.num_nnz.__set__", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __pyx_r = -1;
+  __pyx_L0:;
+  __Pyx_RefNannyFinishContext();
+  return __pyx_r;
+}
+
+/* "(tree fragment)":1
+ * def __reduce_cython__(self):             # <<<<<<<<<<<<<<
+ *     cdef bint use_setstate
+ *     state = (self.input, self.num_docs, self.num_nnz, self.num_terms, self.transposed)
+ */
+
+/* Python wrapper */
+static PyObject *__pyx_pw_6gensim_7corpora_13cython_binary_19MmReaderStructArray_14__reduce_cython__(PyObject *__pyx_v_self, CYTHON_UNUSED PyObject *unused); /*proto*/
+static char __pyx_doc_6gensim_7corpora_13cython_binary_19MmReaderStructArray_13__reduce_cython__[] = "MmReaderStructArray.__reduce_cython__(self)";
+static PyObject *__pyx_pw_6gensim_7corpora_13cython_binary_19MmReaderStructArray_14__reduce_cython__(PyObject *__pyx_v_self, CYTHON_UNUSED PyObject *unused) {
+  PyObject *__pyx_r = 0;
+  __Pyx_RefNannyDeclarations
+  __Pyx_RefNannySetupContext("__reduce_cython__ (wrapper)", 0);
+  __pyx_r = __pyx_pf_6gensim_7corpora_13cython_binary_19MmReaderStructArray_13__reduce_cython__(((struct __pyx_obj_6gensim_7corpora_13cython_binary_MmReaderStructArray *)__pyx_v_self));
+
+  /* function exit code */
+  __Pyx_RefNannyFinishContext();
+  return __pyx_r;
+}
+
+static PyObject *__pyx_pf_6gensim_7corpora_13cython_binary_19MmReaderStructArray_13__reduce_cython__(struct __pyx_obj_6gensim_7corpora_13cython_binary_MmReaderStructArray *__pyx_v_self) {
+  int __pyx_v_use_setstate;
+  PyObject *__pyx_v_state = NULL;
+  PyObject *__pyx_v__dict = NULL;
+  PyObject *__pyx_r = NULL;
+  __Pyx_RefNannyDeclarations
+  PyObject *__pyx_t_1 = NULL;
+  PyObject *__pyx_t_2 = NULL;
+  PyObject *__pyx_t_3 = NULL;
+  PyObject *__pyx_t_4 = NULL;
+  PyObject *__pyx_t_5 = NULL;
+  int __pyx_t_6;
+  int __pyx_t_7;
+  __Pyx_RefNannySetupContext("__reduce_cython__", 0);
+
+  /* "(tree fragment)":3
+ * def __reduce_cython__(self):
+ *     cdef bint use_setstate
+ *     state = (self.input, self.num_docs, self.num_nnz, self.num_terms, self.transposed)             # <<<<<<<<<<<<<<
+ *     _dict = getattr(self, '__dict__', None)
+ *     if _dict is not None:
+ */
+  __pyx_t_1 = __Pyx_PyInt_From_int(__pyx_v_self->num_docs); if (unlikely(!__pyx_t_1)) __PYX_ERR(1, 3, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_1);
+  __pyx_t_2 = __Pyx_PyInt_From_int(__pyx_v_self->num_nnz); if (unlikely(!__pyx_t_2)) __PYX_ERR(1, 3, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_2);
+  __pyx_t_3 = __Pyx_PyInt_From_int(__pyx_v_self->num_terms); if (unlikely(!__pyx_t_3)) __PYX_ERR(1, 3, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_3);
+  __pyx_t_4 = __Pyx_PyBool_FromLong(__pyx_v_self->transposed); if (unlikely(!__pyx_t_4)) __PYX_ERR(1, 3, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_4);
+  __pyx_t_5 = PyTuple_New(5); if (unlikely(!__pyx_t_5)) __PYX_ERR(1, 3, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_5);
+  __Pyx_INCREF(__pyx_v_self->input);
+  __Pyx_GIVEREF(__pyx_v_self->input);
+  PyTuple_SET_ITEM(__pyx_t_5, 0, __pyx_v_self->input);
+  __Pyx_GIVEREF(__pyx_t_1);
+  PyTuple_SET_ITEM(__pyx_t_5, 1, __pyx_t_1);
+  __Pyx_GIVEREF(__pyx_t_2);
+  PyTuple_SET_ITEM(__pyx_t_5, 2, __pyx_t_2);
+  __Pyx_GIVEREF(__pyx_t_3);
+  PyTuple_SET_ITEM(__pyx_t_5, 3, __pyx_t_3);
+  __Pyx_GIVEREF(__pyx_t_4);
+  PyTuple_SET_ITEM(__pyx_t_5, 4, __pyx_t_4);
+  __pyx_t_1 = 0;
+  __pyx_t_2 = 0;
+  __pyx_t_3 = 0;
+  __pyx_t_4 = 0;
+  __pyx_v_state = ((PyObject*)__pyx_t_5);
+  __pyx_t_5 = 0;
+
+  /* "(tree fragment)":4
+ *     cdef bint use_setstate
+ *     state = (self.input, self.num_docs, self.num_nnz, self.num_terms, self.transposed)
+ *     _dict = getattr(self, '__dict__', None)             # <<<<<<<<<<<<<<
+ *     if _dict is not None:
+ *         state += (_dict,)
+ */
+  __pyx_t_5 = __Pyx_GetAttr3(((PyObject *)__pyx_v_self), __pyx_n_s_dict, Py_None); if (unlikely(!__pyx_t_5)) __PYX_ERR(1, 4, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_5);
+  __pyx_v__dict = __pyx_t_5;
+  __pyx_t_5 = 0;
+
+  /* "(tree fragment)":5
+ *     state = (self.input, self.num_docs, self.num_nnz, self.num_terms, self.transposed)
+ *     _dict = getattr(self, '__dict__', None)
+ *     if _dict is not None:             # <<<<<<<<<<<<<<
+ *         state += (_dict,)
+ *         use_setstate = True
+ */
+  __pyx_t_6 = (__pyx_v__dict != Py_None);
+  __pyx_t_7 = (__pyx_t_6 != 0);
+  if (__pyx_t_7) {
+
+    /* "(tree fragment)":6
+ *     _dict = getattr(self, '__dict__', None)
+ *     if _dict is not None:
+ *         state += (_dict,)             # <<<<<<<<<<<<<<
+ *         use_setstate = True
+ *     else:
+ */
+    __pyx_t_5 = PyTuple_New(1); if (unlikely(!__pyx_t_5)) __PYX_ERR(1, 6, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_5);
+    __Pyx_INCREF(__pyx_v__dict);
+    __Pyx_GIVEREF(__pyx_v__dict);
+    PyTuple_SET_ITEM(__pyx_t_5, 0, __pyx_v__dict);
+    __pyx_t_4 = PyNumber_InPlaceAdd(__pyx_v_state, __pyx_t_5); if (unlikely(!__pyx_t_4)) __PYX_ERR(1, 6, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_4);
+    __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
+    __Pyx_DECREF_SET(__pyx_v_state, ((PyObject*)__pyx_t_4));
+    __pyx_t_4 = 0;
+
+    /* "(tree fragment)":7
+ *     if _dict is not None:
+ *         state += (_dict,)
+ *         use_setstate = True             # <<<<<<<<<<<<<<
+ *     else:
+ *         use_setstate = self.input is not None
+ */
+    __pyx_v_use_setstate = 1;
+
+    /* "(tree fragment)":5
+ *     state = (self.input, self.num_docs, self.num_nnz, self.num_terms, self.transposed)
+ *     _dict = getattr(self, '__dict__', None)
+ *     if _dict is not None:             # <<<<<<<<<<<<<<
+ *         state += (_dict,)
+ *         use_setstate = True
+ */
+    goto __pyx_L3;
+  }
+
+  /* "(tree fragment)":9
+ *         use_setstate = True
+ *     else:
+ *         use_setstate = self.input is not None             # <<<<<<<<<<<<<<
+ *     if use_setstate:
+ *         return __pyx_unpickle_MmReaderStructArray, (type(self), 0xea5fe92, None), state
+ */
+  /*else*/ {
+    __pyx_t_7 = (__pyx_v_self->input != Py_None);
+    __pyx_v_use_setstate = __pyx_t_7;
+  }
+  __pyx_L3:;
+
+  /* "(tree fragment)":10
+ *     else:
+ *         use_setstate = self.input is not None
+ *     if use_setstate:             # <<<<<<<<<<<<<<
+ *         return __pyx_unpickle_MmReaderStructArray, (type(self), 0xea5fe92, None), state
+ *     else:
+ */
+  __pyx_t_7 = (__pyx_v_use_setstate != 0);
+  if (__pyx_t_7) {
+
+    /* "(tree fragment)":11
+ *         use_setstate = self.input is not None
+ *     if use_setstate:
+ *         return __pyx_unpickle_MmReaderStructArray, (type(self), 0xea5fe92, None), state             # <<<<<<<<<<<<<<
+ *     else:
+ *         return __pyx_unpickle_MmReaderStructArray, (type(self), 0xea5fe92, state)
+ */
+    __Pyx_XDECREF(__pyx_r);
+    __pyx_t_4 = __Pyx_GetModuleGlobalName(__pyx_n_s_pyx_unpickle_MmReaderStructArr); if (unlikely(!__pyx_t_4)) __PYX_ERR(1, 11, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_4);
+    __pyx_t_5 = PyTuple_New(3); if (unlikely(!__pyx_t_5)) __PYX_ERR(1, 11, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_5);
+    __Pyx_INCREF(((PyObject *)Py_TYPE(((PyObject *)__pyx_v_self))));
+    __Pyx_GIVEREF(((PyObject *)Py_TYPE(((PyObject *)__pyx_v_self))));
+    PyTuple_SET_ITEM(__pyx_t_5, 0, ((PyObject *)Py_TYPE(((PyObject *)__pyx_v_self))));
+    __Pyx_INCREF(__pyx_int_245759634);
+    __Pyx_GIVEREF(__pyx_int_245759634);
+    PyTuple_SET_ITEM(__pyx_t_5, 1, __pyx_int_245759634);
+    __Pyx_INCREF(Py_None);
+    __Pyx_GIVEREF(Py_None);
+    PyTuple_SET_ITEM(__pyx_t_5, 2, Py_None);
+    __pyx_t_3 = PyTuple_New(3); if (unlikely(!__pyx_t_3)) __PYX_ERR(1, 11, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_3);
+    __Pyx_GIVEREF(__pyx_t_4);
+    PyTuple_SET_ITEM(__pyx_t_3, 0, __pyx_t_4);
+    __Pyx_GIVEREF(__pyx_t_5);
+    PyTuple_SET_ITEM(__pyx_t_3, 1, __pyx_t_5);
+    __Pyx_INCREF(__pyx_v_state);
+    __Pyx_GIVEREF(__pyx_v_state);
+    PyTuple_SET_ITEM(__pyx_t_3, 2, __pyx_v_state);
+    __pyx_t_4 = 0;
+    __pyx_t_5 = 0;
+    __pyx_r = __pyx_t_3;
+    __pyx_t_3 = 0;
+    goto __pyx_L0;
+
+    /* "(tree fragment)":10
+ *     else:
+ *         use_setstate = self.input is not None
+ *     if use_setstate:             # <<<<<<<<<<<<<<
+ *         return __pyx_unpickle_MmReaderStructArray, (type(self), 0xea5fe92, None), state
+ *     else:
+ */
+  }
+
+  /* "(tree fragment)":13
+ *         return __pyx_unpickle_MmReaderStructArray, (type(self), 0xea5fe92, None), state
+ *     else:
+ *         return __pyx_unpickle_MmReaderStructArray, (type(self), 0xea5fe92, state)             # <<<<<<<<<<<<<<
+ * def __setstate_cython__(self, __pyx_state):
+ *     __pyx_unpickle_MmReaderStructArray__set_state(self, __pyx_state)
+ */
+  /*else*/ {
+    __Pyx_XDECREF(__pyx_r);
+    __pyx_t_3 = __Pyx_GetModuleGlobalName(__pyx_n_s_pyx_unpickle_MmReaderStructArr); if (unlikely(!__pyx_t_3)) __PYX_ERR(1, 13, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_3);
+    __pyx_t_5 = PyTuple_New(3); if (unlikely(!__pyx_t_5)) __PYX_ERR(1, 13, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_5);
+    __Pyx_INCREF(((PyObject *)Py_TYPE(((PyObject *)__pyx_v_self))));
+    __Pyx_GIVEREF(((PyObject *)Py_TYPE(((PyObject *)__pyx_v_self))));
+    PyTuple_SET_ITEM(__pyx_t_5, 0, ((PyObject *)Py_TYPE(((PyObject *)__pyx_v_self))));
+    __Pyx_INCREF(__pyx_int_245759634);
+    __Pyx_GIVEREF(__pyx_int_245759634);
+    PyTuple_SET_ITEM(__pyx_t_5, 1, __pyx_int_245759634);
+    __Pyx_INCREF(__pyx_v_state);
+    __Pyx_GIVEREF(__pyx_v_state);
+    PyTuple_SET_ITEM(__pyx_t_5, 2, __pyx_v_state);
+    __pyx_t_4 = PyTuple_New(2); if (unlikely(!__pyx_t_4)) __PYX_ERR(1, 13, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_4);
+    __Pyx_GIVEREF(__pyx_t_3);
+    PyTuple_SET_ITEM(__pyx_t_4, 0, __pyx_t_3);
+    __Pyx_GIVEREF(__pyx_t_5);
+    PyTuple_SET_ITEM(__pyx_t_4, 1, __pyx_t_5);
+    __pyx_t_3 = 0;
+    __pyx_t_5 = 0;
+    __pyx_r = __pyx_t_4;
+    __pyx_t_4 = 0;
+    goto __pyx_L0;
+  }
+
+  /* "(tree fragment)":1
+ * def __reduce_cython__(self):             # <<<<<<<<<<<<<<
+ *     cdef bint use_setstate
+ *     state = (self.input, self.num_docs, self.num_nnz, self.num_terms, self.transposed)
+ */
+
+  /* function exit code */
+  __pyx_L1_error:;
+  __Pyx_XDECREF(__pyx_t_1);
+  __Pyx_XDECREF(__pyx_t_2);
+  __Pyx_XDECREF(__pyx_t_3);
+  __Pyx_XDECREF(__pyx_t_4);
+  __Pyx_XDECREF(__pyx_t_5);
+  __Pyx_AddTraceback("gensim.corpora.cython_binary.MmReaderStructArray.__reduce_cython__", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __pyx_r = NULL;
+  __pyx_L0:;
+  __Pyx_XDECREF(__pyx_v_state);
+  __Pyx_XDECREF(__pyx_v__dict);
+  __Pyx_XGIVEREF(__pyx_r);
+  __Pyx_RefNannyFinishContext();
+  return __pyx_r;
+}
+
+/* "(tree fragment)":14
+ *     else:
+ *         return __pyx_unpickle_MmReaderStructArray, (type(self), 0xea5fe92, state)
+ * def __setstate_cython__(self, __pyx_state):             # <<<<<<<<<<<<<<
+ *     __pyx_unpickle_MmReaderStructArray__set_state(self, __pyx_state)
+ */
+
+/* Python wrapper */
+static PyObject *__pyx_pw_6gensim_7corpora_13cython_binary_19MmReaderStructArray_16__setstate_cython__(PyObject *__pyx_v_self, PyObject *__pyx_v___pyx_state); /*proto*/
+static char __pyx_doc_6gensim_7corpora_13cython_binary_19MmReaderStructArray_15__setstate_cython__[] = "MmReaderStructArray.__setstate_cython__(self, __pyx_state)";
+static PyObject *__pyx_pw_6gensim_7corpora_13cython_binary_19MmReaderStructArray_16__setstate_cython__(PyObject *__pyx_v_self, PyObject *__pyx_v___pyx_state) {
+  PyObject *__pyx_r = 0;
+  __Pyx_RefNannyDeclarations
+  __Pyx_RefNannySetupContext("__setstate_cython__ (wrapper)", 0);
+  __pyx_r = __pyx_pf_6gensim_7corpora_13cython_binary_19MmReaderStructArray_15__setstate_cython__(((struct __pyx_obj_6gensim_7corpora_13cython_binary_MmReaderStructArray *)__pyx_v_self), ((PyObject *)__pyx_v___pyx_state));
+
+  /* function exit code */
+  __Pyx_RefNannyFinishContext();
+  return __pyx_r;
+}
+
+static PyObject *__pyx_pf_6gensim_7corpora_13cython_binary_19MmReaderStructArray_15__setstate_cython__(struct __pyx_obj_6gensim_7corpora_13cython_binary_MmReaderStructArray *__pyx_v_self, PyObject *__pyx_v___pyx_state) {
+  PyObject *__pyx_r = NULL;
+  __Pyx_RefNannyDeclarations
+  PyObject *__pyx_t_1 = NULL;
+  __Pyx_RefNannySetupContext("__setstate_cython__", 0);
+
+  /* "(tree fragment)":15
+ *         return __pyx_unpickle_MmReaderStructArray, (type(self), 0xea5fe92, state)
+ * def __setstate_cython__(self, __pyx_state):
+ *     __pyx_unpickle_MmReaderStructArray__set_state(self, __pyx_state)             # <<<<<<<<<<<<<<
+ */
+  if (!(likely(PyTuple_CheckExact(__pyx_v___pyx_state))||((__pyx_v___pyx_state) == Py_None)||(PyErr_Format(PyExc_TypeError, "Expected %.16s, got %.200s", "tuple", Py_TYPE(__pyx_v___pyx_state)->tp_name), 0))) __PYX_ERR(1, 15, __pyx_L1_error)
+  __pyx_t_1 = __pyx_f_6gensim_7corpora_13cython_binary___pyx_unpickle_MmReaderStructArray__set_state(__pyx_v_self, ((PyObject*)__pyx_v___pyx_state)); if (unlikely(!__pyx_t_1)) __PYX_ERR(1, 15, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_1);
+  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+
+  /* "(tree fragment)":14
+ *     else:
+ *         return __pyx_unpickle_MmReaderStructArray, (type(self), 0xea5fe92, state)
+ * def __setstate_cython__(self, __pyx_state):             # <<<<<<<<<<<<<<
+ *     __pyx_unpickle_MmReaderStructArray__set_state(self, __pyx_state)
+ */
+
+  /* function exit code */
+  __pyx_r = Py_None; __Pyx_INCREF(Py_None);
+  goto __pyx_L0;
+  __pyx_L1_error:;
+  __Pyx_XDECREF(__pyx_t_1);
+  __Pyx_AddTraceback("gensim.corpora.cython_binary.MmReaderStructArray.__setstate_cython__", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __Pyx_XGIVEREF(__pyx_r);
@@ -3403,22 +5383,22 @@ static PyObject *__pyx_pf_6gensim_7corpora_13cython_binary_8MmReader_15__setstat
 }
 
 /* "(tree fragment)":1
- * def __pyx_unpickle_MmReader(__pyx_type, long __pyx_checksum, __pyx_state):             # <<<<<<<<<<<<<<
+ * def __pyx_unpickle_MmReaderStructAtATime(__pyx_type, long __pyx_checksum, __pyx_state):             # <<<<<<<<<<<<<<
  *     if __pyx_checksum != 0xea5fe92:
  *         from pickle import PickleError as __pyx_PickleError
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_6gensim_7corpora_13cython_binary_1__pyx_unpickle_MmReader(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
-static char __pyx_doc_6gensim_7corpora_13cython_binary___pyx_unpickle_MmReader[] = "__pyx_unpickle_MmReader(__pyx_type, long __pyx_checksum, __pyx_state)";
-static PyMethodDef __pyx_mdef_6gensim_7corpora_13cython_binary_1__pyx_unpickle_MmReader = {"__pyx_unpickle_MmReader", (PyCFunction)__pyx_pw_6gensim_7corpora_13cython_binary_1__pyx_unpickle_MmReader, METH_VARARGS|METH_KEYWORDS, __pyx_doc_6gensim_7corpora_13cython_binary___pyx_unpickle_MmReader};
-static PyObject *__pyx_pw_6gensim_7corpora_13cython_binary_1__pyx_unpickle_MmReader(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
+static PyObject *__pyx_pw_6gensim_7corpora_13cython_binary_1__pyx_unpickle_MmReaderStructAtATime(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
+static char __pyx_doc_6gensim_7corpora_13cython_binary___pyx_unpickle_MmReaderStructAtATime[] = "__pyx_unpickle_MmReaderStructAtATime(__pyx_type, long __pyx_checksum, __pyx_state)";
+static PyMethodDef __pyx_mdef_6gensim_7corpora_13cython_binary_1__pyx_unpickle_MmReaderStructAtATime = {"__pyx_unpickle_MmReaderStructAtATime", (PyCFunction)__pyx_pw_6gensim_7corpora_13cython_binary_1__pyx_unpickle_MmReaderStructAtATime, METH_VARARGS|METH_KEYWORDS, __pyx_doc_6gensim_7corpora_13cython_binary___pyx_unpickle_MmReaderStructAtATime};
+static PyObject *__pyx_pw_6gensim_7corpora_13cython_binary_1__pyx_unpickle_MmReaderStructAtATime(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
   PyObject *__pyx_v___pyx_type = 0;
   long __pyx_v___pyx_checksum;
   PyObject *__pyx_v___pyx_state = 0;
   PyObject *__pyx_r = 0;
   __Pyx_RefNannyDeclarations
-  __Pyx_RefNannySetupContext("__pyx_unpickle_MmReader (wrapper)", 0);
+  __Pyx_RefNannySetupContext("__pyx_unpickle_MmReaderStructAtATime (wrapper)", 0);
   {
     static PyObject **__pyx_pyargnames[] = {&__pyx_n_s_pyx_type,&__pyx_n_s_pyx_checksum,&__pyx_n_s_pyx_state,0};
     PyObject* values[3] = {0,0,0};
@@ -3444,17 +5424,17 @@ static PyObject *__pyx_pw_6gensim_7corpora_13cython_binary_1__pyx_unpickle_MmRea
         case  1:
         if (likely((values[1] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_pyx_checksum)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("__pyx_unpickle_MmReader", 1, 3, 3, 1); __PYX_ERR(1, 1, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("__pyx_unpickle_MmReaderStructAtATime", 1, 3, 3, 1); __PYX_ERR(1, 1, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case  2:
         if (likely((values[2] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_pyx_state)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("__pyx_unpickle_MmReader", 1, 3, 3, 2); __PYX_ERR(1, 1, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("__pyx_unpickle_MmReaderStructAtATime", 1, 3, 3, 2); __PYX_ERR(1, 1, __pyx_L3_error)
         }
       }
       if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "__pyx_unpickle_MmReader") < 0)) __PYX_ERR(1, 1, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "__pyx_unpickle_MmReaderStructAtATime") < 0)) __PYX_ERR(1, 1, __pyx_L3_error)
       }
     } else if (PyTuple_GET_SIZE(__pyx_args) != 3) {
       goto __pyx_L5_argtuple_error;
@@ -3469,20 +5449,20 @@ static PyObject *__pyx_pw_6gensim_7corpora_13cython_binary_1__pyx_unpickle_MmRea
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("__pyx_unpickle_MmReader", 1, 3, 3, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(1, 1, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("__pyx_unpickle_MmReaderStructAtATime", 1, 3, 3, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(1, 1, __pyx_L3_error)
   __pyx_L3_error:;
-  __Pyx_AddTraceback("gensim.corpora.cython_binary.__pyx_unpickle_MmReader", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("gensim.corpora.cython_binary.__pyx_unpickle_MmReaderStructAtATime", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  __pyx_r = __pyx_pf_6gensim_7corpora_13cython_binary___pyx_unpickle_MmReader(__pyx_self, __pyx_v___pyx_type, __pyx_v___pyx_checksum, __pyx_v___pyx_state);
+  __pyx_r = __pyx_pf_6gensim_7corpora_13cython_binary___pyx_unpickle_MmReaderStructAtATime(__pyx_self, __pyx_v___pyx_type, __pyx_v___pyx_checksum, __pyx_v___pyx_state);
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_6gensim_7corpora_13cython_binary___pyx_unpickle_MmReader(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v___pyx_type, long __pyx_v___pyx_checksum, PyObject *__pyx_v___pyx_state) {
+static PyObject *__pyx_pf_6gensim_7corpora_13cython_binary___pyx_unpickle_MmReaderStructAtATime(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v___pyx_type, long __pyx_v___pyx_checksum, PyObject *__pyx_v___pyx_state) {
   PyObject *__pyx_v___pyx_PickleError = NULL;
   PyObject *__pyx_v___pyx_result = NULL;
   PyObject *__pyx_r = NULL;
@@ -3494,10 +5474,10 @@ static PyObject *__pyx_pf_6gensim_7corpora_13cython_binary___pyx_unpickle_MmRead
   PyObject *__pyx_t_5 = NULL;
   PyObject *__pyx_t_6 = NULL;
   int __pyx_t_7;
-  __Pyx_RefNannySetupContext("__pyx_unpickle_MmReader", 0);
+  __Pyx_RefNannySetupContext("__pyx_unpickle_MmReaderStructAtATime", 0);
 
   /* "(tree fragment)":2
- * def __pyx_unpickle_MmReader(__pyx_type, long __pyx_checksum, __pyx_state):
+ * def __pyx_unpickle_MmReaderStructAtATime(__pyx_type, long __pyx_checksum, __pyx_state):
  *     if __pyx_checksum != 0xea5fe92:             # <<<<<<<<<<<<<<
  *         from pickle import PickleError as __pyx_PickleError
  *         raise __pyx_PickleError("Incompatible checksums (%s vs 0xea5fe92 = (input, num_docs, num_nnz, num_terms, transposed))" % __pyx_checksum)
@@ -3506,11 +5486,11 @@ static PyObject *__pyx_pf_6gensim_7corpora_13cython_binary___pyx_unpickle_MmRead
   if (__pyx_t_1) {
 
     /* "(tree fragment)":3
- * def __pyx_unpickle_MmReader(__pyx_type, long __pyx_checksum, __pyx_state):
+ * def __pyx_unpickle_MmReaderStructAtATime(__pyx_type, long __pyx_checksum, __pyx_state):
  *     if __pyx_checksum != 0xea5fe92:
  *         from pickle import PickleError as __pyx_PickleError             # <<<<<<<<<<<<<<
  *         raise __pyx_PickleError("Incompatible checksums (%s vs 0xea5fe92 = (input, num_docs, num_nnz, num_terms, transposed))" % __pyx_checksum)
- *     __pyx_result = MmReader.__new__(__pyx_type)
+ *     __pyx_result = MmReaderStructAtATime.__new__(__pyx_type)
  */
     __pyx_t_2 = PyList_New(1); if (unlikely(!__pyx_t_2)) __PYX_ERR(1, 3, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
@@ -3531,7 +5511,7 @@ static PyObject *__pyx_pf_6gensim_7corpora_13cython_binary___pyx_unpickle_MmRead
  *     if __pyx_checksum != 0xea5fe92:
  *         from pickle import PickleError as __pyx_PickleError
  *         raise __pyx_PickleError("Incompatible checksums (%s vs 0xea5fe92 = (input, num_docs, num_nnz, num_terms, transposed))" % __pyx_checksum)             # <<<<<<<<<<<<<<
- *     __pyx_result = MmReader.__new__(__pyx_type)
+ *     __pyx_result = MmReaderStructAtATime.__new__(__pyx_type)
  *     if __pyx_state is not None:
  */
     __pyx_t_2 = __Pyx_PyInt_From_long(__pyx_v___pyx_checksum); if (unlikely(!__pyx_t_2)) __PYX_ERR(1, 4, __pyx_L1_error)
@@ -3591,7 +5571,7 @@ static PyObject *__pyx_pf_6gensim_7corpora_13cython_binary___pyx_unpickle_MmRead
     __PYX_ERR(1, 4, __pyx_L1_error)
 
     /* "(tree fragment)":2
- * def __pyx_unpickle_MmReader(__pyx_type, long __pyx_checksum, __pyx_state):
+ * def __pyx_unpickle_MmReaderStructAtATime(__pyx_type, long __pyx_checksum, __pyx_state):
  *     if __pyx_checksum != 0xea5fe92:             # <<<<<<<<<<<<<<
  *         from pickle import PickleError as __pyx_PickleError
  *         raise __pyx_PickleError("Incompatible checksums (%s vs 0xea5fe92 = (input, num_docs, num_nnz, num_terms, transposed))" % __pyx_checksum)
@@ -3601,11 +5581,11 @@ static PyObject *__pyx_pf_6gensim_7corpora_13cython_binary___pyx_unpickle_MmRead
   /* "(tree fragment)":5
  *         from pickle import PickleError as __pyx_PickleError
  *         raise __pyx_PickleError("Incompatible checksums (%s vs 0xea5fe92 = (input, num_docs, num_nnz, num_terms, transposed))" % __pyx_checksum)
- *     __pyx_result = MmReader.__new__(__pyx_type)             # <<<<<<<<<<<<<<
+ *     __pyx_result = MmReaderStructAtATime.__new__(__pyx_type)             # <<<<<<<<<<<<<<
  *     if __pyx_state is not None:
- *         __pyx_unpickle_MmReader__set_state(<MmReader> __pyx_result, __pyx_state)
+ *         __pyx_unpickle_MmReaderStructAtATime__set_state(<MmReaderStructAtATime> __pyx_result, __pyx_state)
  */
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_ptype_6gensim_7corpora_13cython_binary_MmReader), __pyx_n_s_new); if (unlikely(!__pyx_t_2)) __PYX_ERR(1, 5, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_ptype_6gensim_7corpora_13cython_binary_MmReaderStructAtATime), __pyx_n_s_new); if (unlikely(!__pyx_t_2)) __PYX_ERR(1, 5, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __pyx_t_6 = NULL;
   if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_2))) {
@@ -3655,9 +5635,9 @@ static PyObject *__pyx_pf_6gensim_7corpora_13cython_binary___pyx_unpickle_MmRead
 
   /* "(tree fragment)":6
  *         raise __pyx_PickleError("Incompatible checksums (%s vs 0xea5fe92 = (input, num_docs, num_nnz, num_terms, transposed))" % __pyx_checksum)
- *     __pyx_result = MmReader.__new__(__pyx_type)
+ *     __pyx_result = MmReaderStructAtATime.__new__(__pyx_type)
  *     if __pyx_state is not None:             # <<<<<<<<<<<<<<
- *         __pyx_unpickle_MmReader__set_state(<MmReader> __pyx_result, __pyx_state)
+ *         __pyx_unpickle_MmReaderStructAtATime__set_state(<MmReaderStructAtATime> __pyx_result, __pyx_state)
  *     return __pyx_result
  */
   __pyx_t_1 = (__pyx_v___pyx_state != Py_None);
@@ -3665,31 +5645,31 @@ static PyObject *__pyx_pf_6gensim_7corpora_13cython_binary___pyx_unpickle_MmRead
   if (__pyx_t_7) {
 
     /* "(tree fragment)":7
- *     __pyx_result = MmReader.__new__(__pyx_type)
+ *     __pyx_result = MmReaderStructAtATime.__new__(__pyx_type)
  *     if __pyx_state is not None:
- *         __pyx_unpickle_MmReader__set_state(<MmReader> __pyx_result, __pyx_state)             # <<<<<<<<<<<<<<
+ *         __pyx_unpickle_MmReaderStructAtATime__set_state(<MmReaderStructAtATime> __pyx_result, __pyx_state)             # <<<<<<<<<<<<<<
  *     return __pyx_result
- * cdef __pyx_unpickle_MmReader__set_state(MmReader __pyx_result, tuple __pyx_state):
+ * cdef __pyx_unpickle_MmReaderStructAtATime__set_state(MmReaderStructAtATime __pyx_result, tuple __pyx_state):
  */
     if (!(likely(PyTuple_CheckExact(__pyx_v___pyx_state))||((__pyx_v___pyx_state) == Py_None)||(PyErr_Format(PyExc_TypeError, "Expected %.16s, got %.200s", "tuple", Py_TYPE(__pyx_v___pyx_state)->tp_name), 0))) __PYX_ERR(1, 7, __pyx_L1_error)
-    __pyx_t_3 = __pyx_f_6gensim_7corpora_13cython_binary___pyx_unpickle_MmReader__set_state(((struct __pyx_obj_6gensim_7corpora_13cython_binary_MmReader *)__pyx_v___pyx_result), ((PyObject*)__pyx_v___pyx_state)); if (unlikely(!__pyx_t_3)) __PYX_ERR(1, 7, __pyx_L1_error)
+    __pyx_t_3 = __pyx_f_6gensim_7corpora_13cython_binary___pyx_unpickle_MmReaderStructAtATime__set_state(((struct __pyx_obj_6gensim_7corpora_13cython_binary_MmReaderStructAtATime *)__pyx_v___pyx_result), ((PyObject*)__pyx_v___pyx_state)); if (unlikely(!__pyx_t_3)) __PYX_ERR(1, 7, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
     /* "(tree fragment)":6
  *         raise __pyx_PickleError("Incompatible checksums (%s vs 0xea5fe92 = (input, num_docs, num_nnz, num_terms, transposed))" % __pyx_checksum)
- *     __pyx_result = MmReader.__new__(__pyx_type)
+ *     __pyx_result = MmReaderStructAtATime.__new__(__pyx_type)
  *     if __pyx_state is not None:             # <<<<<<<<<<<<<<
- *         __pyx_unpickle_MmReader__set_state(<MmReader> __pyx_result, __pyx_state)
+ *         __pyx_unpickle_MmReaderStructAtATime__set_state(<MmReaderStructAtATime> __pyx_result, __pyx_state)
  *     return __pyx_result
  */
   }
 
   /* "(tree fragment)":8
  *     if __pyx_state is not None:
- *         __pyx_unpickle_MmReader__set_state(<MmReader> __pyx_result, __pyx_state)
+ *         __pyx_unpickle_MmReaderStructAtATime__set_state(<MmReaderStructAtATime> __pyx_result, __pyx_state)
  *     return __pyx_result             # <<<<<<<<<<<<<<
- * cdef __pyx_unpickle_MmReader__set_state(MmReader __pyx_result, tuple __pyx_state):
+ * cdef __pyx_unpickle_MmReaderStructAtATime__set_state(MmReaderStructAtATime __pyx_result, tuple __pyx_state):
  *     __pyx_result.input = __pyx_state[0]; __pyx_result.num_docs = __pyx_state[1]; __pyx_result.num_nnz = __pyx_state[2]; __pyx_result.num_terms = __pyx_state[3]; __pyx_result.transposed = __pyx_state[4]
  */
   __Pyx_XDECREF(__pyx_r);
@@ -3698,7 +5678,7 @@ static PyObject *__pyx_pf_6gensim_7corpora_13cython_binary___pyx_unpickle_MmRead
   goto __pyx_L0;
 
   /* "(tree fragment)":1
- * def __pyx_unpickle_MmReader(__pyx_type, long __pyx_checksum, __pyx_state):             # <<<<<<<<<<<<<<
+ * def __pyx_unpickle_MmReaderStructAtATime(__pyx_type, long __pyx_checksum, __pyx_state):             # <<<<<<<<<<<<<<
  *     if __pyx_checksum != 0xea5fe92:
  *         from pickle import PickleError as __pyx_PickleError
  */
@@ -3710,7 +5690,7 @@ static PyObject *__pyx_pf_6gensim_7corpora_13cython_binary___pyx_unpickle_MmRead
   __Pyx_XDECREF(__pyx_t_4);
   __Pyx_XDECREF(__pyx_t_5);
   __Pyx_XDECREF(__pyx_t_6);
-  __Pyx_AddTraceback("gensim.corpora.cython_binary.__pyx_unpickle_MmReader", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("gensim.corpora.cython_binary.__pyx_unpickle_MmReaderStructAtATime", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __Pyx_XDECREF(__pyx_v___pyx_PickleError);
@@ -3721,14 +5701,14 @@ static PyObject *__pyx_pf_6gensim_7corpora_13cython_binary___pyx_unpickle_MmRead
 }
 
 /* "(tree fragment)":9
- *         __pyx_unpickle_MmReader__set_state(<MmReader> __pyx_result, __pyx_state)
+ *         __pyx_unpickle_MmReaderStructAtATime__set_state(<MmReaderStructAtATime> __pyx_result, __pyx_state)
  *     return __pyx_result
- * cdef __pyx_unpickle_MmReader__set_state(MmReader __pyx_result, tuple __pyx_state):             # <<<<<<<<<<<<<<
+ * cdef __pyx_unpickle_MmReaderStructAtATime__set_state(MmReaderStructAtATime __pyx_result, tuple __pyx_state):             # <<<<<<<<<<<<<<
  *     __pyx_result.input = __pyx_state[0]; __pyx_result.num_docs = __pyx_state[1]; __pyx_result.num_nnz = __pyx_state[2]; __pyx_result.num_terms = __pyx_state[3]; __pyx_result.transposed = __pyx_state[4]
  *     if len(__pyx_state) > 5 and hasattr(__pyx_result, '__dict__'):
  */
 
-static PyObject *__pyx_f_6gensim_7corpora_13cython_binary___pyx_unpickle_MmReader__set_state(struct __pyx_obj_6gensim_7corpora_13cython_binary_MmReader *__pyx_v___pyx_result, PyObject *__pyx_v___pyx_state) {
+static PyObject *__pyx_f_6gensim_7corpora_13cython_binary___pyx_unpickle_MmReaderStructAtATime__set_state(struct __pyx_obj_6gensim_7corpora_13cython_binary_MmReaderStructAtATime *__pyx_v___pyx_result, PyObject *__pyx_v___pyx_state) {
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   PyObject *__pyx_t_1 = NULL;
@@ -3741,11 +5721,11 @@ static PyObject *__pyx_f_6gensim_7corpora_13cython_binary___pyx_unpickle_MmReade
   PyObject *__pyx_t_8 = NULL;
   PyObject *__pyx_t_9 = NULL;
   PyObject *__pyx_t_10 = NULL;
-  __Pyx_RefNannySetupContext("__pyx_unpickle_MmReader__set_state", 0);
+  __Pyx_RefNannySetupContext("__pyx_unpickle_MmReaderStructAtATime__set_state", 0);
 
   /* "(tree fragment)":10
  *     return __pyx_result
- * cdef __pyx_unpickle_MmReader__set_state(MmReader __pyx_result, tuple __pyx_state):
+ * cdef __pyx_unpickle_MmReaderStructAtATime__set_state(MmReaderStructAtATime __pyx_result, tuple __pyx_state):
  *     __pyx_result.input = __pyx_state[0]; __pyx_result.num_docs = __pyx_state[1]; __pyx_result.num_nnz = __pyx_state[2]; __pyx_result.num_terms = __pyx_state[3]; __pyx_result.transposed = __pyx_state[4]             # <<<<<<<<<<<<<<
  *     if len(__pyx_state) > 5 and hasattr(__pyx_result, '__dict__'):
  *         __pyx_result.__dict__.update(__pyx_state[5])
@@ -3799,7 +5779,7 @@ static PyObject *__pyx_f_6gensim_7corpora_13cython_binary___pyx_unpickle_MmReade
   __pyx_v___pyx_result->transposed = __pyx_t_3;
 
   /* "(tree fragment)":11
- * cdef __pyx_unpickle_MmReader__set_state(MmReader __pyx_result, tuple __pyx_state):
+ * cdef __pyx_unpickle_MmReaderStructAtATime__set_state(MmReaderStructAtATime __pyx_result, tuple __pyx_state):
  *     __pyx_result.input = __pyx_state[0]; __pyx_result.num_docs = __pyx_state[1]; __pyx_result.num_nnz = __pyx_state[2]; __pyx_result.num_terms = __pyx_state[3]; __pyx_result.transposed = __pyx_state[4]
  *     if len(__pyx_state) > 5 and hasattr(__pyx_result, '__dict__'):             # <<<<<<<<<<<<<<
  *         __pyx_result.__dict__.update(__pyx_state[5])
@@ -3886,7 +5866,7 @@ static PyObject *__pyx_f_6gensim_7corpora_13cython_binary___pyx_unpickle_MmReade
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
     /* "(tree fragment)":11
- * cdef __pyx_unpickle_MmReader__set_state(MmReader __pyx_result, tuple __pyx_state):
+ * cdef __pyx_unpickle_MmReaderStructAtATime__set_state(MmReaderStructAtATime __pyx_result, tuple __pyx_state):
  *     __pyx_result.input = __pyx_state[0]; __pyx_result.num_docs = __pyx_state[1]; __pyx_result.num_nnz = __pyx_state[2]; __pyx_result.num_terms = __pyx_state[3]; __pyx_result.transposed = __pyx_state[4]
  *     if len(__pyx_state) > 5 and hasattr(__pyx_result, '__dict__'):             # <<<<<<<<<<<<<<
  *         __pyx_result.__dict__.update(__pyx_state[5])
@@ -3894,9 +5874,9 @@ static PyObject *__pyx_f_6gensim_7corpora_13cython_binary___pyx_unpickle_MmReade
   }
 
   /* "(tree fragment)":9
- *         __pyx_unpickle_MmReader__set_state(<MmReader> __pyx_result, __pyx_state)
+ *         __pyx_unpickle_MmReaderStructAtATime__set_state(<MmReaderStructAtATime> __pyx_result, __pyx_state)
  *     return __pyx_result
- * cdef __pyx_unpickle_MmReader__set_state(MmReader __pyx_result, tuple __pyx_state):             # <<<<<<<<<<<<<<
+ * cdef __pyx_unpickle_MmReaderStructAtATime__set_state(MmReaderStructAtATime __pyx_result, tuple __pyx_state):             # <<<<<<<<<<<<<<
  *     __pyx_result.input = __pyx_state[0]; __pyx_result.num_docs = __pyx_state[1]; __pyx_result.num_nnz = __pyx_state[2]; __pyx_result.num_terms = __pyx_state[3]; __pyx_result.transposed = __pyx_state[4]
  *     if len(__pyx_state) > 5 and hasattr(__pyx_result, '__dict__'):
  */
@@ -3910,17 +5890,533 @@ static PyObject *__pyx_f_6gensim_7corpora_13cython_binary___pyx_unpickle_MmReade
   __Pyx_XDECREF(__pyx_t_8);
   __Pyx_XDECREF(__pyx_t_9);
   __Pyx_XDECREF(__pyx_t_10);
-  __Pyx_AddTraceback("gensim.corpora.cython_binary.__pyx_unpickle_MmReader__set_state", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("gensim.corpora.cython_binary.__pyx_unpickle_MmReaderStructAtATime__set_state", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = 0;
   __pyx_L0:;
   __Pyx_XGIVEREF(__pyx_r);
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
-static struct __pyx_vtabstruct_6gensim_7corpora_13cython_binary_MmReader __pyx_vtable_6gensim_7corpora_13cython_binary_MmReader;
 
-static PyObject *__pyx_tp_new_6gensim_7corpora_13cython_binary_MmReader(PyTypeObject *t, CYTHON_UNUSED PyObject *a, CYTHON_UNUSED PyObject *k) {
-  struct __pyx_obj_6gensim_7corpora_13cython_binary_MmReader *p;
+/* "(tree fragment)":1
+ * def __pyx_unpickle_MmReaderStructArray(__pyx_type, long __pyx_checksum, __pyx_state):             # <<<<<<<<<<<<<<
+ *     if __pyx_checksum != 0xea5fe92:
+ *         from pickle import PickleError as __pyx_PickleError
+ */
+
+/* Python wrapper */
+static PyObject *__pyx_pw_6gensim_7corpora_13cython_binary_3__pyx_unpickle_MmReaderStructArray(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
+static char __pyx_doc_6gensim_7corpora_13cython_binary_2__pyx_unpickle_MmReaderStructArray[] = "__pyx_unpickle_MmReaderStructArray(__pyx_type, long __pyx_checksum, __pyx_state)";
+static PyMethodDef __pyx_mdef_6gensim_7corpora_13cython_binary_3__pyx_unpickle_MmReaderStructArray = {"__pyx_unpickle_MmReaderStructArray", (PyCFunction)__pyx_pw_6gensim_7corpora_13cython_binary_3__pyx_unpickle_MmReaderStructArray, METH_VARARGS|METH_KEYWORDS, __pyx_doc_6gensim_7corpora_13cython_binary_2__pyx_unpickle_MmReaderStructArray};
+static PyObject *__pyx_pw_6gensim_7corpora_13cython_binary_3__pyx_unpickle_MmReaderStructArray(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
+  PyObject *__pyx_v___pyx_type = 0;
+  long __pyx_v___pyx_checksum;
+  PyObject *__pyx_v___pyx_state = 0;
+  PyObject *__pyx_r = 0;
+  __Pyx_RefNannyDeclarations
+  __Pyx_RefNannySetupContext("__pyx_unpickle_MmReaderStructArray (wrapper)", 0);
+  {
+    static PyObject **__pyx_pyargnames[] = {&__pyx_n_s_pyx_type,&__pyx_n_s_pyx_checksum,&__pyx_n_s_pyx_state,0};
+    PyObject* values[3] = {0,0,0};
+    if (unlikely(__pyx_kwds)) {
+      Py_ssize_t kw_args;
+      const Py_ssize_t pos_args = PyTuple_GET_SIZE(__pyx_args);
+      switch (pos_args) {
+        case  3: values[2] = PyTuple_GET_ITEM(__pyx_args, 2);
+        CYTHON_FALLTHROUGH;
+        case  2: values[1] = PyTuple_GET_ITEM(__pyx_args, 1);
+        CYTHON_FALLTHROUGH;
+        case  1: values[0] = PyTuple_GET_ITEM(__pyx_args, 0);
+        CYTHON_FALLTHROUGH;
+        case  0: break;
+        default: goto __pyx_L5_argtuple_error;
+      }
+      kw_args = PyDict_Size(__pyx_kwds);
+      switch (pos_args) {
+        case  0:
+        if (likely((values[0] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_pyx_type)) != 0)) kw_args--;
+        else goto __pyx_L5_argtuple_error;
+        CYTHON_FALLTHROUGH;
+        case  1:
+        if (likely((values[1] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_pyx_checksum)) != 0)) kw_args--;
+        else {
+          __Pyx_RaiseArgtupleInvalid("__pyx_unpickle_MmReaderStructArray", 1, 3, 3, 1); __PYX_ERR(1, 1, __pyx_L3_error)
+        }
+        CYTHON_FALLTHROUGH;
+        case  2:
+        if (likely((values[2] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_pyx_state)) != 0)) kw_args--;
+        else {
+          __Pyx_RaiseArgtupleInvalid("__pyx_unpickle_MmReaderStructArray", 1, 3, 3, 2); __PYX_ERR(1, 1, __pyx_L3_error)
+        }
+      }
+      if (unlikely(kw_args > 0)) {
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "__pyx_unpickle_MmReaderStructArray") < 0)) __PYX_ERR(1, 1, __pyx_L3_error)
+      }
+    } else if (PyTuple_GET_SIZE(__pyx_args) != 3) {
+      goto __pyx_L5_argtuple_error;
+    } else {
+      values[0] = PyTuple_GET_ITEM(__pyx_args, 0);
+      values[1] = PyTuple_GET_ITEM(__pyx_args, 1);
+      values[2] = PyTuple_GET_ITEM(__pyx_args, 2);
+    }
+    __pyx_v___pyx_type = values[0];
+    __pyx_v___pyx_checksum = __Pyx_PyInt_As_long(values[1]); if (unlikely((__pyx_v___pyx_checksum == (long)-1) && PyErr_Occurred())) __PYX_ERR(1, 1, __pyx_L3_error)
+    __pyx_v___pyx_state = values[2];
+  }
+  goto __pyx_L4_argument_unpacking_done;
+  __pyx_L5_argtuple_error:;
+  __Pyx_RaiseArgtupleInvalid("__pyx_unpickle_MmReaderStructArray", 1, 3, 3, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(1, 1, __pyx_L3_error)
+  __pyx_L3_error:;
+  __Pyx_AddTraceback("gensim.corpora.cython_binary.__pyx_unpickle_MmReaderStructArray", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_RefNannyFinishContext();
+  return NULL;
+  __pyx_L4_argument_unpacking_done:;
+  __pyx_r = __pyx_pf_6gensim_7corpora_13cython_binary_2__pyx_unpickle_MmReaderStructArray(__pyx_self, __pyx_v___pyx_type, __pyx_v___pyx_checksum, __pyx_v___pyx_state);
+
+  /* function exit code */
+  __Pyx_RefNannyFinishContext();
+  return __pyx_r;
+}
+
+static PyObject *__pyx_pf_6gensim_7corpora_13cython_binary_2__pyx_unpickle_MmReaderStructArray(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v___pyx_type, long __pyx_v___pyx_checksum, PyObject *__pyx_v___pyx_state) {
+  PyObject *__pyx_v___pyx_PickleError = NULL;
+  PyObject *__pyx_v___pyx_result = NULL;
+  PyObject *__pyx_r = NULL;
+  __Pyx_RefNannyDeclarations
+  int __pyx_t_1;
+  PyObject *__pyx_t_2 = NULL;
+  PyObject *__pyx_t_3 = NULL;
+  PyObject *__pyx_t_4 = NULL;
+  PyObject *__pyx_t_5 = NULL;
+  PyObject *__pyx_t_6 = NULL;
+  int __pyx_t_7;
+  __Pyx_RefNannySetupContext("__pyx_unpickle_MmReaderStructArray", 0);
+
+  /* "(tree fragment)":2
+ * def __pyx_unpickle_MmReaderStructArray(__pyx_type, long __pyx_checksum, __pyx_state):
+ *     if __pyx_checksum != 0xea5fe92:             # <<<<<<<<<<<<<<
+ *         from pickle import PickleError as __pyx_PickleError
+ *         raise __pyx_PickleError("Incompatible checksums (%s vs 0xea5fe92 = (input, num_docs, num_nnz, num_terms, transposed))" % __pyx_checksum)
+ */
+  __pyx_t_1 = ((__pyx_v___pyx_checksum != 0xea5fe92) != 0);
+  if (__pyx_t_1) {
+
+    /* "(tree fragment)":3
+ * def __pyx_unpickle_MmReaderStructArray(__pyx_type, long __pyx_checksum, __pyx_state):
+ *     if __pyx_checksum != 0xea5fe92:
+ *         from pickle import PickleError as __pyx_PickleError             # <<<<<<<<<<<<<<
+ *         raise __pyx_PickleError("Incompatible checksums (%s vs 0xea5fe92 = (input, num_docs, num_nnz, num_terms, transposed))" % __pyx_checksum)
+ *     __pyx_result = MmReaderStructArray.__new__(__pyx_type)
+ */
+    __pyx_t_2 = PyList_New(1); if (unlikely(!__pyx_t_2)) __PYX_ERR(1, 3, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_2);
+    __Pyx_INCREF(__pyx_n_s_PickleError);
+    __Pyx_GIVEREF(__pyx_n_s_PickleError);
+    PyList_SET_ITEM(__pyx_t_2, 0, __pyx_n_s_PickleError);
+    __pyx_t_3 = __Pyx_Import(__pyx_n_s_pickle, __pyx_t_2, -1); if (unlikely(!__pyx_t_3)) __PYX_ERR(1, 3, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_3);
+    __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+    __pyx_t_2 = __Pyx_ImportFrom(__pyx_t_3, __pyx_n_s_PickleError); if (unlikely(!__pyx_t_2)) __PYX_ERR(1, 3, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_2);
+    __Pyx_INCREF(__pyx_t_2);
+    __pyx_v___pyx_PickleError = __pyx_t_2;
+    __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+    __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
+
+    /* "(tree fragment)":4
+ *     if __pyx_checksum != 0xea5fe92:
+ *         from pickle import PickleError as __pyx_PickleError
+ *         raise __pyx_PickleError("Incompatible checksums (%s vs 0xea5fe92 = (input, num_docs, num_nnz, num_terms, transposed))" % __pyx_checksum)             # <<<<<<<<<<<<<<
+ *     __pyx_result = MmReaderStructArray.__new__(__pyx_type)
+ *     if __pyx_state is not None:
+ */
+    __pyx_t_2 = __Pyx_PyInt_From_long(__pyx_v___pyx_checksum); if (unlikely(!__pyx_t_2)) __PYX_ERR(1, 4, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_2);
+    __pyx_t_4 = __Pyx_PyString_Format(__pyx_kp_s_Incompatible_checksums_s_vs_0xea, __pyx_t_2); if (unlikely(!__pyx_t_4)) __PYX_ERR(1, 4, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_4);
+    __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+    __Pyx_INCREF(__pyx_v___pyx_PickleError);
+    __pyx_t_2 = __pyx_v___pyx_PickleError; __pyx_t_5 = NULL;
+    if (CYTHON_UNPACK_METHODS && unlikely(PyMethod_Check(__pyx_t_2))) {
+      __pyx_t_5 = PyMethod_GET_SELF(__pyx_t_2);
+      if (likely(__pyx_t_5)) {
+        PyObject* function = PyMethod_GET_FUNCTION(__pyx_t_2);
+        __Pyx_INCREF(__pyx_t_5);
+        __Pyx_INCREF(function);
+        __Pyx_DECREF_SET(__pyx_t_2, function);
+      }
+    }
+    if (!__pyx_t_5) {
+      __pyx_t_3 = __Pyx_PyObject_CallOneArg(__pyx_t_2, __pyx_t_4); if (unlikely(!__pyx_t_3)) __PYX_ERR(1, 4, __pyx_L1_error)
+      __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
+      __Pyx_GOTREF(__pyx_t_3);
+    } else {
+      #if CYTHON_FAST_PYCALL
+      if (PyFunction_Check(__pyx_t_2)) {
+        PyObject *__pyx_temp[2] = {__pyx_t_5, __pyx_t_4};
+        __pyx_t_3 = __Pyx_PyFunction_FastCall(__pyx_t_2, __pyx_temp+1-1, 1+1); if (unlikely(!__pyx_t_3)) __PYX_ERR(1, 4, __pyx_L1_error)
+        __Pyx_XDECREF(__pyx_t_5); __pyx_t_5 = 0;
+        __Pyx_GOTREF(__pyx_t_3);
+        __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
+      } else
+      #endif
+      #if CYTHON_FAST_PYCCALL
+      if (__Pyx_PyFastCFunction_Check(__pyx_t_2)) {
+        PyObject *__pyx_temp[2] = {__pyx_t_5, __pyx_t_4};
+        __pyx_t_3 = __Pyx_PyCFunction_FastCall(__pyx_t_2, __pyx_temp+1-1, 1+1); if (unlikely(!__pyx_t_3)) __PYX_ERR(1, 4, __pyx_L1_error)
+        __Pyx_XDECREF(__pyx_t_5); __pyx_t_5 = 0;
+        __Pyx_GOTREF(__pyx_t_3);
+        __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
+      } else
+      #endif
+      {
+        __pyx_t_6 = PyTuple_New(1+1); if (unlikely(!__pyx_t_6)) __PYX_ERR(1, 4, __pyx_L1_error)
+        __Pyx_GOTREF(__pyx_t_6);
+        __Pyx_GIVEREF(__pyx_t_5); PyTuple_SET_ITEM(__pyx_t_6, 0, __pyx_t_5); __pyx_t_5 = NULL;
+        __Pyx_GIVEREF(__pyx_t_4);
+        PyTuple_SET_ITEM(__pyx_t_6, 0+1, __pyx_t_4);
+        __pyx_t_4 = 0;
+        __pyx_t_3 = __Pyx_PyObject_Call(__pyx_t_2, __pyx_t_6, NULL); if (unlikely(!__pyx_t_3)) __PYX_ERR(1, 4, __pyx_L1_error)
+        __Pyx_GOTREF(__pyx_t_3);
+        __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
+      }
+    }
+    __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+    __Pyx_Raise(__pyx_t_3, 0, 0, 0);
+    __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
+    __PYX_ERR(1, 4, __pyx_L1_error)
+
+    /* "(tree fragment)":2
+ * def __pyx_unpickle_MmReaderStructArray(__pyx_type, long __pyx_checksum, __pyx_state):
+ *     if __pyx_checksum != 0xea5fe92:             # <<<<<<<<<<<<<<
+ *         from pickle import PickleError as __pyx_PickleError
+ *         raise __pyx_PickleError("Incompatible checksums (%s vs 0xea5fe92 = (input, num_docs, num_nnz, num_terms, transposed))" % __pyx_checksum)
+ */
+  }
+
+  /* "(tree fragment)":5
+ *         from pickle import PickleError as __pyx_PickleError
+ *         raise __pyx_PickleError("Incompatible checksums (%s vs 0xea5fe92 = (input, num_docs, num_nnz, num_terms, transposed))" % __pyx_checksum)
+ *     __pyx_result = MmReaderStructArray.__new__(__pyx_type)             # <<<<<<<<<<<<<<
+ *     if __pyx_state is not None:
+ *         __pyx_unpickle_MmReaderStructArray__set_state(<MmReaderStructArray> __pyx_result, __pyx_state)
+ */
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_ptype_6gensim_7corpora_13cython_binary_MmReaderStructArray), __pyx_n_s_new); if (unlikely(!__pyx_t_2)) __PYX_ERR(1, 5, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_2);
+  __pyx_t_6 = NULL;
+  if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_2))) {
+    __pyx_t_6 = PyMethod_GET_SELF(__pyx_t_2);
+    if (likely(__pyx_t_6)) {
+      PyObject* function = PyMethod_GET_FUNCTION(__pyx_t_2);
+      __Pyx_INCREF(__pyx_t_6);
+      __Pyx_INCREF(function);
+      __Pyx_DECREF_SET(__pyx_t_2, function);
+    }
+  }
+  if (!__pyx_t_6) {
+    __pyx_t_3 = __Pyx_PyObject_CallOneArg(__pyx_t_2, __pyx_v___pyx_type); if (unlikely(!__pyx_t_3)) __PYX_ERR(1, 5, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_3);
+  } else {
+    #if CYTHON_FAST_PYCALL
+    if (PyFunction_Check(__pyx_t_2)) {
+      PyObject *__pyx_temp[2] = {__pyx_t_6, __pyx_v___pyx_type};
+      __pyx_t_3 = __Pyx_PyFunction_FastCall(__pyx_t_2, __pyx_temp+1-1, 1+1); if (unlikely(!__pyx_t_3)) __PYX_ERR(1, 5, __pyx_L1_error)
+      __Pyx_XDECREF(__pyx_t_6); __pyx_t_6 = 0;
+      __Pyx_GOTREF(__pyx_t_3);
+    } else
+    #endif
+    #if CYTHON_FAST_PYCCALL
+    if (__Pyx_PyFastCFunction_Check(__pyx_t_2)) {
+      PyObject *__pyx_temp[2] = {__pyx_t_6, __pyx_v___pyx_type};
+      __pyx_t_3 = __Pyx_PyCFunction_FastCall(__pyx_t_2, __pyx_temp+1-1, 1+1); if (unlikely(!__pyx_t_3)) __PYX_ERR(1, 5, __pyx_L1_error)
+      __Pyx_XDECREF(__pyx_t_6); __pyx_t_6 = 0;
+      __Pyx_GOTREF(__pyx_t_3);
+    } else
+    #endif
+    {
+      __pyx_t_4 = PyTuple_New(1+1); if (unlikely(!__pyx_t_4)) __PYX_ERR(1, 5, __pyx_L1_error)
+      __Pyx_GOTREF(__pyx_t_4);
+      __Pyx_GIVEREF(__pyx_t_6); PyTuple_SET_ITEM(__pyx_t_4, 0, __pyx_t_6); __pyx_t_6 = NULL;
+      __Pyx_INCREF(__pyx_v___pyx_type);
+      __Pyx_GIVEREF(__pyx_v___pyx_type);
+      PyTuple_SET_ITEM(__pyx_t_4, 0+1, __pyx_v___pyx_type);
+      __pyx_t_3 = __Pyx_PyObject_Call(__pyx_t_2, __pyx_t_4, NULL); if (unlikely(!__pyx_t_3)) __PYX_ERR(1, 5, __pyx_L1_error)
+      __Pyx_GOTREF(__pyx_t_3);
+      __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
+    }
+  }
+  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+  __pyx_v___pyx_result = __pyx_t_3;
+  __pyx_t_3 = 0;
+
+  /* "(tree fragment)":6
+ *         raise __pyx_PickleError("Incompatible checksums (%s vs 0xea5fe92 = (input, num_docs, num_nnz, num_terms, transposed))" % __pyx_checksum)
+ *     __pyx_result = MmReaderStructArray.__new__(__pyx_type)
+ *     if __pyx_state is not None:             # <<<<<<<<<<<<<<
+ *         __pyx_unpickle_MmReaderStructArray__set_state(<MmReaderStructArray> __pyx_result, __pyx_state)
+ *     return __pyx_result
+ */
+  __pyx_t_1 = (__pyx_v___pyx_state != Py_None);
+  __pyx_t_7 = (__pyx_t_1 != 0);
+  if (__pyx_t_7) {
+
+    /* "(tree fragment)":7
+ *     __pyx_result = MmReaderStructArray.__new__(__pyx_type)
+ *     if __pyx_state is not None:
+ *         __pyx_unpickle_MmReaderStructArray__set_state(<MmReaderStructArray> __pyx_result, __pyx_state)             # <<<<<<<<<<<<<<
+ *     return __pyx_result
+ * cdef __pyx_unpickle_MmReaderStructArray__set_state(MmReaderStructArray __pyx_result, tuple __pyx_state):
+ */
+    if (!(likely(PyTuple_CheckExact(__pyx_v___pyx_state))||((__pyx_v___pyx_state) == Py_None)||(PyErr_Format(PyExc_TypeError, "Expected %.16s, got %.200s", "tuple", Py_TYPE(__pyx_v___pyx_state)->tp_name), 0))) __PYX_ERR(1, 7, __pyx_L1_error)
+    __pyx_t_3 = __pyx_f_6gensim_7corpora_13cython_binary___pyx_unpickle_MmReaderStructArray__set_state(((struct __pyx_obj_6gensim_7corpora_13cython_binary_MmReaderStructArray *)__pyx_v___pyx_result), ((PyObject*)__pyx_v___pyx_state)); if (unlikely(!__pyx_t_3)) __PYX_ERR(1, 7, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_3);
+    __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
+
+    /* "(tree fragment)":6
+ *         raise __pyx_PickleError("Incompatible checksums (%s vs 0xea5fe92 = (input, num_docs, num_nnz, num_terms, transposed))" % __pyx_checksum)
+ *     __pyx_result = MmReaderStructArray.__new__(__pyx_type)
+ *     if __pyx_state is not None:             # <<<<<<<<<<<<<<
+ *         __pyx_unpickle_MmReaderStructArray__set_state(<MmReaderStructArray> __pyx_result, __pyx_state)
+ *     return __pyx_result
+ */
+  }
+
+  /* "(tree fragment)":8
+ *     if __pyx_state is not None:
+ *         __pyx_unpickle_MmReaderStructArray__set_state(<MmReaderStructArray> __pyx_result, __pyx_state)
+ *     return __pyx_result             # <<<<<<<<<<<<<<
+ * cdef __pyx_unpickle_MmReaderStructArray__set_state(MmReaderStructArray __pyx_result, tuple __pyx_state):
+ *     __pyx_result.input = __pyx_state[0]; __pyx_result.num_docs = __pyx_state[1]; __pyx_result.num_nnz = __pyx_state[2]; __pyx_result.num_terms = __pyx_state[3]; __pyx_result.transposed = __pyx_state[4]
+ */
+  __Pyx_XDECREF(__pyx_r);
+  __Pyx_INCREF(__pyx_v___pyx_result);
+  __pyx_r = __pyx_v___pyx_result;
+  goto __pyx_L0;
+
+  /* "(tree fragment)":1
+ * def __pyx_unpickle_MmReaderStructArray(__pyx_type, long __pyx_checksum, __pyx_state):             # <<<<<<<<<<<<<<
+ *     if __pyx_checksum != 0xea5fe92:
+ *         from pickle import PickleError as __pyx_PickleError
+ */
+
+  /* function exit code */
+  __pyx_L1_error:;
+  __Pyx_XDECREF(__pyx_t_2);
+  __Pyx_XDECREF(__pyx_t_3);
+  __Pyx_XDECREF(__pyx_t_4);
+  __Pyx_XDECREF(__pyx_t_5);
+  __Pyx_XDECREF(__pyx_t_6);
+  __Pyx_AddTraceback("gensim.corpora.cython_binary.__pyx_unpickle_MmReaderStructArray", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __pyx_r = NULL;
+  __pyx_L0:;
+  __Pyx_XDECREF(__pyx_v___pyx_PickleError);
+  __Pyx_XDECREF(__pyx_v___pyx_result);
+  __Pyx_XGIVEREF(__pyx_r);
+  __Pyx_RefNannyFinishContext();
+  return __pyx_r;
+}
+
+/* "(tree fragment)":9
+ *         __pyx_unpickle_MmReaderStructArray__set_state(<MmReaderStructArray> __pyx_result, __pyx_state)
+ *     return __pyx_result
+ * cdef __pyx_unpickle_MmReaderStructArray__set_state(MmReaderStructArray __pyx_result, tuple __pyx_state):             # <<<<<<<<<<<<<<
+ *     __pyx_result.input = __pyx_state[0]; __pyx_result.num_docs = __pyx_state[1]; __pyx_result.num_nnz = __pyx_state[2]; __pyx_result.num_terms = __pyx_state[3]; __pyx_result.transposed = __pyx_state[4]
+ *     if len(__pyx_state) > 5 and hasattr(__pyx_result, '__dict__'):
+ */
+
+static PyObject *__pyx_f_6gensim_7corpora_13cython_binary___pyx_unpickle_MmReaderStructArray__set_state(struct __pyx_obj_6gensim_7corpora_13cython_binary_MmReaderStructArray *__pyx_v___pyx_result, PyObject *__pyx_v___pyx_state) {
+  PyObject *__pyx_r = NULL;
+  __Pyx_RefNannyDeclarations
+  PyObject *__pyx_t_1 = NULL;
+  int __pyx_t_2;
+  int __pyx_t_3;
+  Py_ssize_t __pyx_t_4;
+  int __pyx_t_5;
+  int __pyx_t_6;
+  PyObject *__pyx_t_7 = NULL;
+  PyObject *__pyx_t_8 = NULL;
+  PyObject *__pyx_t_9 = NULL;
+  PyObject *__pyx_t_10 = NULL;
+  __Pyx_RefNannySetupContext("__pyx_unpickle_MmReaderStructArray__set_state", 0);
+
+  /* "(tree fragment)":10
+ *     return __pyx_result
+ * cdef __pyx_unpickle_MmReaderStructArray__set_state(MmReaderStructArray __pyx_result, tuple __pyx_state):
+ *     __pyx_result.input = __pyx_state[0]; __pyx_result.num_docs = __pyx_state[1]; __pyx_result.num_nnz = __pyx_state[2]; __pyx_result.num_terms = __pyx_state[3]; __pyx_result.transposed = __pyx_state[4]             # <<<<<<<<<<<<<<
+ *     if len(__pyx_state) > 5 and hasattr(__pyx_result, '__dict__'):
+ *         __pyx_result.__dict__.update(__pyx_state[5])
+ */
+  if (unlikely(__pyx_v___pyx_state == Py_None)) {
+    PyErr_SetString(PyExc_TypeError, "'NoneType' object is not subscriptable");
+    __PYX_ERR(1, 10, __pyx_L1_error)
+  }
+  __pyx_t_1 = __Pyx_GetItemInt_Tuple(__pyx_v___pyx_state, 0, long, 1, __Pyx_PyInt_From_long, 0, 0, 1); if (unlikely(!__pyx_t_1)) __PYX_ERR(1, 10, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_1);
+  __Pyx_GIVEREF(__pyx_t_1);
+  __Pyx_GOTREF(__pyx_v___pyx_result->input);
+  __Pyx_DECREF(__pyx_v___pyx_result->input);
+  __pyx_v___pyx_result->input = __pyx_t_1;
+  __pyx_t_1 = 0;
+  if (unlikely(__pyx_v___pyx_state == Py_None)) {
+    PyErr_SetString(PyExc_TypeError, "'NoneType' object is not subscriptable");
+    __PYX_ERR(1, 10, __pyx_L1_error)
+  }
+  __pyx_t_1 = __Pyx_GetItemInt_Tuple(__pyx_v___pyx_state, 1, long, 1, __Pyx_PyInt_From_long, 0, 0, 1); if (unlikely(!__pyx_t_1)) __PYX_ERR(1, 10, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_1);
+  __pyx_t_2 = __Pyx_PyInt_As_int(__pyx_t_1); if (unlikely((__pyx_t_2 == (int)-1) && PyErr_Occurred())) __PYX_ERR(1, 10, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+  __pyx_v___pyx_result->num_docs = __pyx_t_2;
+  if (unlikely(__pyx_v___pyx_state == Py_None)) {
+    PyErr_SetString(PyExc_TypeError, "'NoneType' object is not subscriptable");
+    __PYX_ERR(1, 10, __pyx_L1_error)
+  }
+  __pyx_t_1 = __Pyx_GetItemInt_Tuple(__pyx_v___pyx_state, 2, long, 1, __Pyx_PyInt_From_long, 0, 0, 1); if (unlikely(!__pyx_t_1)) __PYX_ERR(1, 10, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_1);
+  __pyx_t_2 = __Pyx_PyInt_As_int(__pyx_t_1); if (unlikely((__pyx_t_2 == (int)-1) && PyErr_Occurred())) __PYX_ERR(1, 10, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+  __pyx_v___pyx_result->num_nnz = __pyx_t_2;
+  if (unlikely(__pyx_v___pyx_state == Py_None)) {
+    PyErr_SetString(PyExc_TypeError, "'NoneType' object is not subscriptable");
+    __PYX_ERR(1, 10, __pyx_L1_error)
+  }
+  __pyx_t_1 = __Pyx_GetItemInt_Tuple(__pyx_v___pyx_state, 3, long, 1, __Pyx_PyInt_From_long, 0, 0, 1); if (unlikely(!__pyx_t_1)) __PYX_ERR(1, 10, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_1);
+  __pyx_t_2 = __Pyx_PyInt_As_int(__pyx_t_1); if (unlikely((__pyx_t_2 == (int)-1) && PyErr_Occurred())) __PYX_ERR(1, 10, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+  __pyx_v___pyx_result->num_terms = __pyx_t_2;
+  if (unlikely(__pyx_v___pyx_state == Py_None)) {
+    PyErr_SetString(PyExc_TypeError, "'NoneType' object is not subscriptable");
+    __PYX_ERR(1, 10, __pyx_L1_error)
+  }
+  __pyx_t_1 = __Pyx_GetItemInt_Tuple(__pyx_v___pyx_state, 4, long, 1, __Pyx_PyInt_From_long, 0, 0, 1); if (unlikely(!__pyx_t_1)) __PYX_ERR(1, 10, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_1);
+  __pyx_t_3 = __Pyx_PyObject_IsTrue(__pyx_t_1); if (unlikely((__pyx_t_3 == (int)-1) && PyErr_Occurred())) __PYX_ERR(1, 10, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+  __pyx_v___pyx_result->transposed = __pyx_t_3;
+
+  /* "(tree fragment)":11
+ * cdef __pyx_unpickle_MmReaderStructArray__set_state(MmReaderStructArray __pyx_result, tuple __pyx_state):
+ *     __pyx_result.input = __pyx_state[0]; __pyx_result.num_docs = __pyx_state[1]; __pyx_result.num_nnz = __pyx_state[2]; __pyx_result.num_terms = __pyx_state[3]; __pyx_result.transposed = __pyx_state[4]
+ *     if len(__pyx_state) > 5 and hasattr(__pyx_result, '__dict__'):             # <<<<<<<<<<<<<<
+ *         __pyx_result.__dict__.update(__pyx_state[5])
+ */
+  if (unlikely(__pyx_v___pyx_state == Py_None)) {
+    PyErr_SetString(PyExc_TypeError, "object of type 'NoneType' has no len()");
+    __PYX_ERR(1, 11, __pyx_L1_error)
+  }
+  __pyx_t_4 = PyTuple_GET_SIZE(__pyx_v___pyx_state); if (unlikely(__pyx_t_4 == ((Py_ssize_t)-1))) __PYX_ERR(1, 11, __pyx_L1_error)
+  __pyx_t_5 = ((__pyx_t_4 > 5) != 0);
+  if (__pyx_t_5) {
+  } else {
+    __pyx_t_3 = __pyx_t_5;
+    goto __pyx_L4_bool_binop_done;
+  }
+  __pyx_t_5 = __Pyx_HasAttr(((PyObject *)__pyx_v___pyx_result), __pyx_n_s_dict); if (unlikely(__pyx_t_5 == ((int)-1))) __PYX_ERR(1, 11, __pyx_L1_error)
+  __pyx_t_6 = (__pyx_t_5 != 0);
+  __pyx_t_3 = __pyx_t_6;
+  __pyx_L4_bool_binop_done:;
+  if (__pyx_t_3) {
+
+    /* "(tree fragment)":12
+ *     __pyx_result.input = __pyx_state[0]; __pyx_result.num_docs = __pyx_state[1]; __pyx_result.num_nnz = __pyx_state[2]; __pyx_result.num_terms = __pyx_state[3]; __pyx_result.transposed = __pyx_state[4]
+ *     if len(__pyx_state) > 5 and hasattr(__pyx_result, '__dict__'):
+ *         __pyx_result.__dict__.update(__pyx_state[5])             # <<<<<<<<<<<<<<
+ */
+    __pyx_t_7 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v___pyx_result), __pyx_n_s_dict); if (unlikely(!__pyx_t_7)) __PYX_ERR(1, 12, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_7);
+    __pyx_t_8 = __Pyx_PyObject_GetAttrStr(__pyx_t_7, __pyx_n_s_update); if (unlikely(!__pyx_t_8)) __PYX_ERR(1, 12, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_8);
+    __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
+    if (unlikely(__pyx_v___pyx_state == Py_None)) {
+      PyErr_SetString(PyExc_TypeError, "'NoneType' object is not subscriptable");
+      __PYX_ERR(1, 12, __pyx_L1_error)
+    }
+    __pyx_t_7 = __Pyx_GetItemInt_Tuple(__pyx_v___pyx_state, 5, long, 1, __Pyx_PyInt_From_long, 0, 0, 1); if (unlikely(!__pyx_t_7)) __PYX_ERR(1, 12, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_7);
+    __pyx_t_9 = NULL;
+    if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_8))) {
+      __pyx_t_9 = PyMethod_GET_SELF(__pyx_t_8);
+      if (likely(__pyx_t_9)) {
+        PyObject* function = PyMethod_GET_FUNCTION(__pyx_t_8);
+        __Pyx_INCREF(__pyx_t_9);
+        __Pyx_INCREF(function);
+        __Pyx_DECREF_SET(__pyx_t_8, function);
+      }
+    }
+    if (!__pyx_t_9) {
+      __pyx_t_1 = __Pyx_PyObject_CallOneArg(__pyx_t_8, __pyx_t_7); if (unlikely(!__pyx_t_1)) __PYX_ERR(1, 12, __pyx_L1_error)
+      __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
+      __Pyx_GOTREF(__pyx_t_1);
+    } else {
+      #if CYTHON_FAST_PYCALL
+      if (PyFunction_Check(__pyx_t_8)) {
+        PyObject *__pyx_temp[2] = {__pyx_t_9, __pyx_t_7};
+        __pyx_t_1 = __Pyx_PyFunction_FastCall(__pyx_t_8, __pyx_temp+1-1, 1+1); if (unlikely(!__pyx_t_1)) __PYX_ERR(1, 12, __pyx_L1_error)
+        __Pyx_XDECREF(__pyx_t_9); __pyx_t_9 = 0;
+        __Pyx_GOTREF(__pyx_t_1);
+        __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
+      } else
+      #endif
+      #if CYTHON_FAST_PYCCALL
+      if (__Pyx_PyFastCFunction_Check(__pyx_t_8)) {
+        PyObject *__pyx_temp[2] = {__pyx_t_9, __pyx_t_7};
+        __pyx_t_1 = __Pyx_PyCFunction_FastCall(__pyx_t_8, __pyx_temp+1-1, 1+1); if (unlikely(!__pyx_t_1)) __PYX_ERR(1, 12, __pyx_L1_error)
+        __Pyx_XDECREF(__pyx_t_9); __pyx_t_9 = 0;
+        __Pyx_GOTREF(__pyx_t_1);
+        __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
+      } else
+      #endif
+      {
+        __pyx_t_10 = PyTuple_New(1+1); if (unlikely(!__pyx_t_10)) __PYX_ERR(1, 12, __pyx_L1_error)
+        __Pyx_GOTREF(__pyx_t_10);
+        __Pyx_GIVEREF(__pyx_t_9); PyTuple_SET_ITEM(__pyx_t_10, 0, __pyx_t_9); __pyx_t_9 = NULL;
+        __Pyx_GIVEREF(__pyx_t_7);
+        PyTuple_SET_ITEM(__pyx_t_10, 0+1, __pyx_t_7);
+        __pyx_t_7 = 0;
+        __pyx_t_1 = __Pyx_PyObject_Call(__pyx_t_8, __pyx_t_10, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(1, 12, __pyx_L1_error)
+        __Pyx_GOTREF(__pyx_t_1);
+        __Pyx_DECREF(__pyx_t_10); __pyx_t_10 = 0;
+      }
+    }
+    __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
+    __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+
+    /* "(tree fragment)":11
+ * cdef __pyx_unpickle_MmReaderStructArray__set_state(MmReaderStructArray __pyx_result, tuple __pyx_state):
+ *     __pyx_result.input = __pyx_state[0]; __pyx_result.num_docs = __pyx_state[1]; __pyx_result.num_nnz = __pyx_state[2]; __pyx_result.num_terms = __pyx_state[3]; __pyx_result.transposed = __pyx_state[4]
+ *     if len(__pyx_state) > 5 and hasattr(__pyx_result, '__dict__'):             # <<<<<<<<<<<<<<
+ *         __pyx_result.__dict__.update(__pyx_state[5])
+ */
+  }
+
+  /* "(tree fragment)":9
+ *         __pyx_unpickle_MmReaderStructArray__set_state(<MmReaderStructArray> __pyx_result, __pyx_state)
+ *     return __pyx_result
+ * cdef __pyx_unpickle_MmReaderStructArray__set_state(MmReaderStructArray __pyx_result, tuple __pyx_state):             # <<<<<<<<<<<<<<
+ *     __pyx_result.input = __pyx_state[0]; __pyx_result.num_docs = __pyx_state[1]; __pyx_result.num_nnz = __pyx_state[2]; __pyx_result.num_terms = __pyx_state[3]; __pyx_result.transposed = __pyx_state[4]
+ *     if len(__pyx_state) > 5 and hasattr(__pyx_result, '__dict__'):
+ */
+
+  /* function exit code */
+  __pyx_r = Py_None; __Pyx_INCREF(Py_None);
+  goto __pyx_L0;
+  __pyx_L1_error:;
+  __Pyx_XDECREF(__pyx_t_1);
+  __Pyx_XDECREF(__pyx_t_7);
+  __Pyx_XDECREF(__pyx_t_8);
+  __Pyx_XDECREF(__pyx_t_9);
+  __Pyx_XDECREF(__pyx_t_10);
+  __Pyx_AddTraceback("gensim.corpora.cython_binary.__pyx_unpickle_MmReaderStructArray__set_state", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __pyx_r = 0;
+  __pyx_L0:;
+  __Pyx_XGIVEREF(__pyx_r);
+  __Pyx_RefNannyFinishContext();
+  return __pyx_r;
+}
+static struct __pyx_vtabstruct_6gensim_7corpora_13cython_binary_MmReaderStructAtATime __pyx_vtable_6gensim_7corpora_13cython_binary_MmReaderStructAtATime;
+
+static PyObject *__pyx_tp_new_6gensim_7corpora_13cython_binary_MmReaderStructAtATime(PyTypeObject *t, CYTHON_UNUSED PyObject *a, CYTHON_UNUSED PyObject *k) {
+  struct __pyx_obj_6gensim_7corpora_13cython_binary_MmReaderStructAtATime *p;
   PyObject *o;
   if (likely((t->tp_flags & Py_TPFLAGS_IS_ABSTRACT) == 0)) {
     o = (*t->tp_alloc)(t, 0);
@@ -3928,14 +6424,14 @@ static PyObject *__pyx_tp_new_6gensim_7corpora_13cython_binary_MmReader(PyTypeOb
     o = (PyObject *) PyBaseObject_Type.tp_new(t, __pyx_empty_tuple, 0);
   }
   if (unlikely(!o)) return 0;
-  p = ((struct __pyx_obj_6gensim_7corpora_13cython_binary_MmReader *)o);
-  p->__pyx_vtab = __pyx_vtabptr_6gensim_7corpora_13cython_binary_MmReader;
+  p = ((struct __pyx_obj_6gensim_7corpora_13cython_binary_MmReaderStructAtATime *)o);
+  p->__pyx_vtab = __pyx_vtabptr_6gensim_7corpora_13cython_binary_MmReaderStructAtATime;
   p->input = Py_None; Py_INCREF(Py_None);
   return o;
 }
 
-static void __pyx_tp_dealloc_6gensim_7corpora_13cython_binary_MmReader(PyObject *o) {
-  struct __pyx_obj_6gensim_7corpora_13cython_binary_MmReader *p = (struct __pyx_obj_6gensim_7corpora_13cython_binary_MmReader *)o;
+static void __pyx_tp_dealloc_6gensim_7corpora_13cython_binary_MmReaderStructAtATime(PyObject *o) {
+  struct __pyx_obj_6gensim_7corpora_13cython_binary_MmReaderStructAtATime *p = (struct __pyx_obj_6gensim_7corpora_13cython_binary_MmReaderStructAtATime *)o;
   #if CYTHON_USE_TP_FINALIZE
   if (unlikely(PyType_HasFeature(Py_TYPE(o), Py_TPFLAGS_HAVE_FINALIZE) && Py_TYPE(o)->tp_finalize) && !_PyGC_FINALIZED(o)) {
     if (PyObject_CallFinalizerFromDealloc(o)) return;
@@ -3946,58 +6442,44 @@ static void __pyx_tp_dealloc_6gensim_7corpora_13cython_binary_MmReader(PyObject 
   (*Py_TYPE(o)->tp_free)(o);
 }
 
-static int __pyx_tp_traverse_6gensim_7corpora_13cython_binary_MmReader(PyObject *o, visitproc v, void *a) {
+static int __pyx_tp_traverse_6gensim_7corpora_13cython_binary_MmReaderStructAtATime(PyObject *o, visitproc v, void *a) {
   int e;
-  struct __pyx_obj_6gensim_7corpora_13cython_binary_MmReader *p = (struct __pyx_obj_6gensim_7corpora_13cython_binary_MmReader *)o;
+  struct __pyx_obj_6gensim_7corpora_13cython_binary_MmReaderStructAtATime *p = (struct __pyx_obj_6gensim_7corpora_13cython_binary_MmReaderStructAtATime *)o;
   if (p->input) {
     e = (*v)(p->input, a); if (e) return e;
   }
   return 0;
 }
 
-static int __pyx_tp_clear_6gensim_7corpora_13cython_binary_MmReader(PyObject *o) {
+static int __pyx_tp_clear_6gensim_7corpora_13cython_binary_MmReaderStructAtATime(PyObject *o) {
   PyObject* tmp;
-  struct __pyx_obj_6gensim_7corpora_13cython_binary_MmReader *p = (struct __pyx_obj_6gensim_7corpora_13cython_binary_MmReader *)o;
+  struct __pyx_obj_6gensim_7corpora_13cython_binary_MmReaderStructAtATime *p = (struct __pyx_obj_6gensim_7corpora_13cython_binary_MmReaderStructAtATime *)o;
   tmp = ((PyObject*)p->input);
   p->input = Py_None; Py_INCREF(Py_None);
   Py_XDECREF(tmp);
   return 0;
 }
 
-static PyObject *__pyx_getprop_6gensim_7corpora_13cython_binary_8MmReader_input(PyObject *o, CYTHON_UNUSED void *x) {
-  return __pyx_pw_6gensim_7corpora_13cython_binary_8MmReader_5input_1__get__(o);
+static PyObject *__pyx_getprop_6gensim_7corpora_13cython_binary_21MmReaderStructAtATime_input(PyObject *o, CYTHON_UNUSED void *x) {
+  return __pyx_pw_6gensim_7corpora_13cython_binary_21MmReaderStructAtATime_5input_1__get__(o);
 }
 
-static int __pyx_setprop_6gensim_7corpora_13cython_binary_8MmReader_input(PyObject *o, PyObject *v, CYTHON_UNUSED void *x) {
+static int __pyx_setprop_6gensim_7corpora_13cython_binary_21MmReaderStructAtATime_input(PyObject *o, PyObject *v, CYTHON_UNUSED void *x) {
   if (v) {
-    return __pyx_pw_6gensim_7corpora_13cython_binary_8MmReader_5input_3__set__(o, v);
+    return __pyx_pw_6gensim_7corpora_13cython_binary_21MmReaderStructAtATime_5input_3__set__(o, v);
   }
   else {
-    return __pyx_pw_6gensim_7corpora_13cython_binary_8MmReader_5input_5__del__(o);
+    return __pyx_pw_6gensim_7corpora_13cython_binary_21MmReaderStructAtATime_5input_5__del__(o);
   }
 }
 
-static PyObject *__pyx_getprop_6gensim_7corpora_13cython_binary_8MmReader_transposed(PyObject *o, CYTHON_UNUSED void *x) {
-  return __pyx_pw_6gensim_7corpora_13cython_binary_8MmReader_10transposed_1__get__(o);
+static PyObject *__pyx_getprop_6gensim_7corpora_13cython_binary_21MmReaderStructAtATime_transposed(PyObject *o, CYTHON_UNUSED void *x) {
+  return __pyx_pw_6gensim_7corpora_13cython_binary_21MmReaderStructAtATime_10transposed_1__get__(o);
 }
 
-static int __pyx_setprop_6gensim_7corpora_13cython_binary_8MmReader_transposed(PyObject *o, PyObject *v, CYTHON_UNUSED void *x) {
+static int __pyx_setprop_6gensim_7corpora_13cython_binary_21MmReaderStructAtATime_transposed(PyObject *o, PyObject *v, CYTHON_UNUSED void *x) {
   if (v) {
-    return __pyx_pw_6gensim_7corpora_13cython_binary_8MmReader_10transposed_3__set__(o, v);
-  }
-  else {
-    PyErr_SetString(PyExc_NotImplementedError, "__del__");
-    return -1;
-  }
-}
-
-static PyObject *__pyx_getprop_6gensim_7corpora_13cython_binary_8MmReader_num_docs(PyObject *o, CYTHON_UNUSED void *x) {
-  return __pyx_pw_6gensim_7corpora_13cython_binary_8MmReader_8num_docs_1__get__(o);
-}
-
-static int __pyx_setprop_6gensim_7corpora_13cython_binary_8MmReader_num_docs(PyObject *o, PyObject *v, CYTHON_UNUSED void *x) {
-  if (v) {
-    return __pyx_pw_6gensim_7corpora_13cython_binary_8MmReader_8num_docs_3__set__(o, v);
+    return __pyx_pw_6gensim_7corpora_13cython_binary_21MmReaderStructAtATime_10transposed_3__set__(o, v);
   }
   else {
     PyErr_SetString(PyExc_NotImplementedError, "__del__");
@@ -4005,13 +6487,13 @@ static int __pyx_setprop_6gensim_7corpora_13cython_binary_8MmReader_num_docs(PyO
   }
 }
 
-static PyObject *__pyx_getprop_6gensim_7corpora_13cython_binary_8MmReader_num_terms(PyObject *o, CYTHON_UNUSED void *x) {
-  return __pyx_pw_6gensim_7corpora_13cython_binary_8MmReader_9num_terms_1__get__(o);
+static PyObject *__pyx_getprop_6gensim_7corpora_13cython_binary_21MmReaderStructAtATime_num_docs(PyObject *o, CYTHON_UNUSED void *x) {
+  return __pyx_pw_6gensim_7corpora_13cython_binary_21MmReaderStructAtATime_8num_docs_1__get__(o);
 }
 
-static int __pyx_setprop_6gensim_7corpora_13cython_binary_8MmReader_num_terms(PyObject *o, PyObject *v, CYTHON_UNUSED void *x) {
+static int __pyx_setprop_6gensim_7corpora_13cython_binary_21MmReaderStructAtATime_num_docs(PyObject *o, PyObject *v, CYTHON_UNUSED void *x) {
   if (v) {
-    return __pyx_pw_6gensim_7corpora_13cython_binary_8MmReader_9num_terms_3__set__(o, v);
+    return __pyx_pw_6gensim_7corpora_13cython_binary_21MmReaderStructAtATime_8num_docs_3__set__(o, v);
   }
   else {
     PyErr_SetString(PyExc_NotImplementedError, "__del__");
@@ -4019,13 +6501,13 @@ static int __pyx_setprop_6gensim_7corpora_13cython_binary_8MmReader_num_terms(Py
   }
 }
 
-static PyObject *__pyx_getprop_6gensim_7corpora_13cython_binary_8MmReader_num_nnz(PyObject *o, CYTHON_UNUSED void *x) {
-  return __pyx_pw_6gensim_7corpora_13cython_binary_8MmReader_7num_nnz_1__get__(o);
+static PyObject *__pyx_getprop_6gensim_7corpora_13cython_binary_21MmReaderStructAtATime_num_terms(PyObject *o, CYTHON_UNUSED void *x) {
+  return __pyx_pw_6gensim_7corpora_13cython_binary_21MmReaderStructAtATime_9num_terms_1__get__(o);
 }
 
-static int __pyx_setprop_6gensim_7corpora_13cython_binary_8MmReader_num_nnz(PyObject *o, PyObject *v, CYTHON_UNUSED void *x) {
+static int __pyx_setprop_6gensim_7corpora_13cython_binary_21MmReaderStructAtATime_num_terms(PyObject *o, PyObject *v, CYTHON_UNUSED void *x) {
   if (v) {
-    return __pyx_pw_6gensim_7corpora_13cython_binary_8MmReader_7num_nnz_3__set__(o, v);
+    return __pyx_pw_6gensim_7corpora_13cython_binary_21MmReaderStructAtATime_9num_terms_3__set__(o, v);
   }
   else {
     PyErr_SetString(PyExc_NotImplementedError, "__del__");
@@ -4033,25 +6515,38 @@ static int __pyx_setprop_6gensim_7corpora_13cython_binary_8MmReader_num_nnz(PyOb
   }
 }
 
-static PyMethodDef __pyx_methods_6gensim_7corpora_13cython_binary_MmReader[] = {
-  {"write_corpus", (PyCFunction)__pyx_pw_6gensim_7corpora_13cython_binary_8MmReader_7write_corpus, METH_O, __pyx_doc_6gensim_7corpora_13cython_binary_8MmReader_6write_corpus},
-  {"read_headers", (PyCFunction)__pyx_pw_6gensim_7corpora_13cython_binary_8MmReader_9read_headers, METH_NOARGS, __pyx_doc_6gensim_7corpora_13cython_binary_8MmReader_8read_headers},
-  {"__reduce_cython__", (PyCFunction)__pyx_pw_6gensim_7corpora_13cython_binary_8MmReader_14__reduce_cython__, METH_NOARGS, __pyx_doc_6gensim_7corpora_13cython_binary_8MmReader_13__reduce_cython__},
-  {"__setstate_cython__", (PyCFunction)__pyx_pw_6gensim_7corpora_13cython_binary_8MmReader_16__setstate_cython__, METH_O, __pyx_doc_6gensim_7corpora_13cython_binary_8MmReader_15__setstate_cython__},
+static PyObject *__pyx_getprop_6gensim_7corpora_13cython_binary_21MmReaderStructAtATime_num_nnz(PyObject *o, CYTHON_UNUSED void *x) {
+  return __pyx_pw_6gensim_7corpora_13cython_binary_21MmReaderStructAtATime_7num_nnz_1__get__(o);
+}
+
+static int __pyx_setprop_6gensim_7corpora_13cython_binary_21MmReaderStructAtATime_num_nnz(PyObject *o, PyObject *v, CYTHON_UNUSED void *x) {
+  if (v) {
+    return __pyx_pw_6gensim_7corpora_13cython_binary_21MmReaderStructAtATime_7num_nnz_3__set__(o, v);
+  }
+  else {
+    PyErr_SetString(PyExc_NotImplementedError, "__del__");
+    return -1;
+  }
+}
+
+static PyMethodDef __pyx_methods_6gensim_7corpora_13cython_binary_MmReaderStructAtATime[] = {
+  {"read_headers", (PyCFunction)__pyx_pw_6gensim_7corpora_13cython_binary_21MmReaderStructAtATime_7read_headers, METH_NOARGS, __pyx_doc_6gensim_7corpora_13cython_binary_21MmReaderStructAtATime_6read_headers},
+  {"__reduce_cython__", (PyCFunction)__pyx_pw_6gensim_7corpora_13cython_binary_21MmReaderStructAtATime_12__reduce_cython__, METH_NOARGS, __pyx_doc_6gensim_7corpora_13cython_binary_21MmReaderStructAtATime_11__reduce_cython__},
+  {"__setstate_cython__", (PyCFunction)__pyx_pw_6gensim_7corpora_13cython_binary_21MmReaderStructAtATime_14__setstate_cython__, METH_O, __pyx_doc_6gensim_7corpora_13cython_binary_21MmReaderStructAtATime_13__setstate_cython__},
   {0, 0, 0, 0}
 };
 
-static struct PyGetSetDef __pyx_getsets_6gensim_7corpora_13cython_binary_MmReader[] = {
-  {(char *)"input", __pyx_getprop_6gensim_7corpora_13cython_binary_8MmReader_input, __pyx_setprop_6gensim_7corpora_13cython_binary_8MmReader_input, (char *)"input: object", 0},
-  {(char *)"transposed", __pyx_getprop_6gensim_7corpora_13cython_binary_8MmReader_transposed, __pyx_setprop_6gensim_7corpora_13cython_binary_8MmReader_transposed, (char *)"transposed: 'bool'", 0},
-  {(char *)"num_docs", __pyx_getprop_6gensim_7corpora_13cython_binary_8MmReader_num_docs, __pyx_setprop_6gensim_7corpora_13cython_binary_8MmReader_num_docs, (char *)"num_docs: 'int'", 0},
-  {(char *)"num_terms", __pyx_getprop_6gensim_7corpora_13cython_binary_8MmReader_num_terms, __pyx_setprop_6gensim_7corpora_13cython_binary_8MmReader_num_terms, (char *)"num_terms: 'int'", 0},
-  {(char *)"num_nnz", __pyx_getprop_6gensim_7corpora_13cython_binary_8MmReader_num_nnz, __pyx_setprop_6gensim_7corpora_13cython_binary_8MmReader_num_nnz, (char *)"num_nnz: 'int'", 0},
+static struct PyGetSetDef __pyx_getsets_6gensim_7corpora_13cython_binary_MmReaderStructAtATime[] = {
+  {(char *)"input", __pyx_getprop_6gensim_7corpora_13cython_binary_21MmReaderStructAtATime_input, __pyx_setprop_6gensim_7corpora_13cython_binary_21MmReaderStructAtATime_input, (char *)"input: object", 0},
+  {(char *)"transposed", __pyx_getprop_6gensim_7corpora_13cython_binary_21MmReaderStructAtATime_transposed, __pyx_setprop_6gensim_7corpora_13cython_binary_21MmReaderStructAtATime_transposed, (char *)"transposed: 'bool'", 0},
+  {(char *)"num_docs", __pyx_getprop_6gensim_7corpora_13cython_binary_21MmReaderStructAtATime_num_docs, __pyx_setprop_6gensim_7corpora_13cython_binary_21MmReaderStructAtATime_num_docs, (char *)"num_docs: 'int'", 0},
+  {(char *)"num_terms", __pyx_getprop_6gensim_7corpora_13cython_binary_21MmReaderStructAtATime_num_terms, __pyx_setprop_6gensim_7corpora_13cython_binary_21MmReaderStructAtATime_num_terms, (char *)"num_terms: 'int'", 0},
+  {(char *)"num_nnz", __pyx_getprop_6gensim_7corpora_13cython_binary_21MmReaderStructAtATime_num_nnz, __pyx_setprop_6gensim_7corpora_13cython_binary_21MmReaderStructAtATime_num_nnz, (char *)"num_nnz: 'int'", 0},
   {0, 0, 0, 0, 0}
 };
 
-static PySequenceMethods __pyx_tp_as_sequence_MmReader = {
-  __pyx_pw_6gensim_7corpora_13cython_binary_8MmReader_3__len__, /*sq_length*/
+static PySequenceMethods __pyx_tp_as_sequence_MmReaderStructAtATime = {
+  __pyx_pw_6gensim_7corpora_13cython_binary_21MmReaderStructAtATime_3__len__, /*sq_length*/
   0, /*sq_concat*/
   0, /*sq_repeat*/
   0, /*sq_item*/
@@ -4063,18 +6558,18 @@ static PySequenceMethods __pyx_tp_as_sequence_MmReader = {
   0, /*sq_inplace_repeat*/
 };
 
-static PyMappingMethods __pyx_tp_as_mapping_MmReader = {
-  __pyx_pw_6gensim_7corpora_13cython_binary_8MmReader_3__len__, /*mp_length*/
+static PyMappingMethods __pyx_tp_as_mapping_MmReaderStructAtATime = {
+  __pyx_pw_6gensim_7corpora_13cython_binary_21MmReaderStructAtATime_3__len__, /*mp_length*/
   0, /*mp_subscript*/
   0, /*mp_ass_subscript*/
 };
 
-static PyTypeObject __pyx_type_6gensim_7corpora_13cython_binary_MmReader = {
+static PyTypeObject __pyx_type_6gensim_7corpora_13cython_binary_MmReaderStructAtATime = {
   PyVarObject_HEAD_INIT(0, 0)
-  "gensim.corpora.cython_binary.MmReader", /*tp_name*/
-  sizeof(struct __pyx_obj_6gensim_7corpora_13cython_binary_MmReader), /*tp_basicsize*/
+  "gensim.corpora.cython_binary.MmReaderStructAtATime", /*tp_name*/
+  sizeof(struct __pyx_obj_6gensim_7corpora_13cython_binary_MmReaderStructAtATime), /*tp_basicsize*/
   0, /*tp_itemsize*/
-  __pyx_tp_dealloc_6gensim_7corpora_13cython_binary_MmReader, /*tp_dealloc*/
+  __pyx_tp_dealloc_6gensim_7corpora_13cython_binary_MmReaderStructAtATime, /*tp_dealloc*/
   0, /*tp_print*/
   0, /*tp_getattr*/
   0, /*tp_setattr*/
@@ -4086,33 +6581,242 @@ static PyTypeObject __pyx_type_6gensim_7corpora_13cython_binary_MmReader = {
   #endif
   0, /*tp_repr*/
   0, /*tp_as_number*/
-  &__pyx_tp_as_sequence_MmReader, /*tp_as_sequence*/
-  &__pyx_tp_as_mapping_MmReader, /*tp_as_mapping*/
+  &__pyx_tp_as_sequence_MmReaderStructAtATime, /*tp_as_sequence*/
+  &__pyx_tp_as_mapping_MmReaderStructAtATime, /*tp_as_mapping*/
   0, /*tp_hash*/
   0, /*tp_call*/
-  __pyx_pw_6gensim_7corpora_13cython_binary_8MmReader_5__str__, /*tp_str*/
+  __pyx_pw_6gensim_7corpora_13cython_binary_21MmReaderStructAtATime_5__str__, /*tp_str*/
   0, /*tp_getattro*/
   0, /*tp_setattro*/
   0, /*tp_as_buffer*/
   Py_TPFLAGS_DEFAULT|Py_TPFLAGS_HAVE_VERSION_TAG|Py_TPFLAGS_CHECKTYPES|Py_TPFLAGS_HAVE_NEWBUFFER|Py_TPFLAGS_BASETYPE|Py_TPFLAGS_HAVE_GC, /*tp_flags*/
-  "MmReader(input, transposed=True)\nMatrix market file reader (fast Cython version), used for :class:`~gensim.corpora.mmcorpus.MmCorpus`.\n\n    Wrap a term-document matrix on disk (in matrix-market format), and present it\n    as an object which supports iteration over the rows (~documents).\n\n    Attributes\n    ----------\n    num_docs : int\n        Number of documents in market matrix file.\n    num_terms : int\n        Number of terms.\n    num_nnz : int\n        Number of non-zero terms.\n\n    Notes\n    ----------\n    Note that the file is read into memory one document at a time, not the whole\n    matrix at once (unlike scipy.io.mmread). This allows us to process corpora\n    which are larger than the available RAM.\n\n    ", /*tp_doc*/
-  __pyx_tp_traverse_6gensim_7corpora_13cython_binary_MmReader, /*tp_traverse*/
-  __pyx_tp_clear_6gensim_7corpora_13cython_binary_MmReader, /*tp_clear*/
+  "MmReaderStructAtATime(input, transposed=True)\nMatrix market file reader (fast Cython version), used for :class:`~gensim.corpora.mmcorpus.MmCorpus`.\n\n    Wrap a term-document matrix on disk (in matrix-market format), and present it\n    as an object which supports iteration over the rows (~documents).\n\n    Attributes\n    ----------\n    num_docs : int\n        Number of documents in market matrix file.\n    num_terms : int\n        Number of terms.\n    num_nnz : int\n        Number of non-zero terms.\n\n    Notes\n    ----------\n    Note that the file is read into memory one document at a time, not the whole\n    matrix at once (unlike scipy.io.mmread). This allows us to process corpora\n    which are larger than the available RAM.\n\n    ", /*tp_doc*/
+  __pyx_tp_traverse_6gensim_7corpora_13cython_binary_MmReaderStructAtATime, /*tp_traverse*/
+  __pyx_tp_clear_6gensim_7corpora_13cython_binary_MmReaderStructAtATime, /*tp_clear*/
   0, /*tp_richcompare*/
   0, /*tp_weaklistoffset*/
-  __pyx_pw_6gensim_7corpora_13cython_binary_8MmReader_11__iter__, /*tp_iter*/
+  __pyx_pw_6gensim_7corpora_13cython_binary_21MmReaderStructAtATime_9__iter__, /*tp_iter*/
   0, /*tp_iternext*/
-  __pyx_methods_6gensim_7corpora_13cython_binary_MmReader, /*tp_methods*/
+  __pyx_methods_6gensim_7corpora_13cython_binary_MmReaderStructAtATime, /*tp_methods*/
   0, /*tp_members*/
-  __pyx_getsets_6gensim_7corpora_13cython_binary_MmReader, /*tp_getset*/
+  __pyx_getsets_6gensim_7corpora_13cython_binary_MmReaderStructAtATime, /*tp_getset*/
   0, /*tp_base*/
   0, /*tp_dict*/
   0, /*tp_descr_get*/
   0, /*tp_descr_set*/
   0, /*tp_dictoffset*/
-  __pyx_pw_6gensim_7corpora_13cython_binary_8MmReader_1__init__, /*tp_init*/
+  __pyx_pw_6gensim_7corpora_13cython_binary_21MmReaderStructAtATime_1__init__, /*tp_init*/
   0, /*tp_alloc*/
-  __pyx_tp_new_6gensim_7corpora_13cython_binary_MmReader, /*tp_new*/
+  __pyx_tp_new_6gensim_7corpora_13cython_binary_MmReaderStructAtATime, /*tp_new*/
+  0, /*tp_free*/
+  0, /*tp_is_gc*/
+  0, /*tp_bases*/
+  0, /*tp_mro*/
+  0, /*tp_cache*/
+  0, /*tp_subclasses*/
+  0, /*tp_weaklist*/
+  0, /*tp_del*/
+  0, /*tp_version_tag*/
+  #if PY_VERSION_HEX >= 0x030400a1
+  0, /*tp_finalize*/
+  #endif
+};
+static struct __pyx_vtabstruct_6gensim_7corpora_13cython_binary_MmReaderStructArray __pyx_vtable_6gensim_7corpora_13cython_binary_MmReaderStructArray;
+
+static PyObject *__pyx_tp_new_6gensim_7corpora_13cython_binary_MmReaderStructArray(PyTypeObject *t, CYTHON_UNUSED PyObject *a, CYTHON_UNUSED PyObject *k) {
+  struct __pyx_obj_6gensim_7corpora_13cython_binary_MmReaderStructArray *p;
+  PyObject *o;
+  if (likely((t->tp_flags & Py_TPFLAGS_IS_ABSTRACT) == 0)) {
+    o = (*t->tp_alloc)(t, 0);
+  } else {
+    o = (PyObject *) PyBaseObject_Type.tp_new(t, __pyx_empty_tuple, 0);
+  }
+  if (unlikely(!o)) return 0;
+  p = ((struct __pyx_obj_6gensim_7corpora_13cython_binary_MmReaderStructArray *)o);
+  p->__pyx_vtab = __pyx_vtabptr_6gensim_7corpora_13cython_binary_MmReaderStructArray;
+  p->input = Py_None; Py_INCREF(Py_None);
+  return o;
+}
+
+static void __pyx_tp_dealloc_6gensim_7corpora_13cython_binary_MmReaderStructArray(PyObject *o) {
+  struct __pyx_obj_6gensim_7corpora_13cython_binary_MmReaderStructArray *p = (struct __pyx_obj_6gensim_7corpora_13cython_binary_MmReaderStructArray *)o;
+  #if CYTHON_USE_TP_FINALIZE
+  if (unlikely(PyType_HasFeature(Py_TYPE(o), Py_TPFLAGS_HAVE_FINALIZE) && Py_TYPE(o)->tp_finalize) && !_PyGC_FINALIZED(o)) {
+    if (PyObject_CallFinalizerFromDealloc(o)) return;
+  }
+  #endif
+  PyObject_GC_UnTrack(o);
+  Py_CLEAR(p->input);
+  (*Py_TYPE(o)->tp_free)(o);
+}
+
+static int __pyx_tp_traverse_6gensim_7corpora_13cython_binary_MmReaderStructArray(PyObject *o, visitproc v, void *a) {
+  int e;
+  struct __pyx_obj_6gensim_7corpora_13cython_binary_MmReaderStructArray *p = (struct __pyx_obj_6gensim_7corpora_13cython_binary_MmReaderStructArray *)o;
+  if (p->input) {
+    e = (*v)(p->input, a); if (e) return e;
+  }
+  return 0;
+}
+
+static int __pyx_tp_clear_6gensim_7corpora_13cython_binary_MmReaderStructArray(PyObject *o) {
+  PyObject* tmp;
+  struct __pyx_obj_6gensim_7corpora_13cython_binary_MmReaderStructArray *p = (struct __pyx_obj_6gensim_7corpora_13cython_binary_MmReaderStructArray *)o;
+  tmp = ((PyObject*)p->input);
+  p->input = Py_None; Py_INCREF(Py_None);
+  Py_XDECREF(tmp);
+  return 0;
+}
+
+static PyObject *__pyx_getprop_6gensim_7corpora_13cython_binary_19MmReaderStructArray_input(PyObject *o, CYTHON_UNUSED void *x) {
+  return __pyx_pw_6gensim_7corpora_13cython_binary_19MmReaderStructArray_5input_1__get__(o);
+}
+
+static int __pyx_setprop_6gensim_7corpora_13cython_binary_19MmReaderStructArray_input(PyObject *o, PyObject *v, CYTHON_UNUSED void *x) {
+  if (v) {
+    return __pyx_pw_6gensim_7corpora_13cython_binary_19MmReaderStructArray_5input_3__set__(o, v);
+  }
+  else {
+    return __pyx_pw_6gensim_7corpora_13cython_binary_19MmReaderStructArray_5input_5__del__(o);
+  }
+}
+
+static PyObject *__pyx_getprop_6gensim_7corpora_13cython_binary_19MmReaderStructArray_transposed(PyObject *o, CYTHON_UNUSED void *x) {
+  return __pyx_pw_6gensim_7corpora_13cython_binary_19MmReaderStructArray_10transposed_1__get__(o);
+}
+
+static int __pyx_setprop_6gensim_7corpora_13cython_binary_19MmReaderStructArray_transposed(PyObject *o, PyObject *v, CYTHON_UNUSED void *x) {
+  if (v) {
+    return __pyx_pw_6gensim_7corpora_13cython_binary_19MmReaderStructArray_10transposed_3__set__(o, v);
+  }
+  else {
+    PyErr_SetString(PyExc_NotImplementedError, "__del__");
+    return -1;
+  }
+}
+
+static PyObject *__pyx_getprop_6gensim_7corpora_13cython_binary_19MmReaderStructArray_num_docs(PyObject *o, CYTHON_UNUSED void *x) {
+  return __pyx_pw_6gensim_7corpora_13cython_binary_19MmReaderStructArray_8num_docs_1__get__(o);
+}
+
+static int __pyx_setprop_6gensim_7corpora_13cython_binary_19MmReaderStructArray_num_docs(PyObject *o, PyObject *v, CYTHON_UNUSED void *x) {
+  if (v) {
+    return __pyx_pw_6gensim_7corpora_13cython_binary_19MmReaderStructArray_8num_docs_3__set__(o, v);
+  }
+  else {
+    PyErr_SetString(PyExc_NotImplementedError, "__del__");
+    return -1;
+  }
+}
+
+static PyObject *__pyx_getprop_6gensim_7corpora_13cython_binary_19MmReaderStructArray_num_terms(PyObject *o, CYTHON_UNUSED void *x) {
+  return __pyx_pw_6gensim_7corpora_13cython_binary_19MmReaderStructArray_9num_terms_1__get__(o);
+}
+
+static int __pyx_setprop_6gensim_7corpora_13cython_binary_19MmReaderStructArray_num_terms(PyObject *o, PyObject *v, CYTHON_UNUSED void *x) {
+  if (v) {
+    return __pyx_pw_6gensim_7corpora_13cython_binary_19MmReaderStructArray_9num_terms_3__set__(o, v);
+  }
+  else {
+    PyErr_SetString(PyExc_NotImplementedError, "__del__");
+    return -1;
+  }
+}
+
+static PyObject *__pyx_getprop_6gensim_7corpora_13cython_binary_19MmReaderStructArray_num_nnz(PyObject *o, CYTHON_UNUSED void *x) {
+  return __pyx_pw_6gensim_7corpora_13cython_binary_19MmReaderStructArray_7num_nnz_1__get__(o);
+}
+
+static int __pyx_setprop_6gensim_7corpora_13cython_binary_19MmReaderStructArray_num_nnz(PyObject *o, PyObject *v, CYTHON_UNUSED void *x) {
+  if (v) {
+    return __pyx_pw_6gensim_7corpora_13cython_binary_19MmReaderStructArray_7num_nnz_3__set__(o, v);
+  }
+  else {
+    PyErr_SetString(PyExc_NotImplementedError, "__del__");
+    return -1;
+  }
+}
+
+static PyMethodDef __pyx_methods_6gensim_7corpora_13cython_binary_MmReaderStructArray[] = {
+  {"save_corpus", (PyCFunction)__pyx_pw_6gensim_7corpora_13cython_binary_19MmReaderStructArray_7save_corpus, METH_VARARGS|METH_KEYWORDS, __pyx_doc_6gensim_7corpora_13cython_binary_19MmReaderStructArray_6save_corpus},
+  {"read_headers", (PyCFunction)__pyx_pw_6gensim_7corpora_13cython_binary_19MmReaderStructArray_9read_headers, METH_NOARGS, __pyx_doc_6gensim_7corpora_13cython_binary_19MmReaderStructArray_8read_headers},
+  {"__reduce_cython__", (PyCFunction)__pyx_pw_6gensim_7corpora_13cython_binary_19MmReaderStructArray_14__reduce_cython__, METH_NOARGS, __pyx_doc_6gensim_7corpora_13cython_binary_19MmReaderStructArray_13__reduce_cython__},
+  {"__setstate_cython__", (PyCFunction)__pyx_pw_6gensim_7corpora_13cython_binary_19MmReaderStructArray_16__setstate_cython__, METH_O, __pyx_doc_6gensim_7corpora_13cython_binary_19MmReaderStructArray_15__setstate_cython__},
+  {0, 0, 0, 0}
+};
+
+static struct PyGetSetDef __pyx_getsets_6gensim_7corpora_13cython_binary_MmReaderStructArray[] = {
+  {(char *)"input", __pyx_getprop_6gensim_7corpora_13cython_binary_19MmReaderStructArray_input, __pyx_setprop_6gensim_7corpora_13cython_binary_19MmReaderStructArray_input, (char *)"input: object", 0},
+  {(char *)"transposed", __pyx_getprop_6gensim_7corpora_13cython_binary_19MmReaderStructArray_transposed, __pyx_setprop_6gensim_7corpora_13cython_binary_19MmReaderStructArray_transposed, (char *)"transposed: 'bool'", 0},
+  {(char *)"num_docs", __pyx_getprop_6gensim_7corpora_13cython_binary_19MmReaderStructArray_num_docs, __pyx_setprop_6gensim_7corpora_13cython_binary_19MmReaderStructArray_num_docs, (char *)"num_docs: 'int'", 0},
+  {(char *)"num_terms", __pyx_getprop_6gensim_7corpora_13cython_binary_19MmReaderStructArray_num_terms, __pyx_setprop_6gensim_7corpora_13cython_binary_19MmReaderStructArray_num_terms, (char *)"num_terms: 'int'", 0},
+  {(char *)"num_nnz", __pyx_getprop_6gensim_7corpora_13cython_binary_19MmReaderStructArray_num_nnz, __pyx_setprop_6gensim_7corpora_13cython_binary_19MmReaderStructArray_num_nnz, (char *)"num_nnz: 'int'", 0},
+  {0, 0, 0, 0, 0}
+};
+
+static PySequenceMethods __pyx_tp_as_sequence_MmReaderStructArray = {
+  __pyx_pw_6gensim_7corpora_13cython_binary_19MmReaderStructArray_3__len__, /*sq_length*/
+  0, /*sq_concat*/
+  0, /*sq_repeat*/
+  0, /*sq_item*/
+  0, /*sq_slice*/
+  0, /*sq_ass_item*/
+  0, /*sq_ass_slice*/
+  0, /*sq_contains*/
+  0, /*sq_inplace_concat*/
+  0, /*sq_inplace_repeat*/
+};
+
+static PyMappingMethods __pyx_tp_as_mapping_MmReaderStructArray = {
+  __pyx_pw_6gensim_7corpora_13cython_binary_19MmReaderStructArray_3__len__, /*mp_length*/
+  0, /*mp_subscript*/
+  0, /*mp_ass_subscript*/
+};
+
+static PyTypeObject __pyx_type_6gensim_7corpora_13cython_binary_MmReaderStructArray = {
+  PyVarObject_HEAD_INIT(0, 0)
+  "gensim.corpora.cython_binary.MmReaderStructArray", /*tp_name*/
+  sizeof(struct __pyx_obj_6gensim_7corpora_13cython_binary_MmReaderStructArray), /*tp_basicsize*/
+  0, /*tp_itemsize*/
+  __pyx_tp_dealloc_6gensim_7corpora_13cython_binary_MmReaderStructArray, /*tp_dealloc*/
+  0, /*tp_print*/
+  0, /*tp_getattr*/
+  0, /*tp_setattr*/
+  #if PY_MAJOR_VERSION < 3
+  0, /*tp_compare*/
+  #endif
+  #if PY_MAJOR_VERSION >= 3
+  0, /*tp_as_async*/
+  #endif
+  0, /*tp_repr*/
+  0, /*tp_as_number*/
+  &__pyx_tp_as_sequence_MmReaderStructArray, /*tp_as_sequence*/
+  &__pyx_tp_as_mapping_MmReaderStructArray, /*tp_as_mapping*/
+  0, /*tp_hash*/
+  0, /*tp_call*/
+  __pyx_pw_6gensim_7corpora_13cython_binary_19MmReaderStructArray_5__str__, /*tp_str*/
+  0, /*tp_getattro*/
+  0, /*tp_setattro*/
+  0, /*tp_as_buffer*/
+  Py_TPFLAGS_DEFAULT|Py_TPFLAGS_HAVE_VERSION_TAG|Py_TPFLAGS_CHECKTYPES|Py_TPFLAGS_HAVE_NEWBUFFER|Py_TPFLAGS_BASETYPE|Py_TPFLAGS_HAVE_GC, /*tp_flags*/
+  "MmReaderStructArray(input, transposed=True)\nMatrix market file reader (fast Cython version), used for :class:`~gensim.corpora.mmcorpus.MmCorpus`.\n\n    Reads data one document at a time (array of structs)\n\n    Wrap a term-document matrix on disk (in matrix-market format), and present it\n    as an object which supports iteration over the rows (~documents).\n\n    Attributes\n    ----------\n    num_docs : int\n        Number of documents in market matrix file.\n    num_terms : int\n        Number of terms.\n    num_nnz : int\n        Number of non-zero terms.\n\n    Notes\n    ----------\n    Note that the file is read into memory one document at a time, not the whole\n    matrix at once (unlike scipy.io.mmread). This allows us to process corpora\n    which are larger than the available RAM.\n\n    ", /*tp_doc*/
+  __pyx_tp_traverse_6gensim_7corpora_13cython_binary_MmReaderStructArray, /*tp_traverse*/
+  __pyx_tp_clear_6gensim_7corpora_13cython_binary_MmReaderStructArray, /*tp_clear*/
+  0, /*tp_richcompare*/
+  0, /*tp_weaklistoffset*/
+  __pyx_pw_6gensim_7corpora_13cython_binary_19MmReaderStructArray_11__iter__, /*tp_iter*/
+  0, /*tp_iternext*/
+  __pyx_methods_6gensim_7corpora_13cython_binary_MmReaderStructArray, /*tp_methods*/
+  0, /*tp_members*/
+  __pyx_getsets_6gensim_7corpora_13cython_binary_MmReaderStructArray, /*tp_getset*/
+  0, /*tp_base*/
+  0, /*tp_dict*/
+  0, /*tp_descr_get*/
+  0, /*tp_descr_set*/
+  0, /*tp_dictoffset*/
+  __pyx_pw_6gensim_7corpora_13cython_binary_19MmReaderStructArray_1__init__, /*tp_init*/
+  0, /*tp_alloc*/
+  __pyx_tp_new_6gensim_7corpora_13cython_binary_MmReaderStructArray, /*tp_new*/
   0, /*tp_free*/
   0, /*tp_is_gc*/
   0, /*tp_bases*/
@@ -4226,6 +6930,105 @@ static PyTypeObject __pyx_type_6gensim_7corpora_13cython_binary___pyx_scope_stru
   #endif
 };
 
+static struct __pyx_obj_6gensim_7corpora_13cython_binary___pyx_scope_struct_1___iter__ *__pyx_freelist_6gensim_7corpora_13cython_binary___pyx_scope_struct_1___iter__[8];
+static int __pyx_freecount_6gensim_7corpora_13cython_binary___pyx_scope_struct_1___iter__ = 0;
+
+static PyObject *__pyx_tp_new_6gensim_7corpora_13cython_binary___pyx_scope_struct_1___iter__(PyTypeObject *t, CYTHON_UNUSED PyObject *a, CYTHON_UNUSED PyObject *k) {
+  PyObject *o;
+  if (CYTHON_COMPILING_IN_CPYTHON && likely((__pyx_freecount_6gensim_7corpora_13cython_binary___pyx_scope_struct_1___iter__ > 0) & (t->tp_basicsize == sizeof(struct __pyx_obj_6gensim_7corpora_13cython_binary___pyx_scope_struct_1___iter__)))) {
+    o = (PyObject*)__pyx_freelist_6gensim_7corpora_13cython_binary___pyx_scope_struct_1___iter__[--__pyx_freecount_6gensim_7corpora_13cython_binary___pyx_scope_struct_1___iter__];
+    memset(o, 0, sizeof(struct __pyx_obj_6gensim_7corpora_13cython_binary___pyx_scope_struct_1___iter__));
+    (void) PyObject_INIT(o, t);
+    PyObject_GC_Track(o);
+  } else {
+    o = (*t->tp_alloc)(t, 0);
+    if (unlikely(!o)) return 0;
+  }
+  return o;
+}
+
+static void __pyx_tp_dealloc_6gensim_7corpora_13cython_binary___pyx_scope_struct_1___iter__(PyObject *o) {
+  struct __pyx_obj_6gensim_7corpora_13cython_binary___pyx_scope_struct_1___iter__ *p = (struct __pyx_obj_6gensim_7corpora_13cython_binary___pyx_scope_struct_1___iter__ *)o;
+  PyObject_GC_UnTrack(o);
+  Py_CLEAR(p->__pyx_v_document);
+  Py_CLEAR(p->__pyx_v_self);
+  if (CYTHON_COMPILING_IN_CPYTHON && ((__pyx_freecount_6gensim_7corpora_13cython_binary___pyx_scope_struct_1___iter__ < 8) & (Py_TYPE(o)->tp_basicsize == sizeof(struct __pyx_obj_6gensim_7corpora_13cython_binary___pyx_scope_struct_1___iter__)))) {
+    __pyx_freelist_6gensim_7corpora_13cython_binary___pyx_scope_struct_1___iter__[__pyx_freecount_6gensim_7corpora_13cython_binary___pyx_scope_struct_1___iter__++] = ((struct __pyx_obj_6gensim_7corpora_13cython_binary___pyx_scope_struct_1___iter__ *)o);
+  } else {
+    (*Py_TYPE(o)->tp_free)(o);
+  }
+}
+
+static int __pyx_tp_traverse_6gensim_7corpora_13cython_binary___pyx_scope_struct_1___iter__(PyObject *o, visitproc v, void *a) {
+  int e;
+  struct __pyx_obj_6gensim_7corpora_13cython_binary___pyx_scope_struct_1___iter__ *p = (struct __pyx_obj_6gensim_7corpora_13cython_binary___pyx_scope_struct_1___iter__ *)o;
+  if (p->__pyx_v_document) {
+    e = (*v)(p->__pyx_v_document, a); if (e) return e;
+  }
+  if (p->__pyx_v_self) {
+    e = (*v)(((PyObject *)p->__pyx_v_self), a); if (e) return e;
+  }
+  return 0;
+}
+
+static PyTypeObject __pyx_type_6gensim_7corpora_13cython_binary___pyx_scope_struct_1___iter__ = {
+  PyVarObject_HEAD_INIT(0, 0)
+  "gensim.corpora.cython_binary.__pyx_scope_struct_1___iter__", /*tp_name*/
+  sizeof(struct __pyx_obj_6gensim_7corpora_13cython_binary___pyx_scope_struct_1___iter__), /*tp_basicsize*/
+  0, /*tp_itemsize*/
+  __pyx_tp_dealloc_6gensim_7corpora_13cython_binary___pyx_scope_struct_1___iter__, /*tp_dealloc*/
+  0, /*tp_print*/
+  0, /*tp_getattr*/
+  0, /*tp_setattr*/
+  #if PY_MAJOR_VERSION < 3
+  0, /*tp_compare*/
+  #endif
+  #if PY_MAJOR_VERSION >= 3
+  0, /*tp_as_async*/
+  #endif
+  0, /*tp_repr*/
+  0, /*tp_as_number*/
+  0, /*tp_as_sequence*/
+  0, /*tp_as_mapping*/
+  0, /*tp_hash*/
+  0, /*tp_call*/
+  0, /*tp_str*/
+  0, /*tp_getattro*/
+  0, /*tp_setattro*/
+  0, /*tp_as_buffer*/
+  Py_TPFLAGS_DEFAULT|Py_TPFLAGS_HAVE_VERSION_TAG|Py_TPFLAGS_CHECKTYPES|Py_TPFLAGS_HAVE_NEWBUFFER|Py_TPFLAGS_HAVE_GC, /*tp_flags*/
+  0, /*tp_doc*/
+  __pyx_tp_traverse_6gensim_7corpora_13cython_binary___pyx_scope_struct_1___iter__, /*tp_traverse*/
+  0, /*tp_clear*/
+  0, /*tp_richcompare*/
+  0, /*tp_weaklistoffset*/
+  0, /*tp_iter*/
+  0, /*tp_iternext*/
+  0, /*tp_methods*/
+  0, /*tp_members*/
+  0, /*tp_getset*/
+  0, /*tp_base*/
+  0, /*tp_dict*/
+  0, /*tp_descr_get*/
+  0, /*tp_descr_set*/
+  0, /*tp_dictoffset*/
+  0, /*tp_init*/
+  0, /*tp_alloc*/
+  __pyx_tp_new_6gensim_7corpora_13cython_binary___pyx_scope_struct_1___iter__, /*tp_new*/
+  0, /*tp_free*/
+  0, /*tp_is_gc*/
+  0, /*tp_bases*/
+  0, /*tp_mro*/
+  0, /*tp_cache*/
+  0, /*tp_subclasses*/
+  0, /*tp_weaklist*/
+  0, /*tp_del*/
+  0, /*tp_version_tag*/
+  #if PY_VERSION_HEX >= 0x030400a1
+  0, /*tp_finalize*/
+  #endif
+};
+
 static PyMethodDef __pyx_methods[] = {
   {0, 0, 0, 0}
 };
@@ -4265,15 +7068,23 @@ static struct PyModuleDef __pyx_moduledef = {
 static __Pyx_StringTabEntry __pyx_string_tab[] = {
   {&__pyx_kp_s_Incompatible_checksums_s_vs_0xea, __pyx_k_Incompatible_checksums_s_vs_0xea, sizeof(__pyx_k_Incompatible_checksums_s_vs_0xea), 0, 0, 1, 0},
   {&__pyx_kp_s_MmCorpus_i_documents_i_features, __pyx_k_MmCorpus_i_documents_i_features, sizeof(__pyx_k_MmCorpus_i_documents_i_features), 0, 0, 1, 0},
-  {&__pyx_n_s_MmReader___iter, __pyx_k_MmReader___iter, sizeof(__pyx_k_MmReader___iter), 0, 0, 1, 1},
+  {&__pyx_n_s_MmReaderStructArray___iter, __pyx_k_MmReaderStructArray___iter, sizeof(__pyx_k_MmReaderStructArray___iter), 0, 0, 1, 1},
+  {&__pyx_n_s_MmReaderStructAtATime___iter, __pyx_k_MmReaderStructAtATime___iter, sizeof(__pyx_k_MmReaderStructAtATime___iter), 0, 0, 1, 1},
   {&__pyx_n_s_PickleError, __pyx_k_PickleError, sizeof(__pyx_k_PickleError), 0, 0, 1, 1},
   {&__pyx_kp_s_accepted_corpus_with_i_documents, __pyx_k_accepted_corpus_with_i_documents, sizeof(__pyx_k_accepted_corpus_with_i_documents), 0, 0, 1, 0},
   {&__pyx_n_s_args, __pyx_k_args, sizeof(__pyx_k_args), 0, 0, 1, 1},
   {&__pyx_n_s_cline_in_traceback, __pyx_k_cline_in_traceback, sizeof(__pyx_k_cline_in_traceback), 0, 0, 1, 1},
   {&__pyx_n_s_close, __pyx_k_close, sizeof(__pyx_k_close), 0, 0, 1, 1},
+  {&__pyx_n_s_corpus, __pyx_k_corpus, sizeof(__pyx_k_corpus), 0, 0, 1, 1},
+  {&__pyx_kp_s_cython_binary_pyx, __pyx_k_cython_binary_pyx, sizeof(__pyx_k_cython_binary_pyx), 0, 0, 1, 0},
   {&__pyx_n_s_dict, __pyx_k_dict, sizeof(__pyx_k_dict), 0, 0, 1, 1},
+  {&__pyx_n_s_doc, __pyx_k_doc, sizeof(__pyx_k_doc), 0, 0, 1, 1},
+  {&__pyx_n_s_doc_length, __pyx_k_doc_length, sizeof(__pyx_k_doc_length), 0, 0, 1, 1},
+  {&__pyx_n_s_docid, __pyx_k_docid, sizeof(__pyx_k_docid), 0, 0, 1, 1},
   {&__pyx_n_s_encode, __pyx_k_encode, sizeof(__pyx_k_encode), 0, 0, 1, 1},
   {&__pyx_n_s_enumerate, __pyx_k_enumerate, sizeof(__pyx_k_enumerate), 0, 0, 1, 1},
+  {&__pyx_n_s_file, __pyx_k_file, sizeof(__pyx_k_file), 0, 0, 1, 1},
+  {&__pyx_n_s_fname, __pyx_k_fname, sizeof(__pyx_k_fname), 0, 0, 1, 1},
   {&__pyx_n_s_gensim, __pyx_k_gensim, sizeof(__pyx_k_gensim), 0, 0, 1, 1},
   {&__pyx_n_s_gensim_corpora_cython_binary, __pyx_k_gensim_corpora_cython_binary, sizeof(__pyx_k_gensim_corpora_cython_binary), 0, 0, 1, 1},
   {&__pyx_n_s_getLogger, __pyx_k_getLogger, sizeof(__pyx_k_getLogger), 0, 0, 1, 1},
@@ -4297,32 +7108,40 @@ static __Pyx_StringTabEntry __pyx_string_tab[] = {
   {&__pyx_n_s_pyx_result, __pyx_k_pyx_result, sizeof(__pyx_k_pyx_result), 0, 0, 1, 1},
   {&__pyx_n_s_pyx_state, __pyx_k_pyx_state, sizeof(__pyx_k_pyx_state), 0, 0, 1, 1},
   {&__pyx_n_s_pyx_type, __pyx_k_pyx_type, sizeof(__pyx_k_pyx_type), 0, 0, 1, 1},
-  {&__pyx_n_s_pyx_unpickle_MmReader, __pyx_k_pyx_unpickle_MmReader, sizeof(__pyx_k_pyx_unpickle_MmReader), 0, 0, 1, 1},
+  {&__pyx_n_s_pyx_unpickle_MmReaderStructArr, __pyx_k_pyx_unpickle_MmReaderStructArr, sizeof(__pyx_k_pyx_unpickle_MmReaderStructArr), 0, 0, 1, 1},
+  {&__pyx_n_s_pyx_unpickle_MmReaderStructAtA, __pyx_k_pyx_unpickle_MmReaderStructAtA, sizeof(__pyx_k_pyx_unpickle_MmReaderStructAtA), 0, 0, 1, 1},
   {&__pyx_n_s_pyx_vtable, __pyx_k_pyx_vtable, sizeof(__pyx_k_pyx_vtable), 0, 0, 1, 1},
   {&__pyx_n_s_range, __pyx_k_range, sizeof(__pyx_k_range), 0, 0, 1, 1},
   {&__pyx_n_s_read_headers, __pyx_k_read_headers, sizeof(__pyx_k_read_headers), 0, 0, 1, 1},
   {&__pyx_n_s_reduce, __pyx_k_reduce, sizeof(__pyx_k_reduce), 0, 0, 1, 1},
   {&__pyx_n_s_reduce_cython, __pyx_k_reduce_cython, sizeof(__pyx_k_reduce_cython), 0, 0, 1, 1},
   {&__pyx_n_s_reduce_ex, __pyx_k_reduce_ex, sizeof(__pyx_k_reduce_ex), 0, 0, 1, 1},
+  {&__pyx_n_s_save_corpus, __pyx_k_save_corpus, sizeof(__pyx_k_save_corpus), 0, 0, 1, 1},
   {&__pyx_n_s_send, __pyx_k_send, sizeof(__pyx_k_send), 0, 0, 1, 1},
   {&__pyx_n_s_setstate, __pyx_k_setstate, sizeof(__pyx_k_setstate), 0, 0, 1, 1},
   {&__pyx_n_s_setstate_cython, __pyx_k_setstate_cython, sizeof(__pyx_k_setstate_cython), 0, 0, 1, 1},
   {&__pyx_n_s_six, __pyx_k_six, sizeof(__pyx_k_six), 0, 0, 1, 1},
   {&__pyx_n_s_six_moves, __pyx_k_six_moves, sizeof(__pyx_k_six_moves), 0, 0, 1, 1},
+  {&__pyx_n_s_staticmethod, __pyx_k_staticmethod, sizeof(__pyx_k_staticmethod), 0, 0, 1, 1},
+  {&__pyx_kp_s_storing_corpus_in_Matrix_Market, __pyx_k_storing_corpus_in_Matrix_Market, sizeof(__pyx_k_storing_corpus_in_Matrix_Market), 0, 0, 1, 0},
   {&__pyx_n_s_string_types, __pyx_k_string_types, sizeof(__pyx_k_string_types), 0, 0, 1, 1},
   {&__pyx_kp_s_stringsource, __pyx_k_stringsource, sizeof(__pyx_k_stringsource), 0, 0, 1, 0},
+  {&__pyx_n_s_tc, __pyx_k_tc, sizeof(__pyx_k_tc), 0, 0, 1, 1},
+  {&__pyx_n_s_termid, __pyx_k_termid, sizeof(__pyx_k_termid), 0, 0, 1, 1},
   {&__pyx_n_s_test, __pyx_k_test, sizeof(__pyx_k_test), 0, 0, 1, 1},
   {&__pyx_n_s_throw, __pyx_k_throw, sizeof(__pyx_k_throw), 0, 0, 1, 1},
   {&__pyx_n_s_transposed, __pyx_k_transposed, sizeof(__pyx_k_transposed), 0, 0, 1, 1},
   {&__pyx_n_s_update, __pyx_k_update, sizeof(__pyx_k_update), 0, 0, 1, 1},
   {&__pyx_kp_s_utf_8, __pyx_k_utf_8, sizeof(__pyx_k_utf_8), 0, 0, 1, 0},
   {&__pyx_n_s_utils, __pyx_k_utils, sizeof(__pyx_k_utils), 0, 0, 1, 1},
+  {&__pyx_n_s_value, __pyx_k_value, sizeof(__pyx_k_value), 0, 0, 1, 1},
   {&__pyx_n_s_xrange, __pyx_k_xrange, sizeof(__pyx_k_xrange), 0, 0, 1, 1},
   {0, 0, 0, 0, 0, 0, 0}
 };
 static int __Pyx_InitCachedBuiltins(void) {
-  __pyx_builtin_enumerate = __Pyx_GetBuiltinName(__pyx_n_s_enumerate); if (!__pyx_builtin_enumerate) __PYX_ERR(0, 91, __pyx_L1_error)
-  __pyx_builtin_range = __Pyx_GetBuiltinName(__pyx_n_s_range); if (!__pyx_builtin_range) __PYX_ERR(0, 162, __pyx_L1_error)
+  __pyx_builtin_staticmethod = __Pyx_GetBuiltinName(__pyx_n_s_staticmethod); if (!__pyx_builtin_staticmethod) __PYX_ERR(0, 214, __pyx_L1_error)
+  __pyx_builtin_range = __Pyx_GetBuiltinName(__pyx_n_s_range); if (!__pyx_builtin_range) __PYX_ERR(0, 143, __pyx_L1_error)
+  __pyx_builtin_enumerate = __Pyx_GetBuiltinName(__pyx_n_s_enumerate); if (!__pyx_builtin_enumerate) __PYX_ERR(0, 231, __pyx_L1_error)
   return 0;
   __pyx_L1_error:;
   return -1;
@@ -4332,26 +7151,64 @@ static int __Pyx_InitCachedConstants(void) {
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__Pyx_InitCachedConstants", 0);
 
-  /* "gensim/corpora/cython_binary.pyx":60
+  /* "gensim/corpora/cython_binary.pyx":65
  *         """
  *         logger.info("initializing cython corpus reader from %s", input)
  *         input = input.encode('utf-8')             # <<<<<<<<<<<<<<
  *         self.input, self.transposed = input, transposed
  *         self.num_docs, self.num_terms, self.num_nnz = self.read_headers()
  */
-  __pyx_tuple_ = PyTuple_Pack(1, __pyx_kp_s_utf_8); if (unlikely(!__pyx_tuple_)) __PYX_ERR(0, 60, __pyx_L1_error)
+  __pyx_tuple_ = PyTuple_Pack(1, __pyx_kp_s_utf_8); if (unlikely(!__pyx_tuple_)) __PYX_ERR(0, 65, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple_);
   __Pyx_GIVEREF(__pyx_tuple_);
 
+  /* "gensim/corpora/cython_binary.pyx":197
+ *         """
+ *         logger.info("initializing cython corpus reader from %s", input)
+ *         input = input.encode('utf-8')             # <<<<<<<<<<<<<<
+ *         self.input, self.transposed = input, transposed
+ *         self.num_docs, self.num_terms, self.num_nnz = self.read_headers()
+ */
+  __pyx_tuple__2 = PyTuple_Pack(1, __pyx_kp_s_utf_8); if (unlikely(!__pyx_tuple__2)) __PYX_ERR(0, 197, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_tuple__2);
+  __Pyx_GIVEREF(__pyx_tuple__2);
+
+  /* "gensim/corpora/cython_binary.pyx":223
+ *         logger.info("storing corpus in Matrix Market format to %s", fname)
+ * 
+ *         file = fopen(fname.encode('utf-8'), "wb")             # <<<<<<<<<<<<<<
+ * 
+ *         # write out header info
+ */
+  __pyx_tuple__3 = PyTuple_Pack(1, __pyx_kp_s_utf_8); if (unlikely(!__pyx_tuple__3)) __PYX_ERR(0, 223, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_tuple__3);
+  __Pyx_GIVEREF(__pyx_tuple__3);
+
+  /* "gensim/corpora/cython_binary.pyx":215
+ * 
+ *     @staticmethod
+ *     def save_corpus(fname, corpus):             # <<<<<<<<<<<<<<
+ *         cdef FILE *file
+ *         cdef int termid, docid, doc_length
+ */
+  __pyx_tuple__4 = PyTuple_Pack(12, __pyx_n_s_fname, __pyx_n_s_corpus, __pyx_n_s_file, __pyx_n_s_termid, __pyx_n_s_docid, __pyx_n_s_doc_length, __pyx_n_s_num_docs, __pyx_n_s_num_terms, __pyx_n_s_num_nnz, __pyx_n_s_value, __pyx_n_s_tc, __pyx_n_s_doc); if (unlikely(!__pyx_tuple__4)) __PYX_ERR(0, 215, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_tuple__4);
+  __Pyx_GIVEREF(__pyx_tuple__4);
+  __pyx_codeobj__5 = (PyObject*)__Pyx_PyCode_New(2, 0, 12, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__4, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_cython_binary_pyx, __pyx_n_s_save_corpus, 215, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__5)) __PYX_ERR(0, 215, __pyx_L1_error)
+
   /* "(tree fragment)":1
- * def __pyx_unpickle_MmReader(__pyx_type, long __pyx_checksum, __pyx_state):             # <<<<<<<<<<<<<<
+ * def __pyx_unpickle_MmReaderStructAtATime(__pyx_type, long __pyx_checksum, __pyx_state):             # <<<<<<<<<<<<<<
  *     if __pyx_checksum != 0xea5fe92:
  *         from pickle import PickleError as __pyx_PickleError
  */
-  __pyx_tuple__2 = PyTuple_Pack(5, __pyx_n_s_pyx_type, __pyx_n_s_pyx_checksum, __pyx_n_s_pyx_state, __pyx_n_s_pyx_PickleError, __pyx_n_s_pyx_result); if (unlikely(!__pyx_tuple__2)) __PYX_ERR(1, 1, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_tuple__2);
-  __Pyx_GIVEREF(__pyx_tuple__2);
-  __pyx_codeobj__3 = (PyObject*)__Pyx_PyCode_New(3, 0, 5, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__2, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_stringsource, __pyx_n_s_pyx_unpickle_MmReader, 1, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__3)) __PYX_ERR(1, 1, __pyx_L1_error)
+  __pyx_tuple__6 = PyTuple_Pack(5, __pyx_n_s_pyx_type, __pyx_n_s_pyx_checksum, __pyx_n_s_pyx_state, __pyx_n_s_pyx_PickleError, __pyx_n_s_pyx_result); if (unlikely(!__pyx_tuple__6)) __PYX_ERR(1, 1, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_tuple__6);
+  __Pyx_GIVEREF(__pyx_tuple__6);
+  __pyx_codeobj__7 = (PyObject*)__Pyx_PyCode_New(3, 0, 5, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__6, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_stringsource, __pyx_n_s_pyx_unpickle_MmReaderStructAtA, 1, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__7)) __PYX_ERR(1, 1, __pyx_L1_error)
+  __pyx_tuple__8 = PyTuple_Pack(5, __pyx_n_s_pyx_type, __pyx_n_s_pyx_checksum, __pyx_n_s_pyx_state, __pyx_n_s_pyx_PickleError, __pyx_n_s_pyx_result); if (unlikely(!__pyx_tuple__8)) __PYX_ERR(1, 1, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_tuple__8);
+  __Pyx_GIVEREF(__pyx_tuple__8);
+  __pyx_codeobj__9 = (PyObject*)__Pyx_PyCode_New(3, 0, 5, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__8, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_stringsource, __pyx_n_s_pyx_unpickle_MmReaderStructArr, 1, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__9)) __PYX_ERR(1, 1, __pyx_L1_error)
   __Pyx_RefNannyFinishContext();
   return 0;
   __pyx_L1_error:;
@@ -4508,47 +7365,88 @@ static int __pyx_pymod_exec_cython_binary(PyObject *__pyx_pyinit_module)
   /*--- Variable export code ---*/
   /*--- Function export code ---*/
   /*--- Type init code ---*/
-  __pyx_vtabptr_6gensim_7corpora_13cython_binary_MmReader = &__pyx_vtable_6gensim_7corpora_13cython_binary_MmReader;
-  __pyx_vtable_6gensim_7corpora_13cython_binary_MmReader.skip_headers = (PyObject *(*)(struct __pyx_obj_6gensim_7corpora_13cython_binary_MmReader *, FILE *))__pyx_f_6gensim_7corpora_13cython_binary_8MmReader_skip_headers;
-  if (PyType_Ready(&__pyx_type_6gensim_7corpora_13cython_binary_MmReader) < 0) __PYX_ERR(0, 20, __pyx_L1_error)
-  __pyx_type_6gensim_7corpora_13cython_binary_MmReader.tp_print = 0;
+  __pyx_vtabptr_6gensim_7corpora_13cython_binary_MmReaderStructAtATime = &__pyx_vtable_6gensim_7corpora_13cython_binary_MmReaderStructAtATime;
+  __pyx_vtable_6gensim_7corpora_13cython_binary_MmReaderStructAtATime.skip_headers = (PyObject *(*)(struct __pyx_obj_6gensim_7corpora_13cython_binary_MmReaderStructAtATime *, FILE *))__pyx_f_6gensim_7corpora_13cython_binary_21MmReaderStructAtATime_skip_headers;
+  if (PyType_Ready(&__pyx_type_6gensim_7corpora_13cython_binary_MmReaderStructAtATime) < 0) __PYX_ERR(0, 25, __pyx_L1_error)
+  __pyx_type_6gensim_7corpora_13cython_binary_MmReaderStructAtATime.tp_print = 0;
   #if CYTHON_COMPILING_IN_CPYTHON
   {
-    PyObject *wrapper = PyObject_GetAttrString((PyObject *)&__pyx_type_6gensim_7corpora_13cython_binary_MmReader, "__init__"); if (unlikely(!wrapper)) __PYX_ERR(0, 20, __pyx_L1_error)
+    PyObject *wrapper = PyObject_GetAttrString((PyObject *)&__pyx_type_6gensim_7corpora_13cython_binary_MmReaderStructAtATime, "__init__"); if (unlikely(!wrapper)) __PYX_ERR(0, 25, __pyx_L1_error)
     if (Py_TYPE(wrapper) == &PyWrapperDescr_Type) {
-      __pyx_wrapperbase_6gensim_7corpora_13cython_binary_8MmReader___init__ = *((PyWrapperDescrObject *)wrapper)->d_base;
-      __pyx_wrapperbase_6gensim_7corpora_13cython_binary_8MmReader___init__.doc = __pyx_doc_6gensim_7corpora_13cython_binary_8MmReader___init__;
-      ((PyWrapperDescrObject *)wrapper)->d_base = &__pyx_wrapperbase_6gensim_7corpora_13cython_binary_8MmReader___init__;
+      __pyx_wrapperbase_6gensim_7corpora_13cython_binary_21MmReaderStructAtATime___init__ = *((PyWrapperDescrObject *)wrapper)->d_base;
+      __pyx_wrapperbase_6gensim_7corpora_13cython_binary_21MmReaderStructAtATime___init__.doc = __pyx_doc_6gensim_7corpora_13cython_binary_21MmReaderStructAtATime___init__;
+      ((PyWrapperDescrObject *)wrapper)->d_base = &__pyx_wrapperbase_6gensim_7corpora_13cython_binary_21MmReaderStructAtATime___init__;
     }
   }
   #endif
   #if CYTHON_COMPILING_IN_CPYTHON
   {
-    PyObject *wrapper = PyObject_GetAttrString((PyObject *)&__pyx_type_6gensim_7corpora_13cython_binary_MmReader, "__len__"); if (unlikely(!wrapper)) __PYX_ERR(0, 20, __pyx_L1_error)
+    PyObject *wrapper = PyObject_GetAttrString((PyObject *)&__pyx_type_6gensim_7corpora_13cython_binary_MmReaderStructAtATime, "__len__"); if (unlikely(!wrapper)) __PYX_ERR(0, 25, __pyx_L1_error)
     if (Py_TYPE(wrapper) == &PyWrapperDescr_Type) {
-      __pyx_wrapperbase_6gensim_7corpora_13cython_binary_8MmReader_2__len__ = *((PyWrapperDescrObject *)wrapper)->d_base;
-      __pyx_wrapperbase_6gensim_7corpora_13cython_binary_8MmReader_2__len__.doc = __pyx_doc_6gensim_7corpora_13cython_binary_8MmReader_2__len__;
-      ((PyWrapperDescrObject *)wrapper)->d_base = &__pyx_wrapperbase_6gensim_7corpora_13cython_binary_8MmReader_2__len__;
+      __pyx_wrapperbase_6gensim_7corpora_13cython_binary_21MmReaderStructAtATime_2__len__ = *((PyWrapperDescrObject *)wrapper)->d_base;
+      __pyx_wrapperbase_6gensim_7corpora_13cython_binary_21MmReaderStructAtATime_2__len__.doc = __pyx_doc_6gensim_7corpora_13cython_binary_21MmReaderStructAtATime_2__len__;
+      ((PyWrapperDescrObject *)wrapper)->d_base = &__pyx_wrapperbase_6gensim_7corpora_13cython_binary_21MmReaderStructAtATime_2__len__;
     }
   }
   #endif
   #if CYTHON_COMPILING_IN_CPYTHON
   {
-    PyObject *wrapper = PyObject_GetAttrString((PyObject *)&__pyx_type_6gensim_7corpora_13cython_binary_MmReader, "__iter__"); if (unlikely(!wrapper)) __PYX_ERR(0, 20, __pyx_L1_error)
+    PyObject *wrapper = PyObject_GetAttrString((PyObject *)&__pyx_type_6gensim_7corpora_13cython_binary_MmReaderStructAtATime, "__iter__"); if (unlikely(!wrapper)) __PYX_ERR(0, 25, __pyx_L1_error)
     if (Py_TYPE(wrapper) == &PyWrapperDescr_Type) {
-      __pyx_wrapperbase_6gensim_7corpora_13cython_binary_8MmReader_10__iter__ = *((PyWrapperDescrObject *)wrapper)->d_base;
-      __pyx_wrapperbase_6gensim_7corpora_13cython_binary_8MmReader_10__iter__.doc = __pyx_doc_6gensim_7corpora_13cython_binary_8MmReader_10__iter__;
-      ((PyWrapperDescrObject *)wrapper)->d_base = &__pyx_wrapperbase_6gensim_7corpora_13cython_binary_8MmReader_10__iter__;
+      __pyx_wrapperbase_6gensim_7corpora_13cython_binary_21MmReaderStructAtATime_8__iter__ = *((PyWrapperDescrObject *)wrapper)->d_base;
+      __pyx_wrapperbase_6gensim_7corpora_13cython_binary_21MmReaderStructAtATime_8__iter__.doc = __pyx_doc_6gensim_7corpora_13cython_binary_21MmReaderStructAtATime_8__iter__;
+      ((PyWrapperDescrObject *)wrapper)->d_base = &__pyx_wrapperbase_6gensim_7corpora_13cython_binary_21MmReaderStructAtATime_8__iter__;
     }
   }
   #endif
-  if (__Pyx_SetVtable(__pyx_type_6gensim_7corpora_13cython_binary_MmReader.tp_dict, __pyx_vtabptr_6gensim_7corpora_13cython_binary_MmReader) < 0) __PYX_ERR(0, 20, __pyx_L1_error)
-  if (PyObject_SetAttrString(__pyx_m, "MmReader", (PyObject *)&__pyx_type_6gensim_7corpora_13cython_binary_MmReader) < 0) __PYX_ERR(0, 20, __pyx_L1_error)
-  if (__Pyx_setup_reduce((PyObject*)&__pyx_type_6gensim_7corpora_13cython_binary_MmReader) < 0) __PYX_ERR(0, 20, __pyx_L1_error)
-  __pyx_ptype_6gensim_7corpora_13cython_binary_MmReader = &__pyx_type_6gensim_7corpora_13cython_binary_MmReader;
-  if (PyType_Ready(&__pyx_type_6gensim_7corpora_13cython_binary___pyx_scope_struct____iter__) < 0) __PYX_ERR(0, 136, __pyx_L1_error)
+  if (__Pyx_SetVtable(__pyx_type_6gensim_7corpora_13cython_binary_MmReaderStructAtATime.tp_dict, __pyx_vtabptr_6gensim_7corpora_13cython_binary_MmReaderStructAtATime) < 0) __PYX_ERR(0, 25, __pyx_L1_error)
+  if (PyObject_SetAttrString(__pyx_m, "MmReaderStructAtATime", (PyObject *)&__pyx_type_6gensim_7corpora_13cython_binary_MmReaderStructAtATime) < 0) __PYX_ERR(0, 25, __pyx_L1_error)
+  if (__Pyx_setup_reduce((PyObject*)&__pyx_type_6gensim_7corpora_13cython_binary_MmReaderStructAtATime) < 0) __PYX_ERR(0, 25, __pyx_L1_error)
+  __pyx_ptype_6gensim_7corpora_13cython_binary_MmReaderStructAtATime = &__pyx_type_6gensim_7corpora_13cython_binary_MmReaderStructAtATime;
+  __pyx_vtabptr_6gensim_7corpora_13cython_binary_MmReaderStructArray = &__pyx_vtable_6gensim_7corpora_13cython_binary_MmReaderStructArray;
+  __pyx_vtable_6gensim_7corpora_13cython_binary_MmReaderStructArray.skip_headers = (PyObject *(*)(struct __pyx_obj_6gensim_7corpora_13cython_binary_MmReaderStructArray *, FILE *))__pyx_f_6gensim_7corpora_13cython_binary_19MmReaderStructArray_skip_headers;
+  if (PyType_Ready(&__pyx_type_6gensim_7corpora_13cython_binary_MmReaderStructArray) < 0) __PYX_ERR(0, 155, __pyx_L1_error)
+  __pyx_type_6gensim_7corpora_13cython_binary_MmReaderStructArray.tp_print = 0;
+  #if CYTHON_COMPILING_IN_CPYTHON
+  {
+    PyObject *wrapper = PyObject_GetAttrString((PyObject *)&__pyx_type_6gensim_7corpora_13cython_binary_MmReaderStructArray, "__init__"); if (unlikely(!wrapper)) __PYX_ERR(0, 155, __pyx_L1_error)
+    if (Py_TYPE(wrapper) == &PyWrapperDescr_Type) {
+      __pyx_wrapperbase_6gensim_7corpora_13cython_binary_19MmReaderStructArray___init__ = *((PyWrapperDescrObject *)wrapper)->d_base;
+      __pyx_wrapperbase_6gensim_7corpora_13cython_binary_19MmReaderStructArray___init__.doc = __pyx_doc_6gensim_7corpora_13cython_binary_19MmReaderStructArray___init__;
+      ((PyWrapperDescrObject *)wrapper)->d_base = &__pyx_wrapperbase_6gensim_7corpora_13cython_binary_19MmReaderStructArray___init__;
+    }
+  }
+  #endif
+  #if CYTHON_COMPILING_IN_CPYTHON
+  {
+    PyObject *wrapper = PyObject_GetAttrString((PyObject *)&__pyx_type_6gensim_7corpora_13cython_binary_MmReaderStructArray, "__len__"); if (unlikely(!wrapper)) __PYX_ERR(0, 155, __pyx_L1_error)
+    if (Py_TYPE(wrapper) == &PyWrapperDescr_Type) {
+      __pyx_wrapperbase_6gensim_7corpora_13cython_binary_19MmReaderStructArray_2__len__ = *((PyWrapperDescrObject *)wrapper)->d_base;
+      __pyx_wrapperbase_6gensim_7corpora_13cython_binary_19MmReaderStructArray_2__len__.doc = __pyx_doc_6gensim_7corpora_13cython_binary_19MmReaderStructArray_2__len__;
+      ((PyWrapperDescrObject *)wrapper)->d_base = &__pyx_wrapperbase_6gensim_7corpora_13cython_binary_19MmReaderStructArray_2__len__;
+    }
+  }
+  #endif
+  #if CYTHON_COMPILING_IN_CPYTHON
+  {
+    PyObject *wrapper = PyObject_GetAttrString((PyObject *)&__pyx_type_6gensim_7corpora_13cython_binary_MmReaderStructArray, "__iter__"); if (unlikely(!wrapper)) __PYX_ERR(0, 155, __pyx_L1_error)
+    if (Py_TYPE(wrapper) == &PyWrapperDescr_Type) {
+      __pyx_wrapperbase_6gensim_7corpora_13cython_binary_19MmReaderStructArray_10__iter__ = *((PyWrapperDescrObject *)wrapper)->d_base;
+      __pyx_wrapperbase_6gensim_7corpora_13cython_binary_19MmReaderStructArray_10__iter__.doc = __pyx_doc_6gensim_7corpora_13cython_binary_19MmReaderStructArray_10__iter__;
+      ((PyWrapperDescrObject *)wrapper)->d_base = &__pyx_wrapperbase_6gensim_7corpora_13cython_binary_19MmReaderStructArray_10__iter__;
+    }
+  }
+  #endif
+  if (__Pyx_SetVtable(__pyx_type_6gensim_7corpora_13cython_binary_MmReaderStructArray.tp_dict, __pyx_vtabptr_6gensim_7corpora_13cython_binary_MmReaderStructArray) < 0) __PYX_ERR(0, 155, __pyx_L1_error)
+  if (PyObject_SetAttrString(__pyx_m, "MmReaderStructArray", (PyObject *)&__pyx_type_6gensim_7corpora_13cython_binary_MmReaderStructArray) < 0) __PYX_ERR(0, 155, __pyx_L1_error)
+  if (__Pyx_setup_reduce((PyObject*)&__pyx_type_6gensim_7corpora_13cython_binary_MmReaderStructArray) < 0) __PYX_ERR(0, 155, __pyx_L1_error)
+  __pyx_ptype_6gensim_7corpora_13cython_binary_MmReaderStructArray = &__pyx_type_6gensim_7corpora_13cython_binary_MmReaderStructArray;
+  if (PyType_Ready(&__pyx_type_6gensim_7corpora_13cython_binary___pyx_scope_struct____iter__) < 0) __PYX_ERR(0, 116, __pyx_L1_error)
   __pyx_type_6gensim_7corpora_13cython_binary___pyx_scope_struct____iter__.tp_print = 0;
   __pyx_ptype_6gensim_7corpora_13cython_binary___pyx_scope_struct____iter__ = &__pyx_type_6gensim_7corpora_13cython_binary___pyx_scope_struct____iter__;
+  if (PyType_Ready(&__pyx_type_6gensim_7corpora_13cython_binary___pyx_scope_struct_1___iter__) < 0) __PYX_ERR(0, 276, __pyx_L1_error)
+  __pyx_type_6gensim_7corpora_13cython_binary___pyx_scope_struct_1___iter__.tp_print = 0;
+  __pyx_ptype_6gensim_7corpora_13cython_binary___pyx_scope_struct_1___iter__ = &__pyx_type_6gensim_7corpora_13cython_binary___pyx_scope_struct_1___iter__;
   /*--- Type import code ---*/
   /*--- Variable import code ---*/
   /*--- Function import code ---*/
@@ -4695,14 +7593,60 @@ static int __pyx_pymod_exec_cython_binary(PyObject *__pyx_pyinit_module)
   if (PyDict_SetItem(__pyx_d, __pyx_n_s_logger, __pyx_t_2) < 0) __PYX_ERR(0, 17, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
+  /* "gensim/corpora/cython_binary.pyx":215
+ * 
+ *     @staticmethod
+ *     def save_corpus(fname, corpus):             # <<<<<<<<<<<<<<
+ *         cdef FILE *file
+ *         cdef int termid, docid, doc_length
+ */
+  __pyx_t_2 = PyCFunction_NewEx(&__pyx_mdef_6gensim_7corpora_13cython_binary_19MmReaderStructArray_7save_corpus, NULL, __pyx_n_s_gensim_corpora_cython_binary); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 215, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_2);
+  if (PyDict_SetItem((PyObject *)__pyx_ptype_6gensim_7corpora_13cython_binary_MmReaderStructArray->tp_dict, __pyx_n_s_save_corpus, __pyx_t_2) < 0) __PYX_ERR(0, 215, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+  PyType_Modified(__pyx_ptype_6gensim_7corpora_13cython_binary_MmReaderStructArray);
+
+  /* "gensim/corpora/cython_binary.pyx":214
+ *                 (self.num_docs, self.num_terms, self.num_nnz))
+ * 
+ *     @staticmethod             # <<<<<<<<<<<<<<
+ *     def save_corpus(fname, corpus):
+ *         cdef FILE *file
+ */
+  __pyx_t_2 = __Pyx_GetNameInClass((PyObject *)__pyx_ptype_6gensim_7corpora_13cython_binary_MmReaderStructArray, __pyx_n_s_save_corpus); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 215, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_2);
+  __pyx_t_3 = PyTuple_New(1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 214, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_3);
+  __Pyx_GIVEREF(__pyx_t_2);
+  PyTuple_SET_ITEM(__pyx_t_3, 0, __pyx_t_2);
+  __pyx_t_2 = 0;
+  __pyx_t_2 = __Pyx_PyObject_Call(__pyx_builtin_staticmethod, __pyx_t_3, NULL); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 214, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_2);
+  __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
+  if (PyDict_SetItem((PyObject *)__pyx_ptype_6gensim_7corpora_13cython_binary_MmReaderStructArray->tp_dict, __pyx_n_s_save_corpus, __pyx_t_2) < 0) __PYX_ERR(0, 215, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+  PyType_Modified(__pyx_ptype_6gensim_7corpora_13cython_binary_MmReaderStructArray);
+
   /* "(tree fragment)":1
- * def __pyx_unpickle_MmReader(__pyx_type, long __pyx_checksum, __pyx_state):             # <<<<<<<<<<<<<<
+ * def __pyx_unpickle_MmReaderStructAtATime(__pyx_type, long __pyx_checksum, __pyx_state):             # <<<<<<<<<<<<<<
  *     if __pyx_checksum != 0xea5fe92:
  *         from pickle import PickleError as __pyx_PickleError
  */
-  __pyx_t_2 = PyCFunction_NewEx(&__pyx_mdef_6gensim_7corpora_13cython_binary_1__pyx_unpickle_MmReader, NULL, __pyx_n_s_gensim_corpora_cython_binary); if (unlikely(!__pyx_t_2)) __PYX_ERR(1, 1, __pyx_L1_error)
+  __pyx_t_2 = PyCFunction_NewEx(&__pyx_mdef_6gensim_7corpora_13cython_binary_1__pyx_unpickle_MmReaderStructAtATime, NULL, __pyx_n_s_gensim_corpora_cython_binary); if (unlikely(!__pyx_t_2)) __PYX_ERR(1, 1, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  if (PyDict_SetItem(__pyx_d, __pyx_n_s_pyx_unpickle_MmReader, __pyx_t_2) < 0) __PYX_ERR(1, 1, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_d, __pyx_n_s_pyx_unpickle_MmReaderStructAtA, __pyx_t_2) < 0) __PYX_ERR(1, 1, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+
+  /* "(tree fragment)":9
+ *         __pyx_unpickle_MmReaderStructAtATime__set_state(<MmReaderStructAtATime> __pyx_result, __pyx_state)
+ *     return __pyx_result
+ * cdef __pyx_unpickle_MmReaderStructAtATime__set_state(MmReaderStructAtATime __pyx_result, tuple __pyx_state):             # <<<<<<<<<<<<<<
+ *     __pyx_result.input = __pyx_state[0]; __pyx_result.num_docs = __pyx_state[1]; __pyx_result.num_nnz = __pyx_state[2]; __pyx_result.num_terms = __pyx_state[3]; __pyx_result.transposed = __pyx_state[4]
+ *     if len(__pyx_state) > 5 and hasattr(__pyx_result, '__dict__'):
+ */
+  __pyx_t_2 = PyCFunction_NewEx(&__pyx_mdef_6gensim_7corpora_13cython_binary_3__pyx_unpickle_MmReaderStructArray, NULL, __pyx_n_s_gensim_corpora_cython_binary); if (unlikely(!__pyx_t_2)) __PYX_ERR(1, 1, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_2);
+  if (PyDict_SetItem(__pyx_d, __pyx_n_s_pyx_unpickle_MmReaderStructArr, __pyx_t_2) < 0) __PYX_ERR(1, 1, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
   /* "gensim/corpora/cython_binary.pyx":1
@@ -5751,6 +8695,24 @@ GOOD:
     Py_XDECREF(setstate);
     Py_XDECREF(setstate_cython);
     return ret;
+}
+
+/* GetNameInClass */
+    static PyObject *__Pyx_GetGlobalNameAfterAttributeLookup(PyObject *name) {
+    __Pyx_PyThreadState_declare
+    __Pyx_PyThreadState_assign
+    if (unlikely(!__Pyx_PyErr_ExceptionMatches(PyExc_AttributeError)))
+        return NULL;
+    __Pyx_PyErr_Clear();
+    return __Pyx_GetModuleGlobalName(name);
+}
+static PyObject *__Pyx_GetNameInClass(PyObject *nmspace, PyObject *name) {
+    PyObject *result;
+    result = __Pyx_PyObject_GetAttrStr(nmspace, name);
+    if (!result) {
+        result = __Pyx_GetGlobalNameAfterAttributeLookup(name);
+    }
+    return result;
 }
 
 /* CLineInTraceback */

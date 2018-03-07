@@ -22,7 +22,7 @@ cdef struct TermCount:
     float value
 
 
-cdef class MmReader1(object):
+cdef class MmReaderStructAtATime(object):
     """Matrix market file reader (fast Cython version), used for :class:`~gensim.corpora.mmcorpus.MmCorpus`.
 
     Wrap a term-document matrix on disk (in matrix-market format), and present it
@@ -78,32 +78,6 @@ cdef class MmReader1(object):
     def __str__(self):
         return ("MmCorpus(%i documents, %i features, %i non-zero entries)" %
                 (self.num_docs, self.num_terms, self.num_nnz))
-
-    def write_corpus(self, corpus):
-        cdef FILE *file
-        cdef int termid, docid, doc_length
-        cdef int num_docs, num_terms, num_nnz
-        cdef float value
-        cdef TermCount tc
-
-        file = fopen(self.input, "wb")
-
-        # write out header info
-        num_docs, num_terms, num_nnz = corpus.num_docs, corpus.num_terms, corpus.num_nnz
-        fwrite( & num_docs, sizeof(num_docs), 1, file)
-        fwrite( & num_terms, sizeof(num_terms), 1, file)
-        fwrite( & num_nnz, sizeof(num_nnz), 1, file)
-
-        for (docid, doc) in enumerate(corpus):
-            doc_length = len(doc)
-            fwrite( & docid, sizeof(docid), 1, file)
-            fwrite( & doc_length, sizeof(doc_length), 1, file)
-
-            for (termid, value) in doc:
-                tc.termid, tc.value = termid, value
-                fwrite( &tc, sizeof(tc), 1, file)
-
-        fclose(file)
 
     cdef skip_headers(self, FILE *file):
         """Skip file headers that appear before the first document.
@@ -178,9 +152,10 @@ cdef class MmReader1(object):
         fclose(file)
 
 
-
-cdef class MmReader2(object):
+cdef class MmReaderStructArray(object):
     """Matrix market file reader (fast Cython version), used for :class:`~gensim.corpora.mmcorpus.MmCorpus`.
+
+    Reads data one document at a time (array of structs)
 
     Wrap a term-document matrix on disk (in matrix-market format), and present it
     as an object which supports iteration over the rows (~documents).
@@ -236,14 +211,16 @@ cdef class MmReader2(object):
         return ("MmCorpus(%i documents, %i features, %i non-zero entries)" %
                 (self.num_docs, self.num_terms, self.num_nnz))
 
-    def write_corpus(self, corpus):
+    @staticmethod
+    def save_corpus(fname, corpus):
         cdef FILE *file
         cdef int termid, docid, doc_length
         cdef int num_docs, num_terms, num_nnz
         cdef float value
         cdef TermCount tc
+        logger.info("storing corpus in Matrix Market format to %s", fname)
 
-        file = fopen(self.input, "wb")
+        file = fopen(fname.encode('utf-8'), "wb")
 
         # write out header info
         num_docs, num_terms, num_nnz = corpus.num_docs, corpus.num_terms, corpus.num_nnz
