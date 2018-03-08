@@ -5,7 +5,11 @@
 # Licensed under the GNU LGPL v2.1 - http://www.gnu.org/licenses/lgpl.html
 
 
-"""Corpus in the Matrix Market format."""
+"""Corpus in the Matrix Market format.
+
+This code uses python's struct library to read/write binary data
+
+"""
 
 import logging
 import struct
@@ -16,11 +20,13 @@ from gensim import utils
 logger = logging.getLogger(__name__)
 
 
-class MmReader1(object):
+class MmReaderStructAtATime(object):
     """Matrix market file reader, used for :class:`~gensim.corpora.mmcorpus.MmCorpus`.
 
     Wrap a term-document matrix on disk (in matrix-market format), and present it
     as an object which supports iteration over the rows (~documents).
+
+    Read one struct at a time for each document
 
     Attributes
     ----------
@@ -132,11 +138,13 @@ class MmReader1(object):
                 yield document
 
 
-class MmReader2(object):
+class MmReaderStructArray(object):
     """Matrix market file reader, used for :class:`~gensim.corpora.mmcorpus.MmCorpus`.
 
     Wrap a term-document matrix on disk (in matrix-market format), and present it
     as an object which supports iteration over the rows (~documents).
+
+    Reads all document structs at once
 
     Attributes
     ----------

@@ -1,6 +1,16 @@
 # Copyright (C) 2018 Radim Rehurek <radimrehurek@seznam.cz>
 # cython: embedsignature=True
-"""Reader for corpus in the Matrix Market format."""
+"""Reader for corpus in the Matrix Market format.
+
+These classes use cython to read/write binary data file
+
+negatives:
+  - code is not portable (no check for big vs. little endian)
+  - code uses c's fopen/fclose for file access, so won't work with
+    non-local files
+  - code doesn't use a buffered file stream
+
+"""
 from __future__ import with_statement
 
 import logging
