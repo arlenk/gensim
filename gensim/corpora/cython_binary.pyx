@@ -3,23 +3,20 @@
 """Reader for corpus in the Matrix Market format."""
 from __future__ import with_statement
 
-from gensim import utils
-
-from six import string_types
-from six.moves import xrange
 import logging
 import numpy as np
 
 cimport cython
 cimport numpy as np
 
-from libc.stdio cimport FILE, fopen, fclose, sscanf, fwrite, fread, fwrite, fprintf, fseek, SEEK_SET
+from libc.stdio cimport FILE, fopen, fclose, fwrite, fread, fseek, SEEK_SET
 from cpython.mem cimport PyMem_Malloc, PyMem_Realloc, PyMem_Free
 
 
 logger = logging.getLogger(__name__)
 
 
+# hold single termid, value pair
 cdef struct TermCount:
     int termid
     float value
@@ -30,6 +27,9 @@ cdef class MmReaderStructAtATime(object):
 
     Wrap a term-document matrix on disk (in matrix-market format), and present it
     as an object which supports iteration over the rows (~documents).
+
+    This version reads a single struct at a time from the binary file.  Benefit is not having
+    to worry about memory management
 
     Attributes
     ----------
@@ -330,7 +330,10 @@ cdef class MmReaderStructArray(object):
 cdef class MmReaderStructArrayNumpy(object):
     """Matrix market file reader (fast Cython version), used for :class:`~gensim.corpora.mmcorpus.MmCorpus`.
 
-    Reads data one document at a time (array of structs)
+    Reads data one document at a time (array of structs) into a numpy array.  Hope is that
+    using numpy arrays lets us allocate memory for each document's array at once (since
+    we know the size of the doc) instead of using a python list where we start with an
+    empty list and append each doc one at at time
 
     Wrap a term-document matrix on disk (in matrix-market format), and present it
     as an object which supports iteration over the rows (~documents).
@@ -502,7 +505,8 @@ cdef class MmReaderStructArrayNumpy(object):
 cdef class MmReaderStructArrayReadOnly(object):
     """Matrix market file reader (fast Cython version), used for :class:`~gensim.corpora.mmcorpus.MmCorpus`.
 
-    Reads data one document at a time (array of structs)
+    This version simply reads the binary data but does not return it.  Meant to benchmark how
+    much time the IO itself is taking vs. creating python return objects
 
     Wrap a term-document matrix on disk (in matrix-market format), and present it
     as an object which supports iteration over the rows (~documents).
