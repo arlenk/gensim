@@ -7,7 +7,8 @@ import urllib
 import logging, gensim, bz2
 import gensim.downloader as api
 import gensim.corpora as gc
-import gensim.corpora.cython_binary as cb
+import gensim.corpora.cython_struct as cs
+import gensim.corpora.python_array as pa
 import argparse
 
 logging.basicConfig(format='%(asctime)s : %(levelname)s : %(message)s', level=logging.INFO)
@@ -74,11 +75,16 @@ def save_corpus(name, outdir):
     print("saving corpus to {}".format(outfile))
     gc.MmCorpus.serialize(outfile, corpus)
 
-    # binary mm corpus
-    print("converting to binary mmcorpus")
+    # struct mm corpus
+    print("converting to binary struct mmcorpus")
     corpus = gc.MmCorpus(outfile)
-    outfile = os.path.join(outdir, "{}.binary.mm".format(name))
-    cb.MmReaderStructArray.save_corpus(outfile, corpus)
+    outfile = os.path.join(outdir, "{}.struct.mm".format(name))
+    cs.MmReaderStructArray.save_corpus(outfile, corpus)
+
+    # array mm corpus
+    print("converting to binary array mmcorpus")
+    outfile = os.path.join(outdir, "{}.array.mm".format(name))
+    pa.MmReaderArray.save_corpus(outfile, corpus)
 
 
 if __name__ == "__main__":
