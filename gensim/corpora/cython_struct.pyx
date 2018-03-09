@@ -17,7 +17,6 @@ import logging
 import numpy as np
 
 cimport cython
-cimport numpy as np
 
 from libc.stdio cimport FILE, fopen, fclose, fwrite, fread, fseek, SEEK_SET
 from cpython.mem cimport PyMem_Malloc, PyMem_Realloc, PyMem_Free
@@ -30,6 +29,63 @@ logger = logging.getLogger(__name__)
 cdef struct TermCount:
     int termid
     float value
+
+
+cdef class DocumentIterator(object):
+    """
+    Custom document iterator to avoid duplicating data
+
+    """
+
+    cdef int docid
+    cdef TermCount *tc_array
+    cdef int doc_length
+    cdef int current_index
+    cdef bint transposed
+
+    def __cinit__(self, int docid, int doc_length, bint transposed):
+        """
+        Create iterator by reading doc_length records from file
+
+        """
+        self.docid = docid
+        self.tc_array = NULL
+        self.doc_length = doc_length
+        self.current_index = 0
+        self.transposed = transposed
+
+    def __iter__(self):
+        return self
+
+    def __next__(self):
+        cdef TermCount tc
+        cdef int termid, temp
+        cdef float value
+
+        if self.current_index < self.doc_length:
+            tc = self.tc_array[self.current_index]
+            self.current_index += 1
+            termid = tc.termid
+            value = tc.value
+
+            if not self.transposed:
+                temp = self.docid
+                docid = termid
+                termid = temp
+
+            return (termid, value)
+        else:
+            raise StopIteration
+
+    def __dealloc__(self):
+        if self.tc_array is not NULL:
+            PyMem_Free(self.tc_array)
+
+cdef object create_DocumentIterator(FILE *file, int docid, int doc_length, bint transposed):
+    doc = DocumentIterator(docid, doc_length, transposed)
+    doc.tc_array = <TermCount *> PyMem_Malloc(doc_length * sizeof(TermCount))
+    fread(doc.tc_array, sizeof(TermCount), doc_length, file)
+    return doc
 
 
 cdef class MmReaderStructAtATime(object):
@@ -337,7 +393,7 @@ cdef class MmReaderStructArray(object):
         fclose(file)
 
 
-cdef class MmReaderStructArrayNumpy(object):
+cdef class MmReaderStructArrayDocumentIterator(object):
     """Matrix market file reader (fast Cython version), used for :class:`~gensim.corpora.mmcorpus.MmCorpus`.
 
     Reads data one document at a time (array of structs) into a numpy array.  Hope is that
@@ -449,36 +505,14 @@ cdef class MmReaderStructArrayNumpy(object):
 
         """
         cdef FILE *file
-        cdef int docid, termid, doc_length
-        cdef float value
-        cdef TermCount *tc_array
-        cdef int temp
-        cdef np.ndarray doc
+        cdef int docid, doc_length
 
         file = fopen(self.input, "rb")
         self.skip_headers(file)
 
         while (fread(&docid, sizeof(docid), 1, file) == 1):
             fread( & doc_length, sizeof(doc_length), 1, file)
-            tc_array = <TermCount *> PyMem_Malloc(doc_length * sizeof(TermCount))
-
-            document = np.zeros(doc_length, dtype=[('termid', np.int), ('value', np.float32)])
-
-            fread( tc_array, sizeof(TermCount), doc_length, file)
-
-            for i in range(doc_length):
-                termid = tc_array[i].termid
-                value = tc_array[i].value
-
-                if not self.transposed:
-                    temp = docid
-                    docid = termid
-                    termid = temp
-
-                pair = (termid, value)
-                document[i] = pair
-
-            PyMem_Free(tc_array)
+            document = create_DocumentIterator(file, docid, doc_length, self.transposed)
             yield document
 
         fclose(file)
@@ -607,7 +641,7 @@ cdef class MmReaderStructArrayReadOnly(object):
             fread( & doc_length, sizeof(doc_length), 1, file)
             tc_array = <TermCount *> PyMem_Malloc(doc_length * sizeof(TermCount))
 
-            fread( tc_array, sizeof(TermCount), doc_length, file)
+            fread(tc_array, sizeof(TermCount), doc_length, file)
 
             for i in range(doc_length):
                 termid = tc_array[i].termid
